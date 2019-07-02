@@ -1,0 +1,675 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Using Docker in Builds - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/docker.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Using Docker in Builds</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#使用build中存储库中的docker镜像">使用Build中存储库中的Docker镜像</a></li>
+  <li><a href="#从dockerfile构建docker镜像">从Dockerfile构建Docker镜像</a></li>
+  <li><a href="#将docker镜像推送到注册表">将Docker镜像推送到注册表</a></li>
+  <li><a href="#使用docker-compose">使用Docker Compose</a></li>
+  <li><a href="#安装较新的docker版本">安装较新的Docker版本</a></li>
+  <li><a href="#例子">例子</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>Travis CI构建可以运行和构建Docker镜像，也可以将图像推送到</p>
+
+<p>Docker存储库或其他远程存储。</p>
+
+<p>要使用Docker，请将以下设置添加到您的<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>services:
+  - docker
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>然后你可以添加<code class="highlighter-rouge">- docker</code>命令到您的构建，如下所示</p>
+
+<p>例子。</p>
+
+<blockquote>
+  <p>我们目前不支持在macOS上使用Docker。</p>
+</blockquote>
+
+<blockquote>
+  <p>有关如何在Travis CI Enterprise上使用Docker的信息，请查看<a href="/user/enterprise/build-images/#enabling-docker-builds">启用Docker构建</a>。</p>
+</blockquote>
+
+<h2 id="使用build中存储库中的docker镜像">使用Build中存储库中的Docker镜像 <a href="#使用build中存储库中的docker镜像" class="toc-anchor">#</a></h2>
+
+<p>这个<a href="https://github.com/travis-ci/docker-sinatra">示例存储库</a>跑两个</p>
+
+<p>从同一图像构建的Docker容器：</p>
+
+<ul>
+  <li>Sinatra应用程序</li>
+  <li>Sinatra应用程序测试套件</li>
+</ul>
+
+<p>在指定之后<code class="highlighter-rouge">.travis.yml</code>使用Docker（用<code class="highlighter-rouge">services: - docker</code>）和Ruby（带有<code class="highlighter-rouge">language: ruby</code>）</p>
+
+<p>，<code class="highlighter-rouge">before_install</code>构建步骤从中拉出Docker镜像<a href="https://registry.hub.docker.com/u/carlad/sinatra/">carlad /西纳特拉</a>然后运行</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /root/sinatra; bundle exec foreman start;
+
+</code></pre></div></div>
+
+<p>在映射某些端口和路径后，从该映像构建的容器中。读</p>
+
+<p>该<a href="https://docs.docker.com/">Docker用户指南</a></p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>看起来像这样</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: ruby
+
+services:
+  - docker
+
+before_install:
+- docker pull carlad/sinatra
+- docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+- docker ps -a
+- docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
+script:
+- bundle exec rake test
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>并产生以下内容[建立</p>
+
+<p>产量](https://travis-ci.org/travis-ci/docker-sinatra)：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker ps -a
+CONTAINER ID        IMAGE                   COMMAND                CREATED                  STATUS                  PORTS                    NAMES
+e376792bce99        carlad/sinatra:latest   "/bin/sh -c 'cd /roo   Less than a second ago   Up Less than a second   127.0.0.1:80-&gt;4567/tcp   condescending_galileo
+$ docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+/usr/local/bin/ruby -I"lib:test" -I"/usr/local/lib/ruby/2.2.0" "/usr/local/lib/ruby/2.2.0/rake/rake_test_loader.rb" "test/test_app.rb"
+Loaded suite /usr/local/lib/ruby/2.2.0/rake/rake_test_loader
+Started
+.
+Finished in 0.022952763 seconds.
+------
+1 tests, 1 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+------
+43.57 tests/s, 43.57 assertions/s
+
+</code></pre></div></div>
+
+<h2 id="从dockerfile构建docker镜像">从Dockerfile构建Docker镜像 <a href="#从dockerfile构建docker镜像" class="toc-anchor">#</a></h2>
+
+<p>而不是从中下载Docker镜像</p>
+
+<p><a href="https://registry.hub.docker.com/u/carlad/sinatra/">carlad /西纳特拉</a>您可以</p>
+
+<p>直接从Dockerfile中构建它[GitHub上</p>
+
+<p>知识库](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile)。</p>
+
+<p>要在当前目录中构建Dockerfile，并给它相同</p>
+
+<p><code class="highlighter-rouge">carlad/sinatra</code>标签，改变<code class="highlighter-rouge">docker pull</code>到：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build -t carlad/sinatra .
+
+</code></pre></div></div>
+
+<p>满满的<code class="highlighter-rouge">.travis.yml</code>看起来像这样</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: ruby
+
+services:
+  - docker
+
+before_install:
+  - docker build -t carlad/sinatra .
+  - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker ps -a
+  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
+script:
+  - bundle exec rake test
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="将docker镜像推送到注册表">将Docker镜像推送到注册表 <a href="#将docker镜像推送到注册表" class="toc-anchor">#</a></h2>
+
+<p>要将映像推送到Docker注册表，必须先通过身份验证<code class="highlighter-rouge">docker login</code>。用于登录的电子邮件，用户名和密码应存储在</p>
+
+<p>存储库设置环境变量，可以通过设置</p>
+
+<p>存储库设置网页或通过Travis CLI本地，例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis env set DOCKER_USERNAME myusername
+travis env set DOCKER_PASSWORD secretsecret
+
+</code></pre></div></div>
+
+<p>务必<a href="/user/environment-variables#encrypting-environment-variables">加密环境变量</a></p>
+
+<p>使用travis gem。</p>
+
+<p>你的内心<code class="highlighter-rouge">.travis.yml</code>在尝试之前<code class="highlighter-rouge">docker push</code>或者也许之前</p>
+
+<p><code class="highlighter-rouge">docker pull</code>私人形象，例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+</code></pre></div></div>
+
+<h3 id="基于分支的注册表推送">基于分支的注册表推送 <a href="#基于分支的注册表推送" class="toc-anchor">#</a></h3>
+
+<p>要将存储库的特定分支推送到远程注册表，</p>
+
+<p>使用你的自定义部署部分<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>哪里<code class="highlighter-rouge">docker_push</code>是您的存储库中的脚本，包含：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">"</span><span class="nv">$DOCKER_PASSWORD</span><span class="s2">"</span> | docker login <span class="nt">-u</span> <span class="s2">"</span><span class="nv">$DOCKER_USERNAME</span><span class="s2">"</span> <span class="nt">--password-stdin</span>
+docker push USER/REPO
+
+</code></pre></div></div>
+
+<p>{：data-file =“docker_push”}</p>
+
+<h3 id="私人注册登录">私人注册登录 <a href="#私人注册登录" class="toc-anchor">#</a></h3>
+
+<p>推送到私有注册表时，请务必在中指定主机名</p>
+
+<p><code class="highlighter-rouge">docker login</code>命令，例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.example.com
+
+</code></pre></div></div>
+
+<h2 id="使用docker-compose">使用Docker Compose <a href="#使用docker-compose" class="toc-anchor">#</a></h2>
+
+<p>该<a href="https://docs.docker.com/compose/">Docker撰写</a>工具也是<a href="/user/reference/trusty/#docker">安装在Docker启用的环境中</a>。</p>
+
+<p>如果需要，您可以轻松替换此预安装版本<code class="highlighter-rouge">docker-compose</code></p>
+
+<p>通过添加以下内容<code class="highlighter-rouge">before_install</code>走向你的<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  - DOCKER_COMPOSE_VERSION=1.4.2
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` &gt; docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="安装较新的docker版本">安装较新的Docker版本 <a href="#安装较新的docker版本" class="toc-anchor">#</a></h2>
+
+<p>您可以手动升级到最新版本并使用任何新的Docker功能</p>
+
+<p>更新它<code class="highlighter-rouge">before_install</code>你的一步<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<p><strong>从download.docker.com更新</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>或者，您可以使用<code class="highlighter-rouge">addons</code>代替<code class="highlighter-rouge">before_install</code>通过更新<code class="highlighter-rouge">apt</code>以及：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    packages:
+      - docker-ce
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>检查您正在运行的Docker版本<code class="highlighter-rouge">docker --version</code></p>
+</blockquote>
+
+<h2 id="例子">例子 <a href="#例子" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li><a href="https://github.com/heroku/logplex/blob/master/.travis.yml">Heroku的/ logplex</a>（Heroku日志路由器）</li>
+  <li><a href="https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml">kartorza /搬运工人-PG-备份</a>（一个cron作业，它将备份在dockerSQL容器中运行的数据库）</li>
+</ul>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

@@ -1,0 +1,862 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The macOS Build Environment - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/reference/osx.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">The macOS Build Environment</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#概观">概观</a></li>
+  <li><a href="#使用macos">使用macOS</a></li>
+  <li><a href="#macos版本">macOS版本</a></li>
+  <li><a href="#家酿">家酿</a></li>
+  <li><a href="#文件系统">文件系统</a></li>
+  <li><a href="#jdk和macos">JDK和macOS</a></li>
+  <li><a href="#编译器和构建工具链">编译器和构建工具链</a></li>
+  <li><a href="#语言">语言</a></li>
+  <li><a href="#服务">服务</a></li>
+  <li><a href="#环境变量">环境变量</a></li>
+  <li><a href="#maven版本">Maven版本</a></li>
+  <li><a href="#ruby版本实现">Ruby版本/实现</a></li>
+  <li><a href="#bundler版本">Bundler版本</a></li>
+  <li><a href="#宝石在全球宝石集中">宝石在全球宝石集中</a></li>
+  <li><a href="#xcode版本">Xcode版本</a></li>
+</ul>
+
+            </div>
+          
+
+          <h3 id="本指南涵盖的内容">本指南涵盖的内容 <a href="#本指南涵盖的内容" class="toc-anchor">#</a></h3>
+
+<p>本指南介绍了可用的软件包，工具和设置</p>
+
+<p>Travis macOS CI环境（通常称为“CI环境”）。</p>
+
+<h2 id="概观">概观 <a href="#概观" class="toc-anchor">#</a></h2>
+
+<p>Travis CI在每次构建之前快照的虚拟机中运行构建</p>
+
+<p>并在它的末尾回滚。这提供了许多好处：</p>
+
+<ul>
+  <li>主机操作系统不受测试套件的影响</li>
+  <li>运行之间没有状态持续存在</li>
+  <li>无密码sudo可用</li>
+  <li>测试套件可以通过安装各种服务<code class="highlighter-rouge">brew</code></li>
+</ul>
+
+<p>然后自定义这些服务的配置</p>
+
+<p>每个构建的开始。</p>
+
+<p>测试套件可用的环境称为特拉维斯CI</p>
+
+<p>。</p>
+
+<h2 id="使用macos">使用macOS <a href="#使用macos" class="toc-anchor">#</a></h2>
+
+<p>要使用我们的macOS构建基础结构，请将以下内容添加到您的<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os: osx
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="macos版本">macOS版本 <a href="#macos版本" class="toc-anchor">#</a></h2>
+
+<p>Travis CI默认使用macOS 10.13和Xcode 9.4.1。您可以通过指定相应的版本来使用另一版本的macOS（和Xcode）<code class="highlighter-rouge">osx_image</code>下表中的键：</p>
+
+<table><tr align="left"><th>osx_image value</th><th>Xcode version</th><th>Xcode build version</th><th>macOS version</th><th>JDK</th></tr>
+
+<tr>
+  <td><code>osx_image: xcode10.2</code></td>
+  <td><a href="#xcode-102">Xcode 10.2.1</a></td>
+  <td>10E1001</td>
+  <td>macOS 10.14</td>
+  <td>12+33</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode10.1</code></td>
+  <td><a href="#xcode-101">Xcode 10.1</a></td>
+  <td>10B61</td>
+  <td>macOS 10.13</td>
+  <td>11.0.1+13</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode10</code></td>
+  <td><a href="#xcode-100">Xcode 10.0</a></td>
+  <td>10A255</td>
+  <td>macOS 10.13</td>
+  <td>10.0.2+13</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.4</code>  <em>Default</em> </td>
+  <td><a href="#xcode-94">Xcode 9.4.1</a></td>
+  <td>9F2000</td>
+  <td>macOS 10.13</td>
+  <td>10.0.1+10</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.3</code></td>
+  <td><a href="#xcode-93">Xcode 9.3</a></td>
+  <td>9E145</td>
+  <td>macOS 10.13</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.2</code></td>
+  <td><a href="#xcode-92">Xcode 9.2</a></td>
+  <td>9C40b</td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.1</code></td>
+  <td><a href="#xcode-91">Xcode 9.1</a></td>
+  <td>9B55</td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9</code></td>
+  <td><a href="#xcode-90">Xcode 9.0</a></td>
+  <td>9A235</td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode8.3</code></td>
+  <td><a href="#xcode-83">Xcode 8.3.3</a></td>
+  <td>8E3004b</td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode8</code></td>
+  <td><a href="#xcode-8">Xcode 8.0</a></td>
+  <td>8A218a</td>
+  <td>macOS 10.11</td>
+  <td>1.8.0_92-b14</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode7.3</code></td>
+  <td><a href="#xcode-73">Xcode 7.3.1</a></td>
+  <td>7D1014</td>
+  <td>macOS 10.11</td>
+  <td>1.8.0_92-b14</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode6.4</code></td>
+  <td><a href="#xcode-64">Xcode 6.4</a></td>
+  <td>6E35b</td>
+  <td>macOS 10.10</td>
+  <td>1.8.0_45-b14</td>
+  </tr>
+
+</table>
+<h2 id="家酿">家酿 <a href="#家酿" class="toc-anchor">#</a></h2>
+
+<p>每次更新虚拟机时都会安装和更新Homebrew。</p>
+
+<blockquote>
+  <p>该<a href="/user/installing-dependencies/#installing-packages-on-macos">Travis Homebrew插件</a>是安装依赖项的最简单，最快速和最可靠的方法。</p>
+</blockquote>
+
+<p>Homebrew插件正确处理最新，过时和缺失的包。手动Homebrew依赖脚本容易出错，我们建议不要使用它们。</p>
+
+<p>Homebrew插件默认使用构建映像上的Homebrew数据库，但可以配置为运行<code class="highlighter-rouge">brew update</code>如果需要的话。</p>
+
+<h2 id="文件系统">文件系统 <a href="#文件系统" class="toc-anchor">#</a></h2>
+
+<p>运行macOS的VM使用默认文件系统HFS +。</p>
+
+<p>此文件系统不区分大小写，并返回a中的实体</p>
+
+<p>目录按字母顺序。</p>
+
+<h2 id="jdk和macos">JDK和macOS <a href="#jdk和macos" class="toc-anchor">#</a></h2>
+
+<p>请注意下表中每个映像的预安装JDK版本（OracleJDK）。</p>
+
+<p>虽然Mac作业可以使用。来测试多个JDK版本<a href="/user/languages/java/#testing-against-multiple-jdks"><code class="highlighter-rouge">jdk</code>键</a>，</p>
+
+<p>macOS图像最多<code class="highlighter-rouge">xcode9.3</code>只能切换到Java 8和图像<code class="highlighter-rouge">xcode9.4</code>以后可以切换到Java 10（如果预先安装）和更高版本。</p>
+
+<p>实际上，如果您的Mac版本需要Java 8及更低版本，请使用<code class="highlighter-rouge">xcode9.3</code>（或以下）;如果您的构建需要Java 10</p>
+
+<p>然后，使用<code class="highlighter-rouge">xcode9.4</code>（或以后）。</p>
+
+<table><tr align="left"><th>osx_image value</th><th>Xcode version</th><th>macOS version</th><th>JDK</th></tr>
+
+<tr>
+  <td><code>osx_image: xcode10.2</code></td>
+  <td><a href="#xcode-102">Xcode 10.2.1</a></td>
+  <td>macOS 10.14</td>
+  <td>12+33</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode10.1</code></td>
+  <td><a href="#xcode-101">Xcode 10.1</a></td>
+  <td>macOS 10.13</td>
+  <td>11.0.1+13</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode10</code></td>
+  <td><a href="#xcode-100">Xcode 10.0</a></td>
+  <td>macOS 10.13</td>
+  <td>10.0.2+13</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.4</code>  <em>Default</em> </td>
+  <td><a href="#xcode-94">Xcode 9.4.1</a></td>
+  <td>macOS 10.13</td>
+  <td>10.0.1+10</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.3</code></td>
+  <td><a href="#xcode-93">Xcode 9.3</a></td>
+  <td>macOS 10.13</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.2</code></td>
+  <td><a href="#xcode-92">Xcode 9.2</a></td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9.1</code></td>
+  <td><a href="#xcode-91">Xcode 9.1</a></td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode9</code></td>
+  <td><a href="#xcode-90">Xcode 9.0</a></td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode8.3</code></td>
+  <td><a href="#xcode-83">Xcode 8.3.3</a></td>
+  <td>macOS 10.12</td>
+  <td>1.8.0_112-b16</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode8</code></td>
+  <td><a href="#xcode-8">Xcode 8.0</a></td>
+  <td>macOS 10.11</td>
+  <td>1.8.0_92-b14</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode7.3</code></td>
+  <td><a href="#xcode-73">Xcode 7.3.1</a></td>
+  <td>macOS 10.11</td>
+  <td>1.8.0_92-b14</td>
+  </tr>
+
+<tr>
+  <td><code>osx_image: xcode6.4</code></td>
+  <td><a href="#xcode-64">Xcode 6.4</a></td>
+  <td>macOS 10.10</td>
+  <td>1.8.0_45-b14</td>
+  </tr>
+
+</table>
+<h2 id="编译器和构建工具链">编译器和构建工具链 <a href="#编译器和构建工具链" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li>automake 1.16.1</li>
+  <li>maven 3.5.3</li>
+  <li>mercurial 4.6.1</li>
+  <li>pkg-config 0.29.2</li>
+  <li></li>
+  <li></li>
+  <li>cmake 3.11.3</li>
+</ul>
+
+<h2 id="语言">语言 <a href="#语言" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li>去1.10.3</li>
+</ul>
+
+<h2 id="服务">服务 <a href="#服务" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li>postgis 2.4.4.4_1</li>
+  <li>postgresql 10.4</li>
+</ul>
+
+<p>##</p>
+
+<p>每个工作者至少有一个版本的Ruby，Java和Python可供使用</p>
+
+<p>在构建期间可能需要其中一个运行时的项目。</p>
+
+<h2 id="环境变量">环境变量 <a href="#环境变量" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li><code class="highlighter-rouge">CI=true</code></li>
+  <li><code class="highlighter-rouge">TRAVIS=true</code></li>
+  <li><code class="highlighter-rouge">USER=travis</code></li>
+  <li><code class="highlighter-rouge">HOME=/Users/travis</code></li>
+</ul>
+
+<p>此外，Travis CI设置您可以在构建中使用的环境变量，</p>
+
+<p>例如标记构建，或运行构建后部署。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_BRANCH</code>：对于不是由pull请求触发的构建，这是</li>
+</ul>
+
+<p>当前正在建立的分支的名称;而对于构建触发</p>
+
+<p>请求（在许多情况下，这将是<code class="highlighter-rouge">master</code>）。</p>
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">TRAVIS_BUILD_DIR</code>：存储库所在目录的绝对路径</p>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_BUILD_ID</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_BUILD_NUMBER</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_COMMIT</code>：当前版本正在测试的提交。</li>
+  <li>
+    <p><code class="highlighter-rouge">TRAVIS_COMMIT_RANGE</code></p>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_JOB_ID</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_JOB_NUMBER</code>：当前作业的编号（例如，“4.1”）。</li>
+  <li><code class="highlighter-rouge">TRAVIS_PULL_REQUEST</code>：如果当前作业是拉动，则拉取请求编号</li>
+</ul>
+
+<p>如果不是拉取请求，请求“假”。</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_SECURE_ENV_VARS</code>：是否存在安全环境变量</li>
+</ul>
+
+<p>用过的。该值为“true”或“false”。</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_REPO_SLUG</code><code class="highlighter-rouge">owner_name/repo_name</code>）的</li>
+</ul>
+
+<p>目前正在建立的资源库（例如，“travis-ci / travis-build”）。</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_OS_NAME</code>：在多操作系统版本中，此值指示作业正在运行的平台。</li>
+</ul>
+
+<p>价值观是<code class="highlighter-rouge">linux</code>和<code class="highlighter-rouge">osx</code></p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_TAG</code>：如果当前构建用于git标记，则此变量将设置为标记的名称。</li>
+</ul>
+
+<h2 id="maven版本">Maven版本 <a href="#maven版本" class="toc-anchor">#</a></h2>
+
+<p>股票Apache Maven 3.5.3</p>
+
+<h2 id="ruby版本实现">Ruby版本/实现 <a href="#ruby版本实现" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li>系统（取决于macOS版本） - 您需要使用<code class="highlighter-rouge">sudo</code>用这个红宝石安装宝石</li>
+  <li>红宝石1.9.3-P551</li>
+  <li>红宝石2.0.0-P643</li>
+  <li></li>
+  <li>红宝石2.1.5</li>
+  <li>红宝石2.1.10</li>
+  <li>红宝石2.2.1</li>
+  <li>红宝石2.2.4</li>
+  <li>红宝石2.2.5</li>
+  <li>红宝石2.3.0</li>
+  <li>红宝石2.3.1</li>
+  <li>红宝石2.4.3</li>
+  <li></li>
+  <li>JRuby的23年7月1日</li>
+  <li>JRuby的1.7.25</li>
+  <li>JRuby的9.0.5.0</li>
+  <li>JRuby的9.1.0.0</li>
+</ul>
+
+<p><a href="http://rvm.io/">RVM</a>每个用户安装的。</p>
+
+<h2 id="bundler版本">Bundler版本 <a href="#bundler版本" class="toc-anchor">#</a></h2>
+
+<p>最近的1.16.2版本（通常是最新版本）</p>
+
+<h2 id="宝石在全球宝石集中">宝石在全球宝石集中 <a href="#宝石在全球宝石集中" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li></li>
+  <li>耙</li>
+  <li>的CocoaPods</li>
+</ul>
+
+<p>##</p>
+
+<ul>
+  <li>pyenv（通过自制软件）</li>
+  <li>virtualenv（通过点子）</li>
+  <li>numpy（通过点子）</li>
+  <li>scipy（通过点子）</li>
+  <li></li>
+</ul>
+
+<h2 id="xcode版本">Xcode版本 <a href="#xcode版本" class="toc-anchor">#</a></h2>
+
+<p>Xcode 9.4.1随所有可用的模拟器和SDK一起安装。</p>
+
+<p>还安装了命令行工具。</p>
+
+<p>{％for site.data.xcodes.osx_images％}中的图片</p>
+
+<h3 id="xcode">Xcode <a href="#xcode" class="toc-anchor">#</a></h3>
+
+<p>可以通过添加来获得Xcode <code class="highlighter-rouge">osx_image: </code>到你的.travis.yml。</p>
+
+<p><strong><code class="highlighter-rouge">osx_image:</code></strong>{％ 万一 ％}</p>
+
+<p>{％if image.image_note！= nil％}</p>
+
+<p>{％ 万一 ％}</p>
+
+<p>我们的Xcode 图片预装了以下SDK：</p>
+
+<ul>
+  <li>{％endfor％}</li>
+</ul>
+
+<p>Xcode 图像还附带以下模拟器：</p>
+
+<ul>
+  <li></li>
+</ul>
+
+<p>{％endfor％}</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

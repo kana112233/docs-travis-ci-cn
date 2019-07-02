@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise High Availability Mode - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/">Setting up Travis CI Enterprise</a> </li>
+        <li><a href="/user/enterprise/upgrading/">Upgrading</a></li>
+      </ul>
+
+      <h3>Environment reference</h3>
+      <ul>
+        <li><a href="/user/enterprise/xenial">Xenial Build Environment</a></li>
+
+        <li><a href="/user/enterprise/trusty/">Trusty Build Environment</a></li>
+
+        <li><a href="/user/enterprise/precise/">Precise (Legacy) Build Environment</a></li>
+      </ul>
+
+      <h3>Customizing Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/worker-configuration/">Worker Configuration</a></li>
+        <li><a href="/user/enterprise/build-images/">Customizing Build Images</a></li>
+        <li><a href="/user/enterprise/high-availability/">High Availability</a></li>
+        <li><a href="/user/enterprise/custom-queues/">Custom Queues</a></li>
+      </ul>
+
+      <h3>Enterprise Operations Manual</h3>
+      <ul>
+        <li><a href="/user/enterprise/platform-tips/">Platform Administration Tips</a></li>
+        <li><a href="/user/enterprise/worker-cli-commands/">Worker Start & Debug Containers</a></li>
+        <li><a href="/user/enterprise/ssl-certificate-management/">SSL Certificate Management</a></li>
+        <li><a href="/user/enterprise/troubleshooting-guide/">Troubleshooting Guide</a></li>
+      </ul>
+
+      <h3>Travis CI Docs</h3>
+      <ul>
+        <li><a href="/">Travis CI Docs</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page"><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/enterprise/high-availability.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Enterprise High Availability Mode</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#在高可用性模式下安装平台">在高可用性模式下安装平台</a></li>
+  <li><a href="#在高可用性模式下安装worker">在高可用性模式下安装Worker</a></li>
+  <li><a href="#联系企业支持">联系企业支持</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>Travis CI Enterprise通常作为与一个或多个工作人员通信的单个容器实例运行，但我们还提供高可用性配置，以便您可以使用冗余运行安装。特别是对于拥有大批量许可证的客户，高可用性模式是提供额外稳定性的有用方法。</p>
+
+<p>如果您对以高可用性模式运行Travis CI Enterprise感兴趣或可能感兴趣，请发送电子邮件至<a href="mailto:enterprise@travis-cicom?subject:HA%20Mode">enterprise@travis-ci.com</a>我们可以讨论选项并帮助您入门。</p>
+
+<p>##</p>
+
+<p>平台安装类似于标准<a href="/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine">企业安装</a>，和<a href="#installing-the-worker-in-high-availability-mode">工人安装</a>是相同的。但是，还有一些额外的<a href="/user/enterprise/high-availability/">系统先决条件</a>，这意味着要在HA模式下安装，您将需要以下内容：</p>
+
+<ul>
+  <li>3+<strong>16演出的RAM，8个CPU，40GB硬盘</strong>，即<code class="highlighter-rouge">c4.2xlarge</code></li>
+  <li><a href="https://redis.io/">Redis的</a>，<a href="https://www.rabbitmq.com/">的RabbitMQ</a></li>
+</ul>
+
+<p>和<a href="https://www.postgresql.org/"></a>实例</p>
+<ul>
+  <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/#prerequisites">GitHub OAuth应用</a>，<a href="/user/enterprise/setting-up-travis-ci-enterprise/#prerequisites">试用许可证</a> - 启用HA</li>
+  <li>互联网连接 - 请注意，此安装是不默认情况下有空气。让<a href="mailto:enterprise@travis-ci.com">我们知道</a>如果你对一个感兴趣。</li>
+</ul>
+
+<h2 id="在高可用性模式下安装平台">在高可用性模式下安装平台 <a href="#在高可用性模式下安装平台" class="toc-anchor">#</a></h2>
+
+<p>HA完全在Enterprise平台实例上配置，但安装HA平台与安装标准平台非常相似。 HA的步骤如下。</p>
+
+<ol>
+  <li>联系<a href="mailto:enterprise@travis-ci.com?subject=HA%20Installation">enterprise@travis-ci.com</a>为HA模式配置Enterprise许可证。</li>
+  <li>设置你的<a href="/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine">每个标准安装步骤的平台实例</a></li>
+  <li>登录您的管理控制台（位于<code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800</code>）
+    <ol>
+      <li>转到“设置”，然后单击“启用HA”</li>
+      <li>粘贴到您拥有的网址中<a href="https://www.postgresql.org/"></a>，<a href="https://redis.io/">Redis的</a>，和<a href="https://www.rabbitmq.com/">的RabbitMQ</a>主办。连接字符串的格式应为：</li>
+    </ol>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres://user:password@url:port
+redis://user:password@url:port
+amqps://user:password@url:port
+
+</code></pre></div></div>
+
+<ol>
+  <li>可选：上传RabbitMQ客户端证书（<code class="highlighter-rouge">.crt</code>）。这允许RabbitMQ使用TLS。</li>
+  <li>向下滚动到页面底部，“保存”并重新启动</li>
+</ol>
+
+<p>配置完第一个平台实例后，您应该能够看到UI并请求构建 - 只有安装了工作程序，您的构建才能正常运行。试试你的新平台吧<a href="mailto:enterprise@travis-ci.com?subject=HA%20Troubleshooting">请告诉我们</a>如果你有疑问</p>
+
+<h3 id="添加更多平台安装">添加更多平台安装 <a href="#添加更多平台安装" class="toc-anchor">#</a></h3>
+
+<p>我们建议至少使用两个用于HA模式的平台容器，并且可以使用与您相同的方式安装更多Enterprise容器<a href="/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine">安装</a>首先。</p>
+
+<p>安装第二个平台后，还需要配置其HA设置。转到新平台容器的管理员仪表板<code class="highlighter-rouge">https://&lt;your-second-travis-ci-enterprise-domain&gt;:8800</code>以同样的方式完成此任务<a href="#installing-the-platform-in-high-availability-mode">第一个平台安装</a></p>
+
+<h2 id="在高可用性模式下安装worker">在高可用性模式下安装Worker <a href="#在高可用性模式下安装worker" class="toc-anchor">#</a></h2>
+
+<p>工作线安装与非HA安装的工作方式相同，每个企业版的构建环境兼容性默认值也是如此。看看<a href="/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine">哪个版本的Enterprise处理不同操作系统的文档</a>和其他有关安装的信息。您需要从自己的安装中检索RabbitMQ密码，而不是从Travis CI企业管理仪表板中检索。</p>
+
+<h2 id="联系企业支持">联系企业支持 <a href="#联系企业支持" class="toc-anchor">#</a></h2>
+
+<p>To get in touch with us, please write a message to 
+<a href="mailto:enterprise@travis-ci.com">enterprise@travis-ci.com</a>. If possible, 
+please include as much of the following as you can:</p>
+
+<ul>
+  <li>Description of the problem - what are you observing?</li>
+  <li>Which steps did you try already?</li>
+  <li>A support bundle (You can get it from <code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800/support</code>)</li>
+  <li>Log files from all workers (They can be found at <code class="highlighter-rouge">/var/log/upstart/travis-worker.log</code> - please include as many as you can retrieve).</li>
+  <li>If a build failed or errored, a text file of the build log</li>
+</ul>
+
+<p>Have you made any customizations to your setup? While we may be able to see some 
+information (such as hostname, IaaS provider, and license expiration), there 
+are many other things we can’t see which could lead to something not working. 
+Therefore , we’d like to ask you to also answer the questions below in your 
+support request (if applicable):</p>
+
+<ul>
+  <li>How many machines are you using?</li>
+  <li>Do you use configuration management tools (Chef, Puppet)?</li>
+  <li>Which other services do interface with Travis CI Enterprise?</li>
+  <li>Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?</li>
+  <li>If you’re using GitHub Enterprise, which version of it?</li>
+</ul>
+
+<p>We’re looking forward to helping!</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Processing Agreement - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/legal/data-processing-agreement.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Data Processing Agreement</h1>
+          
+
+          
+
+          <h2 id="between">Between <a href="#between" class="toc-anchor">#</a></h2>
+
+<ol>
+  <li>Travis CI GmbH, Rigaer Straße 8, 10247 Berlin/Germany (“Travis-CI”); and</li>
+  <li>“Customer(s)” as defined in the Terms and Conditions by Travis-CI (version 05/2018) (the <strong>“Client”</strong>).</li>
+</ol>
+
+<h3 id="object-of-this-agreement">Object of this Agreement <a href="#object-of-this-agreement" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>Pursuant to the Terms and Conditions by Travis-CI entered into between Travis-CI and Client (version 05/2018)  (the <strong>“TC”</strong>), Travis-CI has agreed to provide the Client with certain services (the <strong>“Services”</strong>). To the extent that Travis-CI is processing Client’s personal data as defined in German or ‘ropean laws (<strong>“Personal Data”</strong>) as part of the Services, the terms contained in this Data Processing Agreement (<strong>“Agreement”</strong>) will apply. This Agreement shall be entered into according to the applicable law, mainly the German Data Protection Act (Bundesdatenschutzgesetz, BDSG) as well as the European General Data Protection Regulation EU no. 2016/679 (<strong>“GDPR”</strong>), as applicable.</li>
+  <li>If the Services are altered during the term of the TC and the altered Services involve new or amended processing of Client’s Personal Data, the parties will ensure that <a href="#annex-1">Annex 1</a> attached to this Agreement is updated as appropriate before such processing commences.</li>
+  <li>If there is any conflict or inconsistency between this Agreement and the TC, this Agreement will take precedence and apply to the extent of the conflict or inconsistency. The parties hereby agree that the TC is amended accordingly to give effect to this clause 1(3).</li>
+  <li>In respect of all processing of Client’s Personal Data carried out pursuant to the TC, Travis-CI is the processor according to Article 4 para. 8 GDPR (or BDSG) and the Client is the controller acc. Article 4 para. 7 GDPR (or BDSG).</li>
+  <li>For entering into this Agreement section 3 of the TC shall apply.</li>
+</ol>
+
+<h3 id="processing">Processing <a href="#processing" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>The Client is responsible for ensuring the data protection standards set by applicable national law (<strong>“Applicable Law”</strong> or <strong>“Data Protection Legislation”</strong>). Travis-CI will support the Client in fulfilling the necessary data protection standards.</li>
+  <li>Travis-CI shall implement a compliance mechanism to prove compliance with the GDPR and BDSG on request of the Client. Furthermore, Travis-CI shall:
+    <ul>
+      <li>unless Applicable Law requires otherwise, only process Client’s Personal Data on and in accordance with the Client’s documented instructions as set out in this Agreement or otherwise in writing including electronic form (“Processing Instructions”);</li>
+      <li>unless prohibited by Applicable Law, notify the Client if Applicable Law requires it to process Client’s Personal Data other than in accordance with Processing Instructions (such notification to be given before such processing commences). Travis-CI will bind its personnel accordingly in writing;</li>
+      <li>notify the Client if, in its opinion, the processing of Client’s Personal Data in accordance with Processing Instructions infringes Data Protection Legislation;</li>
+      <li>maintain a record of all categories of processing carried out on behalf of the Agency and make it available on request to the Client and the competent data protection authority</li>
+      <li>co-operate and assist the Client with any privacy impact assessments and consultations with (or notifications to) relevant regulatory authorities that are reasonably relevant pursuant to Data Protection Legislation in relation to the Client’s Personal Data and the Services. Travis-CI may charge such request based on its reasonable efforts for any services, which are not necessary to fulfil by Travis-CI.</li>
+    </ul>
+  </li>
+  <li>After the business purposes for which Client’s Personal Data was processed have been fulfilled (or earlier upon the Client’s written request) Travis-CI shall, at the Client’s option, either delete or return all Client’s Personal Data and delete any existing copies of the same (unless storage of such copies is required by Applicable Law).</li>
+  <li>Travis-CI shall ensure that its personnel are reliable and receive adequate training on compliance with this Agreement and Data Protection Legislation and are obligated to maintain the security and confidentiality of any Personal Data to which they have access even after their engagement ends.</li>
+</ol>
+
+<h3 id="client-warranties">Client Warranties <a href="#client-warranties" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>The Client warrants and represents that:
+    <ul>
+      <li>the processing of Client’s Personal Data by the Client will be carried out in accordance with the contractual obligations;</li>
+      <li>Travis-CI is entitled to process Client’s Personal Data pursuant to the TC for the purpose of providing the Services and such use will comply with Data Protection Legislation;</li>
+      <li>all Processing Instructions shall at all times be in accordance with Data Protection Legislation; and</li>
+      <li>it is satisfied that Travis-CI’s processing operations are suitable for the purposes for which the Client proposes to use the Services and engage Travis-CI to process Client’s Personal Data.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="security-and-delegation">Security and Delegation <a href="#security-and-delegation" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>Travis-CI shall:
+    <ul>
+      <li>implement and maintain throughout the term of the TC appropriate technical and organisational measures, which are described in <a href="#annex-4">Annex 4</a>, intended to protect Client’s Personal Data against accidental, unauthorised or unlawful access, disclosure, alteration, loss, damage or destruction; and</li>
+      <li>take reasonable steps to ensure that its personnel do not process Client’s Personal Data other than in accordance with processing instructions by Client (unless required to do so by Applicable Law) and are obligated to maintain the security and confidentiality of any Client’s Personal Data to which they have access. The personnel shall be bound in writing to fulfil these obligations.</li>
+      <li>Travis-CI undertakes to comply with the requirements of data secrecy pursuant to BDSG when processing the Client’s Personal Data, and may only assign those staff members with the processing and usage of the Client’s Personal Data who have undertaken in writing to comply with the requirements of data secrecy pursuant to section 53 BDSG.</li>
+      <li>During the selection and deployment of staff, Travis-CI shall take steps to ensure that staff members comply with the statutory provisions on data protection, and do not forward to third parties, or otherwise exploit, information originating from the Client’s sphere.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="notifications">Notifications <a href="#notifications" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>Travis-CI shall, without undue delay, notify the Client if:
+    <ul>
+      <li>it becomes aware of a personal data breach; or</li>
+      <li>it receives a request from or on behalf of a data subject of Client’s Personal Data to exercise any of the rights given to data subjects by Data Protection Legislation; or</li>
+      <li>it receives a request from the Press, a Data Protection authority or another public authority.</li>
+    </ul>
+  </li>
+  <li>Travis-CI shall (at the Client’s expense) provide such further information and assistance as the Client reasonably requires in handling and responding to such notifications in accordance with its obligations under Data Protection Legislation.</li>
+  <li>Travis-CI shall document any personal data breaches, comprising the facts relating to the personal data breach, its effects and the remedial action taken and will supply the list to Client on request.</li>
+</ol>
+
+<h3 id="inspections-and-assistance-with-regulators">Inspections and Assistance with Regulators <a href="#inspections-and-assistance-with-regulators" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>Subject to reasonable written advance notice from the Client Travis-CI shall:
+    <ul>
+      <li>permit the Client to conduct (and shall contribute to) audits and inspections of its systems and processes in relation to the processing of Client’s Personal Data subject to the Client ensuring:
+        <ul>
+          <li>that such audit or inspection is announced to Travis-CI at least 2 weeks in advance in writing as far as legally possible and undertaken during normal business hours (Mondays to Fridays at business days (Berlin), 9 a.m. to 6 p.m.) and with respect and minimal disruption to Travis-CI’s business and the business of other clients of Travis-CI; and</li>
+          <li>that all information obtained or generated by the Client or its auditor(s) in connection with such audits and inspections is kept strictly confidential (save for disclosure to a regulatory authority or as otherwise required by Applicable Law);</li>
+        </ul>
+      </li>
+      <li>give the Client such information as is reasonably necessary to verify that Travis-CI is in compliance with its obligations under Data Protection Legislation; and</li>
+      <li>co-operate and assist the Client with data protection impact assessments and consultations with any regulatory authority that are relevant pursuant to Data Protection Legislation in relation to the Client’s Personal Data and the Client may not use without the support of Travis-CI.</li>
+    </ul>
+  </li>
+  <li>The cost of such audit, inspection, provision of information or data protection impact assessment shall be borne by the Client.</li>
+  <li>Such audits may be (partly) fulfilled by relating to certification mechanisms, Codes of Conduct, special seals regarding GDPR or BDSG or certificates such as ISO27001, self-assessments or audits conducted by the Data Protection Officer.</li>
+  <li>The Client may require Travis-CI to conduct an audit or inspection of the Sub-Processor’s systems and processes in relation to the processing of Client’s Personal Data. The cost of such an audit or inspection shall be borne by the Client.</li>
+</ol>
+
+<h3 id="duration-of-the-agreement-termination-rights">Duration of the Agreement, termination rights <a href="#duration-of-the-agreement-termination-rights" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>This Agreement is entered into for the term of the TC.</li>
+</ol>
+
+<h3 id="sub-processors">Sub-Processors <a href="#sub-processors" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>Travis-CI shall use any sub-processor as Travis-CI’s processor according to Article 4 para. 8 GDPR (or BDSG) to process Client’s Personal Data (each a <strong>“Sub-Processor”</strong>) only after informing the Client in writing (including electronic form, section 126b BGB) about name, address, and personal data processed by the Sub-Processor. If the Client does not object to the Sub-Processor within 2 weeks after being informed, the respective Sub-Processor is approved by Client. Travis-CI has to enter a contract with Sub-Processor which contains substantially similar obligations with respect to the processing of Client’s Personal Data as to which Travis-CI is bound by this Agreement. The Sub-Processors named in <a href="#annex-3">Annex 3</a> attached to this Agreement shall be deemed accepted by Client.</li>
+  <li>Travis-CI shall be obligated to contractually safeguard the Client’s control rights, in relation to the Sub-Processor. Upon the Client’s request, Travis-CI shall be obligated to inform the Client of the contents of the contract with relevance for the exercising of the control rights, and of the implementation by the Sub-Processor of his obligations with data protection relevance.</li>
+  <li>With respect to the Sub-Processor’s activities, Travis-CI shall ensure that the data protection provisions regarding data processing services as well as Travis-CI’s obligations under this Agreement shall also be complied with in the subcontracting relationship. Travis-CI shall verify compliance with the obligations by the Sub-Processor by corresponding controls, and shall enforce them in the event of violations. Data may only be forwarded to the Sub-Processor once compliance with the data safety requirements has been documented by the Sub-Processor.</li>
+</ol>
+
+<h3 id="liability">Liability <a href="#liability" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>Travis-CI and Client shall be jointly liable for any damages arising from any processing of data not complying with the provisions of GDPR and/or BDSG vis-à-vis any affected individual.</li>
+  <li>In respect to Client, Travis-CI shall only be liable for any damages in connection with any processing of personal data under this Agreement if such damages are resulting from (i) a breach of a duty assigned to Travis-CI as data processor according to the applicable provisions of GDPR or BDSG, (ii) Travis-CI acting against a respective (legal) order by Client, and/or (iii) Travis-CI omitting such (legal) order by Client, whereas the limitations and provisions of the TC shall apply.</li>
+  <li>For any other liability based on other legal provisions than the GDPR or BDSG the provisions set forth in the TC shall apply.</li>
+</ol>
+
+<h3 id="general">General <a href="#general" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li><a href="#annex-1">Annex 1</a> to this Agreement describes the processing of Client’s Personal Data permitted in connection with the TC; <a href="#annex-2">Annex 2</a> lists the Sub-Processors (if any) who the Client agrees that these may process Client’s Personal Data;<a href="#annex-3">Annex 3</a> sets out the agreed Sub-Processors; <a href="#annex-4">Annex 4</a> sets out the technical and organizational measures taken by Travis-CI. All Annexes are integrated parts of this Agreement.</li>
+  <li>The invalidity of a provision of this Agreement shall not affect the validity of the remaining provisions. If a provision proves to be invalid, the Parties shall replace it with a new provision which approximates the intentions of the Parties as closely as possible.</li>
+  <li>Any changes or amendments to this Agreement must be made in the same form as this agreement is agreed on. This also applies to the waiver of this form clause itself.</li>
+  <li>The sole place of jurisdiction for any and all disputes arising from and in connection with this agreement shall be Berlin, unless there is a sole statutory place of jurisdiction.</li>
+  <li>The Agreement shall be subject to German law under exclusion of any conflict of aw rules or the United Nations Convention on Contracts for the International Sale of Goods.</li>
+  <li>In the event of any discrepancies of provisions of the TC and this Agreement, the provisions of this Agreement shall prevail.</li>
+</ol>
+
+<h3 id="annex-1">Annex 1 <a href="#annex-1" class="toc-anchor">#</a></h3>
+
+<h4 id="personal-data-and-the-purpose-of-their-processing-by-travis-ci-on-behalf-of-the-client">Personal data and the purpose of their processing by Travis-CI on behalf of the Client: <a href="#personal-data-and-the-purpose-of-their-processing-by-travis-ci-on-behalf-of-the-client" class="toc-anchor">#</a></h4>
+
+<p>The list shall state the extent, the nature and purpose of any contemplated collection, processing and use of data, the type of data, and the circle of data subjects.</p>
+
+<h4 id="type-of-personal-data">Type of Personal Data <a href="#type-of-personal-data" class="toc-anchor">#</a></h4>
+
+<ul>
+  <li>Contact Data and Details</li>
+  <li>Other Personal Data added by Client when using Services</li>
+</ul>
+
+<h4 id="data-subjects">Data Subjects <a href="#data-subjects" class="toc-anchor">#</a></h4>
+
+<ul>
+  <li>Client’s Staff</li>
+  <li>Client’s Applicants, Trainees, Interns, Students, Retirees</li>
+  <li>Client’s Customers</li>
+  <li>Other data subjects affected when Client uses Services.</li>
+</ul>
+
+<h4 id="purpose-of-processing-and-use-of-data">Purpose of Processing and Use of Data <a href="#purpose-of-processing-and-use-of-data" class="toc-anchor">#</a></h4>
+
+<ul>
+  <li>Use of Services</li>
+  <li>Analysis in pseudonmized or anonymized form by Travis-CI for internal purposes and statistics</li>
+  <li>Other purposes for use of Services by Client</li>
+  <li>Travis-CI is instructed as follows:
+    <ul>
+      <li>The Client hereby instructs Travis-CI to process the above-mentioned personal data for the above-mentioned purposes. Changes may apply through further instructions.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="annex-2">Annex 2 <a href="#annex-2" class="toc-anchor">#</a></h3>
+
+<h4 id="persons-eligible-to-issue-instructions">Persons eligible to issue instructions: <a href="#persons-eligible-to-issue-instructions" class="toc-anchor">#</a></h4>
+
+<ol>
+  <li>Persons eligible to issue instructions on behalf of the Client:
+    <ul>
+      <li>Contact at Client:
+        <ul>
+          <li>Person and contact details named within the Client’s account. An additional contact shall be named by Client via email to contact details below.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Person eligible to receive instructions on behalf of Travis-CI
+    <ul>
+      <li>Contact at Travis-CI: data@travis-ci.com</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="annex-3">Annex 3 <a href="#annex-3" class="toc-anchor">#</a></h3>
+
+<h4 id="processing-of-personal-data">Processing of personal data: <a href="#processing-of-personal-data" class="toc-anchor">#</a></h4>
+
+<p><a href="https://docs.travis-ci.com/legal/privacy-policy/#IX.-Access%2C-Scope-of-Application%2C-Contact" data-proofer-ignore="">List of agreed Sub-Processors</a></p>
+
+<h3 id="annex-4">Annex 4 <a href="#annex-4" class="toc-anchor">#</a></h3>
+
+<h4 id="data-safety-requirements">Data Safety Requirements <a href="#data-safety-requirements" class="toc-anchor">#</a></h4>
+
+<ol>
+  <li>Object and scope of Annex 4
+    <ul>
+      <li>The GDPR and BDSG requires individual requirements to data safety, which must be implemented by suitable technical and organizational measures. Only an overall view and evaluation of all measures taken will allow the conclusion that the reasonable level of data safety as required by the law can be guaranteed. If personal data are processed by a service provider, Travis-CI is obligated under section 32 GDPR and 64 BDSG to define the technical and organizational measures relating to data safety.</li>
+    </ul>
+  </li>
+  <li>Organizational provision on processing
+    <ul>
+      <li>Travis-CI maintains a system to examine, assess, and evaluate regularly the effectivity of the security of processing data. Travis-CI will, on request, provide details on such security measures. Travis-CI will also, on request, prove such system of evaluation to the Client.</li>
+    </ul>
+  </li>
+</ol>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

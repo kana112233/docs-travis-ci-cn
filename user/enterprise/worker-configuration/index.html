@@ -1,0 +1,500 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customizing Enterprise Worker Configuration - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/">Setting up Travis CI Enterprise</a> </li>
+        <li><a href="/user/enterprise/upgrading/">Upgrading</a></li>
+      </ul>
+
+      <h3>Environment reference</h3>
+      <ul>
+        <li><a href="/user/enterprise/xenial">Xenial Build Environment</a></li>
+
+        <li><a href="/user/enterprise/trusty/">Trusty Build Environment</a></li>
+
+        <li><a href="/user/enterprise/precise/">Precise (Legacy) Build Environment</a></li>
+      </ul>
+
+      <h3>Customizing Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/worker-configuration/">Worker Configuration</a></li>
+        <li><a href="/user/enterprise/build-images/">Customizing Build Images</a></li>
+        <li><a href="/user/enterprise/high-availability/">High Availability</a></li>
+        <li><a href="/user/enterprise/custom-queues/">Custom Queues</a></li>
+      </ul>
+
+      <h3>Enterprise Operations Manual</h3>
+      <ul>
+        <li><a href="/user/enterprise/platform-tips/">Platform Administration Tips</a></li>
+        <li><a href="/user/enterprise/worker-cli-commands/">Worker Start & Debug Containers</a></li>
+        <li><a href="/user/enterprise/ssl-certificate-management/">SSL Certificate Management</a></li>
+        <li><a href="/user/enterprise/troubleshooting-guide/">Troubleshooting Guide</a></li>
+      </ul>
+
+      <h3>Travis CI Docs</h3>
+      <ul>
+        <li><a href="/">Travis CI Docs</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page"><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/enterprise/worker-configuration.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Customizing Enterprise Worker Configuration</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#连接到平台的凭据">连接到平台的凭据</a></li>
+  <li><a href="#设置超时">设置超时</a></li>
+  <li><a href="#配置并发作业数">配置并发作业数</a></li>
+  <li><a href="#更改工作人员主机名">更改工作人员主机名</a></li>
+  <li><a href="#禁用ssl验证消息">禁用SSL验证消息</a></li>
+  <li><a href="#启用s3依赖性缓存">启用S​​3依赖性缓存</a></li>
+  <li><a href="#配置作业允许的内存使用情况">配置作业允许的内存使用情况</a></li>
+  <li><a href="#设置最大日志长度">设置最大日志长度</a></li>
+  <li><a href="#在enterprise上的工作程序作业之间安装卷">在Enterprise上的工作程序作业之间安装卷</a></li>
+  <li><a href="#https代理后面的工作者">HTTP（S）代理后面的工作者</a></li>
+</ul>
+
+            </div>
+          
+
+          <h2 id="连接到平台的凭据">连接到平台的凭据 <a href="#连接到平台的凭据" class="toc-anchor">#</a></h2>
+
+<h3 id="用ubuntu-1604作为主机操作系统">用Ubuntu 16.04作为主机操作系统 <a href="#用ubuntu-1604作为主机操作系统" class="toc-anchor">#</a></h3>
+
+<p>可以在以下位置找到用于连接Travis CI Enterprise平台的配置<code class="highlighter-rouge">/etc/default/travis-worker</code>。</p>
+
+<p>如果您需要更改Worker应连接的主机名，或者</p>
+
+<p>RabbitMQ密码，您可以通过更新：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export AMQP_URI="amqp://travis:&lt;rabbitmq password&gt;@&lt;your-travis-ci-enterprise-domain&gt;/travis"
+
+</code></pre></div></div>
+
+<h3 id="用ubuntu-1404作为主机操作系统">用Ubuntu 14.04作为主机操作系统 <a href="#用ubuntu-1404作为主机操作系统" class="toc-anchor">#</a></h3>
+
+<p>用于连接Travis CI企业平台的配置，</p>
+
+<p>包括RabbitMQ密码，可以在</p>
+
+<p><code class="highlighter-rouge">/etc/default/travis-enterprise</code>。</p>
+
+<p>如果您需要更改Worker应连接的主机名，或者</p>
+
+<p>RabbitMQ密码，您可以通过更新：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_ENTERPRISE_HOST="&lt;your-travis-ci-enterprise-domain&gt;"
+export TRAVIS_ENTERPRISE_SECURITY_TOKEN="super-secret-password"
+
+</code></pre></div></div>
+
+<h2 id="设置超时">设置超时 <a href="#设置超时" class="toc-anchor">#</a></h2>
+
+<p>可以自定义以下选项<code class="highlighter-rouge">/etc/default/travis-worker</code>。</p>
+
+<p>建议所有Worker使用相同的配置。</p>
+
+<p>默认情况下，作业最多可以运行50分钟。你可以增加或</p>
+
+<p>使用以下设置减少此值：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_HARD_TIMEOUT="50m"
+
+</code></pre></div></div>
+
+<p>如果在10分钟内未收到任何日志输出，则作业将被取消</p>
+
+<p>假设工作停滞不前。您可以使用以下命令自定义此超时</p>
+
+<p>以下设定：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_LOG_TIMEOUT="10m"
+
+</code></pre></div></div>
+
+<h2 id="配置并发作业数">配置并发作业数 <a href="#配置并发作业数" class="toc-anchor">#</a></h2>
+
+<p>工作程序运行的并发作业数和CPU数</p>
+
+<p>允许使用的作业配置</p>
+
+<p><code class="highlighter-rouge">TRAVIS_WORKER_POOL_SIZE</code>和<code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_CPUS</code>环境</p>
+
+<p>变量，分别。每个作业至少需要2个CPU，并且需要</p>
+
+<p>默认情况下，每个Worker运行2个Jobs。的产物</p>
+
+<p><code class="highlighter-rouge">TRAVIS_WORKER_POOL_SIZE * TRAVIS_WORKER_POOL_SIZE</code>不能超过</p>
+
+<p>工作机具有的CPU数量，否则作业将出错</p>
+
+<p>重新排队。</p>
+
+<p>要更改允许工作人员使用的并发作业数，</p>
+
+<p>请更新以下设置：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_POOL_SIZE="2"
+
+</code></pre></div></div>
+
+<p>要更改允许作业使用的CPU数量，请更改</p>
+
+<p>以下设定：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_DOCKER_CPUS=2
+
+</code></pre></div></div>
+
+<p>要完全禁用此设置，请将值设置为0.然后</p>
+
+<p>资源将根据需要使用，这意味着单个工作可以</p>
+
+<p>示例使用所有CPU核心。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_DOCKER_CPUS=0
+
+</code></pre></div></div>
+
+<h2 id="更改工作人员主机名">更改工作人员主机名 <a href="#更改工作人员主机名" class="toc-anchor">#</a></h2>
+
+<p>每个Worker都应该有一个唯一的主机名，以便更容易确定</p>
+
+<p>工作在哪里。默认情况下，它设置为<code class="highlighter-rouge">hostname</code>主持人</p>
+
+<p>工人正在运行。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_HOSTNAME=""
+
+</code></pre></div></div>
+
+<h2 id="禁用ssl验证消息">禁用SSL验证消息 <a href="#禁用ssl验证消息" class="toc-anchor">#</a></h2>
+
+<p>平台安装时带有自签名SSL证书，此选项</p>
+
+<p>允许工作人员通过SSL与平台通信但忽略</p>
+
+<p>验证警告。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_BUILD_API_INSECURE_SKIP_VERIFY="false"
+
+</code></pre></div></div>
+
+<h2 id="启用s3依赖性缓存">启用S​​3依赖性缓存 <a href="#启用s3依赖性缓存" class="toc-anchor">#</a></h2>
+
+<p>如果您想为构建设置S3依赖性缓存，那么您</p>
+
+<p>可以使用以下示例配置：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_BUILD_CACHE_FETCH_TIMEOUT="10m"
+export TRAVIS_WORKER_BUILD_CACHE_PUSH_TIMEOUT="60m"
+export TRAVIS_WORKER_BUILD_CACHE_S3_ACCESS_KEY_ID=""
+export TRAVIS_WORKER_BUILD_CACHE_S3_SECRET_ACCESS_KEY=""
+export TRAVIS_WORKER_BUILD_CACHE_S3_BUCKET=""
+export TRAVIS_WORKER_BUILD_CACHE_S3_REGION="us-east-1"
+export TRAVIS_WORKER_BUILD_CACHE_S3_SCHEME="https"
+export TRAVIS_WORKER_BUILD_CACHE_TYPE="s3"
+
+</code></pre></div></div>
+
+<h2 id="配置作业允许的内存使用情况">配置作业允许的内存使用情况 <a href="#配置作业允许的内存使用情况" class="toc-anchor">#</a></h2>
+
+<p>Worker配置了RAM默认为4G。如果你想</p>
+
+<p>改变它你可以添加以下内容。完全禁用它有</p>
+
+<p>值设置为0。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_DOCKER_MEMORY=4G
+# OR
+export TRAVIS_WORKER_DOCKER_MEMORY=0
+
+</code></pre></div></div>
+
+<h2 id="设置最大日志长度">设置最大日志长度 <a href="#设置最大日志长度" class="toc-anchor">#</a></h2>
+
+<p>工作者配置了<code class="highlighter-rouge">defaultMaxLogLength = 4500000</code>哪一个</p>
+
+<p>是4.5MB。设置以字节为单位，因此需要40MB</p>
+
+<p>40000000。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
+
+</code></pre></div></div>
+
+<h2 id="在enterprise上的工作程序作业之间安装卷">在Enterprise上的工作程序作业之间安装卷 <a href="#在enterprise上的工作程序作业之间安装卷" class="toc-anchor">#</a></h2>
+
+<p>您可以使用<a href="https://docs.docker.com/storage/bind-mounts/">Docker绑定挂载</a></p>
+
+<p>当工人启动工作容器时。这允许您共享文件或目录</p>
+
+<p>在一个工人的所有工作中。可以提供多种结合</p>
+
+<p>如空间分开字符串。</p>
+
+<p>例如，下面的设置显示了如何共享<code class="highlighter-rouge">/tmp</code>目录处于读/写模式，</p>
+
+<p>以及<code class="highlighter-rouge">/var/log</code>只读模式下的目录（<code class="highlighter-rouge">:r</code>是默认值）：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /var/log"
+
+</code></pre></div></div>
+
+<p>官方列出了完整的选项和安装模式列表</p>
+
+<p><a href="https://docs.docker.com/storage/bind-mounts/">Docker文档</a>。</p>
+
+<h2 id="https代理后面的工作者">HTTP（S）代理后面的工作者 <a href="#https代理后面的工作者" class="toc-anchor">#</a></h2>
+
+<p>如果您在HTTP（S）代理后面使用Travis CI Enterprise，我们可以为您提供帮助。从travis-worker 4.6开始，可以在代理后面运行构建。</p>
+
+<h3 id="如何确定我是否安装了正确的travis-worker版本">如何确定我是否安装了正确的travis-worker版本？ <a href="#如何确定我是否安装了正确的travis-worker版本" class="toc-anchor">#</a></h3>
+
+<h4 id="ubuntu-1604">Ubuntu 16.04+ <a href="#ubuntu-1604" class="toc-anchor">#</a></h4>
+
+<p>通过ssh连接到您的工作机并运行：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker images | grep worker
+travisci/worker        v4.6.1                      ef7a3419050c        17 hours ago        44.7MB
+
+</code></pre></div></div>
+
+<h4 id="ubuntu-1404">Ubuntu 14.04 <a href="#ubuntu-1404" class="toc-anchor">#</a></h4>
+
+<p>通过ssh连接到您的工作机并运行：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis-worker -v
+travis-worker v=v4.6.1 rev=73392421d0ca807b83d4d459ad3dd484820fd181 d=2018-10-30T16:13:39+0000 go=go1.11.1
+
+</code></pre></div></div>
+
+<h4 id="升级travis-worker">升级travis-worker <a href="#升级travis-worker" class="toc-anchor">#</a></h4>
+
+<p>如果您需要安装较新版本的travis-worker，请按照我们的说明进行操作<a href="/user/enterprise/upgrading/#updating-your-travis-ci-enterprise-worker">更新Travis CI Worker文档</a>。</p>
+
+<p>###</p>
+
+<p><code class="highlighter-rouge">/etc/default/travis-worker</code><code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_API_VERSION</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_DOCKER_HTTP_PROXY="&lt;YOUR PROXY URL&gt;"
+export TRAVIS_WORKER_DOCKER_API_VERSION=1.35
+
+</code></pre></div></div>
+
+<p><a href="https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch"></a><code class="highlighter-rouge">1.35</code><code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_API_VERSION</code></p>
+
+<p><code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_HTTP_PROXY</code><code class="highlighter-rouge">HTTP_PROXY</code><code class="highlighter-rouge">http_proxy</code></p>
+
+<p><code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_HTTPS_PROXY</code><code class="highlighter-rouge">HTTPS_PROXY</code><code class="highlighter-rouge">https_proxy</code></p>
+
+<p><code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_NO_PROXY</code><code class="highlighter-rouge">NO_PROXY</code>，<code class="highlighter-rouge">no_proxy</code></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_FTP_PROXY</code></td>
+      <td><code class="highlighter-rouge">FTP_PROXY</code><code class="highlighter-rouge">ftp_proxy</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">apt-get</code><code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_HTTP_PROXY</code>和<code class="highlighter-rouge">TRAVIS_WORKER_DOCKER_HTTPS_PROXY</code>这意味着所有软件包安装也将通过HTTP代理进行。如果您不希望发生这种情况，请将您的apt包镜像列入TRAVIS_WORKER_DOCKER_NO_PROXY`，如下所示：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_DOCKER_NO_PROXY='.ubuntu.com,packagecloud.io,.postgresql.org'
+
+</code></pre></div></div>
+
+<p>##</p>
+
+<p>To get in touch with us, please write a message to 
+<a href="mailto:enterprise@travis-ci.com">enterprise@travis-ci.com</a>. If possible, 
+please include as much of the following as you can:</p>
+
+<ul>
+  <li>Description of the problem - what are you observing?</li>
+  <li>Which steps did you try already?</li>
+  <li>A support bundle (You can get it from <code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800/support</code>)</li>
+  <li>Log files from all workers (They can be found at <code class="highlighter-rouge">/var/log/upstart/travis-worker.log</code> - please include as many as you can retrieve).</li>
+  <li>If a build failed or errored, a text file of the build log</li>
+</ul>
+
+<p>Have you made any customizations to your setup? While we may be able to see some 
+information (such as hostname, IaaS provider, and license expiration), there 
+are many other things we can’t see which could lead to something not working. 
+Therefore , we’d like to ask you to also answer the questions below in your 
+support request (if applicable):</p>
+
+<ul>
+  <li>How many machines are you using?</li>
+  <li>Do you use configuration management tools (Chef, Puppet)?</li>
+  <li>Which other services do interface with Travis CI Enterprise?</li>
+  <li>Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?</li>
+  <li>If you’re using GitHub Enterprise, which version of it?</li>
+</ul>
+
+<p>We’re looking forward to helping!</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

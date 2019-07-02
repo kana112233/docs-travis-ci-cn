@@ -1,0 +1,802 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private Dependencies - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/private-dependencies.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Private Dependencies</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#部署密钥">部署密钥</a></li>
+  <li><a href="#用户密钥">用户密钥</a></li>
+  <li><a href="#密码">密码</a></li>
+  <li><a href="#api令牌">API令牌</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>目前描述的一些功能<strong>仅适用于私人存储库<a href="https://travis-ci.com">travis-ci.com</a></strong>。</p>
+
+<p>存储库作为依赖关系[混帐</p>
+
+<p>子模块](http://git-scm.com/book/en/Git-Tools-Submodules)，一个自定义脚本，</p>
+
+<p>或者依赖管理工具<a href="http://bundler.io/">捆绑</a>要么</p>
+
+<p><a href="https://getcomposer.org/">作曲家</a>。</p>
+
+<p>必须在构建过程的早期克隆Git子模块，因此必须使用</p>
+
+<p><a href="#deploy-key">部署密钥</a>要么<a href="#user-key">用户密钥</a>方法。</p>
+
+<p>如果依赖关系也在GitHub上，则有四种不同的提取方式</p>
+
+<p>Travis CI VM中的存储库。每个人都有优势</p>
+
+<p>缺点，仔细阅读每种方法，并选择最适合的方法</p>
+
+<p>根据你的情况。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>认证</td>
+      <td>协议</td>
+      <td>依赖URL格式</td>
+      <td>允许访问</td>
+      <td>备注</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>：——————————</td>
+      <td>：———</td>
+      <td>—– —————–</td>
+      <td>：—————————–</td>
+      <td>： ————————————</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong><a href="#deploy-key">部署密钥</a></strong></td>
+      <td>SSH</td>
+      <td><code class="highlighter-rouge">git@github.com/…</code></td>
+      <td>单一存储库</td>
+      <td>默认情况下用于主存储库</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong><a href="#user-key">用户密钥</a></strong></td>
+      <td>SSH</td>
+      <td><code class="highlighter-rouge">git@github.com/…</code><strong>推荐的</strong>对于依赖</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong><a href="#password">密码</a></strong></td>
+      <td>HTTPS</td>
+      <td><code class="highlighter-rouge">https://…</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong><a href="#api-token">API令牌</a></strong></td>
+      <td>HTTPS</td>
+      <td><code class="highlighter-rouge">https://…</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="#dedicated-user-account">专用CI用户帐户</a>除了</p>
+
+<h2 id="部署密钥">部署密钥 <a href="#部署密钥" class="toc-anchor">#</a></h2>
+
+<p>GitHub允许您为存储库设置SSH密钥。这些部署密钥具有一些很大的优势：</p>
+
+<ul>
+  <li>它们不绑定到用户帐户，因此不会通过从存储库中删除用户来使其失效。</li>
+  <li>他们不允许访问其他不相关的存储库。</li>
+  <li></li>
+</ul>
+
+<p>但是，使用部署密钥很复杂，因为GitHub不允许您重用密钥。因此，单个私钥无法访问多个GitHub存储库。</p>
+
+<p>您可以为存储库中的每个依赖项包含不同的私钥<a href="/user/encrypting-files">加密他们</a>。以这种方式维护复杂的依赖图可能很复杂且难以维护。出于这个原因，我们建议使用<a href="#user-key">用户密钥</a>代替。</p>
+
+<h2 id="用户密钥">用户密钥 <a href="#用户密钥" class="toc-anchor">#</a></h2>
+
+<p>目前是自定义SSH密钥<strong>仅适用于私人存储库<a href="https://travis-ci.com">travis-ci.com</a></strong>。</p>
+
+<p>您可以在GitHub上为用户帐户添加SSH密钥。大多数用户可能已经这样做，以便能够在本地克隆存储库。</p>
+
+<p>这样，单个密钥可以访问多个存储库。要限制存储库列表和访问类型，建议创​​建一个<a href="#dedicated-user-account">专用CI用户帐户</a>。</p>
+
+<h3 id="使用现有密钥">使用现有密钥 <a href="#使用现有密钥" class="toc-anchor">#</a></h3>
+
+<p><a href="/images/settings-ssh-key.png"><img src="/images/settings-ssh-key.png" alt="通过Web界面添加SSH密钥。" /></a>{：。小} {:.权}</p>
+
+<ul>
+  <li></li>
+  <li>您已在计算机上设置了密钥，例如在<code class="highlighter-rouge">~/.ssh/id_rsa</code>（在Unix系统上默认）。</li>
+</ul>
+
+<p>您可以使用存储库设置添加新密钥。粘贴内容<code class="highlighter-rouge">~/.ssh/id_rsa</code>进入“私钥”文本字段并给它一个很好的描述。</p>
+
+<p><a href="https://github.com/travis-ci/travis.rb">CLI</a>命令将密钥添加到Travis CI：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis sshkey --upload ~/.ssh/id_rsa -r myorg/main
+Key description: Key to clone myorg/lib1 and myorg/lib2
+updating ssh key for myorg/main with key from ~/.ssh/id_rsa
+Current SSH key: Key to clone myorg/lib1 and myorg/lib2
+
+</code></pre></div></div>
+
+<p>你可以省略<code class="highlighter-rouge">-r myorg/main</code>如果您当前的工作目录是“myorg / main”存储库的克隆。</p>
+
+<h3 id="生成新密钥">生成新密钥 <a href="#生成新密钥" class="toc-anchor">#</a></h3>
+
+<p>假设：</p>
+
+<ul>
+  <li>您运行构建的存储库名为“myorg / main”，依赖于“myorg / lib1”和“myorg / lib2”。</li>
+  <li>您知道至少具有对所有三个存储库的读取权限的用户帐户的凭据。</li>
+</ul>
+
+<p>该<code class="highlighter-rouge">travis</code>命令行工具可以为您生成一个新密钥，并在Travis CI和GitHub上进行设置。为此，它会询问您GitHub的用户名和密码如果您刚刚创建了一个用户名和密码，这将非常方便<a href="#dedicated-user-account">专用用户</a>或者如果您没有在计算机上设置要使用的密钥。</p>
+
+<p>凭证仅用于访问GitHub，不会存储或与任何其他服务共享。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis sshkey --generate -r myorg/main
+We need the GitHub login for the account you want to add the key to.
+This information will not be sent to Travis CI, only to api.github.com.
+The password will not be displayed.
+
+Username: ci-user
+Password for ci-user: **************
+
+Generating RSA key.
+Uploading public key to GitHub.
+Uploading private key to Travis CI.
+
+You can store the private key to reuse it for other repositories (travis sshkey --upload FILE).
+Store private key? |no|
+
+Current SSH key: key for fetching dependencies for myorg/main
+
+</code></pre></div></div>
+
+<p>你可以省略<code class="highlighter-rouge">-r myorg/main</code>如果您当前的工作目录是“myorg / main”存储库的克隆。</p>
+
+<p>在过程结束时，它会询问您是否要将生成的密钥存储在某个地方，通常在这里说“不”是安全的。毕竟，您可以根据需要生成新密钥。看到<a href="#reusing-a-generated-key">下面</a>有关存储和重用生成密钥的说明。</p>
+
+<h3 id="重用生成的密钥">重用生成的密钥 <a href="#重用生成的密钥" class="toc-anchor">#</a></h3>
+
+<ul>
+  <li>您运行构建的存储库名为“myorg / main”，依赖于“myorg / lib1”和“myorg / lib2”。</li>
+  <li>您知道至少具有对所有三个存储库的读取权限的用户帐户的凭据。</li>
+  <li>您只想生成一个密钥，因此您可以轻松地撤销它，或者使用它来访问其他依赖源或部署目标。</li>
+</ul>
+
+<p>这绝对是可选的，没有任何东西可以阻止您为正在测试的所有存储库生成新密钥。</p>
+
+<p>你跟着<a href="#generating-a-new-key">上面的步骤</a>，但选择存储密钥。它会要求您提供存储它的路径。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis sshkey --generate -r myorg/main --description "CI dependencies"
+We need the GitHub login for the account you want to add the key to.
+This information will not be sent to Travis CI, only to api.github.com.
+The password will not be displayed.
+
+Username: ci-user
+Password for ci-user: **************
+
+Generating RSA key.
+Uploading public key to GitHub.
+Uploading private key to Travis CI.
+
+You can store the private key to reuse it for other repositories (travis sshkey --upload FILE).
+Store private key? |no| yes
+Path: |id_travis_rsa| myorg_key
+
+Current SSH key: CI dependencies
+
+</code></pre></div></div>
+
+<p>和往常一样，你可以省略<code class="highlighter-rouge">-r myorg/main</code>如果您当前的工作目录是“myorg / main”存储库的克隆。</p>
+
+<p>那你可以<a href="#using-an-existing-key"></a>myorg / main2的关键：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis sshkey --upload myorg_key -r myorg/main2 --description "CI dependencies"
+updating ssh key for myorg/main with key from myorg_key
+Current SSH key: CI dependencies
+
+</code></pre></div></div>
+
+<p>从1.7.0发布开始<code class="highlighter-rouge">travis</code>命令行工具，你可以将它与<code class="highlighter-rouge">repos</code>命令不仅为“main”和“main2”设置密钥，而且在“myorg”组织下设置所有存储库。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis repos --active --owner myorg --com | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
+updating ssh key for myorg/main with key from myorg_key
+Current SSH key: CI dependencies
+updating ssh key for myorg/main2 with key from myorg_key
+Current SSH key: CI dependencies
+updating ssh key for myorg/lib1 with key from myorg_key
+Current SSH key: CI dependencies
+updating ssh key for myorg/lib2 with key from myorg_key
+Current SSH key: CI dependencies
+
+</code></pre></div></div>
+
+<blockquote>
+  <p>请注意，如果您仍在使用<a href="http://www.travis-ci.org">travis-ci.org</a>你需要使用<code class="highlighter-rouge">--org</code>代替<code class="highlighter-rouge">--com</code></p>
+</blockquote>
+
+<h2 id="密码">密码 <a href="#密码" class="toc-anchor">#</a></h2>
+
+<p>假设：</p>
+
+<ul>
+  <li>您运行构建的存储库名为“myorg / main”，依赖于“myorg / lib1”和“myorg / lib2”。</li>
+  <li></li>
+</ul>
+
+<p>要使用密码提取依赖关系，您必须使用Git HTTPS URL中的用户名和密码：<code class="highlighter-rouge">https://ci-user:mypassword123@github.com/myorg/lib1.git</code>。</p>
+
+<p>或者，您也可以将凭据写入<code class="highlighter-rouge">~/.netrc</code>文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>machine github.com
+  login ci-user
+  password mypassword123
+
+</code></pre></div></div>
+
+<p>您还可以加密密码，然后将其写入到netrc中<code class="highlighter-rouge">before_install</code>走进你的<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" &gt; ~/.netrc
+
+</code></pre></div></div>
+
+<p>也可以将凭证注入URL，例如，在Gemfile中，它看起来像这样：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source 'https://rubygems.org'
+gemspec
+
+if ENV['CI']
+  # use HTTPS with password on Travis CI
+  git_source :github do |repo_name|
+    repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+    "https://ci-user:#{ENV.fetch("CI_USER_PASSWORD")}@github.com/#{repo_name}.git"
+  end
+end
+
+gem 'lib1', github: "myorg/lib1"
+gem 'lib2', github: "myorg/lib2"
+
+</code></pre></div></div>
+
+<blockquote>
+  <p>在私有git子模块的情况下，请注意<code class="highlighter-rouge">git submodule update --init recursive</code>命令在之前运行<code class="highlighter-rouge">~/.netrc</code>证书</p>
+</blockquote>
+
+<p>更新。如果您正在写凭据<code class="highlighter-rouge">~/.netrc</code></p>
+
+<p>子模块，更新凭据并添加更新子模块的显式步骤：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git:
+  submodules: false
+before_install:
+  - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" &gt;~/.netrc
+  - git submodule update --init --recursive
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="api令牌">API令牌 <a href="#api令牌" class="toc-anchor">#</a></h2>
+
+<p>假设：</p>
+
+<ul>
+  <li>您运行构建的存储库名为“myorg / main”，依赖于“myorg / lib1”和“myorg / lib2”。</li>
+  <li>您知道至少具有对所有三个存储库的读取权限的用户帐户的凭据。</li>
+</ul>
+
+<p>这种方法就像<a href="#password">密码</a>上面概述的方法，除了用户名/密码对，您使用GitHub API令牌。</p>
+
+<p>在您要使用的用户的GitHub帐户设置下，导航至<a href="https://github.com/settings/developers">设置&gt;开发人员设置</a>，然后生成“个人访问令牌”。确保令牌具有“repo”范围。</p>
+
+<p>您的<code class="highlighter-rouge">~/.netrc</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>machine github.com
+  login the-generated-token
+
+</code></pre></div></div>
+
+<p>您也可以直接在URL中使用它：<code class="highlighter-rouge">https://the-generated-token@github.com/myorg/lib1.git</code>。</p>
+
+<p>使用<code class="highlighter-rouge">encrypt</code>命令将令牌添加到您的<code class="highlighter-rouge">.travis.yml</code>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis env set CI_USER_TOKEN the-generated-token --private -r myorg/main
+
+</code></pre></div></div>
+
+<p>然后你可以让Travis CI写信给<code class="highlighter-rouge">~/.netrc</code>在每个构建。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" &gt; ~/.netrc
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>也可以将令牌注入URL，例如，在Gemfile中，它看起来像这样：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source 'https://rubygems.org'
+gemspec
+
+if ENV['CI']
+  # use HTTPS with token on Travis CI
+  git_source :github do |repo_name|
+    repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+    "https://#{ENV.fetch("CI_USER_TOKEN")}@github.com/#{repo_name}.git"
+  end
+end
+
+gem 'lib1', github: "myorg/lib1"
+gem 'lib2', github: "myorg/lib2"
+
+</code></pre></div></div>
+
+<blockquote>
+  <p>在私有git子模块的情况下，请注意<code class="highlighter-rouge">git submodule update --init recursive</code>命令在之前运行<code class="highlighter-rouge">~/.netrc</code></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">~/.netrc</code></p>
+
+<p>子模块，更新凭据并添加更新子模块的显式步骤：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git:
+  submodules: false
+before_install:
+  - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" &gt;~/.netrc
+  - git submodule update --init --recursive
+
+</code></pre></div></div>
+
+<p>##</p>
+
+<p>如前所述，由于以下原因，创建专用CI用户可能有意义：</p>
+
+<ul>
+  <li>CI用户只能访问您希望其访问的存储库。</li>
+  <li>您可以限制对读取权限的访问。</li>
+  <li></li>
+  <li>CI用户不会出于非技术原因离开组织，并且意外地破坏了所有构建。</li>
+</ul>
+
+<p>为此，您需要在GitHub上注册，就好像您要注册普通用户一样。注册用户不能自动化，因为这会违反GitHub服务条款。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

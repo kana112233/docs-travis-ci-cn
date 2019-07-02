@@ -1,0 +1,2310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Travis CI Build Environment Updates</title>
+		<description>Travis CI Build Environment Updates</description>
+		<link>https://travis-ci.com</link>
+		<atom:link href="https://docs.travis-ci.com/feed.build-env-updates.xml" rel="self" type="application/rss+xml" />
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2014年12月9日&quot;&gt;2014年12月9日&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://everytimezone.com/#2014-12-9,180,cn3&quot;&gt;2014-12-09 15:00 UTC&lt;/a&gt; -  travis-ci.org推出&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://everytimezone.com/#2014-12-10,180,cn3&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;附加&quot;&gt;附加&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stedolan.github.io/jq/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jq&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;h3 id=&quot;所有环境&quot;&gt;所有环境&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ElasticSearch到1.4.0&lt;/li&gt;
+  &lt;li&gt;Node.js为0.10.33&lt;/li&gt;
+  &lt;li&gt;Ruby到1.9.3-p551&lt;/li&gt;
+  &lt;li&gt;RVM为1.26.3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;android-vm&quot;&gt;Android VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SDK工具到23.0.5&lt;/li&gt;
+  &lt;li&gt;构建工具到21.1.1&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wait-for-emulator&lt;/code&gt;脚本是固定的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;php-vm&quot;&gt;PHP VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PHP到5.4.35,5.5.19,5.6.3&lt;/li&gt;
+  &lt;li&gt;HHVM到3.4.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;python-vm&quot;&gt;Python VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PyPy3到2.4.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ruby-vm&quot;&gt;Ruby VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby到1.9.3-p551,2.0.0-p598,2.1.5,2.2.0-preview2&lt;/li&gt;
+  &lt;li&gt;JRuby到1.7.16.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;构建系统信息&quot;&gt;构建系统信息&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/25666/5291272/2f7983e0-7b1e-11e4-8868-e02c576310f9.png&quot; alt=&quot;构建输出的屏幕截图&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;从此更新开始，将提供有关构建映像的相关信息。&lt;/p&gt;
+
+&lt;p&gt;此类信息显示在日志顶部附近的折叠中，如图所示&lt;code class=&quot;highlighter-rouge&quot;&gt;system_info&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;诸如Ubuntu版本名称，编译器版本等信息已预先安装&lt;/p&gt;
+
+&lt;p&gt;语言运行时和Android组件将在此处显示。&lt;/p&gt;
+
+&lt;p&gt;←返回&lt;a href=&quot;..&quot;&gt;环境更新历史&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 09 Dec 2014 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2014-12-09/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2014-12-09/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;p&gt;此更新仅影响我们的Mac环境。&lt;/p&gt;
+
+&lt;h1 id=&quot;情节中字&quot;&gt;情节中字&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://everytimezone.com/#2014-12-16,480,cn3&quot;&gt;2014-12-18 20:00 UTC&lt;/a&gt;- 选择参加&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://everytimezone.com/#2015-1-12,-60,cn3&quot;&gt;2015-01-12 11:00 UTC&lt;/a&gt; - 默认&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在选择加入期间，可以通过添加来访问更新的图像&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode611&lt;/code&gt;到你的.travis.yml。&lt;/p&gt;
+
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Xcode已升级到6.1.1版。&lt;/li&gt;
+  &lt;li&gt;Ruby版本已升级到1.9.3-p547,2.0.0-p576（默认），&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.1.3和2.1.5。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;CocoaPods升级到版本0.35.0。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;←返回&lt;a href=&quot;..&quot;&gt;环境更新历史&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2014-12-18/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2014-12-18/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2014年12月29日&quot;&gt;2014年12月29日&lt;/h1&gt;
+
+&lt;p&gt;此更新仅影响Node.js和Ruby VM。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2014-12-29,180,cn3&quot;&gt;2014-12-29 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+
+&lt;h3 id=&quot;nodejs-vm&quot;&gt;Node.js VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Node.js 0.10.33→0.10.35&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ruby-vm&quot;&gt;Ruby VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby 2.2.0可用。&lt;/li&gt;
+  &lt;li&gt;JRuby更新为1.7.18。 （目前已经破了。见&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/3067&quot;&gt;这个GitHub问题&lt;/a&gt;。）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;←返回&lt;a href=&quot;..&quot;&gt;环境更新历史&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2014-12-29/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2014-12-29/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2015年1月7日&quot;&gt;2015年1月7日&lt;/h1&gt;
+
+&lt;p&gt;此更新仅影响Ruby VM。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2015-1-7,180,cn3&quot;&gt;2015-01-07 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+
+&lt;h3 id=&quot;ruby-vm&quot;&gt;Ruby VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JRuby更新为1.7.18。 （这解决了由…引入的破损&lt;a href=&quot;/user/build-environment-updates/2014-12-29&quot;&gt;以前的更新&lt;/a&gt;。）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;←返回&lt;a href=&quot;..&quot;&gt;环境更新历史&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2015-01-07/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2015-01-07/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2015年2月3日&quot;&gt;2015年2月3日&lt;/h1&gt;
+
+&lt;p&gt;此更新会影响所有Linux构建环境。&lt;/p&gt;
+
+&lt;p&gt;从此更新开始，将更新构建环境&lt;/p&gt;
+
+&lt;p&gt;每两个月，在’偶数’月的第一个星期二&lt;/p&gt;
+
+&lt;p&gt;（二月，四月，六月，八月，十月，十二月）。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2015-2-11,180,cn3&quot;&gt;2015-02-11 15:00 UTC&lt;/a&gt;JVM更新&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2015-2-5,180,cn3&quot;&gt;2015-02-05 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;note-box&quot;&gt;
+This update was originally scheduled at &lt;a href=&quot;http://everytimezone.com/#2015-2-3,180,cn3&quot;&gt;
+2015-02-03 15:00 UTC&lt;/a&gt;,
+but it was rolled back.
+&lt;/div&gt;
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+
+&lt;p&gt;对于记录，以下更新列表包括次要语言更新&lt;/p&gt;
+
+&lt;p&gt;之后&lt;a href=&quot;../2014-12-09/&quot;&gt;12月9日&lt;/a&gt;更新。&lt;/p&gt;
+
+&lt;h3 id=&quot;所有环境&quot;&gt;所有环境&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;去1.4.1&lt;/li&gt;
+  &lt;li&gt;Go运行时现在由。管理&lt;a href=&quot;https://github.com/meatballhat/gimme&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gimme&lt;/code&gt;&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#riak-upgrade&quot;&gt;Riak 2.0.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Sphinx 2.2.4→2.2.6，现在是默认值&lt;/li&gt;
+  &lt;li&gt;试验&lt;a href=&quot;#postgresql-94&quot;&gt;PostgreSQL 9.4&lt;/a&gt;支持&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ccache&lt;/code&gt;是可用的&lt;/li&gt;
+  &lt;li&gt;Maven 3.2.3→3.2.5&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;android-vm&quot;&gt;Android VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SDK工具24.0.2&lt;/li&gt;
+  &lt;li&gt;Gradle 2.0→2.2.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;erlang-vm&quot;&gt;Erlang VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;试验&lt;a href=&quot;#experimental-elixir-support&quot;&gt;Elixir支持&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;OTP版本17.3→17.4&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;go: tip&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ghc 7.8.3→7.8.4&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;java-vm&quot;&gt;Java VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gradle 2.0→2.2.1&lt;/li&gt;
+  &lt;li&gt;斯卡拉2.11.5&lt;/li&gt;
+  &lt;li&gt;SBT 0.13.7&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nodejs-vm&quot;&gt;Node.js VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Node.js 0.10.33→0.10.36,0.11.14→0.11.15&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#iojs-support&quot;&gt;&lt;/a&gt;通过NVM&lt;/li&gt;
+  &lt;li&gt;grunt-cli是为预安装的Node.js 0.8及以上版本（包括io.js 1.1.0）提供的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PHP更新：5.4.35→5.4.37,5.5.19→5.5.21,5.6.3→5.6.5&lt;/li&gt;
+  &lt;li&gt;HHVM 3.4.0→3.5.0&lt;/li&gt;
+  &lt;li&gt;xdebug 2.2.5→2.2.7&lt;/li&gt;
+  &lt;li&gt;PHP 5.2.17已删除&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;python-vm&quot;&gt;Python VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Python 2.7.8→2.7.9,3.4.0→3.4.2&lt;/li&gt;
+  &lt;li&gt;PyPy 2.3.1→2.5.0&lt;/li&gt;
+  &lt;li&gt;PyPy3 2.3.1→2.5.0&lt;/li&gt;
+  &lt;li&gt;点6.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ruby-vm&quot;&gt;Ruby VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby 2.2.0&lt;/li&gt;
+  &lt;li&gt;JRuby更新至1.7.19。&lt;/li&gt;
+  &lt;li&gt;JRuby 9.0.0.0.pre1已预先安装。别名&lt;code class=&quot;highlighter-rouge&quot;&gt;jruby-9000&lt;/code&gt;也可以使用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;实验性elixir支持&quot;&gt;实验性Elixir支持&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/taylor/kiex&quot;&gt;kiex&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;版本1.0.2已预先安装。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;language: elixir
+elixir:
+  - 1.0.2 # explicitly set Elixir version
+otp_release:
+  - 17.4  # specify OTP release required for Elixir
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;{：data-file =“。travis.yml”}&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/user/languages/elixir&quot;&gt;详细文档&lt;/a&gt;将在何时可用&lt;/p&gt;
+
+&lt;p&gt;新图像上线。&lt;/p&gt;
+
+&lt;h2 id=&quot;riak升级&quot;&gt;Riak升级&lt;/h2&gt;
+
+&lt;p&gt;Riak已更新至2.0.2。&lt;/p&gt;
+
+&lt;h2 id=&quot;postgresql-94&quot;&gt;PostgreSQL 9.4&lt;/h2&gt;
+
+&lt;p&gt;如果遇到问题，请打开新票&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/new&quot;&gt;GitHub上&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;addons:
+  postgresql: '9.4'
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;{：data-file =“。travis.yml”}&lt;/p&gt;
+
+&lt;h2 id=&quot;iojs支持&quot;&gt;io.js支持/&lt;/h2&gt;
+
+&lt;p&gt;我们通过NVM添加了io.js支持。&lt;/p&gt;
+
+&lt;p&gt;版本1.1.0已预先安装。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;language: node_js
+node_js:
+  - iojs
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;{：data-file =“。travis.yml”}&lt;/p&gt;
+
+&lt;p&gt;如果要安装特定的io.js版本，请添加版本，如下所示：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node_js:
+  - iojs-v1.0.2
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;{：data-file =“。travis.yml”}&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;←返回&lt;a href=&quot;..&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 03 Feb 2015 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2015-02-03/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2015-02-03/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;取消&quot;&gt;取消&lt;/h1&gt;
+
+&lt;p&gt;注意：由于报告错误，我们将回滚我们在2015-04-27推出的更新。&lt;/p&gt;
+
+&lt;p&gt;（原定于2015-04-09 15:00 UTC，重新安排至2015-04-27 15:00 UTC。）&lt;/p&gt;
+
+&lt;p&gt;他们被收集&lt;a href=&quot;https://github.com/travis-ci/travis-ci/labels/2015-04%20build%20update%20issue&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们决定取消4月的更新，而不是推动另一次更新&lt;/p&gt;
+
+&lt;p&gt;专注于6月质量升级和更好的长期构建环境更新计划。&lt;/p&gt;
+
+&lt;p&gt;该&lt;a href=&quot;http://stspg.io/10Su&quot;&gt;维护更新&lt;/a&gt;将有空。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;2015-04-09&quot;&gt;2015-04-09&lt;/h1&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2015-4-27,180,cn3&quot;&gt;2015-04-27 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;随时了解最新动态&lt;a href=&quot;https://manage.statuspage.io/pages/pnpcptp8xh9k/incidents/yk24wrkb4082&quot;&gt;进展&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;注意：我们回滚了2015-04-14推出的更新&lt;/p&gt;
+
+&lt;p&gt;由于报告错误。&lt;/p&gt;
+
+&lt;p&gt;（原定于2015-04-09 15:00 UTC）&lt;/p&gt;
+
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+
+&lt;h3 id=&quot;所有环境&quot;&gt;所有环境&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cassandra 2.0.9→2.1.2&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;Firefox 31.0esr→31.6.0esr&lt;/li&gt;
+  &lt;li&gt;git-lfs 0.5.0（见&lt;a href=&quot;https://git-lfs.github.com&quot;&gt;git-lfs.github.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;预先安装了Go 1.4.1→1.4.2&lt;/li&gt;
+  &lt;li&gt;谷歌浏览器可用作&lt;code class=&quot;highlighter-rouge&quot;&gt;google-chrome&lt;/code&gt;（目前版本41.0.2272.118）&lt;/li&gt;
+  &lt;li&gt;MySQL中添加了大量索引支持。&lt;/li&gt;
+  &lt;li&gt;Maven 3.2.5→3.3.1&lt;/li&gt;
+  &lt;li&gt;带有mysql.com软件包的MySQL 5.6.x.&lt;/li&gt;
+  &lt;li&gt;Node.js 0.12.2可用，现在是默认值。&lt;/li&gt;
+  &lt;li&gt;PhantomJS 2.0.0可用&lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/phantomjs-2.0.0/bin/phantomjs&lt;/code&gt;。 1.9.8仍然是默认值&lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;Python 3.2.3可通过Ubuntu软件包在每个映像上使用。&lt;/li&gt;
+  &lt;li&gt;Sphinx 2.2.6→2.2.8&lt;/li&gt;
+  &lt;li&gt;wget 1.16.3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;android-vm&quot;&gt;Android VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SDK工具24.1.2&lt;/li&gt;
+  &lt;li&gt;平台API 22&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;erlang-vm&quot;&gt;Erlang VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OTP版本17.5&lt;/li&gt;
+  &lt;li&gt;Elixir 1.0.2→1.0.3和1.0.4&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nodejs-vm&quot;&gt;Node.js VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Node.js 0.10.36→0.10.38,0.11.15→0.11.16&lt;/li&gt;
+  &lt;li&gt;io.js 1.1.0→1.6.4（最初计划为1.7.1;最新版本，如果您刚刚指定，将安装&lt;code class=&quot;highlighter-rouge&quot;&gt;iojs&lt;/code&gt;，截至2015-04-27为1.8.1。）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;php-vm&quot;&gt;PHP VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HHVM 3.5.0→3.6.1&lt;/li&gt;
+  &lt;li&gt;PHP 5.4.37→5.4.40,5.5.21→5.5.24,5.6.5→5.6.8&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;python-vm&quot;&gt;Python VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Python 3.4.2→3.4.3&lt;/li&gt;
+  &lt;li&gt;PyPy 2.4.0→2.5.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ruby-vm&quot;&gt;Ruby VM&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby 2.0.0-p643→2.0.0-p645,2.1.6,2.2.2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;将mysql降级到5541&quot;&gt;将MySQL降级到5.5.41&lt;/h2&gt;
+
+&lt;p&gt;通过此升级，MySQL将升级到5.6.x.&lt;/p&gt;
+
+&lt;p&gt;如果由于某种原因，您需要保持5.5.41，请添加以下内容&lt;/p&gt;
+
+&lt;p&gt;您的&lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo: required
+before_install:
+  - sudo rm /etc/apt/sources.list.d/mysql.list
+  - sudo service mysql stop
+  - sudo rm -rf /var/lib/mysql
+  - sudo apt-get remove apparmor
+  - sudo apt-get remove --purge mysql-common mysql-community-server mysql-community-client mysql-client libmysqlclient18 libmysqlclient-dev mysql-server
+  - sudo apt-get autoremove
+  - sudo apt-get autoclean
+  - sudo apt-get -o Dpkg::Options::=&quot;--force-confdef&quot; -o Dpkg::Options::=&quot;--force-confnew&quot; install libmysqlclient-dev libmysqlclient18 mysql-client mysql-server
+  - mysql -u root -e &quot;CREATE USER 'travis'@'%' IDENTIFIED BY ''&quot;
+  - mysql -u root -e &quot;CREATE USER 'travis'@'localhost' IDENTIFIED BY ''&quot;
+  - mysql -u root -e &quot;GRANT ALL PRIVILEGES ON *.* TO 'travis'@'%'&quot;
+  - mysql -u root -e &quot;GRANT ALL PRIVILEGES ON *.* TO 'travis'@'localhost'&quot;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;{：data-file =“。travis.yml”}&lt;/p&gt;
+
+&lt;p&gt;请注意，上述说明需要&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;，因此必须&lt;/p&gt;
+
+&lt;p&gt;在标准基础架构上运行&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo: required&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;此外，配置将重置为包默认值;你可以&lt;/p&gt;
+
+&lt;p&gt;需要调整&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/mysql/my.cnf&lt;/code&gt;按照你的喜好。&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2015-04-09/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2015-04-09/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2016年8月24日&quot;&gt;2016年8月24日&lt;/h1&gt;
+
+&lt;p&gt;此更新会影响完全虚拟化的Linux环境。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2016-8-24,180,cn3&quot;&gt;2016-08-24 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;构建时Chef属性的完整YAML转储&lt;code class=&quot;highlighter-rouge&quot;&gt;/.node-attributes.yml&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;红宝石&lt;code class=&quot;highlighter-rouge&quot;&gt;2.3.1&lt;/code&gt;预装版本&lt;code class=&quot;highlighter-rouge&quot;&gt;ruby-precise&lt;/code&gt;堆&lt;/li&gt;
+  &lt;li&gt;在所有“富”（非最小）的基础包中安装以下内容&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;栈：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x11-utils&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xserver-xorg-core&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xserver-xorg-video-all&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xvfb&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;明确禁用IPv6，因为Google Compute Engine不支持IPv6&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（相关&lt;a href=&quot;https://github.com/travis-ci/packer-templates/issues/216&quot;&gt;特拉维斯-CI /打包机模板＃216&lt;/a&gt;）&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;默认设置&lt;code class=&quot;highlighter-rouge&quot;&gt;php&lt;/code&gt;版本到&lt;code class=&quot;highlighter-rouge&quot;&gt;5.6.24&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（&lt;a href=&quot;https://github.com/travis-ci/packer-templates/issues/244&quot;&gt;特拉维斯-CI /打包机模板＃244&lt;/a&gt;）&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装&lt;code class=&quot;highlighter-rouge&quot;&gt;fglrx&lt;/code&gt;与基本包，因为它（看似）与之冲突&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;该&lt;code class=&quot;highlighter-rouge&quot;&gt;GLX&lt;/code&gt;正在启用扩展程序&lt;code class=&quot;highlighter-rouge&quot;&gt;xvfb&lt;/code&gt;（&lt;a href=&quot;https://github.com/travis-ci/packer-templates/issues/220&quot;&gt;特拉维斯-CI /打包机模板＃220&lt;/a&gt;，&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/6508&quot;&gt;特拉维斯-CI /特拉维斯慈＃6508&lt;/a&gt;）&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;各种问题的内容&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;（&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/6452&quot;&gt;特拉维斯-CI /特拉维斯慈＃6452&lt;/a&gt;，&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;与Java库主机解析相关的各种支持票证，例如，硒&lt;/p&gt;
+
+&lt;p&gt;驱动程序）&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;确保只有一个条目&lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.1.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;localhost&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ip4-loopback&lt;/code&gt;决心&lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.1.1&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;确保&lt;code class=&quot;highlighter-rouge&quot;&gt;user.name&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;user.email&lt;/code&gt;设置&lt;code class=&quot;highlighter-rouge&quot;&gt;~travis/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/issues/214&quot;&gt;&lt;/a&gt;）&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xvfb&lt;/code&gt;具有&lt;code class=&quot;highlighter-rouge&quot;&gt;GLX&lt;/code&gt;启用扩展（&lt;a href=&quot;https://github.com/travis-ci/packer-templates/issues/220&quot;&gt;&lt;/a&gt;，&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/6508&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;php-fpm&lt;/code&gt;可用&lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;（相关&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/issues/244&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;确保默认&lt;code class=&quot;highlighter-rouge&quot;&gt;php&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/issues/244&quot;&gt;特拉维斯-CI /打包机模板＃244&lt;/a&gt;）&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;所有包装食谱&lt;a href=&quot;https://github.com/travis-ci/packer-templates/compare/ec5e103...02fde03&quot;&gt;packer-templates diff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;诚信堆栈&lt;a href=&quot;https://github.com/travis-ci/travis-cookbooks/compare/3e0e60d...152b200&quot;&gt;travis-cookbooks diff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;精确堆叠&lt;a href=&quot;https://github.com/travis-ci/travis-cookbooks/compare/db8067b...f77e708&quot;&gt;travis-cookbooks diff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2016-08-24/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2016-08-24/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2016年11月1日&quot;&gt;2016年11月1日&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2016-11-1,360,c8l&quot;&gt;2016-11-01 18:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;基于容器的Ubuntu 14.04“Trusty”的公共测试版。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;将作业路由到基于容器的Ubuntu 14.04“Trusty”需要以下内容&lt;/p&gt;
+
+&lt;p&gt;中的字段&lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dist: trusty
+sudo: false
+group: beta
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;{：data-file =“。travis.yml”}&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2016-11-01/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2016-11-01/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2016年11月15日&quot;&gt;2016年11月15日&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2016-11-15,540,cn3&quot;&gt;2016-11-15 21:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;基于容器的Linux上升级的内核版本（&lt;code class=&quot;highlighter-rouge&quot;&gt;v4.8.7&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;在基于容器的Linux上运行的作业现在将具有底层主机VM内核&lt;/p&gt;
+
+&lt;p&gt;的版本&lt;code class=&quot;highlighter-rouge&quot;&gt;v4.8.7&lt;/code&gt;，这减轻了[由来已久&lt;/p&gt;
+
+&lt;p&gt;窃听器](https://github.com/docker/docker/issues/5618)这会影响主机VM&lt;/p&gt;
+
+&lt;p&gt;稳定性和工作吞吐量。&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 15 Nov 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2016-11-15/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2016-11-15/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2016年12月1日&quot;&gt;2016年12月1日&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2016-12-1,180,cn3&quot;&gt;2016-12-01 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;此更新适用于启用了sudo的Ubuntu Trusty和Precise。堆栈图像&lt;/p&gt;
+
+&lt;p&gt;目前已标记为&lt;code class=&quot;highlighter-rouge&quot;&gt;group: edge&lt;/code&gt;将被提升为&lt;code class=&quot;highlighter-rouge&quot;&gt;group: stable&lt;/code&gt;。我们&lt;/p&gt;
+
+&lt;p&gt;将保留以前的&lt;code class=&quot;highlighter-rouge&quot;&gt;group: stable&lt;/code&gt;如&lt;code class=&quot;highlighter-rouge&quot;&gt;group: deprecated&lt;/code&gt;至少一个&lt;/p&gt;
+
+&lt;p&gt;此更新后的一个月。&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MySQL 5.6（仅限Trusty）&lt;/li&gt;
+  &lt;li&gt;PostgreSQL 9.6 + postgis脚本包（仅限Trusty）&lt;/li&gt;
+  &lt;li&gt;PostgreSQL 9.5 + postgis脚本包（仅限精确）&lt;/li&gt;
+  &lt;li&gt;APT设置在更新时保留旧配置（仅限Trusty）&lt;/li&gt;
+  &lt;li&gt;预装&lt;a href=&quot;https://yarnpkg.com/&quot;&gt;纱&lt;/a&gt;（仅限Trusty）&lt;/li&gt;
+  &lt;li&gt;已预先安装并已启用&lt;a href=&quot;http://packages.ubuntu.com/trusty/haveged&quot;&gt;haveged&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（仅限Trusty）&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;预装的Python版本到最新版本，包括CPython和&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;PyPy。 （仅限Trusty）&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;更新到&lt;a href=&quot;https://github.com/yyuu/pyenv/releases/tag/v1.0.0&quot;&gt;pyenv 1.0.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（仅限Trusty）&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;更新到git 2.x（仅限Trusty）&lt;/li&gt;
+  &lt;li&gt;更新到最新&lt;a href=&quot;https://github.com/git-lfs/git-lfs&quot;&gt;GIT-LFS&lt;/a&gt;（仅限Trusty）&lt;/li&gt;
+  &lt;li&gt;更新到[泊坞窗，撰写&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1.8.1](https://github.com/docker/compose/releases/tag/1.8.1)，[搬运工人&lt;/p&gt;
+
+&lt;p&gt;1.12.3](https://github.com/docker/docker/releases/tag/v1.12.3)（仅限Trusty）&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;更新到最新&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/michaelklishin/jdk_switcher&quot;&gt;jdk_switcher&lt;/a&gt;（仅限Trusty）&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;从Precise ruby​​堆栈中预装旧版本的ruby。所有版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;可以按需安装&lt;code class=&quot;highlighter-rouge&quot;&gt;rvm&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;预装旧版本的精确ruby /默认堆栈和所有Trusty&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;栈。所有版本均受支持&lt;code class=&quot;highlighter-rouge&quot;&gt;gimme&lt;/code&gt;可以按需安装。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;PostgreSQL 9.1（仅限Trusty）&lt;/li&gt;
+  &lt;li&gt;nexus.codehaus.org Maven镜像（仅限精确）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;包括至少一个JDK和&lt;code class=&quot;highlighter-rouge&quot;&gt;jdk_switcher&lt;/code&gt;所有Trusty堆栈中的工具。&lt;/li&gt;
+  &lt;li&gt;预安装ruby 2.2.5以用于构建缓存和部署工具。&lt;/li&gt;
+  &lt;li&gt;强行清除&lt;code class=&quot;highlighter-rouge&quot;&gt;~travis/.pearrc&lt;/code&gt;在图像烘焙结束时确保PHP是&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;不那么困惑。&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2016-12-01/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2016-12-01/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2016年12月2日&quot;&gt;2016年12月2日&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2016-12-2,180,cn3&quot;&gt;2016-12-02 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;[&lt;/p&gt;
+
+&lt;p&gt;1](/user/build-environment-updates/2016-12-01/)。&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装MySQL 5.6（&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/6961&quot;&gt;&lt;/a&gt;）
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mysql&lt;/code&gt;（代替&lt;code class=&quot;highlighter-rouge&quot;&gt;mysql-5.6&lt;/code&gt;）&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;travis&lt;/code&gt;MySQL用户&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;oraclejdk8&lt;/code&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/6928&quot;&gt;&lt;/a&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2016-12-02/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2016-12-02/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;p&gt;#&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2016-12-6,180,cn3&quot;&gt;2016-12-06 15:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;此更新适用于启用了sudo的Ubuntu Trusty，并被视为错误修复&lt;/p&gt;
+
+&lt;p&gt;[12月装运&lt;/p&gt;
+
+&lt;p&gt;第2](/user/build-environment-updates/2016-12-02/)&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JDK的可用性和配置（&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/6928&quot;&gt;特拉维斯-CI /特拉维斯慈＃6928&lt;/a&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2016-12-06/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2016-12-06/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2016年12月8日&quot;&gt;2016年12月8日&lt;/h1&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2016-12-8,405,cn3&quot;&gt;2016-12-08 18:45 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://security-tracker.debian.org/tracker/CVE-2016-8655&quot;&gt;CVE-2016-8655&lt;/a&gt;于2016年12月7日星期三宣布。&lt;/p&gt;
+
+&lt;p&gt;CVE详细说明了一个漏洞，它代表了Travis CI用户使用基于容器的构建获得升级到容器主机的特权的潜在风险。我们Travis CI没有发现任何易受此漏洞攻击的证据，但主动将内核版本更新为固定内核，以确保我们的用户可以将任何潜在风险降至最低。&lt;/p&gt;
+
+&lt;p&gt;此更新适用于基于容器的Ubuntu Trusty和Precise Docker主机环境，并且被认为是错误修正更新，因为它只更改Docker容器在其中运行的内核版本。&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;更新了内核版本&lt;code class=&quot;highlighter-rouge&quot;&gt;4.8.7&lt;/code&gt;至&lt;code class=&quot;highlighter-rouge&quot;&gt;4.8.12&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Thu, 08 Dec 2016 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2016-12-08/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2016-12-08/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2017年5月4日&quot;&gt;2017年5月4日&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2017-5-4,360,c8l&quot;&gt;2017-05-04 17:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;最后一轮的Ubuntu 12.04“精确”的图像更新。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;Userland仅针对EOL Ubuntu 12.04“精确”进行更新。&lt;/p&gt;
+
+&lt;p&gt;全部细节&lt;a href=&quot;https://blog.travis-ci.com/2017-05-04-precise-image-updates&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 04 May 2017 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2017-05-04/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2017-05-04/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2017年7月12日&quot;&gt;2017年7月12日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于sudo-enabled和的Ubuntu Trusty堆栈&lt;/p&gt;
+
+&lt;p&gt;基于容器的执行环境。[这篇最近的博客&lt;/p&gt;
+
+&lt;p&gt;岗位](https://blog.travis-ci.com/2017-06-21-trusty-updates-2017-Q2-launch)&lt;/p&gt;
+
+&lt;p&gt;描述了如何发现差异。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2017-7-12,360,c8l&quot;&gt;2017-07-12 18:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;确保&lt;code class=&quot;highlighter-rouge&quot;&gt;~travis/bin&lt;/code&gt;dir存在于图像构建时&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装&lt;code class=&quot;highlighter-rouge&quot;&gt;neo4j&lt;/code&gt;通过tarball而不是deb&lt;/li&gt;
+  &lt;li&gt;将预装的Python版本提升到了&lt;code class=&quot;highlighter-rouge&quot;&gt;3.4.6&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.3&lt;/code&gt;，和&lt;code class=&quot;highlighter-rouge&quot;&gt;3.6.1&lt;/code&gt;在适用的堆栈上&lt;/li&gt;
+  &lt;li&gt;将预先安装的Ruby版本提升到了&lt;code class=&quot;highlighter-rouge&quot;&gt;jruby-9.1.9.0&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;2.2.7&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;2.3.4&lt;/code&gt;，和&lt;code class=&quot;highlighter-rouge&quot;&gt;2.4.1&lt;/code&gt;在适用的堆栈上&lt;/li&gt;
+  &lt;li&gt;安装&lt;code class=&quot;highlighter-rouge&quot;&gt;mercurial&lt;/code&gt;通过pip而不是deb，包括碰到版本&lt;code class=&quot;highlighter-rouge&quot;&gt;4.2.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;开关&lt;code class=&quot;highlighter-rouge&quot;&gt;language: generic&lt;/code&gt;从&lt;code class=&quot;highlighter-rouge&quot;&gt;connie&lt;/code&gt;堆叠到&lt;code class=&quot;highlighter-rouge&quot;&gt;sugilite&lt;/code&gt;堆&lt;/li&gt;
+  &lt;li&gt;被撞&lt;code class=&quot;highlighter-rouge&quot;&gt;elasticsearch&lt;/code&gt;至&lt;code class=&quot;highlighter-rouge&quot;&gt;5.4.3&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-cookbooks/compare/ab523d9...15a6f94&quot;&gt;travis-cookbooks diff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/compare/35e58d2...78c07e1&quot;&gt;packer-templates diff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;特定于堆栈的差异&quot;&gt;特定于堆栈的差异&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-amethyst-trusty-1498161142/travis-ci-amethyst-trusty-1499451965?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,PACKER_TEMPLATES_SHA,TRAVIS_COOKBOOKS_SHA&amp;amp;format=text&quot;&gt;紫晶&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-connie-trusty-1498161140/travis-ci-connie-trusty-1499451964?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,PACKER_TEMPLATES_SHA,TRAVIS_COOKBOOKS_SHA&amp;amp;format=text&quot;&gt;康妮&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-cookiecat-trusty-1498163146/travis-ci-cookiecat-trusty-1499447127?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,PACKER_TEMPLATES_SHA,TRAVIS_COOKBOOKS_SHA&amp;amp;format=text&quot;&gt;cookiecat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-garnet-trusty-1498162521/travis-ci-garnet-trusty-1499451966?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,PACKER_TEMPLATES_SHA,TRAVIS_COOKBOOKS_SHA&amp;amp;format=text&quot;&gt;石榴石&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-sugilite-trusty-1498160800/travis-ci-sugilite-trusty-1499447160?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,PACKER_TEMPLATES_SHA,TRAVIS_COOKBOOKS_SHA&amp;amp;format=text&quot;&gt;杉石&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2017-07-12/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2017-07-12/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2017年8月17日&quot;&gt;2017年8月17日&lt;/h1&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2017-8-21,360,c8l&quot;&gt;2017-08-21 18:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;如前所述，Xcode beta版本6.1,6.2和6.3已被弃用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;配置值为的项目&lt;code class=&quot;highlighter-rouge&quot;&gt;beta-xcode6.1&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;beta-xcode6.2&lt;/code&gt;， 要么&lt;code class=&quot;highlighter-rouge&quot;&gt;beta-xcode6.3&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;为了&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image&lt;/code&gt;标签现在将在我们的网站上运行&lt;a href=&quot;/user/reference/osx/#macos-version&quot;&gt;默认OS X映像&lt;/a&gt;。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;用户可以通过指定在Xcode 6.4上运行&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode-6.4&lt;/code&gt;在&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;他们的项目配置。&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;有关新Xcode 7.3默认图像与之间差异的更多信息&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;可以找到以前的Xcode 6.1映像&lt;a href=&quot;https://blog.travis-ci.com/2016-10-04-osx-73-default-image-live/&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2017-08-17/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2017-08-17/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2017年9月6日&quot;&gt;2017年9月6日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于sudo-enabled和的Ubuntu Trusty堆栈&lt;/p&gt;
+
+&lt;p&gt;基于容器的执行环境，以及构建的Beta Android堆栈&lt;/p&gt;
+
+&lt;p&gt;在Ubuntu Trusty之上。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2017-9-6,240,c8l&quot;&gt;2017-09-06 16:00 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装的&lt;code class=&quot;highlighter-rouge&quot;&gt;ant-optional&lt;/code&gt;包蚂蚁junit支持&lt;/li&gt;
+  &lt;li&gt;赛跑&lt;code class=&quot;highlighter-rouge&quot;&gt;dpkg --add-architecture i386&lt;/code&gt;在自助时间&lt;/li&gt;
+  &lt;li&gt;目录在&lt;code class=&quot;highlighter-rouge&quot;&gt;~travis/.bash_profile.d&lt;/code&gt;用于获取用户级别的任意&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;shell初始时的事情&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;的定义&lt;code class=&quot;highlighter-rouge&quot;&gt;_JAVA_OPTIONS=&quot;-Xmx2048m -Xms512m&quot;&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;MALLOC_ARENA_MAX=2&lt;/code&gt;上&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;仅基于容器。&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mysql配置优化执行速度&lt;/li&gt;
+  &lt;li&gt;预安装的PHP版本&lt;code class=&quot;highlighter-rouge&quot;&gt;5.6.31&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;7.0.22&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pyenv&lt;code class=&quot;highlighter-rouge&quot;&gt;1.1.3&lt;/code&gt;，加上改变以确保&lt;code class=&quot;highlighter-rouge&quot;&gt;pyenv versions&lt;/code&gt;工作正常&lt;/li&gt;
+  &lt;li&gt;打包机&lt;code class=&quot;highlighter-rouge&quot;&gt;1.0.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;elasticsearch&lt;code class=&quot;highlighter-rouge&quot;&gt;5.5.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;火狐&lt;code class=&quot;highlighter-rouge&quot;&gt;55.0.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;铛&lt;code class=&quot;highlighter-rouge&quot;&gt;3.9.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;gradle这个&lt;code class=&quot;highlighter-rouge&quot;&gt;4.0.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;行家&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;善变&lt;code class=&quot;highlighter-rouge&quot;&gt;4.2.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;shellcheck&lt;code class=&quot;highlighter-rouge&quot;&gt;0.4.6&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;shfmt&lt;code class=&quot;highlighter-rouge&quot;&gt;1.3.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;通常在作业执行时更新的预安装工具：
+    &lt;ul&gt;
+      &lt;li&gt;给我&lt;code class=&quot;highlighter-rouge&quot;&gt;1.2.0&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;NVM&lt;code class=&quot;highlighter-rouge&quot;&gt;0.33.2&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;纱&lt;code class=&quot;highlighter-rouge&quot;&gt;0.27.5&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;这是sugilite堆栈的最终图像发布，已经完全&lt;/p&gt;
+
+&lt;p&gt;取而代之的是单独的紫水晶和石榴石堆叠。我们不希望这样&lt;/p&gt;
+
+&lt;p&gt;对任何用户产生负面影响，作为唯一的价值&lt;code class=&quot;highlighter-rouge&quot;&gt;language&lt;/code&gt;那将是&lt;/p&gt;
+
+&lt;p&gt;丢弃是不受支持的&lt;code class=&quot;highlighter-rouge&quot;&gt;__sugilite__&lt;/code&gt;串。&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;补丁到&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/redis-server&lt;/code&gt;无视&lt;code class=&quot;highlighter-rouge&quot;&gt;ulimit&lt;/code&gt;退出代码，就像这样&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;现在是打包版本的一部分&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;包含&lt;code class=&quot;highlighter-rouge&quot;&gt;uname -r&lt;/code&gt;在系统信息中，因为这更准确地报告在&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;工作执行时间&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;所有的mysql权限&lt;code class=&quot;highlighter-rouge&quot;&gt;'travis'@&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;'root'@&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;所有APT管理的软件包都已更新，包括最新的安全补丁。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-cookbooks/compare/15a6f94...4642454&quot;&gt;travis-cookbooks diff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/compare/78c07e1...f33ae65&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;特定于堆栈的差异&quot;&gt;特定于堆栈的差异&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-cookiecat-trusty-1499447127/travis-ci-cookiecat-trusty-1503974222?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&amp;amp;format=text&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-amethyst-trusty-1499451965/travis-ci-amethyst-trusty-1503972832?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&amp;amp;format=text&quot;&gt;紫水晶（水晶，csharp，d，dart，elixir，erlang，haskell，haxe，julia，perl，r，rust）&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-connie-trusty-1499451964/travis-ci-connie-trusty-1503972833?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&amp;amp;format=text&quot;&gt;康妮（bash，sh）&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-garnet-trusty-1499451966/travis-ci-garnet-trusty-1503972833?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&amp;amp;format=text&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackmeta-production.herokuapp.com/diff/travis-ci-sugilite-trusty-1499447160/travis-ci-sugilite-trusty-1503977398?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&amp;amp;format=text&quot;&gt;sugilite（紫水晶+石榴石）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2017-09-06/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2017-09-06/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2017年11月1日&quot;&gt;2017年11月1日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于macos10.12-xcode8.3图像，用于&lt;code class=&quot;highlighter-rouge&quot;&gt;os: osx&lt;/code&gt;建立&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2017-11-01,630,c8l&quot;&gt;2017-11-01 22:30 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bundler版本&lt;code class=&quot;highlighter-rouge&quot;&gt;1.15.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xctool版本&lt;code class=&quot;highlighter-rouge&quot;&gt;0.3.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;16.7.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1.15.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;促进&lt;code class=&quot;highlighter-rouge&quot;&gt;1.65.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;迦太基&lt;code class=&quot;highlighter-rouge&quot;&gt;0.26.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;CGAL&lt;code class=&quot;highlighter-rouge&quot;&gt;4.11&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3.9.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的coreutils&lt;code class=&quot;highlighter-rouge&quot;&gt;8.28_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;freexl&lt;code class=&quot;highlighter-rouge&quot;&gt;1.0.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;@中&lt;code class=&quot;highlighter-rouge&quot;&gt;1.11.5_3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;GEOS&lt;code class=&quot;highlighter-rouge&quot;&gt;3.6.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;2.14.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;GnuPG的&lt;code class=&quot;highlighter-rouge&quot;&gt;2.2.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;GNUTLS&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.15&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;走&lt;code class=&quot;highlighter-rouge&quot;&gt;1.9.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;ICU4C&lt;code class=&quot;highlighter-rouge&quot;&gt;59.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;JPEG&lt;code class=&quot;highlighter-rouge&quot;&gt;9b&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0.12.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;libgcrypt&lt;code class=&quot;highlighter-rouge&quot;&gt;1.8.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;libgeotiff&lt;code class=&quot;highlighter-rouge&quot;&gt;1.4.2_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1.6.34&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的libtiff&lt;code class=&quot;highlighter-rouge&quot;&gt;4.0.8_4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;libxml2的&lt;code class=&quot;highlighter-rouge&quot;&gt;2.9.6&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;lzlib&lt;code class=&quot;highlighter-rouge&quot;&gt;1.9&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;善变&lt;code class=&quot;highlighter-rouge&quot;&gt;4.3.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;MPFR&lt;code class=&quot;highlighter-rouge&quot;&gt;3.1.6&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;2.1.5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;P11-KIT&lt;code class=&quot;highlighter-rouge&quot;&gt;0.23.9&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;节点&lt;code class=&quot;highlighter-rouge&quot;&gt;8.6.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;动作版&lt;code class=&quot;highlighter-rouge&quot;&gt;5.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pod版本&lt;code class=&quot;highlighter-rouge&quot;&gt;1.3.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;PostGIS的&lt;code class=&quot;highlighter-rouge&quot;&gt;2.4.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;PostgreSQL的&lt;code class=&quot;highlighter-rouge&quot;&gt;9.6.5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pyenv&lt;code class=&quot;highlighter-rouge&quot;&gt;1.1.5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;蟒蛇&lt;code class=&quot;highlighter-rouge&quot;&gt;2.7.14&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;swiftlint&lt;code class=&quot;highlighter-rouge&quot;&gt;0.23.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;所有brew包都已更新，包括最新的安全补丁。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Lyoness/travis_staging_test/commit/fba03279686a1492a78ed958d72344fe4af3a55f?diff=unified%23diff-934df722cbc32c134935cba6c22c3a84R740&quot;&gt;xcode8.3 diff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2017-11-01/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2017-11-01/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2017年11月8日&quot;&gt;2017年11月8日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode9.1&lt;/code&gt;，对于osx构建&lt;/p&gt;
+
+&lt;p&gt;Xcode 9.1（build 9B55）&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://everytimezone.com/#2017-11-08,490,c8l&quot;&gt;2017-11-08 22:30 UTC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bundler版本&lt;code class=&quot;highlighter-rouge&quot;&gt;1.15.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xctool版本&lt;code class=&quot;highlighter-rouge&quot;&gt;0.3.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;迦太基&lt;code class=&quot;highlighter-rouge&quot;&gt;0.26.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;CGAL&lt;code class=&quot;highlighter-rouge&quot;&gt;4.11&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;cmake的&lt;code class=&quot;highlighter-rouge&quot;&gt;3.9.5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的coreutils&lt;code class=&quot;highlighter-rouge&quot;&gt;8.28_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;混帐&lt;code class=&quot;highlighter-rouge&quot;&gt;2.15.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;GMP&lt;code class=&quot;highlighter-rouge&quot;&gt;6.1.2_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;GNUTLS&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.16&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;走&lt;code class=&quot;highlighter-rouge&quot;&gt;1.9.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;ICU4C&lt;code class=&quot;highlighter-rouge&quot;&gt;59.1_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的libpng&lt;code class=&quot;highlighter-rouge&quot;&gt;1.6.34&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的libtiff&lt;code class=&quot;highlighter-rouge&quot;&gt;4.0.8_5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;libxml2的&lt;code class=&quot;highlighter-rouge&quot;&gt;2.9.7&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;lzlib&lt;code class=&quot;highlighter-rouge&quot;&gt;1.9&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;行家&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;善变&lt;code class=&quot;highlighter-rouge&quot;&gt;4.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;节点&lt;code class=&quot;highlighter-rouge&quot;&gt;8.9.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;动作版&lt;code class=&quot;highlighter-rouge&quot;&gt;5.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pod版本&lt;code class=&quot;highlighter-rouge&quot;&gt;1.3.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;PostGIS的&lt;code class=&quot;highlighter-rouge&quot;&gt;2.4.0_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;PostgreSQL的&lt;code class=&quot;highlighter-rouge&quot;&gt;9.6.5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pyenv&lt;code class=&quot;highlighter-rouge&quot;&gt;1.1.5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;蟒蛇&lt;code class=&quot;highlighter-rouge&quot;&gt;2.7.14&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;swiftlint&lt;code class=&quot;highlighter-rouge&quot;&gt;0.23.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;迅速&lt;code class=&quot;highlighter-rouge&quot;&gt;4.0.2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;p&gt;Swift工具链更新到4.0.2&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;查看xcode9.1-beta到xcode9.1 GA图像的完整差异&lt;a href=&quot;https://github.com/travis-ci/docs-travis-ci-com/commit/f73c2664e632ff0f60328ddd569c8b9a2755fe45&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2017-11-08/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2017-11-08/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2017年12月12日&quot;&gt;2017年12月12日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于sudo-enabled和的Ubuntu Trusty堆栈&lt;/p&gt;
+
+&lt;p&gt;基于容器的执行环境。&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装的&lt;code class=&quot;highlighter-rouge&quot;&gt;dbus-x11&lt;/code&gt;包以获得更好的xserver支持&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;预安装的Python版本&lt;code class=&quot;highlighter-rouge&quot;&gt;2.7.14&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;3.6.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;预安装的PHP版本&lt;code class=&quot;highlighter-rouge&quot;&gt;5.6.32&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;7.0.25&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;7.1.11&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;预安装的nodejs版本&lt;code class=&quot;highlighter-rouge&quot;&gt;6.12.0&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;8.9.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;铛&lt;code class=&quot;highlighter-rouge&quot;&gt;5.0.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;cmake的&lt;code class=&quot;highlighter-rouge&quot;&gt;3.9.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;搬运工人&lt;code class=&quot;highlighter-rouge&quot;&gt;17.09.0-ce&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;泊坞窗，撰写&lt;code class=&quot;highlighter-rouge&quot;&gt;1.17.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;火狐&lt;code class=&quot;highlighter-rouge&quot;&gt;56.0.2&lt;/code&gt;（现在支持&lt;a href=&quot;/user/gui-and-headless-browsers/#using-the-firefox-addon-in-headless-mode&quot;&gt;无头模式&lt;/a&gt;）&lt;/li&gt;
+  &lt;li&gt;混帐&lt;code class=&quot;highlighter-rouge&quot;&gt;2.15.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;谷歌浏览器&lt;code class=&quot;highlighter-rouge&quot;&gt;62.0.3202&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;谷歌云-SDK&lt;code class=&quot;highlighter-rouge&quot;&gt;176.0.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;leiningen&lt;code class=&quot;highlighter-rouge&quot;&gt;2.8.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;行家&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;MongoDB的&lt;code class=&quot;highlighter-rouge&quot;&gt;3.4.10&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Neo4j的&lt;code class=&quot;highlighter-rouge&quot;&gt;3.2.7&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;phantomjs&lt;code class=&quot;highlighter-rouge&quot;&gt;2.1.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;RabbitMQ的服务器&lt;code class=&quot;highlighter-rouge&quot;&gt;3.6.14&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;shfmt&lt;code class=&quot;highlighter-rouge&quot;&gt;2.0.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;通常在作业执行时更新的预安装工具：
+    &lt;ul&gt;
+      &lt;li&gt;NVM&lt;code class=&quot;highlighter-rouge&quot;&gt;0.33.6&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;纱&lt;code class=&quot;highlighter-rouge&quot;&gt;1.3.2&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;该&lt;code class=&quot;highlighter-rouge&quot;&gt;-Xcext.enabled=false&lt;/code&gt;选项来自&lt;code class=&quot;highlighter-rouge&quot;&gt;JRUBY_OPTS&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-cookbooks/compare/4642454...7c2c6a6&quot;&gt;travis-cookbooks diff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/compare/f33ae65...986baf0&quot;&gt;packer-templates diff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2017-12-12/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2017-12-12/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2018年2月8日&quot;&gt;2018年2月8日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode9.3beta&lt;/code&gt;，对于osx构建&lt;/p&gt;
+
+&lt;p&gt;Xcode 9.3（build 9Q98q）&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;2018-02-08 14:30 UTC&lt;/p&gt;
+
+&lt;h2 id=&quot;添加&quot;&gt;添加&lt;/h2&gt;
+
+&lt;p&gt;此xcode图像在High Sierra 10.13上运行&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;iPhoneOS11.3 sdk  -  iOS 11.3（iphoneos11.3）&lt;/li&gt;
+  &lt;li&gt;tvOS 11.3（15L5175d）&lt;/li&gt;
+  &lt;li&gt;iOS 11.3（15E5178d）&lt;/li&gt;
+  &lt;li&gt;watchOS 4.3（15T5176c）&lt;/li&gt;
+  &lt;li&gt;macOS 10.13.4（17E150d）&lt;/li&gt;
+  &lt;li&gt;tmate&lt;code class=&quot;highlighter-rouge&quot;&gt;2.2.1_3&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bundler版本&lt;code class=&quot;highlighter-rouge&quot;&gt;1.15.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xctool版本&lt;code class=&quot;highlighter-rouge&quot;&gt;0.3.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;迦太基&lt;code class=&quot;highlighter-rouge&quot;&gt;0.28.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;CGAL&lt;code class=&quot;highlighter-rouge&quot;&gt;4.11_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;cmake的&lt;code class=&quot;highlighter-rouge&quot;&gt;3.10.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;8.29&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;2.16.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.17&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;走&lt;code class=&quot;highlighter-rouge&quot;&gt;1.9.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;ICU4C&lt;code class=&quot;highlighter-rouge&quot;&gt;60.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4.0.9_1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;2.9.7&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;lzlib&lt;code class=&quot;highlighter-rouge&quot;&gt;1.9&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;行家&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;善变&lt;code class=&quot;highlighter-rouge&quot;&gt;4.5&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;9.5.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;动作版&lt;code class=&quot;highlighter-rouge&quot;&gt;5.6&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pod版本&lt;code class=&quot;highlighter-rouge&quot;&gt;1.4.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;PostGIS的&lt;code class=&quot;highlighter-rouge&quot;&gt;2.4.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;PostgreSQL的&lt;code class=&quot;highlighter-rouge&quot;&gt;10.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;pyenv&lt;code class=&quot;highlighter-rouge&quot;&gt;1.2.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;蟒蛇&lt;code class=&quot;highlighter-rouge&quot;&gt;2.7.14_2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;源码&lt;code class=&quot;highlighter-rouge&quot;&gt;3.22.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;swiftlint&lt;code class=&quot;highlighter-rouge&quot;&gt;0.24.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;迅速&lt;code class=&quot;highlighter-rouge&quot;&gt;4.0.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;wget的&lt;code class=&quot;highlighter-rouge&quot;&gt;1.19.4_1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;在这里查看完整差异：https：//github.com/travis-ci/docs-travis-ci-com/commit/2d947844dff36b4acd8a59abcdf69af3bf9b1933&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 08 Feb 2018 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2018-02-07/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2018-02-07/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2018年4月9日&quot;&gt;2018年4月9日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode9.3&lt;/code&gt;，对于osx构建&lt;/p&gt;
+
+&lt;p&gt;Xcode 9.3 GA（build 9E145）。&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;此xcode图像在High Sierra 10.13上运行&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;软件开发工具包&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;iPhoneOS11.3.sdk  -  iOS 11.3（iphoneos11.3）&lt;/li&gt;
+  &lt;li&gt;tvOS 11.3（15L211）&lt;/li&gt;
+  &lt;li&gt;iOS 11.3（15E217）&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;macOS 10.13.4（17E189）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;迅速&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;宝石&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;的CocoaPods&lt;code class=&quot;highlighter-rouge&quot;&gt;1.5.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;快车道&lt;code class=&quot;highlighter-rouge&quot;&gt;2.89.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xctool版本&lt;code class=&quot;highlighter-rouge&quot;&gt;0.3.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;12.3.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的RDoc&lt;code class=&quot;highlighter-rouge&quot;&gt;6.0.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xcodeproj&lt;code class=&quot;highlighter-rouge&quot;&gt;1.5.7&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+</description>
+				<pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2018-04-09/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2018-04-09/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2018年6月15日&quot;&gt;2018年6月15日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode9.4&lt;/code&gt;，对于osx构建&lt;/p&gt;
+
+&lt;p&gt;此xcode图像在High Sierra 10.13上运行&lt;/p&gt;
+
+&lt;p&gt;Xcode 9.4.1&lt;/p&gt;
+
+&lt;p&gt;构建版本9F2000&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;2018-06-15 19:00 UTC&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;软件开发工具包&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;iPhoneOS11.4.sdk  -  iOS 11.4（iphoneos11.4）&lt;/li&gt;
+  &lt;li&gt;tvOS 11.4（15L576）&lt;/li&gt;
+  &lt;li&gt;iOS 11.3（15E217）&lt;/li&gt;
+  &lt;li&gt;watchOS 4.3（15T212）&lt;/li&gt;
+  &lt;li&gt;macOS 10.13.4（17E189）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;迅速&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Apple Swift版本4.1.2（swiftlang-902.0.54 clang-902.0.39.2）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;宝石&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;的CocoaPods&lt;code class=&quot;highlighter-rouge&quot;&gt;1.5.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;快车道&lt;code class=&quot;highlighter-rouge&quot;&gt;2.89.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xctool版本&lt;code class=&quot;highlighter-rouge&quot;&gt;0.3.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;耙&lt;code class=&quot;highlighter-rouge&quot;&gt;12.3.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的RDoc&lt;code class=&quot;highlighter-rouge&quot;&gt;6.0.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xcodeproj&lt;code class=&quot;highlighter-rouge&quot;&gt;1.5.7&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+</description>
+				<pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2018-06-15/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2018-06-15/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2018年7月31日&quot;&gt;2018年7月31日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于osx构建的默认osx映像&lt;/p&gt;
+
+&lt;p&gt;新的默认xcode映像在High Sierra 10.13上运行&lt;/p&gt;
+
+&lt;p&gt;Xcode 9.4.1&lt;/p&gt;
+
+&lt;p&gt;构建版本9F2000&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;2018-07-31 19:00 UTC&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;软件开发工具包&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;iPhoneOS11.4.sdk  -  iOS 11.4（iphoneos11.4）&lt;/li&gt;
+  &lt;li&gt;tvOS 11.4（15L576）&lt;/li&gt;
+  &lt;li&gt;iOS 11.3（15E217）&lt;/li&gt;
+  &lt;li&gt;watchOS 4.3（15T212）&lt;/li&gt;
+  &lt;li&gt;macOS 10.13.4（17E189）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;迅速&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Apple Swift版本4.1.2（swiftlang-902.0.54 clang-902.0.39.2）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;宝石&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;的CocoaPods&lt;code class=&quot;highlighter-rouge&quot;&gt;1.5.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;快车道&lt;code class=&quot;highlighter-rouge&quot;&gt;2.89.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xctool版本&lt;code class=&quot;highlighter-rouge&quot;&gt;0.3.4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;耙&lt;code class=&quot;highlighter-rouge&quot;&gt;12.3.1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;的RDoc&lt;code class=&quot;highlighter-rouge&quot;&gt;6.0.3&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;xcodeproj&lt;code class=&quot;highlighter-rouge&quot;&gt;1.5.7&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;以前的默认图像，xcode8.3。如果您需要以前的默认值，请指定&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode8.3&lt;/code&gt;在.travis.yml中&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+</description>
+				<pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2018-07-31/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2018-07-31/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2018年9月5日&quot;&gt;2018年9月5日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode9.3beta&lt;/code&gt;用于macOS构建。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;2018-09-05 14:00 UTC&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;Xcode图像&lt;code class=&quot;highlighter-rouge&quot;&gt;xcode9.3beta&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;包括的所有工作&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode9.3beta&lt;/code&gt;在他们的配置现在将运行&lt;code class=&quot;highlighter-rouge&quot;&gt;xcode9.3&lt;/code&gt;图片。&lt;/p&gt;
+
+&lt;p&gt;请相应更新您的配置。&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+</description>
+				<pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2018-09-05/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2018-09-05/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2018年9月13日&quot;&gt;2018年9月13日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode10&lt;/code&gt;，对于macOS构建&lt;/p&gt;
+
+&lt;p&gt;Xcode 10.0 GA（build 10A254a）。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;2018-09-13 16:00 UTC&lt;/p&gt;
+
+&lt;p&gt;此xcode图像在High Sierra 10.13.6上运行。&lt;/p&gt;
+
+&lt;h2 id=&quot;变&quot;&gt;变&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;软件开发工具包&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;tvOS 12.0（16J364）&lt;/li&gt;
+  &lt;li&gt;iOS 12.0（16A366）&lt;/li&gt;
+  &lt;li&gt;watchOS 5.0（16R363）&lt;/li&gt;
+  &lt;li&gt;macOS 10.14（18A384）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2018-09-13/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2018-09-13/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2018年11月1日&quot;&gt;2018年11月1日&lt;/h1&gt;
+
+&lt;p&gt;此更新适用于&lt;code class=&quot;highlighter-rouge&quot;&gt;osx_image: xcode10.1&lt;/code&gt;，对于macOS构建&lt;/p&gt;
+
+&lt;p&gt;Xcode 10.1（build 10B61）。&lt;/p&gt;
+
+&lt;h2 id=&quot;时间表&quot;&gt;时间表&lt;/h2&gt;
+
+&lt;p&gt;2018-11-01 12:00 UTC&lt;/p&gt;
+
+&lt;p&gt;此xcode图像在High Sierra 10.13.6上运行。&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;软件开发工具包&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;iOS 12.1（16B91）&lt;/li&gt;
+  &lt;li&gt;watchOS 5.1（16R591）&lt;/li&gt;
+  &lt;li&gt;macOS 10.14（18B71）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;迅速&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;弃用&quot;&gt;弃用&lt;/h2&gt;
+
+&lt;h2 id=&quot;删除&quot;&gt;删除&lt;/h2&gt;
+
+&lt;h2 id=&quot;固定&quot;&gt;固定&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+&lt;h2 id=&quot;安全&quot;&gt;安全&lt;/h2&gt;
+
+&lt;p&gt;N / A&lt;/p&gt;
+
+</description>
+				<pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2018-11-01/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2018-11-01/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2019年1月14日&quot;&gt;2019年1月14日&lt;/h1&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;语言：通用被认可&lt;/li&gt;
+  &lt;li&gt;系统信息更具可读性&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;Gem（和rvm）配置为使用&lt;code class=&quot;highlighter-rouge&quot;&gt;--no-document&lt;/code&gt;而不是&lt;code class=&quot;highlighter-rouge&quot;&gt;--no-ri&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;--no-rdoc&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;9696&quot;&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-ci/issues/9696&quot;&gt;＃9696&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Gradle守护程序不再被禁用&lt;/li&gt;
+  &lt;li&gt;只有设定&lt;code class=&quot;highlighter-rouge&quot;&gt;_JAVA_OPTIONS&lt;/code&gt;在码头工人的容器上&lt;/li&gt;
+  &lt;li&gt;放弃hhvm支持&lt;/li&gt;
+  &lt;li&gt;已不再安装Chromium（不过，Google Chrome仍在继续安装）&lt;/li&gt;
+  &lt;li&gt;删除Xvfb init文件以支持systemd单元文件。可以设置Xvfb&lt;code class=&quot;highlighter-rouge&quot;&gt;services: xvfb&lt;/code&gt;。当您这样做时，匹配的DISPLAY环境变量可用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;版本更改&quot;&gt;版本更改&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;git：2.19.1→2.20.1&lt;/li&gt;
+  &lt;li&gt;lein：2.8.1→2.8.3&lt;/li&gt;
+  &lt;li&gt;mongodb：4.0.3→4.0.5&lt;/li&gt;
+  &lt;li&gt;打包机：1.3.2→1.3.3&lt;/li&gt;
+  &lt;li&gt;perlbrew：0.84→0.85&lt;/li&gt;
+  &lt;li&gt;postgres：9.4.19→9.4.20,9.5.14→9.5.15,9.6.10→9.6.11,10.5→10.6&lt;/li&gt;
+  &lt;li&gt;redis：5.0.0→5.0.3&lt;/li&gt;
+  &lt;li&gt;rvm 1.29.4→1.29.7&lt;/li&gt;
+  &lt;li&gt;shfmt 2.4.0  - &amp;gt; 2.6.2&lt;/li&gt;
+  &lt;li&gt;shellcheck v0.5.0→v0.6.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-cookbooks/compare/016ead6...509637e&quot;&gt;travis-cookbooks diff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/compare/e193d27...2c98a19&quot;&gt;packer-templates diff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2019-01-14/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2019-01-14/</guid>
+			</item>
+		
+		
+		
+			<item>
+				<title>Build Environment Update History</title>
+				<description>&lt;h1 id=&quot;2019年4月11日&quot;&gt;2019年4月11日&lt;/h1&gt;
+
+&lt;h2 id=&quot;变化&quot;&gt;变化&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;git使用&lt;a href=&quot;https://github.com/git/git/blob/master/Documentation/technical/protocol-v2.txt&quot;&gt;电线协议版本2&lt;/a&gt;做网络运营，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;要么&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;docker尽可能从GCE图像缓存中提取&lt;/li&gt;
+  &lt;li&gt;php版别名现在已被识别&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;版本更新&quot;&gt;版本更新&lt;/h2&gt;
+
+&lt;p&gt;Xenial上预装的以下语言和工具已更新：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;git：2.20.1  - &amp;gt; 2.21.0&lt;/li&gt;
+  &lt;li&gt;heroku：7.19  - &amp;gt; 7.22&lt;/li&gt;
+  &lt;li&gt;leiningen：2.8.3  - &amp;gt; 2.9.1&lt;/li&gt;
+  &lt;li&gt;mysql：5.7.24  - &amp;gt; 5.7.25&lt;/li&gt;
+  &lt;li&gt;neo4j：v4.2.2  - &amp;gt; v4.4.1&lt;/li&gt;
+  &lt;li&gt;maven：v3.5.4  - &amp;gt; v3.6.0&lt;/li&gt;
+  &lt;li&gt;mongodb：4.0.5  - &amp;gt; 4.0.7&lt;/li&gt;
+  &lt;li&gt;php：5.6.36  - &amp;gt; 5.6.40&lt;/li&gt;
+  &lt;li&gt;php：7.1.19  - &amp;gt; 7.1.27&lt;/li&gt;
+  &lt;li&gt;php：7.2.7  - &amp;gt; 7.2.15&lt;/li&gt;
+  &lt;li&gt;postgresql：9.4.20  - &amp;gt; 9.4.21&lt;/li&gt;
+  &lt;li&gt;postgresql：9.5.15  - &amp;gt; 9.5.16&lt;/li&gt;
+  &lt;li&gt;postgresql：9.6.11  - &amp;gt; 9.6.12&lt;/li&gt;
+  &lt;li&gt;redis：5.0.3  - &amp;gt; 5.0.4&lt;/li&gt;
+  &lt;li&gt;shfmt：v2.6.2  - &amp;gt; 2.6.3&lt;/li&gt;
+  &lt;li&gt;rbenv：1.1.1  - &amp;gt; 1.1.2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;细节&quot;&gt;细节&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/travis-cookbooks/compare/f9b6c9e...42e42e4&quot;&gt;travis-cookbooks diff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/travis-ci/packer-templates/compare/7ce7ab5...f909ac5&quot;&gt;packer-templates diff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+				<link>http://localhost:4000/user/build-environment-updates/2019-04-11/</link>
+				<guid isPermaLink="true">http://localhost:4000/user/build-environment-updates/2019-04-11/</guid>
+			</item>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</channel>
+</rss>

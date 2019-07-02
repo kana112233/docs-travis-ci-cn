@@ -1,0 +1,677 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speeding up the build - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/speeding-up-the-build.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Speeding up the build</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#跨虚拟机并行构建">跨虚拟机并行构建</a></li>
+  <li><a href="#在一个虚拟机上并行构建">在一个虚拟机上并行构建</a></li>
+  <li><a href="#在多个vm上并行化rspeccucumber和minitest">在多个VM上并行化RSpec，Cucumber和Minitest</a></li>
+  <li><a href="#缓存依赖项">缓存依赖项</a></li>
+  <li><a href="#特定于环境的加速构建的方法">特定于环境的加速构建的方法</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>Travis CI实现了一些有助于加速构建的优化，</p>
+
+<p>就像在DB文件的内存文件系统中一样，但是有很多东西</p>
+
+<p>可以做更多的事情来改善构建时间。</p>
+
+<h2 id="跨虚拟机并行构建">跨虚拟机并行构建 <a href="#跨虚拟机并行构建" class="toc-anchor">#</a></h2>
+
+<p>为了加速测试套件，您可以使用它将其分解为几个部分</p>
+
+<p>特拉维斯CI[建立</p>
+
+<p>矩阵](/user/customizing-the-build/#build-matrix)</p>
+
+<p>特征。</p>
+
+<p>假设您要将单元测试和集成测试分成两部分</p>
+
+<p>不同的构建工作。它们将并行运行并充分利用可用的</p>
+
+<p>为您的帐户建立容量。</p>
+
+<p>以下是如何在您的网站中使用此功能的示例<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  - TEST_SUITE=units
+  - TEST_SUITE=integration
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>然后更改脚本命令以使用新的环境变量</p>
+
+<p>确定要运行的脚本。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: "bundle exec rake test:$TEST_SUITE"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>Travis CI将根据环境变量确定构建矩阵</p>
+
+<p>安排两个版本运行。</p>
+
+<p>关于这个设置的整洁部分是单元测试套件通常会发生的</p>
+
+<p>在集成测试套件之前完成，为您提供更快的视觉反馈</p>
+
+<p>在基本测试覆盖范围内。</p>
+
+<p>进一步。您可以将集成测试的不同问题分开</p>
+
+<p>不同的子文件夹，并在构建矩阵的不同阶段运行它们。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  - TESTFOLDER=integration/user
+  - TESTFOLDER=integration/shopping_cart
+  - TESTFOLDER=integration/payments
+  - TESTFOLDER=units
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>然后，您可以调整脚本命令以为每个子文件夹运行rspec：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: "bundle exec rspec $TESTFOLDER"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>例如，Rails项目使用构建矩阵功能来创建单独的</p>
+
+<p>每个要测试的数据库的作业，以及通过分割测试</p>
+
+<p>关心。一套仅针对铁路运行测试，另一套针对动作包进行测试，</p>
+
+<p>actionmailer，activesupport和一大堆集合运行activerecord</p>
+
+<p>测试多个数据库。看他们的[.travis.yml</p>
+
+<p>文件](https://github.com/rails/rails/blob/master/.travis.yml)更多例子。</p>
+
+<h2 id="在一个虚拟机上并行构建">在一个虚拟机上并行构建 <a href="#在一个虚拟机上并行构建" class="toc-anchor">#</a></h2>
+
+<p>在一个虚拟机上并行化测试套件取决于语言和测试运行器：</p>
+
+<ul>
+  <li>对于Ruby和RSpec使用<a href="https://github.com/grosser/parallel_tests">parallel_tests</a></li>
+  <li>对于Java，请使用内置功能[并行运行测试</li>
+</ul>
+
+<p>使用JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html)。</p>
+
+<p>为了让您了解加速，我们正在尝试并行运行测试<code class="highlighter-rouge">travis-core</code>在4个工作岗位上，我能看到从大约26分钟到大约19分钟的下降。</p>
+
+<h2 id="在多个vm上并行化rspeccucumber和minitest">在多个VM上并行化RSpec，Cucumber和Minitest <a href="#在多个vm上并行化rspeccucumber和minitest" class="toc-anchor">#</a></h2>
+
+<p>如果您想在多个VM上对RSpec，Cucumber或Minitest进行并行测试，以便从CI获得更快的反馈，那么您可以尝试<a href="https://github.com/ArturT/knapsack">背包</a>宝石。它将跨虚拟机分割测试，并确保测试将在每个VM上运行相当的时间（每个作业将花费相似的时间）。您可以使用我们的矩阵功能来设置背包。</p>
+
+<h3 id="rspec并行化示例">RSpec并行化示例 <a href="#rspec并行化示例" class="toc-anchor">#</a></h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: "bundle exec rake knapsack:rspec"
+env:
+  global:
+    - MY_GLOBAL_VAR=123
+    - CI_NODE_TOTAL=2
+  matrix:
+    - CI_NODE_INDEX=0
+    - CI_NODE_INDEX=1
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>这样的配置将生成具有2个以下ENV行的矩阵：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=0
+MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=1
+
+</code></pre></div></div>
+
+<h3 id="黄瓜并行化的例子">黄瓜并行化的例子 <a href="#黄瓜并行化的例子" class="toc-anchor">#</a></h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: "bundle exec rake knapsack:cucumber"
+env:
+  global:
+    - CI_NODE_TOTAL=2
+  matrix:
+    - CI_NODE_INDEX=0
+    - CI_NODE_INDEX=1
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="最小的并行化示例">最小的并行化示例 <a href="#最小的并行化示例" class="toc-anchor">#</a></h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: "bundle exec rake knapsack:minitest"
+env:
+  global:
+    - CI_NODE_TOTAL=2
+  matrix:
+    - CI_NODE_INDEX=0
+    - CI_NODE_INDEX=1
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="rspeccucumber和minitest并行化示例">RSpec，Cucumber和Minitest并行化示例 <a href="#rspeccucumber和minitest并行化示例" class="toc-anchor">#</a></h3>
+
+<p>如果要同时为RSpec，Cucumber和Minitest并行化测试套件，则在其中定义脚本<code class="highlighter-rouge">.travis.yml</code>这条路：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script:
+  - "bundle exec rake knapsack:rspec"
+  - "bundle exec rake knapsack:cucumber"
+  - "bundle exec rake knapsack:minitest"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>您可以在中找到更多示例<a href="https://github.com/ArturT/knapsack#info-for-travis-users">背包文档</a>。</p>
+
+<h2 id="缓存依赖项">缓存依赖项 <a href="#缓存依赖项" class="toc-anchor">#</a></h2>
+
+<p>为项目安装依赖项可能需要相当长的时间才能完成更大的项目。在</p>
+
+<p>为了使速度更快，您可以尝试缓存依赖项。</p>
+
+<p>你可以使用我们的<a href="/user/caching/">内置缓存</a>或者在S3上滚动你自己。如果你</p>
+
+<p>想要自己滚动，你使用Ruby与Bundler，看看<a href="https://github.com/Fingertips/WAD">伟大的WAD项目</a>。</p>
+
+<p>对于其他语言，您可以直接使用s3工具上载和下载依赖项。</p>
+
+<h2 id="特定于环境的加速构建的方法">特定于环境的加速构建的方法 <a href="#特定于环境的加速构建的方法" class="toc-anchor">#</a></h2>
+
+<p>除了特拉维斯实施的优化之外，还有</p>
+
+<p>您可以考虑采用几种特定于环境的方法来提高速度</p>
+
+<p>你的考试。</p>
+
+<h3 id="php优化">PHP优化 <a href="#php优化" class="toc-anchor">#</a></h3>
+
+<p>Travis CI上的PHP VM映像提供了几个PHP版本，其中包括</p>
+
+<p>XDebug的。如果您希望生成代码覆盖率，则XDebug扩展非常有用</p>
+
+<p>您的Travis版本中的报告，但已被证明具有负面影响</p>
+
+<p>表演。</p>
+
+<p>你可以考虑一下</p>
+
+<p><a href="/user/languages/php#disabling-preinstalled-php-extensions">禁用PHP XDebug扩展</a>为您</p>
+
+<p>建立如果：</p>
+
+<ul>
+  <li>您没有在Travis测试中生成代码覆盖率报告;要么</li>
+  <li>您正在测试PHP 7.0或更高版本，并能够使用<a href="https://github.com/krakjoe/phpdbg">PHP调试器（phpdbg）</a></li>
+</ul>
+
+<p>这可能会更快。</p>
+
+<h4 id="使用phpdbg示例">使用phpdbg示例 <a href="#使用phpdbg示例" class="toc-anchor">#</a></h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_script:
+  - phpenv config-rm xdebug.ini
+  - composer install
+
+script:
+  - phpdbg -qrr phpunit
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="makefile优化">Makefile优化 <a href="#makefile优化" class="toc-anchor">#</a></h3>
+
+<p>如果您的makefile构建包含可以安全的独立部分</p>
+
+<p>并行化，你可以[运行多个食谱</p>
+
+<p>同时](https://www.gnu.org/software/make/manual/html_node/Parallel.html)。</p>
+
+<p>看到[虚拟化</p>
+
+<p>环境](/user/reference/overview/#virtualization-environments)确定</p>
+
+<p>一个环境通常有多少CPU并设置<code class="highlighter-rouge">make</code>作业参数到</p>
+
+<p>相似的数字（如果您的构建经常在磁盘I / O上等待，则略高一些）。</p>
+
+<p>请注意，这样做会导致并发配方输出交错。</p>
+
+<h4 id="makefile并行化示例">Makefile并行化示例 <a href="#makefile并行化示例" class="toc-anchor">#</a></h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  global:
+    - MAKEFLAGS="-j 2"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

@@ -1,0 +1,971 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caching Dependencies and Directories - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/caching.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Caching Dependencies and Directories</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#组态">组态</a></li>
+  <li><a href="#缓存和构建矩阵">缓存和构建矩阵</a></li>
+  <li><a href="#缓存和读取权限">缓存和读取权限</a></li>
+  <li><a href="#缓存如何工作">缓存如何工作？</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>Travis CI可以缓存不经常更改的内容，从而加快构建过程。</p>
+
+<p><strong>要使用缓存功能</strong>，在您的存储库设置中，设置建立推动分支至</p>
+
+<p>上。</p>
+
+<ul>
+  <li>Travis CI为每个构建提取缓存，包括分支和拉取请求。</li>
+  <li>如果分支没有自己的缓存，Travis CI将获取存储库默认分支的缓存。</li>
+  <li>每个分支有一个缓存和语言版本/编译器版本/ JDK版本/ Gemfile位置/等。</li>
+  <li>仅存储从正常推送对缓存目录所做的修改。</li>
+</ul>
+
+<blockquote>
+  <p>请注意，缓存内容可用于存储库上的任何构建，包括Pull Requests，因此请确保不要在缓存中放置任何敏感信息。</p>
+</blockquote>
+
+<blockquote>
+
+</blockquote>
+
+<p>##</p>
+
+<p>缓存允许Travis CI在构建之间存储目录，这对于存储很有用</p>
+
+<p>需要更长时间才能编译或下载的依赖项。</p>
+
+<p>请注意，如果第三方项目（如Bundler）更改了存储依赖项的位置，则可能需要指定<a href="#arbitrary-directories"></a><a href="#bundler"></a><a href="mailto:support@travis-ci.com?subject=Caching">联系我们</a>有任何问题，问题或反馈。</p>
+
+<h3 id="建立阶段">建立阶段 <a href="#建立阶段" class="toc-anchor">#</a></h3>
+
+<p><code class="highlighter-rouge">script</code>构建阶段，但之前</p>
+
+<p>或<code class="highlighter-rouge">after_success</code>要么<code class="highlighter-rouge">after_failure</code></p>
+
+<blockquote>
+  <p>无法上传缓存不将工作标记为失败。</p>
+</blockquote>
+
+<h3 id="捆绑">捆绑 <a href="#捆绑" class="toc-anchor">#</a></h3>
+
+<p><a href="http://bundler.io/"></a>可以构成构建持续时间的很大一部分。在构建之间缓存bundle会大大减少构建运行所需的时间。</p>
+
+<h4 id="启用bundler缓存">启用Bundler缓存 <a href="#启用bundler缓存" class="toc-anchor">#</a></h4>
+
+<p><code class="highlighter-rouge">.travis.yml</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: ruby
+cache: bundler
+
+</code></pre></div></div>
+
+<p>每当您更新捆绑包时，Travis CI也会更新缓存。</p>
+
+<h4 id="确定捆绑路径">确定捆绑路径 <a href="#确定捆绑路径" class="toc-anchor">#</a></h4>
+
+<p>Travis CI尽力确定路径捆绑器用于存储依赖关系。</p>
+
+<p>如果你有<a href="/user/languages/ruby/#custom-bundler-arguments-and-gemfile-locations">自定义Bundler参数</a>，这些包括<code class="highlighter-rouge">--path</code>选项，Travis CI将使用该路径。如果<code class="highlighter-rouge">--path</code>不见了但是<code class="highlighter-rouge">--deployment</code>存在，它将使用<code class="highlighter-rouge">vendor/bundle</code>。</p>
+
+<p>否则会自动添加<code class="highlighter-rouge">--path</code>选项。在这种情况下，它将使用环境变量的值<code class="highlighter-rouge">BUNDLE_PATH</code>或者，如果遗漏，<code class="highlighter-rouge">vendor/bundle</code>。</p>
+
+<h4 id="缓存和覆盖install-步">缓存和覆盖<code class="highlighter-rouge">install</code>#### 步 <a href="#缓存和覆盖install-步" class="toc-anchor">#</a></h4>
+
+<p>压倒了<code class="highlighter-rouge">install</code>步骤可能会导致指令<code class="highlighter-rouge">cache: bundler</code>错过目录。</p>
+
+<p>在这种情况下，请观察Bundler安装gem的位置，并使用缓存该目录</p>
+
+<p><a href="#arbitrary-directories">cache.directories</a>。</p>
+
+<h4 id="清理捆绑">清理捆绑 <a href="#清理捆绑" class="toc-anchor">#</a></h4>
+
+<p>当你使用</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cache: bundler
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>命令<code class="highlighter-rouge">bundle clean</code>在上传缓存之前执行。</p>
+
+<p>在不希望这种情况下，您可以使用指定<a href="#arbitrary-directories">任意目录</a></p>
+
+<p>绕过它。</p>
+
+<p>看到<a href="https://github.com/travis-ci/travis-ci/issues/2518">这个GitHub问题</a>欲获得更多信息。</p>
+
+<h3 id="缓存非ruby项目的rvm-ruby版本">缓存非Ruby项目的RVM Ruby版本 <a href="#缓存非ruby项目的rvm-ruby版本" class="toc-anchor">#</a></h3>
+
+<p>有些项目使用的机器不是基于Ruby而是有一些Ruby执行。例如，具有Ruby功能测试套件的NodeJS应用程序。</p>
+
+<p>对于这些情况安装ruby版本<code class="highlighter-rouge">rvm install 2.3.1</code>可能需要3分钟以上。对于这些情况，您可以缓存ruby安装。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cache:
+    directories:
+     - /home/travis/.rvm/
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="的cocoapods">的CocoaPods <a href="#的cocoapods" class="toc-anchor">#</a></h3>
+
+<p>在Objective-C项目上，通过安装依赖项<a href="http://cocoapods.org">的CocoaPods</a>可以占用你构建的很大一部分。在构建之间缓存已编译的Pod有助于缩短此时间。</p>
+
+<h4 id="启用cocoapods缓存">启用CocoaPods缓存 <a href="#启用cocoapods缓存" class="toc-anchor">#</a></h4>
+
+<p>您可以通过将CocoaPods缓存添加到您的存储库来为其启用CocoaPods缓存</p>
+
+<p>.travis.yml：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: objective-c
+cache: cocoapods
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果要同时启用Bundler缓存和CocoaPods缓存，可以列出</p>
+
+<p>他们俩：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: objective-c
+cache:
+  - bundler
+  - cocoapods
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>请注意，如果您已经在销售，CocoaPods缓存将不会产生任何影响</p>
+
+<p>Git存储库中的Pods目录。</p>
+
+<h4 id="确定podfile路径">确定Podfile路径 <a href="#确定podfile路径" class="toc-anchor">#</a></h4>
+
+<p>默认情况下，Travis CI将假设您的Podfile位于</p>
+
+<p>库。如果不是这种情况，您可以指定Podfile的位置</p>
+
+<p>这个：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: objective-c
+podfile: path/to/Podfile
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="npm缓存">npm缓存 <a href="#npm缓存" class="toc-anchor">#</a></h3>
+
+<p>用于缓存<code class="highlighter-rouge">npm</code>， 使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: node_js
+
+node_js: '6' # or another
+
+cache: npm
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>这个缓存<code class="highlighter-rouge">$HOME/.npm</code>要么<code class="highlighter-rouge">node_modules</code>，取决于存储库</p>
+
+<p>结构体。</p>
+
+<p>看到<a href="/user/languages/javascript-with-nodejs/#caching-with-npm">Node.js文档</a></p>
+
+<p>更多细节。</p>
+
+<h3 id="纱线缓存">纱线缓存 <a href="#纱线缓存" class="toc-anchor">#</a></h3>
+
+<p>用于缓存<code class="highlighter-rouge">yarn</code>， 使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: node_js
+
+node_js: '6' # or another
+
+cache: yarn
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>这个缓存<code class="highlighter-rouge">$HOME/.cache/yarn</code>。</p>
+
+<h3 id="pip缓存">pip缓存 <a href="#pip缓存" class="toc-anchor">#</a></h3>
+
+<p>用于缓存<code class="highlighter-rouge">pip</code>文件，使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: python
+
+cache: pip
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>高速缓存<code class="highlighter-rouge">$HOME/.cache/pip</code>。</p>
+
+<h3 id="ccache缓存">ccache缓存 <a href="#ccache缓存" class="toc-anchor">#</a></h3>
+
+<p>如果你正在使用<code class="highlighter-rouge">ccache</code>， 使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: c # or other C/C++ variants
+
+cache: ccache
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>缓存<code class="highlighter-rouge">$HOME/.ccache</code>并自动添加<code class="highlighter-rouge">/usr/lib/ccache</code>到你的<code class="highlighter-rouge">$PATH</code>。</p>
+
+<h4 id="在macos上的ccache">在macOS上的ccache <a href="#在macos上的ccache" class="toc-anchor">#</a></h4>
+
+<p>ccache没有安装在macOS环境中，但您可以通过添加来安装它</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install:
+  - brew install ccache
+  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>请注意，这会在您的默认gcc和g ++编译器周围创建包装器。</p>
+</blockquote>
+
+<h3 id="r包缓存">R包缓存 <a href="#r包缓存" class="toc-anchor">#</a></h3>
+
+<p>要缓存R包，请使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: R
+
+cache: packages
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>这个缓存<code class="highlighter-rouge">$HOME/R/Library</code>和套装<code class="highlighter-rouge">R_LIB_USER=$HOME/R/Library</code>环境变量。</p>
+
+<h3 id="rust-cargo缓存">Rust Cargo缓存 <a href="#rust-cargo缓存" class="toc-anchor">#</a></h3>
+
+<p>要缓存货物包裹，请使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: rust
+
+cache: cargo
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>这个缓存<code class="highlighter-rouge">$HOME/.cargo</code><code class="highlighter-rouge">$TRAVIS_BUILD_DIR/target</code></p>
+
+<p>###</p>
+
+<p>您可以通过在构建中列出它们来缓存构建之间的任意目录，例如Gradle，Maven，Composer和npm缓存目录<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如您所见，您可以将环境变量用作目录路径的一部分。可能的变量扩展后，路径</p>
+
+<ul>
+  <li><strong>不</strong>从一开始<code class="highlighter-rouge">/</code>相对于<code class="highlighter-rouge">$TRAVIS_BUILD_DIR</code>。</li>
+  <li><code class="highlighter-rouge">/</code>是绝对的。</li>
+</ul>
+
+<p>请注意<code class="highlighter-rouge">travis</code>用户需要具有此目录的写权限。</p>
+
+<p>##</p>
+
+<p>缓存的目的是使安装特定于语言的依赖项变得容易</p>
+
+<ul>
+  <li>Android SDK</li>
+  <li></li>
+  <li>JDK包</li>
+  <li>编译的二进制文件</li>
+  <li></li>
+</ul>
+
+<p>Docker镜像不会被缓存，因为我们为每个构建提供了一个全新的虚拟机。</p>
+
+<p>##</p>
+
+<ul>
+  <li>Travis CI为每个构建提取缓存，包括分支和拉取请求。</li>
+  <li><a href="#caches-and-build-matrices">缓存和构建矩阵</a>详情。</li>
+  <li>如果分支没有自己的缓存，Travis CI将获取默认的分支缓存。</li>
+  <li>仅存储从正常推送对缓存目录所做的修改。</li>
+</ul>
+
+<h3 id="拉请求构建和缓存">拉请求构建和缓存 <a href="#拉请求构建和缓存" class="toc-anchor">#</a></h3>
+
+<p>Pull请求构建按顺序检查以下缓存位置，使用第一个存在位置：</p>
+
+<ul>
+  <li>拉请求缓存。</li>
+  <li>拉请求目标分支缓存。</li>
+  <li></li>
+</ul>
+
+<p>如果以前的任何位置都不包含有效的缓存，则构建将继续，而不会缓存。</p>
+
+<p>在第一次拉取请求构建运行后，它会创建一个新的拉取请求缓存。</p>
+
+<p>关于拉取请求的缓存需要注意的一些重要事项：</p>
+
+<ul>
+  <li>如果存储库有建立推动分支调成关闭，目标分支和主分支都不能被缓存。</li>
+  <li>如果主分支上的缓存是旧的，例如在大多数工作发生在分支上的工作流中，缓存的用处就越少。</li>
+  <li>如果拉取请求正在使用缓存但您不希望它，则需要清除<strong>都</strong>拉请求缓存<strong>和</strong>目标分支的缓存。</li>
+</ul>
+
+<h3 id="before_cache阶段">before_cache阶段 <a href="#before_cache阶段" class="toc-anchor">#</a></h3>
+
+<p>使用缓存时，在上载之前运行命令可能很有用</p>
+
+<p>新的缓存存档。</p>
+
+<p>例如，依赖关系管理实用程序可能会将日志文件写入您正在缓存的目录中，并且您不希望它们影响缓存。使用<code class="highlighter-rouge">before_cache</code>阶段删除日志文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cache:
+  directories:
+    - $HOME/.cache/pip
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>此阶段的失败并未将作业标记为失败。</p>
+
+<h3 id="清除缓存">清除缓存 <a href="#清除缓存" class="toc-anchor">#</a></h3>
+
+<p>有时，您通过将错误数据存储在其中一个缓存目录中来破坏缓存，或者当语言运行时更改时缓存可能会变为无效。</p>
+
+<p>使用以下方法之一访问缓存并在必要时将其删除：</p>
+
+<ul>
+  <li>您的存储库的设置页面<a href="https://travis-ci.com">https://travis-ci.com</a>
+<img src="/images/caches-item.png" alt="缓存UI的图像" /></li>
+  <li>该<a href="https://github.com/travis-ci/travis#readme">命令行客户端</a>
+<img src="/images/cli-cache.png" alt="travis cache --delete" /></li>
+  <li>该<a href="https://api.travis-ci.com/#/repos/:owner_name/:name/caches">API</a></li>
+</ul>
+
+<blockquote>
+  <p>请注意，如果您仍在使用<a href="http://www.travis-ci.org">travis-ci.org</a>您需要使用.org网址来访问您的设置页面和API请求。</p>
+</blockquote>
+
+<h3 id="缓存过期">缓存过期 <a href="#缓存过期" class="toc-anchor">#</a></h3>
+
+<p>缓存存档目前设置为在开源项目28天后到期，私有项目为45天。这意味着如果特定缓存存档在到期延迟后未更改，则将删除该缓存存档。</p>
+
+<h2 id="组态">组态 <a href="#组态" class="toc-anchor">#</a></h2>
+
+<h3 id="启用多个缓存功能">启用多个缓存功能 <a href="#启用多个缓存功能" class="toc-anchor">#</a></h3>
+
+<p>如果要启用多个缓存功能并且语言支持它们，可以将它们列为数组：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: objective-c
+cache:
+- bundler
+- cocoapods
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>缓存时这不起作用<a href="#arbitrary-directories">任意目录</a>，</p>
+
+<p>或者当语言不支持任何指令时。</p>
+
+<p>如果要将其与其他缓存模式结合使用，请使用哈希映射。</p>
+
+<p>以下是一个Ruby存储库缓存Node.js模块的示例：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: ruby
+cache:
+  bundler: true
+  directories:
+  - node_modules # NPM packages
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>这是另一个例子;一个Rust存储库缓存货物和Ruby宝石：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: rust
+cache:
+  cargo: true
+  directories:
+    - vendor/bundle
+install:
+  - bundle install --deployment # to cache vendor/bundle
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="明确禁用缓存">明确禁用缓存 <a href="#明确禁用缓存" class="toc-anchor">#</a></h3>
+
+<p>您可以通过设置显式禁用所有缓存<code class="highlighter-rouge">cache</code>选项<code class="highlighter-rouge">false</code>在你的.travis.yml：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cache: false
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>也可以禁用单个缓存模式：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: objective-c
+cache:
+  bundler: false
+  cocoapods: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="设置超时">设置超时 <a href="#设置超时" class="toc-anchor">#</a></h3>
+
+<p>默认情况下，缓存的超时设置为3分钟。超时是有序的</p>
+
+<p>防止任何可能导致构建卡住的问题。这样的问题可能是</p>
+
+<p>由工作服务器和S3之间的网络问题引起的，甚至是由缓存引起的</p>
+
+<p>太大，无法及时打包和上传。但是，有</p>
+
+<p>您可能希望设置更大的超时的情况，尤其是在您需要时</p>
+
+<p>缓存大量。为了更改超时，您可以使用<code class="highlighter-rouge">timeout</code></p>
+
+<p>具有所需时间的财产：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cache:
+  timeout: 1000
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="缓存和构建矩阵">缓存和构建矩阵 <a href="#缓存和构建矩阵" class="toc-anchor">#</a></h2>
+
+<p>当你有一个多个工作<a href="/user/customizing-the-build/#build-matrix">构建矩阵</a>，</p>
+
+<p>每个作业的一些特征用于识别每个作业的缓存</p>
+
+<p>工作应该使用。</p>
+
+<p>这些因素是：</p>
+
+<ol>
+  <li>操作系统名称（目前，<code class="highlighter-rouge">linux</code>，<code class="highlighter-rouge">osx</code>， 要么<code class="highlighter-rouge">windows</code>）</li>
+  <li>操作系统分发（适用于Linux，<code class="highlighter-rouge">xenial</code>，<code class="highlighter-rouge">trusty</code>， 要么<code class="highlighter-rouge">precise</code>）</li>
+  <li>macOS图像名称（例如，<code class="highlighter-rouge">xcode7.2</code>）</li>
+  <li>设置的可见环境变量的名称和值<code class="highlighter-rouge">.travis.yml</code>或“设置”面板</li>
+  <li>语言运行时版本（用于语言中指定的语言）<code class="highlighter-rouge">language</code>密钥）如果适用的话</li>
+  <li>对于Bundler感知作业，名称<code class="highlighter-rouge">Gemfile</code>用过的</li>
+</ol>
+
+<p>如果这些特征由构建矩阵中的多个作业共享，</p>
+
+<p>他们将在网络上共享相同的URL。</p>
+
+<p>这可能会破坏缓存，或者缓存可能包含不缓存的文件</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CACHE_NAME=JOB1
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>究竟，</p>
+
+<p>包括空格。</p>
+
+<p>例如，用</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  - FOO=1 BAR=2
+  - FOO=1  BAR=2
+  - BAR=2 FOO=1
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>三个作业中的每一个都将使用自己的缓存。</p>
+
+<h2 id="缓存和读取权限">缓存和读取权限 <a href="#缓存和读取权限" class="toc-anchor">#</a></h2>
+
+<p>缓存时<a href="/user/caching/#arbitrary-directories">自定义文件和目录</a>，</p>
+
+<p>确保您指定的位置是用户可读写的。</p>
+
+<p>如果不是，则缓存实用程序会报告错误</p>
+
+<p>所调用<code class="highlighter-rouge">tar</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
+
+tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
+
+</code></pre></div></div>
+
+<h2 id="缓存如何工作">缓存如何工作？ <a href="#缓存如何工作" class="toc-anchor">#</a></h2>
+
+<p>Travis CI会保存配置和上传中列出的所有目录的存档</p>
+
+<p>它使用安全且受保护的URL到存储提供商，确保安全和隐私</p>
+
+<p>上传的档案。</p>
+
+<p>请注意，这使得我们的缓存不是网络本地的，它仍然绑定到网络</p>
+
+<p>在缓存中。如果您存储大于几百兆的存档</p>
+
+<p>缓存，你不太可能看到一个很大的速度提升。</p>
+
+<p>在构建之前，我们检查是否存在缓存存档。如果是，我们下载并将其解压缩到指定位置。</p>
+
+<p>在构建之后，我们检查目录中的更改，创建包含这些更改的新存档，然后将其上载到远程存储。</p>
+
+<p>上传目前是构建周期的一部分，但我们正在寻求改进</p>
+
+<p>这种情况发生在构建之外，提供更快的构建反馈。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

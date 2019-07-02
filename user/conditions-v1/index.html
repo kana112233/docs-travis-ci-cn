@@ -1,0 +1,846 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditions - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/conditions-v1.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Conditions</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#积分">积分</a></li>
+  <li><a href="#规格">规格</a></li>
+  <li><a href="#例子">例子</a></li>
+</ul>
+
+            </div>
+          
+
+          <blockquote>
+  <p>此页面记录了条件v1，它现在是默认版本。该</p>
+</blockquote>
+
+<p>可以找到v0的文档<a href="/user/conditions-v0">这里</a>。</p>
+
+<p>条件可用于过滤掉，并拒绝构建，阶段和作业</p>
+
+<p>指定构建配置中的条件（您的<code class="highlighter-rouge">.travis.yml</code>文件）。</p>
+
+<p>看到<a href="/user/conditional-builds-stages-jobs">条件构建，阶段和作业</a></p>
+
+<p>详情。</p>
+
+<p>可以使用以下方法测试条件<code class="highlighter-rouge">travis-conditions</code>命令。看到</p>
+
+<p><a href="/user/conditions-testing">测试条件</a>。</p>
+
+<h2 id="积分">积分 <a href="#积分" class="toc-anchor">#</a></h2>
+
+<p>使用条件进行解析和评估<a href="https://github.com/travis-ci/travis-conditions/">这个图书馆</a>，</p>
+
+<p>由接受构建请求的组件生成构建，</p>
+
+<p>阶段和工作。</p>
+
+<p>可以使用以下已知属性，并且可以在以下条件中使用：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">type</code>（当前事件类型，已知事件类型是：<code class="highlighter-rouge">push</code>，<code class="highlighter-rouge">pull_request</code>，<code class="highlighter-rouge">api</code>，<code class="highlighter-rouge">cron</code>）</li>
+  <li><code class="highlighter-rouge">repo</code>（当前的存储库slug<code class="highlighter-rouge">owner_name/name</code>）</li>
+  <li><code class="highlighter-rouge">branch</code>（当前分支名称;对于pull请求：基本分支名称）</li>
+  <li><code class="highlighter-rouge">tag</code>（当前标签名称）</li>
+  <li><code class="highlighter-rouge">commit_message</code>（当前提交消息）</li>
+  <li><code class="highlighter-rouge">sender</code>（事件发件人的登录名）</li>
+  <li><code class="highlighter-rouge">fork</code>（<code class="highlighter-rouge">true</code>要么<code class="highlighter-rouge">false</code>取决于存储库是否为fork）</li>
+  <li><code class="highlighter-rouge">head_repo</code>（对于拉取请求：头部存储库slug<code class="highlighter-rouge">owner_name/name</code>）</li>
+  <li><code class="highlighter-rouge">head_branch</code>（对于pull请求：头存储库分支名称）</li>
+  <li><code class="highlighter-rouge">os</code>（操作系统）</li>
+  <li><code class="highlighter-rouge">language</code>（构建语言）</li>
+  <li><code class="highlighter-rouge">sudo</code>（sudo访问）</li>
+  <li><code class="highlighter-rouge">dist</code>（分布）</li>
+  <li><code class="highlighter-rouge">group</code>（图像组）</li>
+</ul>
+
+<p>此外，您的构建配置中的环境变量（<code class="highlighter-rouge">.travis.yml</code>）和</p>
+
+<p>存储库设置可用，可以使用匹配<code class="highlighter-rouge">env(FOO)</code>，见</p>
+
+<p>下面。</p>
+
+<blockquote>
+  <p>请注意，这意味着条件无法访问构建环境，</p>
+</blockquote>
+
+<p>他们是<strong>不</strong>用Bash评估。 Bash变量或子进程可以<strong>不</strong></p>
+
+<p>被评估。以美元字符开头的变量名和不带引号的字符串</p>
+
+<p><code class="highlighter-rouge">$</code>引发解析错误，导致构建请求被拒绝。引</p>
+
+<p>字符串仍然可以以美元字符开头，所以如果你肯定需要一个字符串</p>
+
+<p>以美元字符开头，您可以将其括在引号中。</p>
+
+<h2 id="规格">规格 <a href="#规格" class="toc-anchor">#</a></h2>
+
+<p>解析和评估以下表达式。</p>
+
+<p>个人条款：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>true
+false
+
+</code></pre></div></div>
+
+<p>比较值：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 = 1
+true != false
+
+</code></pre></div></div>
+
+<p>比较函数调用属性：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env(FOO) = type
+
+</code></pre></div></div>
+
+<p>比较函数调用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env(FOO) = env(BAR)
+
+</code></pre></div></div>
+
+<p>与正则表达式匹配：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch =~ /^(one|two)-three$/
+env(FOO) =~ /^(one|two)-three$/
+
+</code></pre></div></div>
+
+<p>列表中的属性：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch IN (one, other)
+
+</code></pre></div></div>
+
+<p>列表中的函数调用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>repo IN (env(ONE), env(OTHER))
+
+</code></pre></div></div>
+
+<p>谓词：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tag IS present
+tag IS blank
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env(env(FOO))
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch = master AND env(FOO) = foo
+branch = master OR env(FOO) = foo
+branch = master AND env(FOO) = foo OR tag = bar
+branch = master AND (env(FOO) = foo OR tag = bar)
+NOT branch = master
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(tag =~ ^v) AND (branch = master)
+((tag =~ ^v) AND (branch = master))
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">AND</code><code class="highlighter-rouge">OR</code>，<code class="highlighter-rouge">NOT</code><code class="highlighter-rouge">IN</code>，<code class="highlighter-rouge">IS</code>，属性和功能</p>
+
+<h3 id="布尔运算符">布尔运算符 <a href="#布尔运算符" class="toc-anchor">#</a></h3>
+
+<p>支持以下布尔运算符：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">AND</code></li>
+  <li><code class="highlighter-rouge">OR</code></li>
+  <li><code class="highlighter-rouge">NOT</code></li>
+</ul>
+
+<p><code class="highlighter-rouge">AND</code>结合力强于<code class="highlighter-rouge">OR</code>，和<code class="highlighter-rouge">NOT</code><code class="highlighter-rouge">AND</code>。因此</p>
+
+<p>以下表达式是相同的：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch = master AND os = linux OR tag = bar
+(branch = master AND os = linux) OR tag = bar
+
+NOT branch = master AND os = linux
+NOT (branch = master) AND os = linux
+
+</code></pre></div></div>
+
+<h3 id="值">值 <a href="#值" class="toc-anchor">#</a></h3>
+
+<p>值是不带引号的字符串，不包含任何空格</p>
+
+<p>或特殊字符，或单引号或双引号字符串：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"a word"
+'a word'
+a_word
+
+</code></pre></div></div>
+
+<h3 id="平等和不平等">平等和不平等 <a href="#平等和不平等" class="toc-anchor">#</a></h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch = master
+sender != "my bot"
+env(foo) = bar
+"bar" = env("foo")
+
+</code></pre></div></div>
+
+<h3 id="常用表达">常用表达 <a href="#常用表达" class="toc-anchor">#</a></h3>
+
+<p>这使用正则表达式匹配字符串：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch =~ ^master$
+env(foo) =~ ^bar$
+
+</code></pre></div></div>
+
+<p>如果表达式需要包含空格，或者以括号结尾，则需要</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch =~ /(master|foo)/
+
+</code></pre></div></div>
+
+<blockquote>
+
+</blockquote>
+
+<p>也可以写成<code class="highlighter-rouge">master|foo</code>）。如果你确实需要结束常规</p>
+
+<p>带括号的表达式，或者如果它包含空格，则为整数</p>
+
+<h3 id="函数调用">函数调用 <a href="#函数调用" class="toc-anchor">#</a></h3>
+
+<p>有两种功能可用：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">env</code></li>
+  <li><code class="highlighter-rouge">concat</code></li>
+</ul>
+
+<p>功能<code class="highlighter-rouge">env</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env(FOO)
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">env</code>支持在中设置的环境变量<code class="highlighter-rouge">env</code>关键（包括</p>
+
+<p><code class="highlighter-rouge">env.global</code><code class="highlighter-rouge">.travis.yml</code></p>
+
+<blockquote>
+  <p>请注意，没有功能<code class="highlighter-rouge">env.global</code>或类似的。相反所有</p>
+</blockquote>
+
+<p>环境变量可通过<code class="highlighter-rouge">env</code>。</p>
+
+<p>功能<code class="highlighter-rouge">concat</code>接受任意数量的参数并连接它们</p>
+
+<p>成一个字符串：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>concat("foo", "-", env(BAR))
+# =&gt; "foo-bar"
+
+</code></pre></div></div>
+
+<p>这也可以在匹配正则表达式的上下文中使用。对于</p>
+
+<p>例子<code class="highlighter-rouge">env: SERVICE=some-service</code>以下相当于</p>
+
+<p><code class="highlighter-rouge">branch =~ ^srv-some-service-</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch =~ concat(^srv-,env(SERVICE),-)
+
+</code></pre></div></div>
+
+<h3 id="清单">清单 <a href="#清单" class="toc-anchor">#</a></h3>
+
+<p>这与值的列表（数组）匹配：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch IN (master, dev)
+env(foo) IN (bar, baz)
+
+</code></pre></div></div>
+
+<blockquote>
+  <p>请注意，需要使用逗号分隔值。</p>
+</blockquote>
+
+<p>应引用包含空格或特殊字符的值：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env(foo) IN ("bar baz", "buz bum")
+
+</code></pre></div></div>
+
+<p>运营商<code class="highlighter-rouge">IN</code>可以否定如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># these are the same
+NOT branch IN (master, dev)
+branch NOT IN (master, dev)
+
+</code></pre></div></div>
+
+<h3 id="谓词">谓词 <a href="#谓词" class="toc-anchor">#</a></h3>
+
+<p>已知的谓词是：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>present
+blank
+true
+false
+
+</code></pre></div></div>
+
+<p>这需要存在或缺少值：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch IS present
+branch IS blank
+env(foo) IS present
+env(foo) IS blank
+
+</code></pre></div></div>
+
+<p>运营商<code class="highlighter-rouge">IS</code>可以否定如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># these are all the same
+env(foo) IS NOT present
+NOT env(foo) IS present
+env(foo) IS blank
+
+</code></pre></div></div>
+
+<p>注意操作员<code class="highlighter-rouge">IS</code>旨在与众所周知的谓词一起使用</p>
+
+<p><code class="highlighter-rouge">present</code>和<code class="highlighter-rouge">blank</code>。它是<strong>不</strong>同样的<code class="highlighter-rouge">=</code>和表达式一样</p>
+
+<p>以下做不工作：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># this does not work
+branch IS "master"
+
+# instead use =
+branch = "master"
+
+</code></pre></div></div>
+
+<p>然而，<code class="highlighter-rouge">IS</code><strong>能够</strong>用于匹配布尔谓词<code class="highlighter-rouge">true</code>和</p>
+
+<p><code class="highlighter-rouge">false</code>（在我们发现许多用户期望这样做之后，这已被包括在内</p>
+
+<p>工作）：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch IS true
+branch = true # this is the same
+
+</code></pre></div></div>
+
+<h3 id="别名">别名 <a href="#别名" class="toc-anchor">#</a></h3>
+
+<p>以下别名已到位：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">!</code>是别名<code class="highlighter-rouge">NOT</code></li>
+  <li><code class="highlighter-rouge">&amp;&amp;</code>是别名<code class="highlighter-rouge">AND</code></li>
+  <li><code class="highlighter-rouge">||</code>是别名<code class="highlighter-rouge">OR</code></li>
+  <li><code class="highlighter-rouge">==</code>是别名<code class="highlighter-rouge">=</code></li>
+  <li><code class="highlighter-rouge">~=</code>是别名<code class="highlighter-rouge">=~</code></li>
+</ul>
+
+<h3 id="线续多线条件">线续（多线条件）： <a href="#线续多线条件" class="toc-anchor">#</a></h3>
+
+<p>我们很惊讶地看到用户期望继续使用<code class="highlighter-rouge">\</code>上班，</p>
+
+<p>就像它一样，例如，在Ruby或Python中。我们喜欢这个主意，所以我们允许</p>
+
+<p>下列：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if: env(PRIOR_VERSION) IS present AND \
+    env(PRIOR_VERSION) != env(RELEASE_VERSION) AND \
+    branch = master AND \
+    type = push
+
+</code></pre></div></div>
+
+<p>使用YAML多行字符串：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if: |
+  env(PRIOR_VERSION) IS present AND \
+  env(PRIOR_VERSION) != env(RELEASE_VERSION) AND \
+  branch = master AND \
+  type = push
+
+</code></pre></div></div>
+
+<h2 id="例子">例子 <a href="#例子" class="toc-anchor">#</a></h2>
+
+<p>仅在主分支上构建（注意PR，这是基本分支</p>
+
+<p>名称）：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch = master
+
+</code></pre></div></div>
+
+<p>仅在标记名称与给定正则表达式匹配时构建：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tag =~ /^(v1|v2)/
+
+</code></pre></div></div>
+
+<p>仅在构建类型为或时构建<code class="highlighter-rouge">push</code>要么<code class="highlighter-rouge">pull_request</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type IN (push, pull_request)
+
+</code></pre></div></div>
+
+<p>仅当分支名称不是以下几个名称之一时才构建：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>branch NOT IN (master, dev)
+
+</code></pre></div></div>
+
+<p>仅当发件人登录名与给定名称匹配时才构建 - 使用引号</p>
+
+<p>包含空格或特殊字符的字符串（发件人是创建构建的GitHub用户）：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sender = my_account
+sender != "deploy bot"
+
+</code></pre></div></div>
+
+<p>不要在叉子上建造：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fork = false
+
+</code></pre></div></div>
+
+<p>仅在提交消息与给定正则表达式匹配时构建：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commit_message !~ /(no-deploy|wip)/
+
+</code></pre></div></div>
+
+<p>仅在Linux上构建：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os = linux
+
+</code></pre></div></div>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

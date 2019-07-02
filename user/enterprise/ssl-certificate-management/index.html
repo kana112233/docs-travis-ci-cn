@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travis CI Enterprise SSL Certificate Management - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/">Setting up Travis CI Enterprise</a> </li>
+        <li><a href="/user/enterprise/upgrading/">Upgrading</a></li>
+      </ul>
+
+      <h3>Environment reference</h3>
+      <ul>
+        <li><a href="/user/enterprise/xenial">Xenial Build Environment</a></li>
+
+        <li><a href="/user/enterprise/trusty/">Trusty Build Environment</a></li>
+
+        <li><a href="/user/enterprise/precise/">Precise (Legacy) Build Environment</a></li>
+      </ul>
+
+      <h3>Customizing Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/worker-configuration/">Worker Configuration</a></li>
+        <li><a href="/user/enterprise/build-images/">Customizing Build Images</a></li>
+        <li><a href="/user/enterprise/high-availability/">High Availability</a></li>
+        <li><a href="/user/enterprise/custom-queues/">Custom Queues</a></li>
+      </ul>
+
+      <h3>Enterprise Operations Manual</h3>
+      <ul>
+        <li><a href="/user/enterprise/platform-tips/">Platform Administration Tips</a></li>
+        <li><a href="/user/enterprise/worker-cli-commands/">Worker Start & Debug Containers</a></li>
+        <li><a href="/user/enterprise/ssl-certificate-management/">SSL Certificate Management</a></li>
+        <li><a href="/user/enterprise/troubleshooting-guide/">Troubleshooting Guide</a></li>
+      </ul>
+
+      <h3>Travis CI Docs</h3>
+      <ul>
+        <li><a href="/">Travis CI Docs</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page"><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/enterprise/ssl-certificate-management.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Travis CI Enterprise SSL Certificate Management</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#使用自签名证书">使用自签名证书</a></li>
+  <li><a href="#如何在安装后添加或更新证书">如何在安装后添加或更新证书</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>此页面包含有关SSL证书及其在Travis CI Enterprise中的使用的信息。</p>
+
+<p>默认情况下，Travis CI Enterprise会为内部平台组件RabbitMQ和Github.com/Github Enterprise之间的所有流量验证SSL。 SSL验证有助于确保安全地传输流量。它是<strong>强力推荐</strong>使用来自受信任机构的有效证书配置安装。</p>
+
+<p>如果您对特定部分有疑问或遇到未涵盖的问题，请通过以下方式与我们联系<a href="mailto:enterprise@travis-ci.com">enterprise@travis-ci.com</a>寻求帮助。</p>
+
+<h2 id="使用自签名证书">使用自签名证书 <a href="#使用自签名证书" class="toc-anchor">#</a></h2>
+
+<p>我们强烈建议您在配置安装时使用来自受信任的证书颁发机构的有效证书。也就是说，我们认识到使用自签名证书可能会对您的组织更有意义。</p>
+
+<blockquote>
+  <p>在所有使用自签名证书的情况下，您必须<a href="#disabling-ssl-verification">禁用SSL证书验证</a>在你的设置中。这可以在安装完成后完成。</p>
+</blockquote>
+
+<blockquote>
+  <p>安装完成后，您可以随时上传证书<a href="#how-to-add-or-update-certificates-after-installation">管理仪表板</a>。</p>
+</blockquote>
+
+<h4 id="使用试用许可证">使用试用许可证 <a href="#使用试用许可证" class="toc-anchor">#</a></h4>
+
+<p>如果您使用试用许可证来评估Travis CI Enterprise，则使用可信证书可能没有意义。对于此方案，我们提供了使用由Travis CI Enterprise自身生成的自签名证书的功能。</p>
+
+<p>为此，您可以在提示安装期间提供自定义SSL证书时选择“使用自签名证书”选项。</p>
+
+<h4 id="具有内部管理的证书颁发机构的组织">具有内部管理的证书颁发机构的组织 <a href="#具有内部管理的证书颁发机构的组织" class="toc-anchor">#</a></h4>
+
+<p>有些组织管理自己的内部证书颁发机构。内部机构可能或可能使用由a提供的根证书<a href="https://en.wikipedia.org/wiki/Certificate_authority">受信任的root权限</a>。</p>
+
+<h4 id="没有来自受信任的证书颁发机构的根证书">没有来自受信任的证书颁发机构的根证书 <a href="#没有来自受信任的证书颁发机构的根证书" class="toc-anchor">#</a></h4>
+
+<p>如果您的内部证书颁发机构未使用受信任的证书颁发机构提供的根证书，那么大多数工具和浏览器都会将生成的任何证书视为“不受信任”，与自签名证书相同。</p>
+
+<p>内部证书颁发机构创建的证书可以在安装期间以与任何其他证书相同的方式上载。</p>
+
+<p>请注意，您还需要确保遵循<a href="#disabling-ssl-verification">有关禁用SSL验证的说明</a>以下为使用Travis CI Enterprise。</p>
+
+<h4 id="使用来自受信任的证书颁发机构的根证书">使用来自受信任的证书颁发机构的根证书 <a href="#使用来自受信任的证书颁发机构的根证书" class="toc-anchor">#</a></h4>
+
+<p>如果您组织的内部证书颁发机构确实使用从受信任的证书颁发机构购买的根证书，则上述内容将不适用。您无需禁用SSL验证，可以像直接从受信任的证书颁发机构使用证书一样继续操作。</p>
+
+<blockquote>
+  <p>在某些情况下，可能需要在设置中包含中间证书链，以便SSL验证正常工作。原因可能因内部设置和根证书提供商而异。请参阅下面的部分<a href="#using-intermediate-certificate-chains">如何设置中间证书链</a>作为指示。</p>
+</blockquote>
+
+<h3 id="禁用ssl验证">禁用SSL验证 <a href="#禁用ssl验证" class="toc-anchor">#</a></h3>
+
+<blockquote>
+  <p>SSL验证有助于确保Travis CI Enterprise组件之间的所有流量都受到保护。禁用SSL验证会产生严重影响！</p>
+</blockquote>
+
+<p>要在Travis CI Enterprise中禁用SSL验证：</p>
+
+<ol>
+  <li>登录您的信息中心<code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800</code>。</li>
+  <li>单击最顶层菜单中的“设置”。</li>
+  <li>单击左侧菜单中的“高级设置”（或向下滚动）。</li>
+  <li>选中“禁用SSL证书验证”复选框。</li>
+  <li>点击页面底部的“保存”。请注意，这将需要重新启动Travis CI Enterprise才能生效并可能导致短暂停机。</li>
+</ol>
+
+<p>这将删除Travis CI组件之间内部流量的SSL验证检查。这也将导致在Github上创建的所有存储库挂钩关闭来自Travis CI的流量的SSL验证。请注意，此设置仅适用于创建的挂钩后设置已启用。</p>
+
+<h2 id="如何在安装后添加或更新证书">如何在安装后添加或更新证书 <a href="#如何在安装后添加或更新证书" class="toc-anchor">#</a></h2>
+
+<p>您可以在安装后随时通过管理仪表板添加或更新证书。</p>
+
+<p>要上传您的证书：</p>
+
+<ol>
+  <li>登录您的信息中心<code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800</code>。</li>
+  <li>单击顶部菜单最右侧的齿轮图标，然后从下拉列表中选择“控制台设置”。</li>
+  <li>单击左侧菜单中的“TLS Key＆Cert”（或向下滚动）。</li>
+  <li>根据证书文件的位置选择适当的选项。</li>
+  <li>输入路径或选择要上载的文件。</li>
+  <li>点击页面底部的“保存”。请注意，这将需要重新启动Travis CI Enterprise才能生效并可能导致短暂停机。</li>
+</ol>
+
+<blockquote>
+  <p>需要有效的x509证书和私钥文件。证书和密钥必须采用PEM格式。密钥必须是未加密的。</p>
+</blockquote>
+
+<p>##</p>
+
+<p>在某些情况下，可能需要提供<a href="https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/"></a>为您所需的证书。原因可能因内部设置和根证书提供商而异。</p>
+
+<p>如果您已上载有效证书但仍看到与SSL验证错误相关的意外问题，则可以在设置中设置中间证书链。</p>
+
+<ol>
+  <li><code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800</code>。</li>
+  <li></li>
+  <li>单击左侧菜单中的“高级设置”（或向下滚动）。</li>
+  <li></li>
+  <li></li>
+</ol>
+
+<p><a href="mailto:enterprise@travis-ci.com"></a></p>
+
+<p>##</p>
+
+<p><a href="https://letsencrypt.org/"></a></p>
+
+<p>你需要什么：</p>
+
+<ul>
+  <li>电子邮件地址（Let’s Encrypt将发送有关紧急续订和安全问题的通知）。</li>
+  <li>用于安装的域名。</li>
+</ul>
+
+<blockquote>
+  <p>以下步骤需要Travis CI Enterprise实例的停机时间。因此，我们建议您在维护时段执行这些步骤。</p>
+</blockquote>
+
+<h3 id="安装certbot">安装certbot <a href="#安装certbot" class="toc-anchor">#</a></h3>
+
+<p>我们将使用<a href="https://certbot.eff.org/#ubuntutrusty-other">certbot</a>从Let’s Encrypt获取SSL证书。要安装certbot：</p>
+
+<ol>
+  <li></li>
+  <li>添加certbot个人包存档：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository ppa:certbot/certbot
+
+</code></pre></div></div>
+
+<ol>
+  <li></li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+
+</code></pre></div></div>
+
+<ol>
+  <li>安装所需的certbot依赖项：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install software-properties-common
+
+</code></pre></div></div>
+
+<ol>
+  <li>安装certbot包：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot
+
+</code></pre></div></div>
+
+<h3 id="生成一个新的let的加密证书">生成一个新的Let的加密证书 <a href="#生成一个新的let的加密证书" class="toc-anchor">#</a></h3>
+
+<p>certbot工具提供了多种获取证书的方法。我们将选择“临时网络服务器”选项，因为它不需要任何其他设置或配置。唯一的先决条件是必须停止Travis CI Enterprise容器，以便certbot Web服务器可以正确绑定到端口443。</p>
+
+<blockquote>
+  <p>在此过程中，您的Travis CI Enterprise实例将不可用。</p>
+</blockquote>
+
+<p>要生成证书：</p>
+
+<ol>
+  <li>打开与平台机器的ssh连接。</li>
+  <li>停止您的Travis CI企业：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replicatedctl app stop
+
+</code></pre></div></div>
+
+<ol>
+  <li>启动交互式证书流程：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo certbot certonly
+
+</code></pre></div></div>
+
+<ol>
+  <li>在提示选择选项<code class="highlighter-rouge">1</code><code class="highlighter-rouge">Spin up a temporary webserver</code>：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>How would you like to authenticate with the ACME CA?
+-------------------------------------------------------------------------------
+1: Spin up a temporary webserver (standalone)
+2: Place files in webroot directory (webroot)
+-------------------------------------------------------------------------------
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
+
+</code></pre></div></div>
+
+<ol>
+  <li>填写您的电子邮件地址：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter email address (used for urgent renewal and security notices) (Enter 'c' to
+cancel): ops@example.com
+
+</code></pre></div></div>
+
+<ol>
+  <li>接受服务条款：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-------------------------------------------------------------------------------
+Please read the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf. You must agree
+in order to register with the ACME server at
+https://acme-v01.api.letsencrypt.org/directory
+-------------------------------------------------------------------------------
+(A)gree/(C)ancel: A
+
+</code></pre></div></div>
+
+<ol>
+  <li>确定您是否要与EFF共享您的电子邮件地址（此决定对您的证书或Travis CI Enterprise实例没有影响）：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-------------------------------------------------------------------------------
+Would you be willing to share your email address with the Electronic Frontier
+Foundation, a founding partner of the Let's Encrypt project and the non-profit
+organization that develops Certbot? We'd like to send you email about EFF and
+our work to encrypt the web, protect its users and defend digital rights.
+-------------------------------------------------------------------------------
+(Y)es/(N)o: N
+
+</code></pre></div></div>
+
+<ol>
+  <li>提供您的域名：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
+to cancel): &lt;your-travis-ci-enterprise-domain&gt;
+
+</code></pre></div></div>
+
+<ol>
+  <li>成功完成后，您应该看到类似于以下内容的消息：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IMPORTANT NOTES:
+   Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/&lt;your-travis-ci-enterprise-domain&gt;/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/&lt;your-travis-ci-enterprise-domain&gt;/privkey.pem
+   Your cert will expire on 2018-02-07. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   "certbot renew"
+
+</code></pre></div></div>
+
+<ol>
+  <li>重新启动Travis CI Enterprise实例：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replicatedctl app start
+
+</code></pre></div></div>
+
+<p>您的证书现在已生成并保存在Travis CI Enterprise平台计算机上，但您必须采取其他步骤来配置Travis CI Enterprise实例以使用新证书。请看看<a href="#using-a-lets-encrypt-certificate">使用Let的加密证书</a>部分说明。</p>
+
+<h3 id="使用let的加密证书">使用Let的加密证书 <a href="#使用let的加密证书" class="toc-anchor">#</a></h3>
+
+<blockquote>
+  <p>在此过程中，您的Travis CI Enterprise实例将不可用。</p>
+</blockquote>
+
+<p>要在Travis CI Enterprise实例中使用生成的证书，请执行以下操作：</p>
+
+<ol>
+  <li>登录您的信息中心<code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800</code>。</li>
+  <li>在顶部菜单的最右侧，单击齿轮图标，然后从下拉列表中选择“控制台设置”。</li>
+  <li>单击左侧菜单中的“TLS Key＆Cert”（或向下滚动）。</li>
+  <li>选择“服务器路径”选项。</li>
+  <li>输入上面certbot输出中提供的证书路径。例：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- SSL Private Key Filename: `/etc/letsencrypt/live/&lt;your-travis-ci-enterprise-domain&gt;/privkey.pem`
+- SSL Certificate Filename: `/etc/letsencrypt/live/&lt;your-travis-ci-enterprise-domain&gt;/fullchain.pem`
+
+</code></pre></div></div>
+
+<ol>
+  <li>点击页面底部的“保存”。</li>
+  <li>打开与平台机器的ssh连接。</li>
+  <li>停止您的Travis CI Enterprise实例：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replicatedctl app stop
+
+</code></pre></div></div>
+
+<ol>
+  <li>重新启动Travis CI Enterprise实例：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replicatedctl app start
+
+</code></pre></div></div>
+
+<h3 id="续订证书">续订证书 <a href="#续订证书" class="toc-anchor">#</a></h3>
+
+<p>我们的加密证书是短暂的<strong>90天后过期。</strong>因此，您需要定期更新它们。这可以使用certbot手动完成。</p>
+
+<blockquote>
+  <p>在此过程中，您的Travis CI Enterprise实例将不可用。</p>
+</blockquote>
+
+<p>要将证书手动续订另外90天：</p>
+
+<ol>
+  <li></li>
+  <li>停止您的Travis CI Enterprise实例：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replicatedctl app stop
+
+</code></pre></div></div>
+
+<ol>
+  <li>执行证书续订：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo certbot renew
+
+</code></pre></div></div>
+
+<ol>
+  <li>重新启动Travis CI Enterprise实例：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replicatedctl app start
+
+</code></pre></div></div>
+
+<h3 id="使用cron作业自动续订let的加密ssl证书">使用cron作业自动续订Let的加密SSL证书 <a href="#使用cron作业自动续订let的加密ssl证书" class="toc-anchor">#</a></h3>
+
+<p>您可以通过使用cron作业自动执行certbot续订来避免手动续订：</p>
+
+<ol>
+  <li>创建<code class="highlighter-rouge">/home/ubuntu/renew-certs.sh</code>包含以下脚本：
+```
+#!/bin/bash</li>
+</ol>
+
+<p>set -u</p>
+
+<p>function usage() {
+  echo
+  echo “Usage: $(basename $0)”
+  echo
+  echo “Simple script to renew certs, should be used via a cron. Assumes that certs are already set up.”
+  echo
+  echo “See https://docs.travis-ci.com/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate for initial setup info.”
+  echo</p>
+
+<p>exit 1
+}</p>
+
+<p>if [[ $# -ne 0 ]]; then
+  usage
+fi</p>
+
+<p>replicatedctl app stop
+sudo certbot renew
+replicatedctl app start</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“/ home / ubuntu / renew-certs.sh”}
+2. 使脚本可执行：
+</code></pre></div></div>
+<p>$ chmod +x /home/ubuntu/renew-certs.sh</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+3. 通过编辑创建一个cronjob`/etc/crontab`并附加以下内容：
+</code></pre></div></div>
+<h1 id="renews-certs-at-2am-on-the-1st-of-february-may-august-and-november">Renews certs at 2am on the 1st of February, May, August, and November. <a href="#renews-certs-at-2am-on-the-1st-of-february-may-august-and-november" class="toc-anchor">#</a></h1>
+<h1 id="please-change-the-configuration-that-applies-to-the-certificate-you-are-creating">Please change the configuration that applies to the certificate you are creating. <a href="#please-change-the-configuration-that-applies-to-the-certificate-you-are-creating" class="toc-anchor">#</a></h1>
+<p>0 2 1 2,5,8,11 * /home/ubuntu/renew-certs.sh</p>
+
+<p>```</p>
+
+<p>{：data-file =“/ etc / crontab”}</p>
+
+<blockquote>
+  <p>更新证书时，此过程将引入少量停机时间。</p>
+</blockquote>
+
+<p>我们建议您在每次续订之前与您的用户进行通信，以便他们知道在续订证书之前，他们的构建将暂时停止。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

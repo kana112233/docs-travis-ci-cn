@@ -1,0 +1,801 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installing Dependencies - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/installing-dependencies.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Installing Dependencies</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#在标准基础结构上安装包">在标准基础结构上安装包</a></li>
+  <li><a href="#在多个操作系统上安装依赖项">在多个操作系统上安装依赖项</a></li>
+  <li><a href="#从源安装项目">从源安装项目</a></li>
+</ul>
+
+            </div>
+          
+
+          <h2 id="在标准基础结构上安装包">在标准基础结构上安装包 <a href="#在标准基础结构上安装包" class="toc-anchor">#</a></h2>
+
+<p>安装未包含在标准中的Ubuntu软件包<a href="/user/reference/precise/">精确</a>，<a href="/user/reference/trusty/"></a><a href="/user/reference/xenial/"></a><code class="highlighter-rouge">before_install</code>你的一步<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - sudo apt-get install -y libxml2-dev
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>默认情况下，<code class="highlighter-rouge">apt-get update</code>没有自动运行。如果你想更新<code class="highlighter-rouge">apt-get</code>自动在每个构建上，有两种方法可以做到这一点。首先是运行<code class="highlighter-rouge">apt-get update</code>显然在<code class="highlighter-rouge">before_install</code>步：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-dev
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>第二种方式是使用<a href="#installing-packages-with-the-apt-addon">APT插件</a>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - sudo apt-get install -y libxml2-dev
+addons:
+  apt:
+    update: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>别跑<code class="highlighter-rouge">apt-get upgrade</code>在您的构建中，它下载最多500MB的包，并显着延长您的构建时间。
+使用<code class="highlighter-rouge">-y</code>apt-get的参数假设为每个apt-get提示符的答案。</p>
+</blockquote>
+
+<h3 id="从自定义apt存储库安装包">从自定义APT存储库安装包 <a href="#从自定义apt存储库安装包" class="toc-anchor">#</a></h3>
+
+<p>对于某些软件包，您可能会找到一个现有的存储库，默认情况下尚未在我们的构建环境中设置。您可以轻松添加自定义存储库和Launchpad PPA作为构建的一部分。</p>
+
+<p>例如，从ubuntu-toolchain ppa安装gcc</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install gcc-4.8 -y
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>对于未在Launchpad上托管的存储库，您还需要添加GnuPG密钥。</p>
+
+<p>如果您以这种方式安装软件包，请确保为您的环境下载正确的版本。</p>
+
+<p>此示例将适用于Ubuntu 12.04的Varnish 3.0的APT存储库添加到本地可用的APT源列表中，然后安装<code class="highlighter-rouge">varnish</code>包。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_script:
+  - curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
+  - echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update -qq
+  - sudo apt-get install varnish -y
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="在没有apt存储库的情况下安装软件包">在没有APT存储库的情况下安装软件包 <a href="#在没有apt存储库的情况下安装软件包" class="toc-anchor">#</a></h3>
+
+<p>对于某些项目，可能有Debian / Ubuntu包，但没有相应的APT存储库。这些仍然易于安装，但需要额外的下载步骤。</p>
+
+<p>如果您以这种方式安装软件包，请确保为您的环境下载正确的版本。</p>
+
+<p>假设您的项目需要pngquant工具来压缩PNG文件，以下是如何下载和安装.deb文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - wget http://pngquant.org/pngquant_1.7.1-1_i386.deb
+  - sudo dpkg -i pngquant_1.7.1-1_i386.deb
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="使用apt-addon安装软件包">使用APT Addon安装软件包 <a href="#使用apt-addon安装软件包" class="toc-anchor">#</a></h3>
+
+<p>您也可以使用APT插件安装软件包和源代码，而无需运行<code class="highlighter-rouge">apt-get</code>你的命令<code class="highlighter-rouge">before_install</code>脚本。</p>
+
+<p>如果您的要求超出正常安装范围，请使用上述其他方法。</p>
+
+<h4 id="添加apt源">添加APT源 <a href="#添加apt源" class="toc-anchor">#</a></h4>
+
+<p>要添加APT源，您可以使用以下三种类型的条目之一：</p>
+
+<ol>
+  <li>别名中定义的别名<a href="https://github.com/travis-ci/apt-source-safelist">来源安全列表</a></li>
+  <li><code class="highlighter-rouge">sourceline</code>将被添加到的键值对<code class="highlighter-rouge">/etc/apt/sources.list</code></li>
+  <li>当APT源需要GPG密钥时，您可以使用<code class="highlighter-rouge">key_url</code>除了对<code class="highlighter-rouge">sourceline</code>。</li>
+</ol>
+
+<p>以下代码段显示了这三种类型的APT源</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    sources:
+    - deadsnakes
+    - sourceline: 'ppa:ubuntu-toolchain-r/test'
+    - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
+      key_url: 'https://packagecloud.io/gpg.key'
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h4 id="添加apt包">添加APT包 <a href="#添加apt包" class="toc-anchor">#</a></h4>
+
+<p>列出APT包下的<code class="highlighter-rouge">addons.apt.packages</code>键：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    packages:
+    - cmake
+    - time
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>注意：将APT源和包一起使用时，您需要进行操作</p>
+</blockquote>
+
+<p>确保它们位于YAML文件中的相同密钥空间下。例如</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>注意：如果<code class="highlighter-rouge">apt-get install</code>失败，构建标记为错误。</p>
+</blockquote>
+
+<h3 id="使用snap-addon安装snap软件包">使用Snap Addon安装Snap软件包 <a href="#使用snap-addon安装snap软件包" class="toc-anchor">#</a></h3>
+
+<p>你可以安装<a href="http://snapcraft.io/">卡</a>使用我们的Xenial图像的包：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dist: xenial
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>Ubuntu Snap商店提供许多由上游直接维护的软件包</p>
+
+<p>开发人员，通常使用的版本比Apt存档中的版本更新。</p>
+
+<p>您可以将快照指定为快照规范数组，每个规格都是</p>
+
+<p>两种可能的形式：</p>
+
+<ol>
+  <li>快照的名称，将传递给<code class="highlighter-rouge">snap install</code>无</li>
+</ol>
+
+<p>额外的旗帜。例如，</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dist: xenial
+addons:
+  snaps:
+    - hugo
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}
+这导致：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo snaps install hugo
+
+</code></pre></div></div>
+
+<ol>
+  <li>指定应如何安装快照的地图。可能的关键是：</li>
+</ol>
+
+<p><code class="highlighter-rouge">name</code>，<code class="highlighter-rouge">confinement</code>，和<code class="highlighter-rouge">channel</code>。</p>
+
+<p>该<code class="highlighter-rouge">confinement</code>密钥将用于添加<code class="highlighter-rouge">--classic</code>要么<code class="highlighter-rouge">--devmode</code>旗，</p>
+
+<p>和<code class="highlighter-rouge">channel</code>将被传递给<code class="highlighter-rouge">--channel</code>旗。</p>
+
+<p>例如，</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dist: xenial
+addons:
+  snaps:
+    - name: aws-cli
+      confinement: classic # or devmode
+      channel: latest/edge # will be passed to --channel flag
+
+</code></pre></div></div>
+
+<p>{：data-file：“。travis.yml”}
+这导致：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo snaps install aws-cli --classic --channel=latest/edge
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">confinement</code><code class="highlighter-rouge">channel</code></p>
+
+<p>##</p>
+
+<p>安装未包含的软件包<a href="/user/reference/osx/#compilers-and-build-toolchain">默认的macOS环境</a>使用<a href="http://brew.sh">家酿</a>。</p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>。</p>
+
+<p>例如，要安装beanstalk：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  homebrew:
+    packages:
+    - beanstalk
+
+</code></pre></div></div>
+
+<p>默认情况下，Homebrew插件不会运行<code class="highlighter-rouge">brew update</code><code class="highlighter-rouge">brew update</code><code class="highlighter-rouge">update: true</code>到插件配置：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  homebrew:
+    packages:
+    - beanstalk
+    update: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>###</p>
+
+<p>Homebrew插件也支持安装<a href="https://github.com/Homebrew/homebrew-cask">木桶</a>。你可以将它们添加到<code class="highlighter-rouge">casks</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  homebrew:
+    casks:
+    - dotnet-sdk
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="从水龙头安装">从水龙头安装 <a href="#从水龙头安装" class="toc-anchor">#</a></h3>
+
+<p>Homebrew支持从第三方存储库安装桶和包<a href="https://docs.brew.sh/Taps"></a>，你可以使用Homebrew插件。</p>
+
+<p>例如，Homebrew维护了某些旧版本的旧版本<a href="https://github.com/Homebrew/homebrew-cask-versions"><code class="highlighter-rouge">homebrew/cask-versions</code></a>。如果要在安装了Java 10的映像上安装Java 8，可以添加该漏洞，然后安装<code class="highlighter-rouge">java8</code>木桶：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>osx_image: xcode10
+addons:
+  homebrew:
+    taps: homebrew/cask-versions
+    casks: java8
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="使用brewfile">使用Brewfile <a href="#使用brewfile" class="toc-anchor">#</a></h3>
+
+<p>在引擎盖下，Homebrew插件通过创建一个<code class="highlighter-rouge">~/.Brewfile</code><code class="highlighter-rouge">brew bundle --global</code><a href="https://github.com/Homebrew/homebrew-bundle">Brewfile</a>签入您的项目。通过传递<code class="highlighter-rouge">brewfile: true</code>，插件将寻找一个<code class="highlighter-rouge">Brewfile</code>在项目的根目录中：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  homebrew:
+    brewfile: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果Brewfile位于其他位置，您还可以提供路径。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  homebrew:
+    brewfile: Brewfile.travis
+
+</code></pre></div></div>
+
+<h3 id="在较旧的macos映像上使用homebrew而不添加插件">在较旧的macOS映像上使用Homebrew而不添加插件 <a href="#在较旧的macos映像上使用homebrew而不添加插件" class="toc-anchor">#</a></h3>
+
+<p>如果你正在运行<code class="highlighter-rouge">brew</code></p>
+
+<p>Homebrew必须在Ruby 2.3下运行！你正在运行2.0.0。您需要更新到Ruby 2.3或更新版本：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm use 2.3 --install --binary
+brew update
+brew install openssl
+rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
+
+</code></pre></div></div>
+
+<h2 id="在多个操作系统上安装依赖项">在多个操作系统上安装依赖项 <a href="#在多个操作系统上安装依赖项" class="toc-anchor">#</a></h2>
+
+<p>如果您在Linux和macOS上进行测试，则可以同时使用APT插件和Homebrew插件。每个插件只能在适当的平台上运行：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    packages: foo
+  homebrew:
+    packages: bar
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您手动安装软件包，请使用<code class="highlighter-rouge">$TRAVIS_OS_NAME</code>变量为每个操作系统单独安装依赖项：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install:
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="从源安装项目">从源安装项目 <a href="#从源安装项目" class="toc-anchor">#</a></h2>
+
+<p>某些依赖项只能从源包安装。构建可能需要更新版本或不可用作Ubuntu软件包的工具或库。</p>
+
+<p>您可以通过运行脚本来处理安装过程，轻松地在.travis.yml中包含构建步骤，或者这是推荐的方法。</p>
+
+<p>这是一个从二进制包安装CasperJS的简单示例：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_script:
+  - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
+  - tar -xvf /tmp/casper.tar.gz
+  - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>请注意，当您更新时<code class="highlighter-rouge">$PATH</code>环境变量，该部分无法移动到shell脚本中，因为它只会更新运行脚本的子进程的变量。</p>
+
+<p>要从源安装某些内容，您可以执行类似的步骤。下面是一个下载，编译和安装protobufs库的示例。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install:
+  - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
+  - tar -xzvf protobuf-2.4.1.tar.gz
+  - pushd protobuf-2.4.1 &amp;&amp; ./configure --prefix=/usr &amp;&amp; make &amp;&amp; sudo make install &amp;&amp; popd
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>可以将这三个命令提取到shell脚本中，让我们为它命名<code class="highlighter-rouge">install-protobuf.sh</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="nb">set</span> <span class="nt">-ex</span>
+wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzvf</span> protobuf-2.4.1.tar.gz
+<span class="nb">cd </span>protobuf-2.4.1 <span class="o">&amp;&amp;</span> ./configure <span class="nt">--prefix</span><span class="o">=</span>/usr <span class="o">&amp;&amp;</span> make <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>make install
+
+</code></pre></div></div>
+
+<p>一旦将其添加到存储库，您就可以从.travis.yml运行它：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - ./install-protobuf.sh
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>请注意，第一个版本使用<code class="highlighter-rouge">pushd</code>和<code class="highlighter-rouge">popd</code>确保之后<code class="highlighter-rouge">install</code>部分完成后，工作目录将返回其原始值。这在shell脚本中不是必需的，因为它在子shell中运行，因此不会改变原始工作目录。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

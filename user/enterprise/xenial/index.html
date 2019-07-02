@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xenial Build Containers for Enterprise (beta) - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/">Setting up Travis CI Enterprise</a> </li>
+        <li><a href="/user/enterprise/upgrading/">Upgrading</a></li>
+      </ul>
+
+      <h3>Environment reference</h3>
+      <ul>
+        <li><a href="/user/enterprise/xenial">Xenial Build Environment</a></li>
+
+        <li><a href="/user/enterprise/trusty/">Trusty Build Environment</a></li>
+
+        <li><a href="/user/enterprise/precise/">Precise (Legacy) Build Environment</a></li>
+      </ul>
+
+      <h3>Customizing Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/worker-configuration/">Worker Configuration</a></li>
+        <li><a href="/user/enterprise/build-images/">Customizing Build Images</a></li>
+        <li><a href="/user/enterprise/high-availability/">High Availability</a></li>
+        <li><a href="/user/enterprise/custom-queues/">Custom Queues</a></li>
+      </ul>
+
+      <h3>Enterprise Operations Manual</h3>
+      <ul>
+        <li><a href="/user/enterprise/platform-tips/">Platform Administration Tips</a></li>
+        <li><a href="/user/enterprise/worker-cli-commands/">Worker Start & Debug Containers</a></li>
+        <li><a href="/user/enterprise/ssl-certificate-management/">SSL Certificate Management</a></li>
+        <li><a href="/user/enterprise/troubleshooting-guide/">Troubleshooting Guide</a></li>
+      </ul>
+
+      <h3>Travis CI Docs</h3>
+      <ul>
+        <li><a href="/">Travis CI Docs</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page"><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/enterprise/xenial.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Xenial Build Containers for Enterprise (beta)</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#使用travis-ci-enterprise-226及更高版本进行安装">使用Travis CI Enterprise 2.2.6及更高版本进行安装</a></li>
+  <li><a href="#重新启动travis-worker">重新启动<code class="highlighter-rouge">travis-worker</code></a></li>
+</ul>
+
+            </div>
+          
+
+          <p>##</p>
+
+<p><strong>平台要求</strong>：要使用Xenial构建容器，Travis CI安装必须为2.2.6或更高版本。请务必<a href="/user/enterprise/upgrading/">升级</a></p>
+
+r />
+
+<p>我们建议使用具有8个vCPU和15 GiB内存以及至少40 GiB磁盘空间的计算机。如果您使用的AWS将是他们的c4.2xlarge实例类型。此外，您将要运行Ubuntu 16.04或更高版本。在安装和操作期间，端口22必须为SSH打开。</p>
+
+<blockquote>
+  <p>。要运行Trusty和Xenial构建，至少需要两个工作器实例。</p>
+</blockquote>
+
+<h2 id="使用travis-ci-enterprise-226及更高版本进行安装">使用Travis CI Enterprise 2.2.6及更高版本进行安装 <a href="#使用travis-ci-enterprise-226及更高版本进行安装" class="toc-anchor">#</a></h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
+
+$ sudo bash /tmp/installer.sh \
+--travis_enterprise_host="[travis.yourhost.com]" \
+--travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]" \
+--travis_beta_build_images=true
+
+</code></pre></div></div>
+
+<h2 id="重新启动travis-worker">重新启动<code class="highlighter-rouge">travis-worker</code> <a href="#重新启动travis-worker" class="toc-anchor">#</a></h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl restart travis-worker
+
+</code></pre></div></div>
+
+<p>在启动时应用工作程序配置更改。</p>
+
+<p>##</p>
+
+<p>要在新的Xenial构建环境中运行项目的构建，请添加一个<code class="highlighter-rouge">dist: xenial</code><code class="highlighter-rouge">.travis.yml</code></p>
+
+<p>##</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

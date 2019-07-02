@@ -1,0 +1,1329 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configuring Build Notifications - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/notifications.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Configuring Build Notifications</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#默认通知设置">默认通知设置</a></li>
+  <li><a href="#更改通知频率">更改通知频率</a></li>
+  <li><a href="#配置电子邮件通知">配置电子邮件通知</a></li>
+  <li><a href="#配置irc通知">配置IRC通知</a></li>
+  <li><a href="#配置篝火通知">配置篝火通知</a></li>
+  <li><a href="#配置流动码头通知">配置流动码头通知</a></li>
+  <li><a href="#配置opsgenie通知">配置OpsGenie通知</a></li>
+  <li><a href="#对于真正的好奇">对于真正的好奇</a></li>
+</ul>
+
+            </div>
+          
+
+          <blockquote>
+  <p>请注意，如果您仍在使用<a href="http://www.travis-ci.org">travis-ci.org</a>你需要使用<code class="highlighter-rouge">--org</code>代替<code class="highlighter-rouge">--com</code>在此页面上显示的所有命令中。</p>
+</blockquote>
+
+<p>Travis CI可以通过电子邮件，IRC，聊天或自定义webhook通知您有关构建结果的信息。</p>
+
+<h2 id="默认通知设置">默认通知设置 <a href="#默认通知设置" class="toc-anchor">#</a></h2>
+
+<p>默认情况下，电子邮件通知将发送到提交者和提交</p>
+
+<p>作者，当他们是存储库的成员时，他们就是</p>
+
+<ul>
+  <li>公共存储库的推送或管理权限。</li>
+  <li>私有存储库的拉，推或管理权限。</li>
+</ul>
+
+<p>在给定分支上发送电子邮件：</p>
+
+<ul>
+  <li>构建刚刚破坏或仍然被破坏。</li>
+  <li>以前破坏的构建刚刚修复。</li>
+</ul>
+
+<p>有关更多信息，请阅读[默认电子邮件</p>
+
+<p>地址](#how-is-the-build-email-receiver-determined)，[更改电子邮件</p>
+
+<p>地址](#changing-the-email-address-for-build-notifications)要么</p>
+
+<p>[电子邮件疑难</p>
+
+<p>通知](#missing-build-notifications)。</p>
+
+<h2 id="更改通知频率">更改通知频率 <a href="#更改通知频率" class="toc-anchor">#</a></h2>
+
+<p>您可以通过设置更改任何通知渠道的条件</p>
+
+<p><code class="highlighter-rouge">on_success</code>要么<code class="highlighter-rouge">on_failure</code></p>
+
+<ul>
+  <li><code class="highlighter-rouge">always</code></li>
+  <li><code class="highlighter-rouge">never</code>：永远不会发送通知。</li>
+  <li><code class="highlighter-rouge">change</code>：在构建状态更改时发送通知。</li>
+</ul>
+
+<p>例如，要始终在成功构建时发送松弛通知：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  slack:
+    on_success: always
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p><strong>注意：</strong>这些webhook在构建结束时执行，而不是由单个作业执行</p>
+
+<p>（看到<a href="/user/for-beginners/#builds-jobs-stages-and-phases">建立与工作</a>）。</p>
+
+<p>这意味着本节中不提供构建中的环境变量。</p>
+
+<p>目前无法将通知限制为特定分支，但是</p>
+
+<p>有效载荷将包含在接收端这样做的所有相关数据（见</p>
+
+<p><a href="#webhooks-delivery-format">Webhooks交付格式</a>）。</p>
+
+<h3 id="关于ssl--tls密码的注意事项">关于SSL / TLS密码的注意事项 <a href="#关于ssl--tls密码的注意事项" class="toc-anchor">#</a></h3>
+
+<p>通过SSL / TLS发布通知时，请注意接受的密码</p>
+
+<p>由接收服务器。如果服务器的密码都不起作用，则通知将失败。</p>
+
+<p><a href="http://ruby-doc.org/stdlib-2.1.6/libdoc/openssl/rdoc/OpenSSL.html">openssl gem</a>）</p>
+
+<p>众所周知：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AES-128-CBC AES-128-CBC-HMAC-SHA1 AES-128-CFB AES-128-CFB1 AES-128-CFB8 AES-128-CTR AES-128-ECB AES-128-OFB AES-128-XTS AES-192-CBC AES-192-CFB AES-192-CFB1 AES-192-CFB8 AES-192-CTR AES-192-ECB AES-192-OFB AES-256-CBC AES-256-CBC-HMAC-SHA1 AES-256-CFB AES-256-CFB1 AES-256-CFB8 AES-256-CTR AES-256-ECB AES-256-OFB AES-256-XTS AES128 AES192 AES256 BF BF-CBC BF-CFB BF-ECB BF-OFB CAMELLIA-128-CBC CAMELLIA-128-CFB CAMELLIA-128-CFB1 CAMELLIA-128-CFB8 CAMELLIA-128-ECB CAMELLIA-128-OFB CAMELLIA-192-CBC CAMELLIA-192-CFB CAMELLIA-192-CFB1 CAMELLIA-192-CFB8 CAMELLIA-192-ECB CAMELLIA-192-OFB CAMELLIA-256-CBC CAMELLIA-256-CFB CAMELLIA-256-CFB1 CAMELLIA-256-CFB8 CAMELLIA-256-ECB CAMELLIA-256-OFB CAMELLIA128 CAMELLIA192 CAMELLIA256 CAST CAST-cbc CAST5-CBC CAST5-CFB CAST5-ECB CAST5-OFB DES DES-CBC DES-CFB DES-CFB1 DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB1 DES-EDE3-CFB8 DES-EDE3-OFB DES-OFB DES3 DESX DESX-CBC RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-ECB RC2-OFB RC4 RC4-40 RC4-HMAC-MD5 SEED SEED-CBC SEED-CFB SEED-ECB SEED-OFB
+
+</code></pre></div></div>
+
+<p>另外，咨询<a href="https://www.openssl.org/docs/manmaster/man1/ciphers.html">密码套件名称映射</a>。</p>
+
+<p>如果上面列出的密码都不起作用，请打开一个<a href="https://github.com/travis-ci/travis-ci/issues">GitHub问题</a>。</p>
+
+<h3 id="有关ip地址的说明">有关IP地址的说明 <a href="#有关ip地址的说明" class="toc-anchor">#</a></h3>
+
+<p>所有使用HTTP的通知都通过具有静态IP的代理发送</p>
+
+<p>addresess确保安全列表和防火墙规则的稳定性。目前的IP</p>
+
+<p>地址是：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>54.173.229.200
+54.175.230.252
+
+</code></pre></div></div>
+
+<h2 id="配置电子邮件通知">配置电子邮件通知 <a href="#配置电子邮件通知" class="toc-anchor">#</a></h2>
+
+<p>指定将通知构建结果的收件人：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  email:
+    - one@example.com
+    - other@example.com
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>完全关闭电子邮件通知：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  email: false
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>指定您想要的时间<a href="#changing-notification-frequency">得到通知</a>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  email:
+    recipients:
+      - one@example.com
+      - other@example.com
+    on_success: never # default: change
+    on_failure: always # default: always
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>Pull Request构建不会触发电子邮件通知。</p>
+
+<h3 id="构建电子邮件接收器如何确定">构建电子邮件接收器如何确定？ <a href="#构建电子邮件接收器如何确定" class="toc-anchor">#</a></h3>
+
+<p>默认情况下，构建电子邮件将发送给提交者和作者，但仅限于</p>
+
+<p>他们可以访问提交被推送到的存储库。这可以防止叉子</p>
+
+<p>在Travis CI上主动通知上游存储库的所有者</p>
+
+<p>将任何上游更改推送到他们的分支。它还会阻止构建通知</p>
+
+<p>从去往没有在Travis CI注册的人。</p>
+
+<p>然后根据提交中的电子邮件地址确定电子邮件地址，</p>
+
+<p>但仅当它与我们数据库中的某个电子邮件地址匹配时。我们</p>
+
+<p>同步来自GitHub的所有电子邮件地址，仅用于此目的</p>
+
+<p>可以在。中覆盖默认值<code class="highlighter-rouge">.travis.yml</code>如上所示。如果有的话</p>
+
+<p>设置指定后，Travis CI仅向指定的地址发送电子邮件</p>
+
+<p>在那里，而不是提交者和作者。</p>
+
+<h3 id="更改构建通知的电子邮件地址">更改构建通知的电子邮件地址 <a href="#更改构建通知的电子邮件地址" class="toc-anchor">#</a></h3>
+
+<p>Travis CI仅向GitHub上注册的电子邮件地址发送构建通知。</p>
+
+<p>如果您注册了多个地址，则可以设置特定的电子邮件地址</p>
+
+<p>存储库使用<code class="highlighter-rouge">git</code>：</p>
+
+<blockquote>
+  <p>请注意，这也会更改提交电子邮件地址，而不仅仅是Travis CI通知设置。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config user.email "mynewemail@example.com"
+
+</code></pre></div></div>
+
+<p>或者为所有git存储库设置电子邮件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.email "mynewemail@example.com"
+
+</code></pre></div></div>
+
+<p>请注意，我们目前不尊重[详细通知</p>
+
+<p>设置](https://github.com/settings/notifications)上</p>
+
+<p>GitHub，因为此时它们不会通过API公开。</p>
+
+<h3 id="缺少构建通知">缺少构建通知 <a href="#缺少构建通知" class="toc-anchor">#</a></h3>
+
+<p>没有接收构建通知的最常见原因，除了没有</p>
+
+<p>Travis CI上的用户帐户是使用未注册的电子邮件地址</p>
+
+<p>并在GitHub上验证。请参阅上文，了解如何将电子邮件地址更改为一个</p>
+
+<p>已注册或确保添加此存储库中使用的电子邮件地址</p>
+
+<p>至<a href="https://github.com/settings/emails">验证的电子邮件地址</a>在GitHub上。</p>
+
+<h2 id="配置irc通知">配置IRC通知 <a href="#配置irc通知" class="toc-anchor">#</a></h2>
+
+<p>您还可以向IRC频道发送通知。</p>
+
+<p>通知发送自<code class="highlighter-rouge">travis-ci</code>，在Freenode上自动验证。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc: "chat.freenode.net#my-channel"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>或多个渠道：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    - "chat.freenode.net#my-channel"
+    - "chat.freenode.net#some-other-channel"
+    - "irc://chat.freenode.net:8000/#plaintext_channel"
+    - "ircs://chat.freenode.net:7070/#ssl_tls_channel"
+
+</code></pre></div></div>
+
+<p>与其他通知类型一样，您可以指定何时发送IRC通知：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#my-channel"
+      - "chat.freenode.net#some-other-channel"
+    on_success: change # default: always
+    on_failure: always # default: always
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>使用模板自定义将发送到通道的消息：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#my-channel"
+      - "chat.freenode.net#some-other-channel"
+    template:
+      - "%{repository_slug} (%{commit}) : %{message}"
+      - "Build details: %{build_url}"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>您可以插入以下变量：</p>
+
+<ul>
+  <li>repository_slug：你的GitHub repo标识符（比如<code class="highlighter-rouge">svenfuchs/minimal</code>）</li>
+  <li>repository_name：没有用户名的slug</li>
+  <li>知识库：与repository_slug相同[已弃用]</li>
+  <li>BUILD_NUMBER：内部版本号</li>
+  <li>build_id：构建id</li>
+  <li>科：分支构建名称</li>
+  <li>承诺：缩短提交SHA</li>
+  <li>作者：提交作者姓名</li>
+  <li>COMMIT_MESSAGE：提交构建消息</li>
+  <li>commit_subject：提交消息的第一行</li>
+  <li>结果：构建的结果</li>
+  <li>信息：travis消息到构建</li>
+  <li>持续时间：矩阵中所有构建的总持续时间</li>
+  <li>ELAPSED_TIME：构建开始和结束之间的时间</li>
+  <li>compare_url：提交更改视图URL</li>
+  <li>build_url：构建详细信息的URL</li>
+</ul>
+
+<p>默认模板是：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    template:
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
+      - "Change view : %{compare_url}"
+      - "Build details : %{build_url}"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果你想让机器人使用通知而不是常规消息<code class="highlighter-rouge">use_notice</code>标志可以使用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#my-channel"
+      - "chat.freenode.net#some-other-channel"
+    on_success: change # default: always
+    on_failure: always # default: always
+    use_notice: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您希望机器人在发送消息之前不加入，请使用<code class="highlighter-rouge">skip_join</code>旗：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#my-channel"
+      - "chat.freenode.net#some-other-channel"
+    on_success: change # default: always
+    on_failure: always # default: always
+    use_notice: true
+    skip_join: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果启用<code class="highlighter-rouge">skip_join</code>，记得删除<code class="highlighter-rouge">NO_EXTERNAL_MSGS</code>机器人通知的IRC频道上的flag（n）。</p>
+
+<p>Pull Request构建不会触发IRC通知。</p>
+
+<h3 id="频道密钥">频道密钥 <a href="#频道密钥" class="toc-anchor">#</a></h3>
+
+<p>如果您希望机器人向使用频道密钥保护的频道发送消息（即设置为<code class="highlighter-rouge">/mode #channel +k password</code>）， 使用<code class="highlighter-rouge">channel_key</code>变量：</p>
+
+<blockquote>
+  <p>注意：我们强烈推荐您<a href="/user/encryption-keys/">加密</a>这个值如果</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis encrypt password --add notifications.irc.channel_key
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#my-channel"
+    channel_key: 'password'
+
+</code></pre></div></div>
+
+<p>###</p>
+
+<p>您还可以使用用户向IRC服务器进行身份验证：</p>
+
+<blockquote>
+  <p>注意：我们强烈推荐您<a href="/user/encryption-keys/">加密</a>这个值如果</p>
+</blockquote>
+
+<p>您的.travis.yml存储在公共存储库中。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis encrypt password --add notifications.irc.channel_key
+travis encrypt password --add notifications.irc.password
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#my-channel"
+    channel_key: 'password'
+    nick: travisci
+    password: super_secret
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="配置篝火通知">配置篝火通知 <a href="#配置篝火通知" class="toc-anchor">#</a></h2>
+
+<p>也可以使用以下格式将通知发送到Campfire聊天室：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  campfire: "[subdomain]:[api token]@[room id]"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<ul>
+  <li>子域：是你的篝火子域名（即<code class="highlighter-rouge">your-subdomain</code>如果你去参观<code class="highlighter-rouge">https://your-subdomain.campfirenow.com</code>）</li>
+  <li>api令牌：是您要用于发布通知的用户的令牌。</li>
+  <li>房间号：这是房间ID，而不是名称。</li>
+</ul>
+
+<blockquote>
+  <p>注意：我们强烈推荐您<a href="/user/encryption-keys/">加密</a>这个值如果</p>
+</blockquote>
+
+<p>您的.travis.yml存储在公共存储库中：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
+
+</code></pre></div></div>
+
+<p>您也可以自定义通知，例如<a href="#configuring-irc-notifications">IRC通知</a>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  campfire:
+    rooms:
+      - "[subdomain]:[api token]@[room id]"
+    template:
+      - "%{repository_slug} (%{commit}) : %{message}"
+      - "Build details: %{build_url}"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>其他标志，如<code class="highlighter-rouge">on_success</code>和<code class="highlighter-rouge">on_failure</code>也像他们在IRC通知配置中那样工作。</p>
+
+<p>Pull Request构建不会触发Campfire通知。</p>
+
+<h2 id="配置流动码头通知">配置流动码头通知 <a href="#配置流动码头通知" class="toc-anchor">#</a></h2>
+
+<p>可以使用以下格式将通知发送到您的Flowdock Team Inbox：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notifications:
+  flowdock: "[api token]"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<ul>
+  <li>api令牌：是您希望通知的团队收件箱的API令牌。您可以将多个标记作为逗号分隔的字符串或数组传递。</li>
+</ul>
+
+<blockquote>
+  <p>注意：我们强烈推荐您<a href="/user/encryption-keys/">加密</a>如果您的.travis.yml存储在公共存储库中，则此值为：
+```
+travis encrypt api_token –add notifications.flowdock</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+Pull Request构建不会触发Flowdock通知。
+
+## 配置HipChat通知
+
+使用以下密钥将通知发送到您的HipChat会议室
+
+`.travis.yml`：
+
+</code></pre></div></div>
+<p>notifications:
+  hipchat: “[api token]@[room id or name]”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+- `api token`：要将通知发布为的用户的标记。之一
+   * 您的组管理员为您提供的API v1令牌。
+   * 您管理的API v2令牌。
+
+- `hostname`：可选，默认为api.hipchat.com，但可以为HipChat Server实例指定。
+- `room id`要么`name`：要通知的房间的ID或名称（区分大小写）。如果您的房间名称包含空格，请使用房间ID。
+
+&gt;总是[加密](/user/encryption-keys/)这个值如果
+
+您的`.travis.yml`存储在公共存储库中：
+</code></pre></div></div>
+<p>travis encrypt api_token@room_id_or_name –add notifications.hipchat.rooms</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+如果您正在运行HipChat服务器，请指定如下的主机名：
+
+</code></pre></div></div>
+<p>notifications:
+  hipchat: “[api token]@[hostname]/[room id or name]”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+HipChat通知也支持模板，因此您可以自定义通知的外观，例如将它减少到一行：
+
+</code></pre></div></div>
+<p>notifications:
+  hipchat:
+    rooms:
+      - “[api token]@[room id or name]”
+    template:
+      - “%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+如果要发送HTML通知，则需要添加`format: html`像这样
+
+（请注意，这与@mentions和autolinking等功能不兼容）：
+
+</code></pre></div></div>
+<p>notifications:
+  hipchat:
+    rooms:
+      - “[api token]@[room id or name]”
+    template:
+      - “%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)”
+    format: html</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+使用V2 API，您可以通过设置触发用户通知`notify: true`：
+
+</code></pre></div></div>
+<p>notifications:
+  hipchat:
+    rooms:
+      - “[api token]@[room id or name]”
+    template:
+      - “%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}”
+    notify: true</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+### 设置通知中的From值
+
+使用V1令牌时，通知由“Travis CI”发布。
+
+使用V2令牌，此值由令牌的Label设置。
+
+创建一个特殊用途的房间通知令牌（房间“管理”部分下的“令牌”）
+
+使用所需标签，并使用此标记。
+
+&lt;figure&gt;
+  &lt;img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" /&gt;
+&lt;/figure&gt;### PR构建的通知
+
+默认情况下，Hipchat将被通知推送构建和拉取请求
+
+建立。
+
+通过添加关闭拉取请求通知`on_pull_requests: false`到了
+
+`hipchat`你的部分`.travis.yml`：
+
+</code></pre></div></div>
+<p>notifications:
+  hipchat:
+    on_pull_requests: false</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+## 配置Pushover通知
+
+通知也可以通过发送[推倒](https://pushover.net/)通过以下格式：
+
+</code></pre></div></div>
+<p>notifications:
+  pushover:
+    api_key: “[api token]”
+    users:
+      - “[user key]”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+- api令牌：Pushover应用程序的API令牌/密钥（在登录Pushover后在“您的应用程序”下创建;建议创建一个特定于Travis CI的）。
+- 用户密钥：用户密钥，用于通知用户（登录到Pushover后可以看到）。支持多个用户的列表。
+
+&gt;注意：我们强烈推荐您[加密](/user/encryption-keys/)这些价值观
+
+如果您的.travis.yml存储在公共存储库中;这将添加（或
+
+覆盖你的api_token，
+
+并将指定的user_key附加到用户列表。
+</code></pre></div></div>
+<p>travis encrypt [api_token] –add notifications.pushover.api_key
+travis encrypt [user_key] –add notifications.pushover.users –append</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+您还可以自定义通知，例如IRC通知：
+
+</code></pre></div></div>
+<p>notifications:
+  pushover:
+    api_key: “[api token]”
+    users:
+      - “[user key]”
+      - “[user key]”
+    template: “%{repository_slug} (%{commit}) : %{message} - Build details: %{build_url}”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+其他标志，如`on_success`和`on_failure`也像IRC通知配置一样工作。
+
+Pull Request构建不会触发Pushover通知。
+
+## 配置Slack通知
+
+Travis CI可以向您发送通知[松弛](https://slack.com)渠道
+
+
+[
+
+](https://my.slack.com/services/new/travis)
+
+![](Screenshot of adding Slack integration: /images/notifications/slack-integration.png)
+
+
+`.travis.yml`
+
+&gt;[](/user/encryption-keys/)这个值如果
+
+
+</code></pre></div></div>
+<p>travis encrypt “<account>:<token>" --add notifications.slack.rooms</token></account></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+最简单的配置需要您的帐户名称和令牌
+
+
+</code></pre></div></div>
+<p>notifications:
+  slack: ‘<account>:<token>'</token></account></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+要指定其他通道，请使用a将其添加到配置中
+
+`#`
+
+</code></pre></div></div>
+<p>notifications:
+  slack: ‘<account>:<token>#development'</token></account></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+要在使用加密凭据时指定其他频道，请使用：
+
+</code></pre></div></div>
+<p>travis encrypt “<account>:<token>#channel" --add notifications.slack.rooms</token></account></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+<p>notifications:
+  slack:
+    rooms:
+      - <account>:<token>#development
+      - <account>:<token>#general
+    on_success: change # default: always
+    on_failure: always # default: always</token></account></token></account></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+
+</code></pre></div></div>
+<p>travis encrypt “<account>:<token>#channel" --add notifications.slack.rooms</token></account></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+这是加密凭据的设置如下所示：
+
+</code></pre></div></div>
+<p>notifications:
+  slack:
+    rooms:
+      - secure: “sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg=”
+    on_success: always</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+一旦设置好所有内容，推送新的提交，您将在松弛通道中收到消息。
+
+### PR构建的通知
+
+通过添加关闭拉取请求通知`on_pull_requests: false``slack``.travis.yml`
+
+</code></pre></div></div>
+<p>notifications:
+  slack:
+    on_pull_requests: false</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+### 自定义松弛通知
+
+
+</code></pre></div></div>
+<p>notifications:
+  slack:
+    template:
+      - “%{repository_slug} (%{commit}) : %{message}”
+      - “Build details: %{build_url}”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+推送构建的默认模板是：
+
+</code></pre></div></div>
+<p>notifications:
+  slack:
+    template:
+      - “Build &lt;%{build_url}|#%{build_number}&gt; (&lt;%{compare_url}|%{commit}&gt;) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+而pull请求构建的默认模板是：
+
+</code></pre></div></div>
+<p>notifications:
+  slack:
+    template:
+    - “Build &lt;%{build_url}|#%{build_number}&gt; (&lt;%{compare_url}|%{commit}&gt;) of %{repository_slug}@%{branch} in PR &lt;%{pull_request_url}|#%{pull_request_number}&gt; by %{author} %{result} in %{duration}”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+````````，`_`，`*``~`。
+
+[松弛的文档](https://api.slack.com/docs/message-formatting)
+
+
+## 配置webhook通知
+
+
+</code></pre></div></div>
+<p>notifications:
+  webhooks: http://your-domain.com/notifications</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+</code></pre></div></div>
+<p>notifications:
+  webhooks:
+    - http://your-domain.com/notifications
+    - http://another-domain.com/notifications</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{：data-file =“。travis.yml”}
+
+与其他通知类型一样，您可以指定何时发送webhook有效负载：
+
+</code></pre></div></div>
+<p>notifications:
+  webhooks:
+    urls:
+      - http://hooks.mydomain.com/travisci
+      - http://hooks.mydomain.com/events
+    on_success: change # default: always
+    on_failure: always # default: always
+    on_start:   change # default: never
+    on_cancel:  always # default: always
+    on_error:   always # default: always</p>
+
+<p>```</p>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>###</p>
+
+<p><code class="highlighter-rouge">application/x-www-form-urlencoded</code>内容类型使用HTTP POST，主体包括<code class="highlighter-rouge">payload</code></p>
+
+<p><a href="https://github.com/travis-ci/docs-travis-ci-com"></a>：</p>
+
+<script src="https://gist.github.com/.js" data-proofer-ignore=""></script>
+<p><code class="highlighter-rouge">status</code><code class="highlighter-rouge">result</code></p>
+
+<ul>
+  <li>0</li>
+  <li>1：表示尚未完成或已完成且失败的构建</li>
+</ul>
+
+<p>此外，还会有一条消息<code class="highlighter-rouge">status_message</code><code class="highlighter-rouge">result_message</code></p>
+
+<ul>
+  <li>：已请求构建</li>
+  <li>通过</li>
+  <li>固定：在先前失败的构建之后，构建成功完成</li>
+  <li></li>
+  <li>：构建是新分支的第一个构建，但已失败</li>
+  <li>仍然失败：在先前失败的构建之后，构建完成失败</li>
+  <li>：构建被取消了</li>
+  <li>误码：构建错误</li>
+</ul>
+
+<p><code class="highlighter-rouge">type</code></p>
+
+<p>跑。它的价值是其中之一<code class="highlighter-rouge">push</code>，<code class="highlighter-rouge">pull_request</code>，<code class="highlighter-rouge">cron</code>， 要么<code class="highlighter-rouge">api</code>。对于拉动请求，</p>
+
+<p>该<code class="highlighter-rouge">type</code>字段将具有该值<code class="highlighter-rouge">pull_request</code>，和<code class="highlighter-rouge">pull_request_number</code>领域</p>
+
+<p>也包括在内，指向GitHub上的pull请求的问题编号。</p>
+
+<p>为了快速识别所涉及的存储库，我们包括一个<code class="highlighter-rouge">Travis-Repo-Slug</code>标题，格式为<code class="highlighter-rouge">account/repository</code>，例如<code class="highlighter-rouge">travis-ci/travis-ci</code>。</p>
+
+<h3 id="验证webhook请求">验证Webhook请求 <a href="#验证webhook请求" class="toc-anchor">#</a></h3>
+
+<p>为确保工作流程的完整性，我们强烈建议您这样做</p>
+
+<p>在对其执行操作之前验证POST请求。</p>
+
+<p>POST请求附带自定义HTTP标头<code class="highlighter-rouge">Signature</code>。</p>
+
+<p>使用已发布的SSL公钥，您可以验证该签名</p>
+
+<p>有效载荷。</p>
+
+<ol>
+  <li>拿起来<code class="highlighter-rouge">payload</code>来自HTTP请求主体的数据。</li>
+  <li>获得<code class="highlighter-rouge">Signature</code>标头值，并对其进行base64解码。</li>
+  <li>获取与签名的私钥对应的公钥</li>
+</ol>
+
+<p>有效载荷。这可以在<code class="highlighter-rouge">/config</code>端点</p>
+
+<p><code class="highlighter-rouge">config.notifications.webhook.public_key</code>在相关的API服务器上。</p>
+
+<p>（例如。，<a href="https://api.travis-ci.com/config">https://api.travis-ci.com/config</a>）</p>
+<ol>
+  <li>使用公钥和SHA1摘要验证签名。</li>
+</ol>
+
+<h4 id="例子">例子 <a href="#例子" class="toc-anchor">#</a></h4>
+
+<ol>
+  <li><a href="https://github.com/travis-ci/webhook-signature-verifier">Webhook SignatureVerifier</a></li>
+</ol>
+
+<p>是一个小型的Sinatra应用程序，它向您展示了它的工作原理。</p>
+<ol>
+  <li>此文档站点接收webhook通知，验证请求</li>
+</ol>
+
+<p>并更新显示上面有效负载示例的Gist。</p>
+
+<p>看到<a href="https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plugins/webhoook_payload_doc_handler.rb">代码</a>。</p>
+<ol>
+  <li><a href="https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4">Travis Webhook Checker</a></li>
+</ol>
+
+<p>是一个Django视图示例，它在Python中实现了这一点。</p>
+<ol>
+  <li><a href="https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e">Travis Golang Hooks Verification</a></li>
+</ol>
+
+<p>是Go中的一个小型webapp，用于验证钩子。</p>
+<ol>
+  <li><a href="https://github.com/Brodan/travis-webhook-verification-nodejs">特拉维斯 - 网络挂接验证-的NodeJS</a></li>
+</ol>
+
+<p>包含两个用于验证Node.js中的webhooks的示例<a href="https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/express.js">表达</a></p>
+
+<p>和<a href="https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/hapi.js">hapi.js</a></p>
+
+<h2 id="配置opsgenie通知">配置OpsGenie通知 <a href="#配置opsgenie通知" class="toc-anchor">#</a></h2>
+
+<p>通过使用<a href="https://docs.opsgenie.com/v1.0/docs/travisci-integration">OpsGenie Travis CI整合</a>，您可以将Travis CI警报转发给OpsGenie。 OpsGenie可以根据待命时间表，使用电子邮件，短信（SMS），电话和iPhone和Android推送通知确定合适的人员通知，并在警报确认或关闭之前升级警报。</p>
+
+<h3 id="整合的功能">整合的功能 <a href="#整合的功能" class="toc-anchor">#</a></h3>
+
+<ul>
+  <li>当Travis CI上的项目状态失败，损坏或出错时，将通过集成在OpsGenie中自动创建警报。</li>
+  <li>在Travis CI上传递或修复状态时，警报将在OpsGenie中关闭。</li>
+</ul>
+
+<h3 id="在opsgenie中添加travis-ci集成">在OpsGenie中添加Travis CI集成 <a href="#在opsgenie中添加travis-ci集成" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>如果您还没有，请创建一个OpsGenie帐户</li>
+  <li>转到OpsGenie Travis CI集成页面，</li>
+  <li>使用“团队”字段指定应通知Travis CI警报的人员。键入时将提供自动完成建议。</li>
+  <li>通过单击复制按钮或选择复制Webhook URL。</li>
+  <li>单击“保存集成”。</li>
+</ol>
+
+<h3 id="travis-ci中的配置">Travis CI中的配置 <a href="#travis-ci中的配置" class="toc-anchor">#</a></h3>
+
+<ol>
+  <li>通过在Github上启用Travis CI的服务挂钩，激活要监视的Github存储库。</li>
+  <li>将.travis.yml文件添加到您的存储库。</li>
+  <li>将以下配置添加到.travis.yml文件中。</li>
+</ol>
+
+<p>通知：</p>
+
+<p>网络挂接：<webhook-url></webhook-url></p>
+<ol>
+  <li>承诺.travis.yml将文件存入您的存储库的根目录。</li>
+</ol>
+
+<h2 id="对于真正的好奇">对于真正的好奇 <a href="#对于真正的好奇" class="toc-anchor">#</a></h2>
+
+<p>通知webhooks由。提供<a href="https://github.com/travis-ci/travis-tasks">特拉维斯-CI /特拉维斯任务</a>。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

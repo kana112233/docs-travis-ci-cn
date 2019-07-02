@@ -1,0 +1,1106 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Common Build Problems - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/common-build-problems.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Common Build Problems</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#我的测试破了但昨天工作了">我的测试破了但昨天工作了</a></li>
+  <li><a href="#我的构建脚本被杀死而没有任何错误">我的构建脚本被杀死而没有任何错误</a></li>
+  <li><a href="#我的构建意外失败">我的构建意外失败</a></li>
+  <li><a href="#ruby即使构建失败rspec也会返回0">Ruby：即使构建失败，RSpec也会返回0</a></li>
+  <li><a href="#capybara我发现有关未找到元素的错误">Capybara：我发现有关未找到元素的错误</a></li>
+  <li><a href="#ruby安装debugger_ruby-core-source库失败">Ruby：安装debugger_ruby-core-source库失败</a></li>
+  <li><a href="#ruby在10分钟对数静默后测试冻结并取消">Ruby：在10分钟对数静默后测试冻结并取消</a></li>
+  <li><a href="#macmacos-mavericks109代码签名错误">Mac：macOS Mavericks（10.9）代码签名错误</a></li>
+  <li><a href="#macmacos-sierra1012代码签名错误">Mac：macOS Sierra（10.12）代码签名错误</a></li>
+  <li><a href="#mac运行cocoapods的错误">Mac：运行CocoaPods的错误</a></li>
+  <li><a href="#系统未安装所需的语言包">系统：未安装所需的语言包</a></li>
+  <li><a href="#linuxapt无法安装包含404错误的包">Linux：apt无法安装包含404错误的包</a></li>
+  <li><a href="#travis-ci不保留构建之间的状态">Travis CI不保留构建之间的状态</a></li>
+  <li><a href="#ssh无法按预期工作">SSH无法按预期工作</a></li>
+  <li><a href="#git子模块未正确更新">Git子模块未正确更新</a></li>
+  <li><a href="#git无法克隆我的子模块">Git无法克隆我的子模块</a></li>
+  <li><a href="#我的版本已超时">我的版本已超时</a></li>
+  <li><a href="#在调试模式下运行构建">在调试模式下运行构建</a></li>
+  <li><a href="#超出日志长度">超出日志长度</a></li>
+  <li><a href="#ftp--smtp-其他协议不起作用">FTP / SMTP /其他协议不起作用</a></li>
+  <li><a href="#我推了一个提交但找不到相应的构建">我推了一个提交，但找不到相应的构建</a></li>
+  <li><a href="#我的构建中的磁盘空间不足">我的构建中的磁盘空间不足</a></li>
+  <li><a href="#将artifacts上传到sonatype">将Artifacts上传到Sonatype</a></li>
+  <li><a href="#travis-cli无法识别我的有效github令牌">Travis CLI无法识别我的有效Github令牌</a></li>
+  <li><a href="#重复未知作业显示在我的构建中">重复/未知作业显示在我的构建中</a></li>
+</ul>
+
+            </div>
+          
+
+          <h2 id="我的测试破了但昨天工作了">我的测试破了但昨天工作了 <a href="#我的测试破了但昨天工作了" class="toc-anchor">#</a></h2>
+
+<p>当测试突然断开而没有任何主要代码时，这是一个非常常见的原因</p>
+
+<p>涉及的变化是上游依赖性的变化。</p>
+
+<p>这可以是Ubuntu包或任何项目的语言依赖项，</p>
+
+<p>像RubyGems，NPM包，Pip，Composer等。</p>
+
+<p>要查明是否是这种情况，请重新启动曾经是绿色的构建，最后一个</p>
+
+<p>例如，已知的工作。如果那个构建突然失败了，那就是一个</p>
+
+<p>很好的机会，依赖关系被更新并导致破损。</p>
+
+<p>确保检查构建日志中的依赖项列表，通常是输出</p>
+
+<p>包括版本，看看是否有任何改变。</p>
+
+<p>有时，这也可能是由更新的间接依赖引起的。</p>
+
+<p>在确定哪个依赖项已更新后，将其锁定到最后一个已知的</p>
+
+<p>版。</p>
+
+<p>此外，我们会定期更新构建环境，从而带来更新的环境</p>
+
+<p>语言版本和正在运行的服务。</p>
+
+<h2 id="我的构建脚本被杀死而没有任何错误">我的构建脚本被杀死而没有任何错误 <a href="#我的构建脚本被杀死而没有任何错误" class="toc-anchor">#</a></h2>
+
+<p>有时，您会看到构建脚本导致错误，并且会显示消息</p>
+
+<p>日志将是类似的东西<code class="highlighter-rouge">Killed</code>。</p>
+
+<p>这通常是由脚本或其中一个耗尽的程序引起的</p>
+
+<p>构建沙箱中可用的内存，目前为3GB。另外，那里</p>
+
+<p>两个核心可用，突发。</p>
+
+<p>根据使用的工具，这可能是由以下几点引起的：</p>
+
+<ul>
+  <li>Ruby测试套件消耗太多内存</li>
+  <li>使用太多进程或线程并行运行的测试（例如使用</li>
+</ul>
+
+<p><code class="highlighter-rouge">parallel_test</code>宝石）</p>
+<ul>
+  <li>g ++需要太多的内存来编译文件，例如很多</li>
+</ul>
+
+<p>精疲力尽。</p>
+
+<p>可能表现出类似的原因。它可能是由内存泄漏或自定义引起的</p>
+
+<h2 id="我的构建意外失败">我的构建意外失败 <a href="#我的构建意外失败" class="toc-anchor">#</a></h2>
+
+<p>构建失败意外的一个可能原因是调用<code class="highlighter-rouge">set -e</code>（也称为<code class="highlighter-rouge">set errexit</code>直接进入<code class="highlighter-rouge">.travis.yml</code>， 要么<code class="highlighter-rouge">source</code></p>
+
+<p><code class="highlighter-rouge">set -e</code><code class="highlighter-rouge">errexit</code>仅在外部脚本中有效。</p>
+
+<p><a href="/user/customizing-the-build/#implementing-complex-build-steps">复杂的构建步骤</a>。</p>
+
+<p>##</p>
+
+<p>通过清除缓存或从.travis.yml中删除缓存密钥来修复此问题（您可以在后续提交中将其添加回来）。</p>
+
+<h2 id="ruby即使构建失败rspec也会返回0">Ruby：即使构建失败，RSpec也会返回0 <a href="#ruby即使构建失败rspec也会返回0" class="toc-anchor">#</a></h2>
+
+<p>在某些情况下，运行时<code class="highlighter-rouge">rake rspec</code>甚至直接rspec，命令</p>
+
+<p>即使构建失败，也返回0。这通常是由于一些RubyGem</p>
+
+<p>覆盖了<code class="highlighter-rouge">at_exit</code>另一个RubyGem的处理程序，在本例中是RSpec的。</p>
+
+<p>解决方法是安装它<code class="highlighter-rouge">at_exit</code>正如所指出的那样，代码中的处理程序</p>
+
+<p>在<a href="http://www.davekonopka.com/2013/rspec-exit-code.html">本文</a>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if defined?(RUBY_ENGINE) &amp;&amp; RUBY_ENGINE == "ruby" &amp;&amp; RUBY_VERSION &gt;= "1.9"
+  module Kernel
+    alias :__at_exit :at_exit
+    def at_exit(&amp;block)
+      __at_exit do
+        exit_status = $!.status if $!.is_a?(SystemExit)
+        block.call
+        exit exit_status if exit_status
+      end
+    end
+  end
+end
+
+</code></pre></div></div>
+
+<p>如果你的项目正在使用<a href="/user/code-climate/">代码气候整合</a>要么</p>
+
+<p>Simplecov，这个问题也可以提出Simplecov的0.8分支。修复</p>
+
+<p>在问题得到解决之前，它会降级到最后的0.7版本。</p>
+
+<h2 id="capybara我发现有关未找到元素的错误">Capybara：我发现有关未找到元素的错误 <a href="#capybara我发现有关未找到元素的错误" class="toc-anchor">#</a></h2>
+
+<p>在涉及JavaScript的方案中，您偶尔会看到错误</p>
+
+<p>表示缺少元素，按钮，链接或其他资源</p>
+
+<p>由异步JavaScript更新或创建的。</p>
+
+<p>这可以表明Selenium或其中一个驱动程序使用的超时时间</p>
+
+<p>设置得太低了。</p>
+
+<p>Capybara有一个超时设置，您可以将其增加到最少15</p>
+
+<p>秒：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Capybara.default_max_wait_time = 15
+
+</code></pre></div></div>
+
+<p>Poltergeist有自己的超时设置：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, timeout: 15)
+end
+
+</code></pre></div></div>
+
+<p>如果您在最初增加后仍然看到超时，请将其设置为</p>
+
+<p>一次试运行的东西要高得多。如果错误仍然存​​在，那就是</p>
+
+<p>可能是页面上更深层次的问题，例如编译资产。</p>
+
+<h2 id="ruby安装debugger_ruby-core-source库失败">Ruby：安装debugger_ruby-core-source库失败 <a href="#ruby安装debugger_ruby-core-source库失败" class="toc-anchor">#</a></h2>
+
+<p>不幸的是，这个Ruby库有着破坏甚至补丁级别的历史</p>
+
+<p>Ruby的版本。它通常是像linecache或者库这样的库的依赖</p>
+
+<p>其他Ruby调试库。</p>
+
+<p>我们建议将这些库移动到Gemfile中的一个单独的组中，然后再移动</p>
+
+<p>在没有这个组的情况下在Travis CI上安装RubyGems。因为这些库只是</p>
+
+<p>对于本地开发很有用，您甚至可以在安装过程中获得加速</p>
+
+<p>你的构建过程。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Gemfile
+group :debug do
+  gem 'debugger'
+  gem 'debugger-linecache'
+  gem 'rblineprof'
+end
+
+# .travis.yml
+bundler_args: --without development debug
+
+</code></pre></div></div>
+
+<h2 id="ruby在10分钟对数静默后测试冻结并取消">Ruby：在10分钟对数静默后测试冻结并取消 <a href="#ruby在10分钟对数静默后测试冻结并取消" class="toc-anchor">#</a></h2>
+
+<p>在某些情况下，使用<code class="highlighter-rouge">timecop</code>宝石可能导致看似零星的</p>
+
+<p>由于订购电话的问题而“冻结”<code class="highlighter-rouge">Timecop.return</code>，</p>
+
+<p><code class="highlighter-rouge">Timecop.freeze</code>，和<code class="highlighter-rouge">Timecop.travel</code>。例如，如果使用RSpec，请务必使用</p>
+
+<p>有一个<code class="highlighter-rouge">Timecop.return</code>配置为运行后所有例子：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># in, e.g. spec/spec_helper.rb
+RSpec.configure do |c|
+  c.after :all do
+    Timecop.return
+  end
+end
+
+</code></pre></div></div>
+
+<h2 id="macmacos-mavericks109代码签名错误">Mac：macOS Mavericks（10.9）代码签名错误 <a href="#macmacos-mavericks109代码签名错误" class="toc-anchor">#</a></h2>
+
+<p>对于Mavericks来说，在代码签名和钥匙串应用方面已经发生了很多变化。</p>
+
+<p>问题的迹象可能是错误消息，指出无法找到身份并且“用户</p>
+
+<p>不允许互动。“</p>
+
+<p>必须将钥匙串标记为默认钥匙串，必须明确解锁，并且构建需要确保在达到构建中的关键点之前未锁定钥匙串。以下命令集非常重要</p>
+
+<p>这个的：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KEY_CHAIN=ios-build.keychain
+security create-keychain -p travis $KEY_CHAIN
+# Make the keychain the default so identities are found
+security default-keychain -s $KEY_CHAIN
+# Unlock the keychain
+security unlock-keychain -p travis $KEY_CHAIN
+# Set keychain locking timeout to 3600 seconds
+security set-keychain-settings -t 3600 -u $KEY_CHAIN
+
+</code></pre></div></div>
+
+<h2 id="macmacos-sierra1012代码签名错误">Mac：macOS Sierra（10.12）代码签名错误 <a href="#macmacos-sierra1012代码签名错误" class="toc-anchor">#</a></h2>
+
+<p>随着我们的基础设施上引入macOS Sierra（10.12），我们已经看到构建过程中的编码步骤中出现的构建作业。以下是有关如何识别此问题并进行修复的一些信息。</p>
+
+<p>你的版本在macOS Sierra（10.12）上运行<code class="highlighter-rouge">osx_image</code>在你的.travis.yml文件中<code class="highlighter-rouge">xcode8.3</code>或更高。看到<a href="https://docs.travis-ci.com/user/reference/osx/">macOS构建环境文档</a>了解哪个macOS版本与每个图像相关联。</p>
+
+<p>构建日志中的以下行可能表示发生此问题：</p>
+
+<p><strong>示例：签名</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>▸ Signing /Users/travis/Library/Developer/Xcode/DerivedData/PresenterKit-ggzwtlifkopsnbffbqrmtydtmafv/Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/project.xctest
+
+No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
+
+The build has been terminated
+
+</code></pre></div></div>
+
+<p><strong>示例：嵌入窗格框架</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>▸ Running script '[CP] Embed Pods Frameworks'
+
+No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
+
+The build has been terminated
+
+</code></pre></div></div>
+
+<p>要解决此问题，您需要添加以下命令<strong>后</strong>您已导入证书：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>security set-key-partition-list -S apple-tool:,apple: -s -k keychainPass keychainName
+
+</code></pre></div></div>
+
+<p>哪里：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">keychainPass</code>是您的钥匙串的密码</li>
+  <li><code class="highlighter-rouge">keychainName</code>是你的钥匙串的名称</li>
+</ul>
+
+<p>以下是将命令放在上下文中的示例：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Create the keychain with a password
+security create-keychain -p travis ios-build.keychain
+
+# Make the custom keychain default, so xcodebuild will use it for signing
+security default-keychain -s ios-build.keychain
+
+# Unlock the keychain
+security unlock-keychain -p travis ios-build.keychain
+
+# Add certificates to keychain and allow codesign to access them
+security import ./Provisioning/certs/apple.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
+security import ./Provisioning/certs/distribution.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
+security import ./Provisioning/certs/distribution.p12 -k ~/Library/Keychains/ios-build.keychain -P $KEY_PASSWORD -T /usr/bin/codesign
+
+security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain
+
+</code></pre></div></div>
+
+<blockquote>
+  <p>重要信息：必须使用命令密码创建钥匙串<code class="highlighter-rouge">security set-key-partition-list</code>上班。</p>
+</blockquote>
+
+<h3 id="快车道">快车道 <a href="#快车道" class="toc-anchor">#</a></h3>
+
+<p>如果你正在使用<a href="https://fastlane.tools/">快车道</a>签署您的应用程序（例如<a href="https://github.com/fastlane/fastlane/tree/master/match">Fastlane比赛</a>），你需要做一些类似于以下内容的事情<code class="highlighter-rouge">Fastfile</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    create_keychain(
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_PASSWORD"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+
+    match(
+      type: "adhoc",
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
+      readonly: true
+    )
+
+</code></pre></div></div>
+
+<p>如果你正在使用<code class="highlighter-rouge">import_certificate</code>直接导入您的证书，必须将您的钥匙串密码作为参数传递，例如</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keychain_name = "ios-build.keychain"
+keychain_password = SecureRandom.base64
+
+create_keychain(
+    name: keychain_name,
+    password: keychain_password,
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    add_to_search_list: true
+)
+
+import_certificate(
+    certificate_path: "fastlane/Certificates/dist.p12",
+    certificate_password: ENV["KEY_PASSWORD"],
+    keychain_name: keychain_name
+    keychain_password: keychain_password
+)
+
+</code></pre></div></div>
+
+<p><a href="https://github.com/travis-ci/travis-ci/issues/6791"></a><a href="https://github.com/travis-ci/travis-ci/issues/6791#issuecomment-261071904"></a></p>
+
+<h2 id="mac运行cocoapods的错误">Mac：运行CocoaPods的错误 <a href="#mac运行cocoapods的错误" class="toc-anchor">#</a></h2>
+
+<h3 id="需要更新版本的cocoapods">需要更新版本的CocoaPods <a href="#需要更新版本的cocoapods" class="toc-anchor">#</a></h3>
+
+<p>大多数Pod现在需要CocoaPods 0.32.1，但我们仍然预装了0.21。如果</p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - gem install cocoapods -v '0.32.1'
+
+</code></pre></div></div>
+
+<h3 id="找不到cocoapods">找不到CocoaPods <a href="#找不到cocoapods" class="toc-anchor">#</a></h3>
+
+<p>CocoaPods目前尚未安装在所有可用的Rubies上，不幸的是</p>
+
+<p>意味着它在使用默认的Ruby（2.0.0）时会失败。</p>
+
+<p>上面，或者你可以切换到你的Ruby 1.9.3<code class="highlighter-rouge">.travis.yml</code>，这应该工作</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm: 1.9.3
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="cocoapods失败并出现分段错误">CocoaPods失败并出现分段错误 <a href="#cocoapods失败并出现分段错误" class="toc-anchor">#</a></h3>
+
+<p>在Ruby 2.0.0上，CocoaPods因为分段错误而崩溃。</p>
+
+<p>您可以使用Ruby 1.9.3解决此问题，但尚未显示这些问题</p>
+
+<p>的问题。将此添加到您的<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm: 1.9.3
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="系统未安装所需的语言包">系统：未安装所需的语言包 <a href="#系统未安装所需的语言包" class="toc-anchor">#</a></h2>
+
+<p>设置“，然后您可能需要在测试期间安装另一个语言包</p>
+
+<p>跑。</p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - sudo apt-get update &amp;&amp; sudo apt-get --reinstall install -qq language-pack-en language-pack-de
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>以上添加将重新安装en_US语言包以及de_DE</p>
+
+<p>到了<code class="highlighter-rouge">sudo</code>命令，安装区域设置<a href="/user/installing-dependencies/#installing-packages-with-the-apt-addon">使用APT插件</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    packages:
+      - language-pack-en
+      - language-pack-de
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="linuxapt无法安装包含404错误的包">Linux：apt无法安装包含404错误的包 <a href="#linuxapt无法安装包含404错误的包" class="toc-anchor">#</a></h2>
+
+<p>这通常是由旧的数据库数据库引起的，可以通过添加以下内容来修复<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - sudo apt-get update
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="travis-ci不保留构建之间的状态">Travis CI不保留构建之间的状态 <a href="#travis-ci不保留构建之间的状态" class="toc-anchor">#</a></h2>
+
+<p>Travis CI使用虚拟机快照来确保之间不保留任何状态</p>
+
+<p>建立。如果通过向数据存储写入内容来修改CI环境，则创建</p>
+
+<p>文件或通过apt安装包，它不会影响后续版本。</p>
+
+<h2 id="ssh无法按预期工作">SSH无法按预期工作 <a href="#ssh无法按预期工作" class="toc-anchor">#</a></h2>
+
+<p>Travis CI在隔离的虚拟机中通过SSH运行所有命令。命令</p>
+
+<p>修改SSH会话状态是“粘滞”并在整个构建过程中保持不变。例如，</p>
+
+<p>如果你<code class="highlighter-rouge">cd</code>在目录中，所有后续命令都从该目录运行。</p>
+
+<h2 id="git子模块未正确更新">Git子模块未正确更新 <a href="#git子模块未正确更新" class="toc-anchor">#</a></h2>
+
+<p>当有a时，Travis CI会自动初始化和更新子模块<code class="highlighter-rouge">.gitmodules</code>文件存储库的根目录。</p>
+
+<p>要关闭此功能，请设置：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git:
+  submodules: false
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您的项目需要Travis CI的Git子模块的特定选项</p>
+
+<p>不支持开箱即用，关闭自动集成并使用</p>
+
+<p><code class="highlighter-rouge">before_install</code>hook来初始化和更新它们。</p>
+
+<p>例如，要更新嵌套的子模块：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - git submodule update --init --recursive
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="git无法克隆我的子模块">Git无法克隆我的子模块 <a href="#git无法克隆我的子模块" class="toc-anchor">#</a></h2>
+
+<p>如果您的项目使用Git子模块，请确保使用公共Git URL。例如，在GitHub上，而不是</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git@github.com:someuser/somelibrary.git
+
+</code></pre></div></div>
+
+<p>使用</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/someuser/somelibrary.git
+
+</code></pre></div></div>
+
+<p>否则，Travis CI构建器将无法克隆您的项目，因为它们没有您的私有SSH密钥。</p>
+
+<h2 id="我的版本已超时">我的版本已超时 <a href="#我的版本已超时" class="toc-anchor">#</a></h2>
+
+<p>遗憾的是，构建可能会在安装依赖项期间或构建本身期间超时，例如因为命令在不产生任何输出的情况下需要花费更长的时间来运行。</p>
+
+<p>我们的构建具有全局超时和基于输出的超时。如果没有从构建中收到10分钟的输出，则假定由于未知原因而停止并随后被杀死。</p>
+
+<p>在其他时候，依赖项的安装可能会超时。 Bundler和RubyGems是一个相关的例子。我们的服务器之间的网络连接有时会影响到APT，Maven或其他存储库的连接。</p>
+
+<p>解决这个问题的方法很少。</p>
+
+<h3 id="超时安装依赖项">超时安装依赖项 <a href="#超时安装依赖项" class="toc-anchor">#</a></h3>
+
+<p>如果您在尝试下载依赖项时遇到网络超时，也可以</p>
+
+<p>使用依赖项管理器的内置重试功能或包装安装</p>
+
+<p>中的命令<code class="highlighter-rouge">travis_retry</code>功能。</p>
+
+<h4 id="捆绑">捆绑 <a href="#捆绑" class="toc-anchor">#</a></h4>
+
+<p>Bundler默认重试三次，但如果你需要增加这个数字，</p>
+
+<p>在您的。中使用以下语法<code class="highlighter-rouge">.travis.yml</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundler_args: --retry 5
+
+</code></pre></div></div>
+
+<h4 id="travis_retry">travis_retry <a href="#travis_retry" class="toc-anchor">#</a></h4>
+
+<p>对于没有内置重试功能的命令，请使用<code class="highlighter-rouge">travis_retry</code></p>
+
+<p>函数如果返回码非零则重试三次：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install: travis_retry pip install myawesomepackage
+
+</code></pre></div></div>
+
+<p>我们的大多数内部构建命令都包含在内<code class="highlighter-rouge">travis_retry</code>减少</p>
+
+<p>网络超时的影响。</p>
+
+<p>注意<code class="highlighter-rouge">travis_retry</code>不起作用<code class="highlighter-rouge">deploy</code>构建的一步，虽然它</p>
+
+<p>确实有效<a href="/user/job-lifecycle/">其他步骤</a>。</p>
+
+<h3 id="构建时间因为没有收到输出">构建时间因为没有收到输出 <a href="#构建时间因为没有收到输出" class="toc-anchor">#</a></h3>
+
+<p>如果长时间运行的命令或编译步骤通常需要超过10分钟而不产生任何输出，则可以调整构建配置以将其考虑在内。</p>
+
+<p>我们的构建系统中的shell环境提供了一个有助于解决此问题的功能，至少超过10分钟。</p>
+
+<p>如果您的命令输出超过10分钟，则可以为其添加前缀<code class="highlighter-rouge">travis_wait</code>，一个由我们的构建环境导出的函数。例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    install: travis_wait mvn install
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>产生一个正在运行的进程<code class="highlighter-rouge">mvn install</code>。</p>
+
+<p><code class="highlighter-rouge">travis_wait</code>然后每分钟在构建日志中写一条短线20分钟，延长命令完成的时间。</p>
+
+<p>如果您希望命令花费超过20分钟，请在命令前加上<code class="highlighter-rouge">travis_wait n</code>哪里<code class="highlighter-rouge">n</code>是延长等待时间的分钟数。</p>
+
+<p>继续上面的例子，将等待时间延长到30分钟：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    install: travis_wait 30 mvn install
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p><code class="highlighter-rouge">travis_wait</code><a href="https://github.com/travis-ci/travis-ci/issues/new"></a>要么<a href="mailto:support@travis-ci.com"></a>首先看看是否可以先对这个特定命令进行改进。</p>
+
+<h4 id="的局限性travis_wait">的局限性<code class="highlighter-rouge">travis_wait</code> <a href="#的局限性travis_wait" class="toc-anchor">#</a></h4>
+
+<p><code class="highlighter-rouge">travis_wait</code></p>
+
+<p>处理。</p>
+
+<p>如果您传递给的命令<code class="highlighter-rouge">travis_wait</code><code class="highlighter-rouge">travis_wait</code>不延长超时。</p>
+
+<h2 id="在调试模式下运行构建">在调试模式下运行构建 <a href="#在调试模式下运行构建" class="toc-anchor">#</a></h2>
+
+<p>在私有存储库和启用了该功能的公共存储库中，</p>
+
+<p>可以在调试模式下运行构建和作业。</p>
+
+<p>使用此功能，您可以与运行构建的实时VM进行交互。</p>
+
+<p>有关更多信息，请咨询<a href="/user/running-build-in-debug-mode/">调试VM文档</a>。</p>
+
+<h2 id="超出日志长度">超出日志长度 <a href="#超出日志长度" class="toc-anchor">#</a></h2>
+
+<p>每个构建的日志限制为大约4兆字节。当它达到该长度时，构建将终止，您将在构建日志的末尾看到以下消息：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The log length has exceeded the limit of 4 Megabytes (this usually means that test suite is raising the same exception over and over).
+
+The build has been terminated.
+
+</code></pre></div></div>
+
+<h2 id="ftp--smtp-其他协议不起作用">FTP / SMTP /其他协议不起作用 <a href="#ftp--smtp-其他协议不起作用" class="toc-anchor">#</a></h2>
+
+<p>由于这些协议，某些协议（如FTP和SMTP）不受直接支持</p>
+
+<p>安全和合理使用的基础设施要求。运用</p>
+
+<p>备用<q>无国籍</q>HTTPS之类的协议是最好的，但隧道是</p>
+
+<p>也称为工作，例如在FTP的特定情况下使用SFTP或VPN</p>
+
+<p>各种协议的连接，例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    packages:
+    - openvpn
+
+before_install:
+- sudo openvpn path/to/conf.ovpn &amp;&gt;&gt;openvpn-client.log &amp;
+
+</code></pre></div></div>
+
+<h2 id="我推了一个提交但找不到相应的构建">我推了一个提交，但找不到相应的构建 <a href="#我推了一个提交但找不到相应的构建" class="toc-anchor">#</a></h2>
+
+<p>Travis CI接收的构建请求事件列在存储库的“请求”页面中。你可以在下面找到它<strong>更多的选择</strong>下拉菜单，选择<strong>要求</strong>。</p>
+
+<p><img src="/images/common-build-problems/repository-requests-page.png" alt="更多选项下拉菜单，选择请求" /></p>
+
+<p><strong>“构建成功”</strong>。</p>
+
+<p>如果尚未为您的提交触发构建，则这些是可能的构建请求消息：</p>
+
+<ul>
+  <li><em>**</em>，通常意味着帐户的订阅已过期或已用完试用版。</li>
+  <li><strong>“通过提交消息跳过构建”</strong>，这个提交包含<a href="/user/customizing-the-build/#skipping-a-build">skip命令</a>。</li>
+  <li><strong>“GitHub有效负载缺少合并提交”</strong>，请确认您的拉动请求是开放和合并的。</li>
+  <li><strong>“每个配置排除分支”</strong>要么<em>**</em><a href="/user/customizing-the-build/#safelisting-or-blocklisting-branches">明确排除</a>要么<a href="/user/customizing-the-build/#safelisting-or-blocklisting-branches">不包含</a>在你的<code class="highlighter-rouge">.travis.yml</code>文件。</li>
+  <li><strong>通过存储库设置禁用构建类型</strong>，请确保您的推送和拉取请求构建仍处于活动状态。</li>
+</ul>
+
+<blockquote>
+  <p>请注意，当标记三个以上的提交时，Travis CI不会收到Webhook事件。所以，如果你这样做<code class="highlighter-rouge">git push --tags</code></p>
+</blockquote>
+
+<h2 id="我的构建中的磁盘空间不足">我的构建中的磁盘空间不足 <a href="#我的构建中的磁盘空间不足" class="toc-anchor">#</a></h2>
+
+<p>大致可用的磁盘空间列在<a href="/user/reference/overview/#virtualisation-environment-vs-operating-system"></a>。</p>
+
+<p>找出特定图像可用内容的最佳方法是运行<code class="highlighter-rouge">df -h</code>作为构建脚本的一部分。</p>
+
+<p>如果您在Ubuntu版本中需要更多空间，我们建议您使用<code class="highlighter-rouge">language: minimal</code>，它将使您预先安装较少的工具和语言，将您引导至基本映像。此图像具有大约~24GB的可用空间。</p>
+
+<h2 id="将artifacts上传到sonatype">将Artifacts上传到Sonatype <a href="#将artifacts上传到sonatype" class="toc-anchor">#</a></h2>
+
+<p>通过发布时<code class="highlighter-rouge">nexus-staging-maven-plugin</code>到Sonatype OSS Repository，TravisCI使用的IP地址由于我们而改变<a href="https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci">NAT层</a>。要解决这个问题，请使用<code class="highlighter-rouge">stagingProfileId</code>如<a href="https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk">在本文件中解释</a>。</p>
+
+<h2 id="travis-cli无法识别我的有效github令牌">Travis CLI无法识别我的有效Github令牌 <a href="#travis-cli无法识别我的有效github令牌" class="toc-anchor">#</a></h2>
+
+<p>使用时<a href="https://github.com/travis-ci/travis.rb#readme">Travis CLI工具</a>如果您收到了，请与Travis CI平台进行互动<code class="highlighter-rouge">insufficient_oauth_permissions</code>错误或类似，请确保通过提供的Github令牌<code class="highlighter-rouge">--github-token</code>具有<strong>回购</strong>范围为<a href="https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/">在本文件中解释</a>。</p>
+
+<h2 id="重复未知作业显示在我的构建中">重复/未知作业显示在我的构建中 <a href="#重复未知作业显示在我的构建中" class="toc-anchor">#</a></h2>
+
+<p>在指定阶段时，用户通常会在不知情的情况下使用YAML将隐式作业添加到舞台中的作业列表中，否则语法在语法上是正确的。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+  - name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>上面的定义创建了一个名为的阶段<strong>早餐</strong>和2个工作。第一份工作是含蓄继承所指定编程语言的所有默认值的作业。在上面的例子中，<a href="user/languages/c/#what-this-guide-covers">默认值<code class="highlighter-rouge">C</code></a>将在第二份工作时使用花生酱和面包，您已明确定义。</p>
+
+<p>要删除它含蓄工作，你会编辑上面看起来像：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+    name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>这只创造了一个工作，花生酱和面包在名为的舞台下早餐正如你所定义的那样。值得注意的是，在YAML中，<code class="highlighter-rouge">-</code>symbol用于创建项目列表，前面的示例创建了2个项目的列表，而您实际上想要1.您可以阅读更多内容<a href="/user/build-stages/#how-to-define-build-stages">如何定义构建阶段</a>和YAML在官方列出语法<a href="https://yaml.org/spec/1.2/spec.html#id2759963">文件</a>。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

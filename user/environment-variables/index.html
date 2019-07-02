@@ -1,0 +1,751 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Environment Variables - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/environment-variables.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Environment Variables</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#在travisyml中定义公共变量">在.travis.yml中定义公共变量</a></li>
+  <li><a href="#在travisyml中定义加密变量">在.travis.yml中定义加密变量</a></li>
+  <li><a href="#在存储库设置中定义变量">在存储库设置中定义变量</a></li>
+  <li><a href="#便利变量">便利变量</a></li>
+  <li><a href="#默认环境变量">默认环境变量</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>定制构建过程的常用方法是定义环境变量，可以从构建过程的任何阶段访问这些变量。</p>
+
+<p>定义环境变量的最佳方法取决于它将包含哪种类型的信息，以及何时需要更改它：</p>
+
+<ul>
+  <li>如果是的话包含敏感信息，对于不同的分支可能有所不同，应该可用于分叉 - <a href="#defining-public-variables-in-travisyml">将它添加到.travis.yml</a></li>
+  <li>如果它包含敏感信息，对于不同的分支可能有所不同 - <a href="#defining-encrypted-variables-in-travisyml">加密它并将其添加到.travis.yml</a></li>
+  <li>如果它不包含敏感信息，但对所有分支都是相同的 - <a href="#defining-variables-in-repository-settings">将其添加到您的存储库设置</a></li>
+</ul>
+
+<h2 id="在travisyml中定义公共变量">在.travis.yml中定义公共变量 <a href="#在travisyml中定义公共变量" class="toc-anchor">#</a></h2>
+
+<p>公共变量定义于<code class="highlighter-rouge">.travis.yml</code>与某个提交有关。更改它们需要新的提交，重新启动旧的构建使用旧的值。它们也可以在存储库的分叉上自动使用。</p>
+
+<p>定义变量<code class="highlighter-rouge">.travis.yml</code>那：</p>
+
+<ul>
+  <li>需要运行构建并且不包含敏感数据。例如，Ruby应用程序的测试套件可能需要<code class="highlighter-rouge">$RACK_ENV</code>被设置为<code class="highlighter-rouge">test</code>。</li>
+  <li>每个分支不同。</li>
+  <li>每个工作不同。</li>
+</ul>
+
+<p>在你的中定义环境变量<code class="highlighter-rouge">.travis.yml</code>在里面<code class="highlighter-rouge">env</code>键，引用星号等特殊字符（<code class="highlighter-rouge">*</code>）。</p>
+
+<p>将为每一行触发一个构建<code class="highlighter-rouge">env</code>阵列。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  - DB=postgres
+  - SH=bash
+  - PACKAGE_VERSION="1.0.*"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>如果您在其中定义具有相同名称的变量<code class="highlighter-rouge">.travis.yml</code>并在存储库设置中，在<code class="highlighter-rouge">.travis.yml</code>优先。如果你在中定义一个变量<code class="highlighter-rouge">.travis.yml</code>加密和未加密时，文件中稍后定义的优先级。</p>
+</blockquote>
+
+<h3 id="为每个项目定义多个变量">为每个项目定义多个变量 <a href="#为每个项目定义多个变量" class="toc-anchor">#</a></h3>
+
+<p>如果需要为每个构建指定几个环境变量，请将它们全部放在<code class="highlighter-rouge">env</code>数组：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm:
+  - 1.9.3
+  - rbx-3
+env:
+  - FOO=foo BAR=bar
+  - FOO=bar BAR=foo
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>此配置触发<strong>4个人构建</strong>：</p>
+
+<ol>
+  <li>Ruby 1.9.3 with<code class="highlighter-rouge">FOO=foo</code>和<code class="highlighter-rouge">BAR=bar</code></li>
+  <li>Ruby 1.9.3 with<code class="highlighter-rouge">FOO=bar</code>和<code class="highlighter-rouge">BAR=foo</code></li>
+  <li>Rubinius最新版本（rbx-3）用<code class="highlighter-rouge">FOO=foo</code>和<code class="highlighter-rouge">BAR=bar</code></li>
+  <li>Rubinius最新版本（rbx-3）用<code class="highlighter-rouge">FOO=bar</code>和<code class="highlighter-rouge">BAR=foo</code></li>
+</ol>
+
+<h3 id="全局变量">全局变量 <a href="#全局变量" class="toc-anchor">#</a></h3>
+
+<p>有时您可能希望使用矩阵全局的环境变量，即它们被插入到每个矩阵行中。这可能包括每个构建所需的密钥，令牌，URI或其他数据。在这种情况下，而不是手动将这些键添加到每个<code class="highlighter-rouge">env</code>在矩阵中，你可以使用<code class="highlighter-rouge">global</code>和<code class="highlighter-rouge">matrix</code>用于区分这两种情况的关键。例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  global:
+    - CAMPFIRE_TOKEN=abc123
+    - TIMEOUT=1000
+  matrix:
+    - USE_NETWORK=true
+    - USE_NETWORK=false
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>触发构建具有以下内容<code class="highlighter-rouge">env</code>行：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
+USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
+
+</code></pre></div></div>
+
+<h2 id="在travisyml中定义加密变量">在.travis.yml中定义加密变量 <a href="#在travisyml中定义加密变量" class="toc-anchor">#</a></h2>
+
+<p>{：＃Encrypted-Variables}</p>
+
+<p>在将敏感数据（如API凭据）添加到您的帐户之前<code class="highlighter-rouge">.travis.yml</code>你需要加密它。加密变量不适用于不受信任的构建，例如来自其他存储库的pull请求。</p>
+
+<p>一个<code class="highlighter-rouge">.travis.yml</code>包含加密变量的文件如下所示：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  global:
+    - secure: mcUCykGm4bUZ3CaW6AxrIMFzuAYjA98VIz6YmYTmM0/8sp/B/54JtQS/j0ehCD6B5BwyW6diVcaQA2c7bovI23GyeTT+TgfkuKRkzDcoY51ZsMDdsflJ94zV7TEIS31eCeq42IBYdHZeVZp/L7EXOzFjVmvYhboJiwnsPybpCfpIH369fjYKuVmutccD890nP8Bzg8iegssVldgsqDagkuLy0wObAVH0FKnqiIPtFoMf3mDeVmK2AkF1Xri1edsPl4wDIu1Ko3RCRgfr6NxzuNSh6f4Z6zmJLB4ONkpb3fAa9Lt+VjJjdSjCBT1OGhJdP7NlO5vSnS5TCYvgFqNSXqqJx9BNzZ9/esszP7DJBe1yq1aNwAvJ7DlSzh5rvLyXR4VWHXRIR3hOWDTRwCsJQJctCLpbDAFJupuZDcvqvPNj8dY5MSCu6NroXMMFmxJHIt3Hdzr+hV9RNJkQRR4K5bR+ewbJ/6h9rjX6Ot6kIsjJkmEwx1jllxi4+gSRtNQ/O4NCi3fvHmpG2pCr7Jz0+eNL2d9wm4ZxX1s18ZSAZ5XcVJdx8zL4vjSnwAQoFXzmx0LcpK6knEgw/hsTFovSpe5p3oLcERfSd7GmPm84Qr8U4YFKXpeQlb9k5BK9MaQVqI4LyaM2h4Xx+wc0QlEQlUOfwD4B2XrAYXFIq1PAEic=
+  matrix:
+    - USE_NETWORK=true
+    - USE_NETWORK=false
+    - secure: &lt;you can also put encrypted vars inside matrix&gt;
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>由于将此类信息暴露给未知代码的安全风险，加密环境变量不可用于从分支中提取请求。
+如果您在其中定义具有相同名称的变量<code class="highlighter-rouge">.travis.yml</code>并在存储库设置中，在<code class="highlighter-rouge">.travis.yml</code>优先。如果你在中定义一个变量<code class="highlighter-rouge">.travis.yml</code>加密和未加密时，文件中稍后定义的优先级。</p>
+</blockquote>
+
+<h3 id="加密环境变量">加密环境变量 <a href="#加密环境变量" class="toc-anchor">#</a></h3>
+
+<p>使用附加到存储库的公钥加密环境变量<code class="highlighter-rouge">travis</code>宝石：</p>
+
+<ol>
+  <li>如果你没有<code class="highlighter-rouge">travis</code>宝石安装，运行<code class="highlighter-rouge">gem install travis</code>。</li>
+  <li>在您的存储库目录中，运行：
+```
+travis encrypt MY_SECRET_ENV=super_secret –add env.matrix</li>
+</ol>
+
+<p>```</p>
+
+<ol>
+  <li><code class="highlighter-rouge">.travis.yml</code></li>
+</ol>
+
+<blockquote>
+
+</blockquote>
+
+<p>加密方案将在下面详细说明<a href="/user/encryption-keys">加密密钥</a></p>
+
+<h2 id="在存储库设置中定义变量">在存储库设置中定义变量 <a href="#在存储库设置中定义变量" class="toc-anchor">#</a></h2>
+
+<p>Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.</p>
+
+<p>Define variables in the Repository Settings that:</p>
+
+<ul>
+  <li>differ per repository.</li>
+  <li>contain sensitive data, such as third-party credentials.</li>
+</ul>
+
+<p>要在Repository Settings中定义变量，请确保您已登录，导航到相关存储库，从cog菜单中选择“Settings”，然后单击“Environment Variables”部分中的“Add new variable”。</p>
+
+<figure>
+  <img alt="Screenshot of environment variables in settings" src="/images/settings-env-vars.png" />
+  <figcaption>Environment Variables in the Repository Settings</figcaption>
+</figure>
+<blockquote>
+  <p><a href="http://www.tldp.org/LDP/abs/html/special-chars.html"></a><code class="highlighter-rouge">my secret passphrase</code>应该写<code class="highlighter-rouge">"my secret passphrase"</code>。</p>
+</blockquote>
+
+<p>默认情况下，这些新环境变量的值是隐藏的<code class="highlighter-rouge">export</code>日志中的行。这对应于行为<a href="#Encrypted-Variables">加密变量</a><code class="highlighter-rouge">.travis.yml</code></p>
+
+<p>同样，我们不会将这些值提供给不受信任的构建，这些构建由另一个存储库的pull请求触发。</p>
+
+<p><a href="https://github.com/travis-ci/travis.rb#env"><code class="highlighter-rouge">env</code></a>命令。</p>
+
+<blockquote>
+  <p>如果您在其中定义具有相同名称的变量<code class="highlighter-rouge">.travis.yml</code>并在存储库设置中，在<code class="highlighter-rouge">.travis.yml</code></p>
+</blockquote>
+
+<h2 id="便利变量">便利变量 <a href="#便利变量" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_SECURE_ENV_VARS</code>被设置为<code class="highlighter-rouge">true</code>如果您已定义任何加密变量，包括在存储库设置中定义的变量，和<code class="highlighter-rouge">false</code>如果你还没有。</li>
+  <li><code class="highlighter-rouge">TRAVIS_PULL_REQUEST</code>如果当前作业是拉取请求构建，则设置为拉取请求编号，或者<code class="highlighter-rouge">false</code>如果不是。</li>
+</ul>
+
+<h2 id="默认环境变量">默认环境变量 <a href="#默认环境变量" class="toc-anchor">#</a></h2>
+
+<p>以下默认环境变量可用于所有构建。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">CI=true</code></li>
+  <li><code class="highlighter-rouge">TRAVIS=true</code></li>
+  <li><code class="highlighter-rouge">CONTINUOUS_INTEGRATION=true</code></li>
+  <li><code class="highlighter-rouge">DEBIAN_FRONTEND=noninteractive</code></li>
+  <li><code class="highlighter-rouge">HAS_JOSH_K_SEAL_OF_APPROVAL=true</code></li>
+  <li><code class="highlighter-rouge">USER=travis</code></li>
+  <li><code class="highlighter-rouge">HOME</code>被设置为<code class="highlighter-rouge">/home/travis</code>在Linux上，<code class="highlighter-rouge">/Users/travis</code>在MacOS上，和</li>
+</ul>
+
+<p><code class="highlighter-rouge">/c/Users/travis</code>在Windows上。</p>
+<ul>
+  <li><code class="highlighter-rouge">LANG=en_US.UTF-8</code></li>
+  <li><code class="highlighter-rouge">LC_ALL=en_US.UTF-8</code></li>
+  <li><code class="highlighter-rouge">RAILS_ENV=test</code></li>
+  <li><code class="highlighter-rouge">RACK_ENV=test</code></li>
+  <li><code class="highlighter-rouge">MERB_ENV=test</code></li>
+  <li><code class="highlighter-rouge">JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"</code></li>
+  <li><code class="highlighter-rouge">JAVA_HOME</code>设置为适当的值。</li>
+</ul>
+
+<p>此外，Travis CI设置了您可以在构建中使用的环境变量，例如</p>
+
+<p>标记构建，或运行构建后部署。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_ALLOW_FAILURE</code>：
+    <ul>
+      <li>调成<code class="highlighter-rouge">true</code>如果允许工作失败。</li>
+      <li>调成<code class="highlighter-rouge">false</code>如果不允许工作失败。</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_APP_HOST</code>：编译构建脚本的服务器的名称。此服务器提供某些帮助文件</li>
+</ul>
+
+<p>（如<code class="highlighter-rouge">gimme</code>，<code class="highlighter-rouge">nvm</code>，<code class="highlighter-rouge">sbt</code>）来自<code class="highlighter-rouge">/files</code>避免外部网络通话;例如。，<code class="highlighter-rouge">curl -O $TRAVIS_APP_HOST/files/gimme</code></p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_BRANCH</code>：
+    <ul>
+      <li>对于push构建或构建不是由pull请求触发，这是分支的名称。</li>
+      <li>对于由pull请求触发的构建，这是pull所针对的分支的名称</li>
+    </ul>
+  </li>
+</ul>
+
+<p>请求。</p>
+<ul>
+  <li>对于由标记触发的构建，这与标记的名称相同（<code class="highlighter-rouge">TRAVIS_TAG</code>）。
+    <blockquote>
+      <p>请注意，对于标记，git不存储标记提交的分支。</p>
+    </blockquote>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_BUILD_DIR</code>：存储库所在目录的绝对路径</li>
+</ul>
+
+<p>正在建造的工人已被复制。</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_BUILD_ID</code>：Travis CI在内部使用的当前构建的ID。</li>
+  <li><code class="highlighter-rouge">TRAVIS_BUILD_NUMBER</code>：当前构建的编号（例如，“4”）。</li>
+  <li><code class="highlighter-rouge">TRAVIS_BUILD_WEB_URL</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_COMMIT</code>：当前版本正在测试的提交。</li>
+  <li><code class="highlighter-rouge">TRAVIS_COMMIT_MESSAGE</code>：提交主题和正文，解包。</li>
+  <li><code class="highlighter-rouge">TRAVIS_COMMIT_RANGE</code>：推送中包含的提交范围</li>
+</ul>
+
+<p>或拉请求。 （请注意，对于由新分支的初始提交触发的构建，这是空的。）</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_DEBUG_MODE</code>： 调成<code class="highlighter-rouge">true</code>如果工作正在进行中<a href="https://docs.travis-ci.com/user/running-build-in-debug-mode/">调试模式</a></li>
+  <li><code class="highlighter-rouge">TRAVIS_EVENT_TYPE</code>：指示如何触发构建。之一<code class="highlighter-rouge">push</code>，<code class="highlighter-rouge">pull_request</code>，<code class="highlighter-rouge">api</code>，<code class="highlighter-rouge">cron</code>。</li>
+  <li><code class="highlighter-rouge">TRAVIS_JOB_ID</code>：Travis CI在内部使用的当前作业的ID。</li>
+  <li><code class="highlighter-rouge">TRAVIS_JOB_NAME</code>：The<a href="https://docs.travis-ci.com/user/build-stages/#naming-your-jobs-within-build-stages">工作名称</a>如果它被指定，或<code class="highlighter-rouge">""</code>。</li>
+  <li><code class="highlighter-rouge">TRAVIS_JOB_NUMBER</code>：当前作业的编号（例如，“4.1”）。</li>
+  <li><code class="highlighter-rouge">TRAVIS_JOB_WEB_URL</code>：作业日志的URL。</li>
+  <li><code class="highlighter-rouge">TRAVIS_OS_NAME</code>：在多操作系统版本中，此值指示作业正在运行的平台。</li>
+</ul>
+
+<p>目前的价值观<code class="highlighter-rouge">linux</code>，<code class="highlighter-rouge">osx</code>和<code class="highlighter-rouge">windows</code>（beta），将来会延长。</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_OSX_IMAGE</code>：The<code class="highlighter-rouge">osx_image</code>配置的值<code class="highlighter-rouge">.travis.yml</code>。如果没有设置<code class="highlighter-rouge">.travis.yml</code>，</li>
+</ul>
+
+<p>它是空的。</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_PULL_REQUEST</code>：如果当前作业是拉动，则拉取请求编号</li>
+</ul>
+
+<p>如果不是拉取请求，请求“假”。</p>
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_PULL_REQUEST_BRANCH</code>：
+    <ul>
+      <li>如果当前作业是拉取请求，则PR发起的分支的名称。</li>
+      <li>如果当前作业是推送构建，则此变量为空（<code class="highlighter-rouge">""</code>）。</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_PULL_REQUEST_SHA</code>：
+    <ul>
+      <li>如果当前作业是拉取请求，则提交PR的HEAD提交的SHA。</li>
+      <li>如果当前作业是推送构建，则此变量为空（<code class="highlighter-rouge">""</code>）。</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_PULL_REQUEST_SLUG</code>：
+    <ul>
+      <li>如果当前作业是拉动请求，那么slug（在表单中）<code class="highlighter-rouge">owner_name/repo_name</code>）PR发起的存储库。</li>
+      <li>如果当前作业是推送构建，则此变量为空（<code class="highlighter-rouge">""</code>）。</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_REPO_SLUG</code>：slug（形式：<code class="highlighter-rouge">owner_name/repo_name</code>）当前正在构建的存储库。</li>
+  <li><code class="highlighter-rouge">TRAVIS_SECURE_ENV_VARS</code>：
+    <ul>
+      <li>调成<code class="highlighter-rouge">true</code>如果有任何加密的环境变量。</li>
+      <li>调成<code class="highlighter-rouge">false</code>如果没有可用的加密环境变量。</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_SUDO</code>：<code class="highlighter-rouge">true</code>要么<code class="highlighter-rouge">false</code>根据是否<code class="highlighter-rouge">sudo</code>已启用。</li>
+  <li><code class="highlighter-rouge">TRAVIS_TEST_RESULT</code>：<strong>0</strong>如果所有命令都在<code class="highlighter-rouge">script</code>section（直到引用此环境变量）已退出零;<em>**</em></li>
+  <li><code class="highlighter-rouge">TRAVIS_TAG</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_BUILD_STAGE_NAME</code>：The<a href="/user/build-stages/">建立阶段</a>以大写形式，例如<code class="highlighter-rouge">Test</code>要么<code class="highlighter-rouge">Deploy</code><code class="highlighter-rouge">""</code></li>
+</ul>
+
+<p>用于运行构建的当前版本。是否已经确定</p>
+
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_DART_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_GO_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_HAXE_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_JDK_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_JULIA_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_NODE_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_OTP_RELEASE</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_PERL_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_PHP_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_PYTHON_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_R_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_RUBY_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_RUST_VERSION</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_SCALA_VERSION</code></li>
+</ul>
+
+<p>安装或启动软件或服务时会设置其他特定于软件的环境变量，并包含版本号：</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">TRAVIS_MARIADB_VERSION</code></p>
+  </li>
+  <li><code class="highlighter-rouge">TRAVIS_XCODE_SDK</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_XCODE_SCHEME</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_XCODE_PROJECT</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_XCODE_WORKSPACE</code></li>
+</ul>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

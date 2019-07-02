@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travis CI Enterprise Troubleshooting Guide - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/">Setting up Travis CI Enterprise</a> </li>
+        <li><a href="/user/enterprise/upgrading/">Upgrading</a></li>
+      </ul>
+
+      <h3>Environment reference</h3>
+      <ul>
+        <li><a href="/user/enterprise/xenial">Xenial Build Environment</a></li>
+
+        <li><a href="/user/enterprise/trusty/">Trusty Build Environment</a></li>
+
+        <li><a href="/user/enterprise/precise/">Precise (Legacy) Build Environment</a></li>
+      </ul>
+
+      <h3>Customizing Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/worker-configuration/">Worker Configuration</a></li>
+        <li><a href="/user/enterprise/build-images/">Customizing Build Images</a></li>
+        <li><a href="/user/enterprise/high-availability/">High Availability</a></li>
+        <li><a href="/user/enterprise/custom-queues/">Custom Queues</a></li>
+      </ul>
+
+      <h3>Enterprise Operations Manual</h3>
+      <ul>
+        <li><a href="/user/enterprise/platform-tips/">Platform Administration Tips</a></li>
+        <li><a href="/user/enterprise/worker-cli-commands/">Worker Start & Debug Containers</a></li>
+        <li><a href="/user/enterprise/ssl-certificate-management/">SSL Certificate Management</a></li>
+        <li><a href="/user/enterprise/troubleshooting-guide/">Troubleshooting Guide</a></li>
+      </ul>
+
+      <h3>Travis CI Docs</h3>
+      <ul>
+        <li><a href="/">Travis CI Docs</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page"><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/enterprise/troubleshooting-guide.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Travis CI Enterprise Troubleshooting Guide</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#构建尚未开始">构建尚未开始</a></li>
+  <li><a href="#由于超出上下文截止期限错误企业容器无法启动">由于“超出上下文截止期限”错误，企业容器无法启动</a></li>
+  <li><a href="#构建失败卷曲证书错误">构建失败，卷曲证书错误</a></li>
+  <li><a href="#用户帐户处于同步状态">用户帐户处于同步状态</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>本文档提供了有关Travis CI Enterprise安装故障排除的指南和建议。每个主题都包含一个常见问题和解决它的策略。如果您对特定方案有疑问或遇到未涵盖的问题，请通过以下方式与我们联系<a href="mailto:enterprise@travis-ci.com">enterprise@travis-ci.com</a>寻求帮助。</p>
+
+<p>在本文档中，我们将使用以下术语来指代Travis CI Enterprise安装的两个组件：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Platform machine</code>：运行主要Travis组件的实例，包括Web前端。</li>
+  <li><code class="highlighter-rouge">Worker machine</code>：处理和运行构建的工作器实例。</li>
+</ul>
+
+<blockquote>
+  <p>请注意，本指南适用于非高可用性（HA）设置。请联系我们<a href="mailto:enterprise@travis-ci.com">enterprise@travis-ci.com</a>如果您需要支持HA设置。</p>
+</blockquote>
+
+<h2 id="构建尚未开始">构建尚未开始 <a href="#构建尚未开始" class="toc-anchor">#</a></h2>
+
+<h3 id="问题">问题 <a href="#问题" class="toc-anchor">#</a></h3>
+
+<p>在Travis CI Web UI中，您看不到任何构建正在启动。构建要么没有可见状态，要么具有状态<code class="highlighter-rouge">queued</code>。取消和重新启动构建无效。</p>
+
+<p>###</p>
+
+<p>有一些不同的潜在方法可能有助于让构建再次运行。请按顺序尝试每一个。</p>
+
+<h4 id="与rabbitmq的连接丢失了">与RabbitMQ的连接丢失了 <a href="#与rabbitmq的连接丢失了" class="toc-anchor">#</a></h4>
+
+<p>企业平台使用RabbitMQ与工作机器进行通信，以便处理构建。在某些情况下，工作者机器可能会丢失与RabbitMQ的连接，因此无法成功处理构建。这是一个已知问题，我们正致力于提供永久性解决方案。</p>
+
+<p>在此期间，要将所有内容恢复到正常工作状态，您可以手动重新启动工作机器。这可以通过连接到工作人员来完成<code class="highlighter-rouge">ssh</code>并运行以下命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo shutdown -r 0
+
+</code></pre></div></div>
+
+<p>这将立即重启机器。处理工作者构建的程序（<code class="highlighter-rouge">travis-worker</code>）配置为在系统启动时自动启动，并应重新建立与RabbitMQ的连接。</p>
+
+<p>####</p>
+
+<p>请检查工作机器是否按顺序具有所有相关配置。为此，请使用ssh登录工作机并打开<code class="highlighter-rouge">/etc/default/travis-enterprise</code>。这是主配置文件<code class="highlighter-rouge">travis-worker</code>用于连接平台机器。</p>
+
+<p>这是一个例子：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Default ENV variables for Travis Enterprise
+# Uncomment and set, then restart `travis-worker` for
+# them to take effect.
+
+export TRAVIS_ENTERPRISE_BUILD_ENDPOINT="__build__"
+export TRAVIS_ENTERPRISE_HOST="&lt;your-travis-ci-enterprise-domain&gt;"
+export TRAVIS_ENTERPRISE_SECURITY_TOKEN="abc12345"
+# export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
+
+</code></pre></div></div>
+
+<p>相关变量是<code class="highlighter-rouge">TRAVIS_ENTERPRISE_HOST</code>和<code class="highlighter-rouge">TRAVIS_ENTERPRISE_SECURITY_TOKEN</code><code class="highlighter-rouge">travis-worker</code><code class="highlighter-rouge">RabbitMQ Password</code>发现于<code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800/settings</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo restart travis-worker
+
+</code></pre></div></div>
+
+<p>####</p>
+
+<p>问题的根源可能是工作者机器无法与平台机器通信。</p>
+
+<p>在这里，我们将区分AWS EC2安装和在其他硬件上运行的安装。对于前者，需要为每台计算机配置安全组。为此，请按照我们的安装说明进行操作<a href="/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine"></a><a href="/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine">在文档中</a></p>
+
+<h4 id="ssl验证问题">SSL验证问题 <a href="#ssl验证问题" class="toc-anchor">#</a></h4>
+
+<p>当Github尝试使用Travis CI Enterprise触发新版本时，可能会出现SSL验证错误。</p>
+
+<p>验证Github是否成功传递了webhook有效负载：</p>
+
+<ol>
+  <li>转到Github中的存储库，您希望从中获取构建。</li>
+  <li></li>
+  <li>要查看为此存储库设置的webhook，请单击“Hooks”。</li>
+  <li></li>
+  <li>滚动到页面底部的“最近交货”部分</li>
+</ol>
+
+<p>最近所有对Travis CI Enterprise的有效载荷尝试都应该存在。如果有任何失败的消息，例如“对等证书无法使用给定的CA证书进行身份验证”，则根本原因很可能是您的安装上的SSL证书设置。</p>
+
+<p>根据您的配置，可能有多种方法可以解决此问题。我们的页面<a href="/user/enterprise/ssl-certificate-management">SSL证书管理</a>包含Travis CI Enterprise中可用的各种设置的说明。</p>
+
+<h4 id="docker版本不匹配">Docker版本不匹配 <a href="#docker版本不匹配" class="toc-anchor">#</a></h4>
+
+<p>此问题有时发生在最初在2017年11月之前安装的工作者或运行系统的系统上进行维护之后<code class="highlighter-rouge">docker version</code><code class="highlighter-rouge">17.06.2-ce</code>。当发生这种情况时，<code class="highlighter-rouge">/var/log/upstart/travis-worker.log</code>文件将包含以下行：<code class="highlighter-rouge">Error response from daemon:client and server don't have same version</code>。对于这个问题，我们建议<a href="/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine">从头开始重新安装每个工作人员</a>在一个新的实例上。请注意：将提取默认的构建环境映像，您可能还需要再次应用自定义。</p>
+
+<h4 id="您正在运行enterprise-v22或更高版本">您正在运行Enterprise v2.2或更高版本 <a href="#您正在运行enterprise-v22或更高版本" class="toc-anchor">#</a></h4>
+
+<p>默认情况下，Enterprise Platform v2.2或更高版本将尝试将构建路由到<code class="highlighter-rouge">builds.trusty</code>队列。如果您没有运行Trusty工作程序来处理这些构建，或者您要定位不同的分发（例如，<code class="highlighter-rouge">xenial</code></p>
+
+<p>要解决这个问题，要么：</p>
+
+<ul>
+  <li>确保已在新虚拟机实例上安装了Trusty worker：<a href="/user/enterprise/trusty/"></a></li>
+  <li>覆盖默认排队行为以指定新队列。要覆盖默认队列，您必须访问管理仪表板<code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800/settings#override_default_dist_enable</code>并切换“覆盖默认构建环境”按钮。这将允许您根据需要和可用的工作人员指定新的默认值。</li>
+</ul>
+
+<h2 id="由于超出上下文截止期限错误企业容器无法启动">由于“超出上下文截止期限”错误，企业容器无法启动 <a href="#由于超出上下文截止期限错误企业容器无法启动" class="toc-anchor">#</a></h2>
+
+<h3 id="问题-1">问题 <a href="#问题-1" class="toc-anchor">#</a></h3>
+
+<p><code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800/dashboard</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ready state command canceled: context deadline exceeded
+
+</code></pre></div></div>
+
+<h3 id="策略">策略 <a href="#策略" class="toc-anchor">#</a></h3>
+
+<h4 id="github-oauth应用配置">GitHub OAuth应用配置 <a href="#github-oauth应用配置" class="toc-anchor">#</a></h4>
+
+<p>上述错误可能是由配置不匹配引起的<a href="/user/enterprise/setting-up-travis-ci-enterprise/#prerequisites">GitHub OAuth应用程序</a>都</p>
+
+<p>##</p>
+
+<p>###</p>
+
+<p><code class="highlighter-rouge">travis-worker</code>安装在Ubuntu 16.04（Xenial）的全新安装上没有任何问题。但是，命令<code class="highlighter-rouge">sudo systemctl status travis-worker</code>表明它没有运行。</p>
+
+<p>另外，命令<code class="highlighter-rouge">sudo journalctl -u travis-worker</code>包含以下错误：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/travis-worker-wrapper: line 20: /var/tmp/travis-run.d/travis-worker: No such file or directory
+
+</code></pre></div></div>
+
+<p>###</p>
+
+<p>travis-worker没有运行的一个可能原因是<code class="highlighter-rouge">systemctl</code>无法为环境文件创建临时目录。要解决此问题，请创建目录<code class="highlighter-rouge">/var/tmp/travis-run.d/travis-worker</code>并通过以下方式分配写权限</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir -p /var/tmp/travis-run.d/
+$ chown -R travis:travis /var/tmp/travis-run.d/
+
+</code></pre></div></div>
+
+<h2 id="构建失败卷曲证书错误">构建失败，卷曲证书错误 <a href="#构建失败卷曲证书错误" class="toc-anchor">#</a></h2>
+
+<h3 id="问题-2">问题 <a href="#问题-2" class="toc-anchor">#</a></h3>
+
+<p>构建失败了很长时间<code class="highlighter-rouge">curl</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl: (60) SSL certificate problem: unable to get local issuer certificate
+
+</code></pre></div></div>
+
+<p>这可能有多种原因，包括自动nvm更新或缓存错误。</p>
+
+<h3 id="战略">战略 <a href="#战略" class="toc-anchor">#</a></h3>
+
+<p><a href="/user/enterprise/ssl-certificate-management/#using-a-lets-encrypt-ssl-certificate">SSL证书管理</a></p>
+
+<h2 id="用户帐户处于同步状态">用户帐户处于同步状态 <a href="#用户帐户处于同步状态" class="toc-anchor">#</a></h2>
+
+<h3 id="问题-3">问题 <a href="#问题-3" class="toc-anchor">#</a></h3>
+
+<p>一个或多个用户帐户卡在<code class="highlighter-rouge">is_syncing = true</code>州。查询数据库时，当前正在同步的用户数不会随着时间的推移而减少。例：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis_production=&gt; select count(*) from users where is_syncing=true;
+ count
+-------
+  1027
+(1 row)
+
+</code></pre></div></div>
+
+<h3 id="战略-1">战略 <a href="#战略-1" class="toc-anchor">#</a></h3>
+
+<p>通过ssh登录平台机器。你可以重置<code class="highlighter-rouge">is_syncing</code>通过运行卡住的用户帐户的标志：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis console
+&gt;&gt; User.where(is_syncing: true).count
+&gt;&gt; ActiveRecord::Base.connection.execute('set statement_timeout to 60000')
+&gt;&gt; User.update_all(is_syncing: false)
+
+</code></pre></div></div>
+
+<p>组织也可能陷入同步状态。由于组织本身没有<code class="highlighter-rouge">is_syncing</code>标志，所有属于它的用户必须成功同步。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

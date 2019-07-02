@@ -1,0 +1,734 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S3 Deployment - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/deployment/s3.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">S3 Deployment</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#s3-acl通过选项">S3 ACL通过选项</a></li>
+  <li><a href="#s3-acl与桶策略">S3 ACL与桶策略</a></li>
+  <li><a href="#s3桶区">S3桶区</a></li>
+  <li><a href="#仅从一个文件夹部署">仅从一个文件夹部署</a></li>
+  <li><a href="#部署到特定的s3文件夹">部署到特定的S3文件夹</a></li>
+  <li><a href="#部署到s3托管网站">部署到S3托管网站：</a></li>
+  <li><a href="#部署到多个存储桶">部署到多个存储桶：</a></li>
+  <li><a href="#在发布之前和之后运行命令">在发布之前和之后运行命令</a></li>
+  <li><a href="#content-encoding-头"><code class="highlighter-rouge">Content-Encoding</code>## 头</a></li>
+  <li><a href="#设置charset-上content-type-头">设置<code class="highlighter-rouge">charset</code>## 上<code class="highlighter-rouge">Content-Type</code>## 头</a></li>
+  <li><a href="#设置dot_match标志以上载以句点开头的文件">设置dot_match标志以上载以句点开头的文件</a></li>
+  <li><a href="#使用s3兼容的对象存储">使用S3兼容的对象存储</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>成功构建后，Travis CI可以自动将您的构建上传到Amazon S3。</p>
+
+<p>对于最小配置，请将以下内容添加到您的<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>你可以找到你的<a href="https://console.aws.amazon.com/iam/home?#security_credential">AWS访问密钥</a>在您的亚马逊控制台中您应该使用Travis CI命令行加密密钥：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis encrypt --add deploy.secret_access_key
+
+</code></pre></div></div>
+
+<p>前面的示例几乎肯定不理想，因为您可能希望上传构建的二进制文件和文档。组<code class="highlighter-rouge">skip_cleanup</code>至<code class="highlighter-rouge">true</code>防止Travis CI删除您的构建工件。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<blockquote>
+  <p>请注意，部署到S3只会将文件添加到存储桶，但不会删除它们。如果您需要删除已弃用的文件，可以在Amazon S3控制台中手动执行。</p>
+</blockquote>
+
+<p>而不是将您的Amazon S3配置添加到您的<code class="highlighter-rouge">.travis.yml</code>您可以在项目目录中运行Travis CI命令行进行设置：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis setup s3
+
+</code></pre></div></div>
+
+<p>请记住，上面的命令必须在项目目录中运行，因此它可以修改<code class="highlighter-rouge">.travis.yml</code>为了你。</p>
+
+<h2 id="s3-acl通过选项">S3 ACL通过选项 <a href="#s3-acl通过选项" class="toc-anchor">#</a></h2>
+
+<p>您可以通过以下方式设置上传文件的acl<code class="highlighter-rouge">acl</code>选项如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  acl: public_read
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p><code class="highlighter-rouge">private</code>，<code class="highlighter-rouge">public_read</code>，<code class="highlighter-rouge">public_read_write</code>，<code class="highlighter-rouge">authenticated_read</code>，<code class="highlighter-rouge">bucket_owner_read</code>，<code class="highlighter-rouge">bucket_owner_full_control</code>。 ACL默认为<code class="highlighter-rouge">private</code>。</p>
+
+<p>注意，为了设置<code class="highlighter-rouge">acl</code>，桶的政策必须允许这样的操作通过<code class="highlighter-rouge">s3:PutObjectAcl</code>行动。</p>
+
+<p>示例策略可能如下所示：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "PRINCIPAL_ID"
+            },
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::BUCKET_NAME/*"
+        }
+    ]
+}
+
+</code></pre></div></div>
+
+<p>务必根据需要设置本金和资源。</p>
+
+<h2 id="s3-acl与桶策略">S3 ACL与桶策略 <a href="#s3-acl与桶策略" class="toc-anchor">#</a></h2>
+
+<p>为工件设置ACL的另一种方法是通过S3存储桶策略。</p>
+
+<p>此存储桶策略授予公共读取权限：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "Version": "2014-09-25",
+  "Statement":[{
+    "Sid":"AllowPublicRead",
+        "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::"YOUR BUCKET NAME"/*"
+      ]
+    }
+  ]
+}
+
+</code></pre></div></div>
+
+<h2 id="s3桶区">S3桶区 <a href="#s3桶区" class="toc-anchor">#</a></h2>
+
+<p>默认区域<code class="highlighter-rouge">us-east-1</code>在部署到S3时使用。如果您的存储桶托管在其他区域，则使用默认区域进行部署会导致以下错误。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The bucket you are attempting to access must be addressed using the specified endpoint.
+Please send all future requests to this endpoint. (AWS::S3::Errors::PermanentRedirect)
+
+</code></pre></div></div>
+
+<p>这可以通过使用指定桶的区域来解决<code class="highlighter-rouge">region</code>组态。例如，此示例使用<code class="highlighter-rouge">eu-west-1</code>区域。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  region: eu-west-1
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="仅从一个文件夹部署">仅从一个文件夹部署 <a href="#仅从一个文件夹部署" class="toc-anchor">#</a></h2>
+
+<p>通常，您不希望将整个项目上传到S3。您可以告诉Travis CI仅将单个文件夹上传到S3。你可以使用<code class="highlighter-rouge">local_dir</code>选项这样做。这个例子上传了<code class="highlighter-rouge">build</code>您的项目目录到S3：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  local_dir: build
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="部署到特定的s3文件夹">部署到特定的S3文件夹 <a href="#部署到特定的s3文件夹" class="toc-anchor">#</a></h2>
+
+<p>通常，您只想上传到特定的S3文件夹。你可以使用<code class="highlighter-rouge">upload-dir</code>用于设置S3目标文件夹的选项。此示例上传到<code class="highlighter-rouge">travis-builds</code>你的s3桶的文件夹。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  upload-dir: travis-builds
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="部署到s3托管网站">部署到S3托管网站： <a href="#部署到s3托管网站" class="toc-anchor">#</a></h2>
+
+<p>要上传到S3托管网站，请使用此模板上传到您的网站。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  region: "Bucket region"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>请记住，您需要将存储桶设置为具有的ACL<code class="highlighter-rouge">public</code>任何人都可以看到您的网站。</p>
+
+<h2 id="部署到多个存储桶">部署到多个存储桶： <a href="#部署到多个存储桶" class="toc-anchor">#</a></h2>
+
+<p>如果要上传到多个存储桶，可以执行以下操作：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  - provider: s3
+    access_key_id: "YOUR AWS ACCESS KEY"
+    secret_access_key: "YOUR AWS SECRET KEY"
+    bucket: "S3 Bucket"
+    skip_cleanup: true
+  - provider: s3
+    access_key_id: "YOUR AWS ACCESS KEY"
+    secret_access_key: "YOUR AWS SECRET KEY"
+    bucket: "Second S3 Bucket"
+    skip_cleanup: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>##</p>
+
+<p><a href="/user/deployment#conditional-releases-with-on"><code class="highlighter-rouge">on:</code></a></p>
+
+<h2 id="在发布之前和之后运行命令">在发布之前和之后运行命令 <a href="#在发布之前和之后运行命令" class="toc-anchor">#</a></h2>
+
+<p>有时您希望在发布gem之前或之后运行命令。你可以使用<code class="highlighter-rouge">before_deploy</code><code class="highlighter-rouge">after_deploy</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    before_deploy: "echo 'ready?'"
+    deploy:
+      ..
+    after_deploy:
+      - ./after_deploy_1.sh
+      - ./after_deploy_2.sh
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="content-encoding-头"><code class="highlighter-rouge">Content-Encoding</code>## 头 <a href="#content-encoding-头" class="toc-anchor">#</a></h2>
+
+<p><code class="highlighter-rouge">Content-Encoding</code>。</p>
+
+<p>相关的MIME类型。</p>
+
+<p>要启用此功能，请添加：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  ..
+  detect_encoding: true # &lt;== default is false
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果文件是压缩的<code class="highlighter-rouge">gzip</code>要么<code class="highlighter-rouge">compress</code>，它将上传</p>
+
+<h2 id="设置charset-上content-type-头">设置<code class="highlighter-rouge">charset</code>## 上<code class="highlighter-rouge">Content-Type</code>## 头 <a href="#设置charset-上content-type-头" class="toc-anchor">#</a></h2>
+
+<p>S3可以采用内容类型标头。通常，这也不包括字符集。如果要添加字符集，请添加<code class="highlighter-rouge">default_text_charset</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  ..
+  default_text_charset: 'utf-8'  # Default is ''
+
+</code></pre></div></div>
+
+<p>##</p>
+
+<p>S3上传可以选择设置<code class="highlighter-rouge">Cache-Control</code>和<code class="highlighter-rouge">Expires</code>HTTP标头。</p>
+
+<p>设置HTTP标头<code class="highlighter-rouge">Cache-Control</code>建议浏览器缓存文件。默认为<code class="highlighter-rouge">no-cache</code><code class="highlighter-rouge">no-cache</code>，<code class="highlighter-rouge">no-store</code>，<code class="highlighter-rouge">max-age=&lt;seconds&gt;</code>，<code class="highlighter-rouge">s-maxage=&lt;seconds&gt; no-transform</code>，<code class="highlighter-rouge">public</code>，<code class="highlighter-rouge">private</code>。</p>
+
+<p><code class="highlighter-rouge">Expires</code>设置缓存对象不再可缓存的日期和时间。默认为未设置。日期必须采用格式<code class="highlighter-rouge">YYYY-MM-DD HH:MM:SS -ZONE</code>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  ..
+  cache_control: "max-age=31536000"
+  expires: "2012-12-21 00:00:00 -0000"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="设置dot_match标志以上载以句点开头的文件">设置dot_match标志以上载以句点开头的文件 <a href="#设置dot_match标志以上载以句点开头的文件" class="toc-anchor">#</a></h2>
+
+<p>可以将S3上传设置为上传以a开头的所有文件<code class="highlighter-rouge">.</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  ..
+  dot_match: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h2 id="使用s3兼容的对象存储">使用S3兼容的对象存储 <a href="#使用s3兼容的对象存储" class="toc-anchor">#</a></h2>
+
+<p>您可以使用与S3兼容的对象存储，例如Digital Ocean Spaces</p>
+
+<p>通过设置<code class="highlighter-rouge">endpoint</code>键。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  provider: s3
+  ..
+  endpoint: https://nyc3.digitaloceanspaces.com
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

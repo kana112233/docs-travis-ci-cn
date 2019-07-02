@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customizing Travis CI Enterprise Build Images - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/">Setting up Travis CI Enterprise</a> </li>
+        <li><a href="/user/enterprise/upgrading/">Upgrading</a></li>
+      </ul>
+
+      <h3>Environment reference</h3>
+      <ul>
+        <li><a href="/user/enterprise/xenial">Xenial Build Environment</a></li>
+
+        <li><a href="/user/enterprise/trusty/">Trusty Build Environment</a></li>
+
+        <li><a href="/user/enterprise/precise/">Precise (Legacy) Build Environment</a></li>
+      </ul>
+
+      <h3>Customizing Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/worker-configuration/">Worker Configuration</a></li>
+        <li><a href="/user/enterprise/build-images/">Customizing Build Images</a></li>
+        <li><a href="/user/enterprise/high-availability/">High Availability</a></li>
+        <li><a href="/user/enterprise/custom-queues/">Custom Queues</a></li>
+      </ul>
+
+      <h3>Enterprise Operations Manual</h3>
+      <ul>
+        <li><a href="/user/enterprise/platform-tips/">Platform Administration Tips</a></li>
+        <li><a href="/user/enterprise/worker-cli-commands/">Worker Start & Debug Containers</a></li>
+        <li><a href="/user/enterprise/ssl-certificate-management/">SSL Certificate Management</a></li>
+        <li><a href="/user/enterprise/troubleshooting-guide/">Troubleshooting Guide</a></li>
+      </ul>
+
+      <h3>Travis CI Docs</h3>
+      <ul>
+        <li><a href="/">Travis CI Docs</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page"><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/enterprise/build-images.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Customizing Travis CI Enterprise Build Images</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#自定义构建映像">自定义构建映像</a></li>
+  <li><a href="#联系企业支持">联系企业支持</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>使用Travis CI Enterprise，您可以配置构建映像以适合您的</p>
+
+<p>开发过程，改善构建环境和性能。</p>
+
+<h2 id="自定义构建映像">自定义构建映像 <a href="#自定义构建映像" class="toc-anchor">#</a></h2>
+
+<p>从中提取构建图像后</p>
+
+<p><a href="https://quay.io/organization/travisci">quay.io</a>通过</p>
+
+<p><a href="/user/enterprise/installation">安装</a>或手动，确保</p>
+
+<p>他们已被重新贴上标签<code class="highlighter-rouge">travis:[language]</code>。一旦配置进入</p>
+
+<p>在这里，您可以根据需要完全自定义这些图像。</p>
+
+<p><strong>注意</strong>：您需要在之后重新应用自定义</p>
+
+<p>从中升级构建映像<a href="https://quay.io/organization/travisci">quay.io</a>。</p>
+
+<h3 id="ubuntu-trusty构建环境">Ubuntu Trusty构建环境 <a href="#ubuntu-trusty构建环境" class="toc-anchor">#</a></h3>
+
+<p>对于Ubuntu Trusty构建环境，我们总共发布了三个Docker镜像。取决于用户<code class="highlighter-rouge">.travis.yml</code>配置我们将选择相应的图像来运行构建。</p>
+
+<p>我们正在运送与我们在travis-ci.com上使用的相同的Docker构建映像。基本图像，<code class="highlighter-rouge">connie</code>包含预安装的所有数据库和框架，例如postgresql，mysql，memcached，pyenv，rvm，gimme。虽然没有可用的口译员。基于<code class="highlighter-rouge">connie</code>有<code class="highlighter-rouge">garnet</code>，它添加了以下编程语言：</p>
+
+<ul>
+  <li>红宝石</li>
+  <li>Node.js的</li>
+  <li>走</li>
+  <li>PHP</li>
+  <li>蟒蛇</li>
+  <li>Java / JVM</li>
+</ul>
+
+<p>第三张图片，<code class="highlighter-rouge">amethyst</code>，另外预装了Android，Erlang，Haskell和Perl。</p>
+
+<blockquote>
+  <p>对其中一个图像的任何修改也可用于其他语言。</p>
+</blockquote>
+
+<h3 id="ubuntu-precise构建环境已弃用">Ubuntu Precise构建环境（已弃用） <a href="#ubuntu-precise构建环境已弃用" class="toc-anchor">#</a></h3>
+
+<p>在Ubuntu Precise环境中，我们为我们支持的每种语言提供单独的Docker镜像。我们支持与当前Trusty环境中相同的语言。</p>
+
+<h3 id="如何定制">如何定制 <a href="#如何定制" class="toc-anchor">#</a></h3>
+
+<p>过程是：</p>
+
+<ul>
+  <li>基于其中一个默认构建映像启动Docker容器</li>
+</ul>
+
+<p><code class="highlighter-rouge">travis:[language]</code></p>
+<ul>
+  <li>在该容器内运行自定义，以及</li>
+  <li></li>
+</ul>
+
+<p><code class="highlighter-rouge">travis:language name (tag)</code></p>
+
+<p>例如，为了安装特定的Ruby版本而不是</p>
+
+<p><code class="highlighter-rouge">travis:ruby</code>图像，并使其持久，</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      docker -H tcp://0.0.0.0:4243 run -it --name travis_ruby travis:ruby su travis -l -c 'rvm install [version]'
+      docker -H tcp://0.0.0.0:4243 commit travis_ruby travis:ruby
+      docker -H tcp://0.0.0.0:4243 rm travis_ruby
+
+</code></pre></div></div>
+
+<p>##</p>
+
+<p>###</p>
+
+<p><code class="highlighter-rouge">/etc/default/travis-worker</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
+
+</code></pre></div></div>
+
+<p>####</p>
+
+<p>使用Trusty构建映像需要一些额外的步骤。以来<code class="highlighter-rouge">docker-ce</code>不能在另一个Docker容器内自行运行，它将连接到Host的Docker守护进程以执行相应的命令。</p>
+
+<p>我们通过添加另一个配置选项来实现此目的<code class="highlighter-rouge">/etc/default/travis-worker</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TRAVIS_WORKER_DOCKER_BINDS='/var/run/docker.sock:/var/run/docker.sock'
+
+</code></pre></div></div>
+
+<p>有了这个选项我们告诉你<code class="highlighter-rouge">travis-worker</code>使主机的Docker套接字在构建容器中可用。保存配置文件后，请重新启动travis-worker。</p>
+
+<h4 id="重启travis-worker">重启travis-worker <a href="#重启travis-worker" class="toc-anchor">#</a></h4>
+
+<p>要重新启动travis-worker，您可以找到说明<a href="/user/enterprise/worker-cli-commands/#stopping-and-starting-the-worker"></a>。</p>
+
+<p>###</p>
+
+<h4 id="trusty构建容器">Trusty构建容器 <a href="#trusty构建容器" class="toc-anchor">#</a></h4>
+
+<p>一旦工人机器<a href="/user/enterprise/build-images/#worker-machine-configuration">配置正确</a>，您可以像往常一样在构建中使用Docker。请注意，在企业安装中，您无需添加<code class="highlighter-rouge">services: docker</code>到了<code class="highlighter-rouge">.travis.yml</code>。</p>
+
+<p><code class="highlighter-rouge">--rm</code>在构建中使用Docker运行时标记。</p>
+
+<p>为避免竞争条件，当多个构建同时开始删除容器和图像时，我们建议在没有构建运行时直接在机器上手动清理它们。</p>
+
+<h4 id="精确构建容器传统">精确构建容器（传统） <a href="#精确构建容器传统" class="toc-anchor">#</a></h4>
+
+<p>将以下内容添加到任何中<code class="highlighter-rouge">.travis.yml</code>想要使用Docker的存储库文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    install:
+          - sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+          - echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" | sudo tee /etc/apt/sources.list.d/docker.list
+          - sudo apt-get update
+          - sudo apt-get install docker-engine
+
+</code></pre></div></div>
+
+<p>例如，如果要创建新存储库并测试Docker支持，可以创建一个<code class="highlighter-rouge">.travis.yml</code>文件如下所示：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    install:
+          - sudo apt-get update
+          - sudo apt-get install apt-transport-https ca-certificates
+          - sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+          - echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" | sudo tee /etc/apt/sources.list.d/docker.list
+          - sudo apt-get update
+          - sudo apt-get install docker-engine
+          - sudo docker pull ubuntu
+
+    script:
+          - sudo docker run ubuntu date
+
+</code></pre></div></div>
+
+<h2 id="联系企业支持">联系企业支持 <a href="#联系企业支持" class="toc-anchor">#</a></h2>
+
+<p>To get in touch with us, please write a message to 
+<a href="mailto:enterprise@travis-ci.com">enterprise@travis-ci.com</a>. If possible, 
+please include as much of the following as you can:</p>
+
+<ul>
+  <li>Description of the problem - what are you observing?</li>
+  <li>Which steps did you try already?</li>
+  <li>A support bundle (You can get it from <code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800/support</code>)</li>
+  <li>Log files from all workers (They can be found at <code class="highlighter-rouge">/var/log/upstart/travis-worker.log</code> - please include as many as you can retrieve).</li>
+  <li>If a build failed or errored, a text file of the build log</li>
+</ul>
+
+<p>Have you made any customizations to your setup? While we may be able to see some 
+information (such as hostname, IaaS provider, and license expiration), there 
+are many other things we can’t see which could lead to something not working. 
+Therefore , we’d like to ask you to also answer the questions below in your 
+support request (if applicable):</p>
+
+<ul>
+  <li>How many machines are you using?</li>
+  <li>Do you use configuration management tools (Chef, Puppet)?</li>
+  <li>Which other services do interface with Travis CI Enterprise?</li>
+  <li>Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?</li>
+  <li>If you’re using GitHub Enterprise, which version of it?</li>
+</ul>
+
+<p>We’re looking forward to helping!</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

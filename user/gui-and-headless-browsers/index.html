@@ -1,0 +1,744 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GUI and Headless Browser Testing - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/gui-and-headless-browsers.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">GUI and Headless Browser Testing</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#本指南涵盖的内容">本指南涵盖的内容</a></li>
+  <li><a href="#使用酱汁实验室">使用酱汁实验室</a></li>
+  <li><a href="#使用xvfb运行需要gui的测试">使用xvfb运行需要GUI的测试</a></li>
+  <li><a href="#使用phantomjs">使用PhantomJS</a></li>
+  <li><a href="#例子">例子</a></li>
+  <li><a href="#故障排除">故障排除</a></li>
+</ul>
+
+            </div>
+          
+
+          <h2 id="本指南涵盖的内容">本指南涵盖的内容 <a href="#本指南涵盖的内容" class="toc-anchor">#</a></h2>
+
+<p>本指南介绍了使用Travis提供的工具进行无头GUI和浏览器测试<a href="/user/reference/precise/">CI环境</a>。大多数内容都是技术中立的，并未涵盖特定测试工具的所有细节（如Poltergeist或Capybara）。我们建议您先从<a href="/user/tutorial/">教程</a>和<a href="/user/customizing-the-build/">构建配置</a>阅读本文之前的指南。</p>
+
+<h2 id="使用酱汁实验室">使用酱汁实验室 <a href="#使用酱汁实验室" class="toc-anchor">#</a></h2>
+
+<p><a href="https://saucelabs.com">酱汁实验室</a>提供Selenium云，可访问170多种不同的设备/操作系统/浏览器组合。如果你有使用Selenium的浏览器测试，使用Sauce Labs来运行测试非常容易。首先，您需要注册他们的服务（它对于开源项目是免费的）。</p>
+
+<p>注册后，使用Sauce Connect设置隧道，以便Sauce Labs可以连接到您的Web服务器。我们的<a href="/user/sauce-connect/">酱连接插件</a>使这很简单，只需将其添加到.travis.yml：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  sauce_connect:
+    username: "Your Sauce Labs username"
+    access_key: "Your Sauce Labs access key"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>您可以<a href="/user/encryption-keys/">加密您的访问密钥</a>， 如果你想。</p>
+
+<p>现在，Sauce Labs有一种方法可以访问您的Web服务器，但您仍然需要启动它。看到<a href="#starting-a-web-server">启动Web服务器</a>以下是有关如何执行此操作的详细信息。</p>
+
+<p>最后，您需要将Selenium测试配置为在Sauce Labs上运行，而不是在本地运行。这是使用a完成的<a href="https://code.google.com/p/selenium/wiki/RemoteWebDriver">远程WebDriver</a>。确切的代码取决于您使用的工具/平台，但对于Python，它看起来像这样：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username = os.environ["SAUCE_USERNAME"]
+access_key = os.environ["SAUCE_ACCESS_KEY"]
+capabilities["tunnel-identifier"] = os.environ["TRAVIS_JOB_NUMBER"]
+hub_url = "%s:%s@localhost:4445" % (username, access_key)
+driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="http://%s/wd/hub" % hub_url)
+
+</code></pre></div></div>
+
+<p>Sauce Connect插件出口了<code class="highlighter-rouge">SAUCE_USERNAME</code>和<code class="highlighter-rouge">SAUCE_ACCESS_KEY</code>环境变量，并将与中心URL的连接中继回Sauce Labs。</p>
+
+<p>这就是您在Sauce Labs上运行Selenium测试所需的全部内容。但是，您可能只想将Sauce Lab用于Travis CI构建，而不是用于本地构建。为此，您可以使用<code class="highlighter-rouge">CI</code>要么<code class="highlighter-rouge">TRAVIS</code>环境变量有条件地改变你正在使用的驱动程序（见<a href="/user/reference/precise/#environment-variables">我们的可用环境变量列表</a>有关更多方法来检测您是否在Travis CI上运行）。</p>
+
+<p>为了使Sauce Labs上的测试结果更容易导航，您可能希望提供更多元数据以与构建一起发送。您可以通过传递更多所需功能来实现此目的：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>capabilities["build"] = os.environ["TRAVIS_BUILD_NUMBER"]
+capabilities["tags"] = [os.environ["TRAVIS_PYTHON_VERSION"], "CI"]
+
+</code></pre></div></div>
+
+<p>对于travis-web，我们自己的网站，我们使用Sauce Labs在多个浏览器上运行浏览器测试。我们在我们中使用环境变量<a href="https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml#L14-15">.travis.yml</a>将构建拆分为多个作业，然后使用所需的浏览器传递到Sauce Labs<a href="https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/script/saucelabs.rb#L9-13">期望的能力</a>。在特拉维斯CI方面，它最终看起来像<a href="https://travis-ci.org/travis-ci/travis-web/builds/12857641">这个</a>。</p>
+
+<h2 id="使用xvfb运行需要gui的测试">使用xvfb运行需要GUI的测试 <a href="#使用xvfb运行需要gui的测试" class="toc-anchor">#</a></h2>
+
+<p>要在Travis CI上运行需要图形用户界面的测试，请使用<code class="highlighter-rouge">xvfb</code>（X</p>
+
+<p>Virtual Framebuffer）模仿显示器。如果您需要浏览器，则可以使用</p>
+
+<p>Firefox（使用预安装的版本，或者<a href="/user/firefox">添加在</a>）</p>
+
+<p>或谷歌Chrome（与<a href="/user/chrome">添加在</a>，在Linux Trusty或macOS上）。</p>
+
+<h3 id="运用services">运用<code class="highlighter-rouge">services:</code> <a href="#运用services" class="toc-anchor">#</a></h3>
+
+<blockquote>
+  <p>这仅适用于Ubuntu 16.04（Xenial），即<code class="highlighter-rouge">dist: xenial</code></p>
+</blockquote>
+
+<p>以下将启动xvfb并为其设置正确的值<code class="highlighter-rouge">DISPLAY</code></p>
+
+<p>环境变量：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dist: xenial
+services:
+  - xvfb
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="使用xvfb-run包装器">使用xvfb-run包装器 <a href="#使用xvfb-run包装器" class="toc-anchor">#</a></h3>
+
+<p><code class="highlighter-rouge">xvfb-run</code>是一个调用的包装器<code class="highlighter-rouge">xvfb</code>以便<code class="highlighter-rouge">xvfb</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: xvfb-run make test
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: xvfb-run --server-args="-screen 0 1024x768x24" make test
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>###</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">dist: trusty</code></p>
+</blockquote>
+
+<p>使用<code class="highlighter-rouge">xvfb</code>本身，开始吧<code class="highlighter-rouge">before_script</code></p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p><code class="highlighter-rouge">xvfb</code></p>
+
+<p>实例那样。</p>
+
+<p><code class="highlighter-rouge">xvfb</code></p>
+
+<p>随着<code class="highlighter-rouge">start-stop-daemon</code>实用程序而不是使用init脚本</p>
+
+<p>上一个例子。</p>
+
+<p>例如，要将屏幕分辨率设置为<code class="highlighter-rouge">1280x1024x16</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_install:
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+
+</code></pre></div></div>
+
+<p><a href="http://www.xfree86.org/4.0.1/Xvfb.1.html">xvfb手册页</a>欲获得更多信息。</p>
+
+<p>###</p>
+
+<!-- FIXME: write this paragraph -->
+<p>如果您的项目需要运行要测试的Web应用程序，则需要在运行测试之前启动它。通常使用Ruby，Node.js和基于JVM的Web服务器</p>
+
+<p>提供用于运行测试套件的HTML页面。因为每个构建环境至少提供一个版本的Ruby，Node.js和OpenJDK，所以您可以依赖其中一个版本</p>
+
+<p>三种选择。</p>
+
+<p>添加一个<code class="highlighter-rouge">before_script</code>启动服务器，例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - rackup  # start a Web server
+  - sleep 3 # give Web server some time to bind to sockets, etc
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您需要Web服务器在端口80上进行侦听，请记住使用<code class="highlighter-rouge">sudo</code>（Linux不允许非特权进程绑定到端口80）。对于大于1024的端口，使用<code class="highlighter-rouge">sudo</code>没有必要（不推荐）。</p>
+
+<div class="note-box">
+Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+</div>
+<h3 id="使用chrome插件-在无头模式">使用<a href="/user/chrome">Chrome插件</a>### 在无头模式 <a href="#使用chrome插件-在无头模式" class="toc-anchor">#</a></h3>
+
+<p>从Linux Trusty版本57和macOS版本59开始，Google Chrome可用于“无头”</p>
+
+<p>模式，适用于使用Selenium和其他工具驱动基于浏览器的测试。</p>
+
+<blockquote>
+  <p>截至2017-05-02，这意味着<code class="highlighter-rouge">stable</code>要么<code class="highlighter-rouge">beta</code>在Linux上构建，和<code class="highlighter-rouge">beta</code>在macOS构建上。</p>
+</blockquote>
+
+<p>例如，在Linux上</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dist: trusty
+addons:
+  chrome: stable
+before_install:
+  - # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &amp;
+  ⋮
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>在macOS上：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: objective-c
+addons:
+  chrome: beta
+before_install:
+  - # start your web application and listen on `localhost`
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &amp;"
+  ⋮
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h4 id="文档">文档 <a href="#文档" class="toc-anchor">#</a></h4>
+
+<ul>
+  <li><a href="https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md">无头Chromium文档</a></li>
+  <li><a href="https://developers.google.com/web/updates/2017/04/headless-chrome">无头Chrome入门</a></li>
+</ul>
+
+<h3 id="使用firefox插件-在无头模式">使用<a href="/user/firefox">Firefox插件</a>### 在无头模式 <a href="#使用firefox插件-在无头模式" class="toc-anchor">#</a></h3>
+
+<p>从版本56开始，Firefox可以在“无头”模式下使用，即</p>
+
+<p>适合使用Selenium和其他工具驱动基于浏览器的测试。</p>
+
+<p>可以使用。启用无头模式<code class="highlighter-rouge">MOZ_HEADLESS</code></p>
+
+<p><a href="/user/environment-variables">环境变量</a>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env:
+  - MOZ_HEADLESS=1
+addons:
+  firefox: latest
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>或者，你可以通过<code class="highlighter-rouge">-headless</code>命令行参数何时</p>
+
+<p>启动Firefox。例如，以下代码演示了您的操作方式</p>
+
+<p>使用Selenium的Python客户端设置此参数：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.add_argument('-headless')
+firefox = Firefox(firefox_options=options)
+
+</code></pre></div></div>
+
+<p>####文档</p>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/Firefox/Headless_mode#Using_headless_mode">使用无头模式</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/Firefox/Headless_mode#Automated_testing_with_headless_mode">使用无头模式进行自动测试</a></li>
+</ul>
+
+<h2 id="使用phantomjs">使用PhantomJS <a href="#使用phantomjs" class="toc-anchor">#</a></h2>
+
+<p><a href="http://phantomjs.org/">PhantomJS</a>是一个使用JavaScript API的无头WebKit。它是快速无头测试，站点抓取，页面捕获，SVG渲染器，网络监控和许多其他用例的最佳解决方案。</p>
+
+<p><a href="/user/reference/precise/">CI环境</a>提供PhantomJS预安装（在PATH中可用<code class="highlighter-rouge">phantomjs</code>;不要依赖于确切的位置）。由于它完全无头，所以不需要运行<code class="highlighter-rouge">xvfb</code>。</p>
+
+<p>一个非常简单的例子：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: phantomjs testrunner.js
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您需要Web服务器来提供测试，请参阅上一节。</p>
+
+<h2 id="例子">例子 <a href="#例子" class="toc-anchor">#</a></h2>
+
+<h3 id="真实世界项目">真实世界项目 <a href="#真实世界项目" class="toc-anchor">#</a></h3>
+
+<ul>
+  <li><a href="https://github.com/emberjs/ember.js/blob/master/.travis.yml">Ember.js</a>（以编程方式启动Web服务器）</li>
+  <li><a href="https://github.com/sproutcore/sproutcore/blob/master/.travis.yml">SproutCore的</a>（启动Web服务器before_script）</li>
+</ul>
+
+<h3 id="红宝石">红宝石 <a href="#红宝石" class="toc-anchor">#</a></h3>
+
+<h4 id="rspec茉莉黄瓜">RSpec，茉莉，黄瓜 <a href="#rspec茉莉黄瓜" class="toc-anchor">#</a></h4>
+
+<p>这是一个运行Rspec，Jasmine和Cucumber测试的示例rake任务：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>task :travis do
+  ["rspec spec", "rake jasmine:ci", "rake cucumber"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 &amp;&amp; bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+  end
+end
+
+</code></pre></div></div>
+
+<p>在这个例子中，Jasmine和Cucumber都需要显示端口，因为它们都使用真正的浏览器。 Rspec会在没有它的情况下运行，但设置它并没有坏处。</p>
+
+<h2 id="故障排除">故障排除 <a href="#故障排除" class="toc-anchor">#</a></h2>
+
+<h3 id="selenium和firefox弹出窗口">Selenium和Firefox弹出窗口 <a href="#selenium和firefox弹出窗口" class="toc-anchor">#</a></h3>
+
+<p>例如，如果您的测试套件处理模式对话框弹出窗口，<a href="https://support.mozilla.org/en-US/questions/792131">重定向到另一个位置</a>，然后您可能需要添加自定义配置文件，以便弹出窗口被抑制。</p>
+
+<p>这可以通过应用关闭选项的自定义Firefox配置文件来修复:(示例在Ruby中使用Capybara）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Capybara.register_driver :selenium do |app|
+
+  custom_profile = Selenium::WebDriver::Firefox::Profile.new
+
+  # Turn off the super annoying popup!
+  custom_profile["network.http.prompt-temp-redirect"] = false
+
+  Capybara::Selenium::Driver.new(app, :browser =&gt; :firefox, :profile =&gt; custom_profile)
+end
+
+</code></pre></div></div>
+
+<h3 id="karma和firefox不活动超时">Karma和Firefox不活动超时 <a href="#karma和firefox不活动超时" class="toc-anchor">#</a></h3>
+
+<p>使用Karma和Firefox进行测试时，由于浏览器不活动超时，您可能会遇到构建错误。发生这种情况时，Karma将输出类似于以下内容的错误：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARN [Firefox 31.0.0 (Linux)]: Disconnected (1 times), because no message in 10000 ms.
+
+</code></pre></div></div>
+
+<p>在这种情况下，您应该将浏览器不活动超时增加到更高的值<code class="highlighter-rouge">karma.conf.js</code>，例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>browserNoActivityTimeout: 30000,
+
+</code></pre></div></div>
+
+<p>有关更多信息，请参阅Karma<a href="https://karma-runner.github.io/1.0/config/configuration-file.html">配置文件</a>文档。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

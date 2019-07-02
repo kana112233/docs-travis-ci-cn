@@ -1,0 +1,538 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise Platform Administration Tips - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        <li><a href="/user/enterprise/setting-up-travis-ci-enterprise/">Setting up Travis CI Enterprise</a> </li>
+        <li><a href="/user/enterprise/upgrading/">Upgrading</a></li>
+      </ul>
+
+      <h3>Environment reference</h3>
+      <ul>
+        <li><a href="/user/enterprise/xenial">Xenial Build Environment</a></li>
+
+        <li><a href="/user/enterprise/trusty/">Trusty Build Environment</a></li>
+
+        <li><a href="/user/enterprise/precise/">Precise (Legacy) Build Environment</a></li>
+      </ul>
+
+      <h3>Customizing Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/worker-configuration/">Worker Configuration</a></li>
+        <li><a href="/user/enterprise/build-images/">Customizing Build Images</a></li>
+        <li><a href="/user/enterprise/high-availability/">High Availability</a></li>
+        <li><a href="/user/enterprise/custom-queues/">Custom Queues</a></li>
+      </ul>
+
+      <h3>Enterprise Operations Manual</h3>
+      <ul>
+        <li><a href="/user/enterprise/platform-tips/">Platform Administration Tips</a></li>
+        <li><a href="/user/enterprise/worker-cli-commands/">Worker Start & Debug Containers</a></li>
+        <li><a href="/user/enterprise/ssl-certificate-management/">SSL Certificate Management</a></li>
+        <li><a href="/user/enterprise/troubleshooting-guide/">Troubleshooting Guide</a></li>
+      </ul>
+
+      <h3>Travis CI Docs</h3>
+      <ul>
+        <li><a href="/">Travis CI Docs</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page"><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/enterprise/platform-tips.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Enterprise Platform Administration Tips</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#检查日志和运行服务">检查日志和运行服务</a></li>
+  <li><a href="#取消或重置滞留的工作">取消或重置滞留的工作</a></li>
+  <li><a href="#清除redis存档队列版本217">清除Redis存档队列（版本&lt;2.1.7）</a></li>
+  <li><a href="#重置rabbitmq证书">重置RabbitMQ证书</a></li>
+  <li><a href="#查看sidekiq队列统计信息">查看Sidekiq队列统计信息</a></li>
+  <li><a href="#卸载travis-ci-enterprise">卸载Travis CI Enterprise</a></li>
+  <li><a href="#找出最大可用并发性">找出最大可用并发性</a></li>
+  <li><a href="#找出有多少工人机器连接">找出有多少工人机器连接</a></li>
+  <li><a href="#将travis-ci-enterprise集成到您的监控中">将Travis CI Enterprise集成到您的监控中</a></li>
+  <li><a href="#配置备份">配置备份</a></li>
+  <li><a href="#从github服务迁移到webhooks">从GitHub服务迁移到webhooks</a></li>
+  <li><a href="#联系企业支持">联系企业支持</a></li>
+</ul>
+
+            </div>
+          
+
+          <p>开始。</p>
+
+<h2 id="检查日志和运行服务">检查日志和运行服务 <a href="#检查日志和运行服务" class="toc-anchor">#</a></h2>
+
+<h3 id="平台日志">平台日志 <a href="#平台日志" class="toc-anchor">#</a></h3>
+
+<p>在平台上，您可以找到主日志文件</p>
+
+<p><code class="highlighter-rouge">/var/travis/log/travis.log</code>。它们也符号化</p>
+
+<p><code class="highlighter-rouge">/var/log/travis.log</code>为了方便。</p>
+
+<h3 id="工人日志">工人日志 <a href="#工人日志" class="toc-anchor">#</a></h3>
+
+<h4 id="用ubuntu-1604作为主机操作系统">用Ubuntu 16.04作为主机操作系统 <a href="#用ubuntu-1604作为主机操作系统" class="toc-anchor">#</a></h4>
+
+<p>在Worker上，您可以通过运行获取工作日志：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo journalctl -u travis-worker
+
+</code></pre></div></div>
+
+<h4 id="用ubuntu-1404作为主机操作系统">用Ubuntu 14.04作为主机操作系统 <a href="#用ubuntu-1404作为主机操作系统" class="toc-anchor">#</a></h4>
+
+<p>在Worker上，您可以找到主日志文件</p>
+
+<p><code class="highlighter-rouge">/var/log/upstart/travis-worker.log</code></p>
+
+<p>##</p>
+
+<p><code class="highlighter-rouge">travis bash</code>：这将让你进入正在运行的容器</p>
+
+<p>平台。</p>
+
+<p><code class="highlighter-rouge">travis console</code>：这将让你进入一个Ruby IRB会话</p>
+
+<p>平台。</p>
+
+<h2 id="取消或重置滞留的工作">取消或重置滞留的工作 <a href="#取消或重置滞留的工作" class="toc-anchor">#</a></h2>
+
+<p>有时，工作可能会陷入困境<code class="highlighter-rouge">queued</code>对工人的状态。取消或</p>
+
+<p>重置大量作业，请执行以下步骤：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis console
+&gt;&gt; stuck_jobs = Job.where(queue: 'builds.linux', state: 'queued').where('queued_at &lt; NOW() - interval \'60 minutes\'').all
+&gt;&gt; # Cancels all stuck jobs
+&gt;&gt; stuck_jobs.each(&amp;:cancel!)
+&gt;&gt; # Or reset them
+&gt;&gt; stuck_jobs.each(&amp;:reset!)
+
+</code></pre></div></div>
+
+<h2 id="清除redis存档队列版本217">清除Redis存档队列（版本&lt;2.1.7） <a href="#清除redis存档队列版本217" class="toc-anchor">#</a></h2>
+
+<p>在2.1.7作业之前的Enterprise版本中，这些作业在归档队列中排队</p>
+
+<p>用于日志聚合。但是，此功能仅适用于托管</p>
+
+<p>到目前为止Travis CI的版本。</p>
+
+<p>关闭。正因为如此，Redis的内存消耗随着时间的推移而增加</p>
+
+<p>导致整个平台的性能下降。对此的解决方案是</p>
+
+<p>相当简单，<code class="highlighter-rouge">archive</code>必须清除队列以释放系统资源。</p>
+
+<p>要清除它，请执行以下命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis console
+&gt;&gt; require 'sidekiq/api'
+&gt;&gt; Sidekiq::Queue.new('archive').clear
+
+</code></pre></div></div>
+
+<h2 id="重置rabbitmq证书">重置RabbitMQ证书 <a href="#重置rabbitmq证书" class="toc-anchor">#</a></h2>
+
+<p>将Replicated 2.8.0升级到新版本后偶尔会提供服务</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker inspect --format '{{.State.Error}}' focused_yalow
+oci runtime error: container_linux.go:247: starting container process
+caused "process_linux.go:359: container init caused
+\"rootfs_linux.go:54: mounting
+\\\"/var/lib/replicated-operator/44c648980d1e4b1c5a97167046f32f11/etc/travis/ssl/rabbitmq.cert\\\"
+to rootfs
+\\\"/var/lib/docker/aufs/mnt/a00833d25e72b761e2a0e72b1015dd2b2f3a32cafd2851ba408b298f73b37d37\\\"
+at
+\\\"/var/lib/docker/aufs/mnt/a00833d25e72b761e2a0e72b1015dd2b2f3a32cafd2851ba408b298f73b37d37/etc/travis/ssl/rabbitmq.cert\\\"
+caused \\\"not a directory\\\"\""
+: Are you trying to mount a directory onto a file (or vice-versa)? Check
+if the specified host path exists and is the expected type
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">/etc/travis/ssl/</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo rm -r /etc/travis/ssl/rabbitmq.cert
+
+</code></pre></div></div>
+
+<h2 id="查看sidekiq队列统计信息">查看Sidekiq队列统计信息 <a href="#查看sidekiq队列统计信息" class="toc-anchor">#</a></h2>
+
+<p>过去曾有报道称系统没有反应的情况，</p>
+
+<p>花了很长时间才完成工作或者根本没有工作。我们找到</p>
+
+<p>通常，Sidekiq排队的队员经常参与其中。去得到</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $ travis console
+  &gt;&gt; require 'sidekiq/api'
+  =&gt; true
+  &gt;&gt; stats = Sidekiq::Stats.new
+  &gt;&gt; stats.queues
+  =&gt; {"sync.low"=&gt;315316,
+      "archive"=&gt;7900,
+      "repo_sync"=&gt;193,
+      "webhook"=&gt;0,
+      "keen_events"=&gt;0,
+      "scheduler"=&gt;0,
+      "github_status"=&gt;0,
+      "build_requests"=&gt;0,
+      "build_restarts"=&gt;0,
+      "hub"=&gt;0,
+      "slack"=&gt;0,
+      "pusher"=&gt;0,
+      "pusher-live"=&gt;0,
+      "build_cancellations"=&gt;0,
+      "sync"=&gt;0,
+      "user_sync"=&gt;0}
+
+</code></pre></div></div>
+
+<h2 id="卸载travis-ci-enterprise">卸载Travis CI Enterprise <a href="#卸载travis-ci-enterprise" class="toc-anchor">#</a></h2>
+
+<p>如果您希望从您的平台和工作人员卸载Travis CI Enterprise</p>
+
+<p>需要按顺序运行以下命令。<small>（复制的说明</small></p>
+
+<p>从<a href="https://help.replicated.com/docs/native/customer-installations/installing-via-script/"></a>）&lt;/small&gt;</p>
+
+<p>###</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl stop replicated
+sudo systemctl stop replicated-ui
+sudo systemctl stop replicated-operator
+sudo docker ps | grep "replicated" | awk '{print $1}' | xargs sudo docker stop
+sudo docker ps | grep "quay.io-travisci-te-main" | awk '{print $1}' | xargs sudo docker stop
+sudo docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
+sudo docker images | grep "replicated" | awk '{print $3}' | xargs sudo docker rmi -f
+sudo docker images | grep "te-main" | awk '{print $3}' | xargs sudo docker rmi -f
+sudo rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
+
+</code></pre></div></div>
+
+<p>在工作机上，您需要运行此命令以删除travis-worker和所有构建映像：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
+
+</code></pre></div></div>
+
+<h4 id="用ubuntu-1404作为主机操作系统-1">用Ubuntu 14.04作为主机操作系统 <a href="#用ubuntu-1404作为主机操作系统-1" class="toc-anchor">#</a></h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo service replicated stop
+sudo service replicated-ui stop
+sudo service replicated-operator stop
+sudo docker stop replicated-premkit
+sudo docker stop replicated-statsd
+sudo docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
+sudo docker images | grep "quay\.io/replicated" | awk '{print $3}' | xargs sudo docker rmi -f
+sudo apt-get remove -y replicated replicated-ui replicated-operator
+sudo apt-get purge -y replicated replicated-ui replicated-operator
+sudo rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
+
+</code></pre></div></div>
+
+<p>在工作计算机上，您需要运行此命令以删除travis-worker：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get autoremove travis-worker
+
+</code></pre></div></div>
+
+<p>另外，请使用以下命令清理所有Docker构建映像：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
+
+</code></pre></div></div>
+
+<h2 id="找出最大可用并发性">找出最大可用并发性 <a href="#找出最大可用并发性" class="toc-anchor">#</a></h2>
+
+<p>要了解Travis CI Enterprise设置中可用的并发数，请通过ssh连接到您的平台计算机并运行：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
+
+</code></pre></div></div>
+
+<p>此处返回的数字等于可用的最大并发作业数。要调整并发性，请按照说明进行操作<a href="/user/enterprise/worker-configuration/#configuring-the-number-of-concurrent-jobs">这里</a>为每个工人机器。</p>
+
+<h2 id="找出有多少工人机器连接">找出有多少工人机器连接 <a href="#找出有多少工人机器连接" class="toc-anchor">#</a></h2>
+
+<p>如果您想了解当前连接的工作机器数量，请通过ssh连接到您的平台机器并按照以下步骤操作：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
+
+</code></pre></div></div>
+
+<p>如果您需要启动更多工作机器，请参阅我们的文档<a href="/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine">安装新的工人机器</a>。</p>
+
+<h2 id="将travis-ci-enterprise集成到您的监控中">将Travis CI Enterprise集成到您的监控中 <a href="#将travis-ci-enterprise集成到您的监控中" class="toc-anchor">#</a></h2>
+
+<p>要检查Travis CI Enterprise安装是否已启动并运行，请查询<code class="highlighter-rouge">/api/uptime</code>您的实例的端点。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -H "Authorization: token XXXXX" https://&lt;your-travis-ci-enterprise-domain&gt;/api/uptime
+
+</code></pre></div></div>
+
+<p>如果一切正常并且正在运行，它会回答一个问题<code class="highlighter-rouge">HTTP 200 OK</code>，或者在失败的情况下<code class="highlighter-rouge">HTTP 500 Internal Server Error</code>。</p>
+
+<h2 id="配置备份">配置备份 <a href="#配置备份" class="toc-anchor">#</a></h2>
+
+<p>本节介绍如何将Travis CI Enterprise集成到备份策略中。在这里，我们将讨论两个主题：</p>
+
+<ul>
+  <li><a href="#encryption-key">加密密钥</a></li>
+  <li><a href="#create-a-backup-of-the-data-directories">数据目录</a></li>
+</ul>
+
+<h3 id="加密密钥">加密密钥 <a href="#加密密钥" class="toc-anchor">#</a></h3>
+
+<p>如果没有加密密钥，则无法访问生产数据库中的信息。要确保始终可以恢复数据库，请备份此密钥。</p>
+
+<blockquote>
+  <p>如果没有加密密钥，则数据库中的信息将无法恢复。</p>
+</blockquote>
+
+<p>要进行备份，请按以下步骤操作：</p>
+
+<ol>
+  <li>打开与平台机器的ssh连接。</li>
+  <li>打开一个bash会话<code class="highlighter-rouge">root</code>通过运行Travis CI容器的权限<code class="highlighter-rouge">travis bash</code>。</li>
+  <li>运行以下命令以获取密钥：<code class="highlighter-rouge">grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml</code>。</li>
+  <li>通过将其写在一张纸上或将其存储在另一台计算机上，创建上一个命令返回的值的备份。</li>
+</ol>
+
+<h3 id="创建数据目录的备份">创建数据目录的备份 <a href="#创建数据目录的备份" class="toc-anchor">#</a></h3>
+
+<p>数据目录位于平台机器上，并安装在Travis CI容器中。在这些目录中，您可以找到RabbitMQ，Postgres，Slanger，Redis中的文件，以及来自容器内各种应用程序的日志文件。</p>
+
+<p>文件位于<code class="highlighter-rouge">/var/travis</code>在平台机器上。请跑<code class="highlighter-rouge">sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis</code></p>
+
+<h2 id="从github服务迁移到webhooks">从GitHub服务迁移到webhooks <a href="#从github服务迁移到webhooks" class="toc-anchor">#</a></h2>
+
+<p>Travis CI Enterprise最初使用GitHub服务将您的存储库与GitHub.com（或GitHub Enterprise）连接起来。截至2019年1月31日<a href="https://developer.github.com/changes/2019-01-29-life-after-github-services/">github.com上的服务已被禁用</a>。从GitHub Enterprise v2.17.0开始，GitHub Enterprise上的服务也将被禁用。</p>
+
+<p>从…开始<a href="https://enterprise-changelog.travis-ci.com/release-2-2-5-77988"></a>所有被激活的存储库都使用<a href="https://developer.github.com/webhooks/">网络挂接</a></p>
+
+<p>在Travis CI Enterprise v2.2.5之前激活的存储库可能需要更新。</p>
+
+<p>从Travis CI Enterprise v2.2.8开始，提供了一个自动更新存储库的迁移工具。迁移工具将更新使用已弃用的GitHub服务的存储库，而不是使用webhooks。</p>
+
+<p>要执行自动迁移，请按以下步骤操作：</p>
+
+<ol>
+  <li>打开与平台机器的ssh连接。</li>
+  <li>运行以下命令：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis bash -c ". /etc/profile; cd /usr/local/travis-api &amp;&amp; ENV=production bundle exec ./bin/migrate-hooks &lt;optional-year&gt;"
+
+</code></pre></div></div>
+
+<p>你可以提供一年参数（例如<code class="highlighter-rouge">2017</code>）在上述命令中，仅迁移在该年度内在Travis CI Enterprise上激活的存储库。</p>
+
+<p>如果您在Travis CI Enterprise安装上激活了大量存储库，请多次运行迁移，每年将其分解。例如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis bash -c ". /etc/profile; cd /usr/local/travis-api &amp;&amp; ENV=production bundle exec ./bin/migrate-hooks 2019"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api &amp;&amp; ENV=production bundle exec ./bin/migrate-hooks 2018"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api &amp;&amp; ENV=production bundle exec ./bin/migrate-hooks 2017"
+
+</code></pre></div></div>
+
+<p>迁移完成后，您应该看不到存储库的行为更改。</p>
+
+<h2 id="联系企业支持">联系企业支持 <a href="#联系企业支持" class="toc-anchor">#</a></h2>
+
+<p>To get in touch with us, please write a message to 
+<a href="mailto:enterprise@travis-ci.com">enterprise@travis-ci.com</a>. If possible, 
+please include as much of the following as you can:</p>
+
+<ul>
+  <li>Description of the problem - what are you observing?</li>
+  <li>Which steps did you try already?</li>
+  <li>A support bundle (You can get it from <code class="highlighter-rouge">https://&lt;your-travis-ci-enterprise-domain&gt;:8800/support</code>)</li>
+  <li>Log files from all workers (They can be found at <code class="highlighter-rouge">/var/log/upstart/travis-worker.log</code> - please include as many as you can retrieve).</li>
+  <li>If a build failed or errored, a text file of the build log</li>
+</ul>
+
+<p>Have you made any customizations to your setup? While we may be able to see some 
+information (such as hostname, IaaS provider, and license expiration), there 
+are many other things we can’t see which could lead to something not working. 
+Therefore , we’d like to ask you to also answer the questions below in your 
+support request (if applicable):</p>
+
+<ul>
+  <li>How many machines are you using?</li>
+  <li>Do you use configuration management tools (Chef, Puppet)?</li>
+  <li>Which other services do interface with Travis CI Enterprise?</li>
+  <li>Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?</li>
+  <li>If you’re using GitHub Enterprise, which version of it?</li>
+</ul>
+
+<p>We’re looking forward to helping!</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

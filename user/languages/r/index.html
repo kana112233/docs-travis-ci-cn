@@ -1,0 +1,855 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building an R Project - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/languages/r.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">Building an R Project</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#基本配置">基本配置</a></li>
+  <li><a href="#配置选项">配置选项</a></li>
+  <li><a href="#例子">例子</a></li>
+  <li><a href="#从r-travis转换">从r-travis转换</a></li>
+  <li><a href="#致谢">致谢</a></li>
+</ul>
+
+            </div>
+          
+
+          <h3 id="本指南涵盖的内容">本指南涵盖的内容 <a href="#本指南涵盖的内容" class="toc-anchor">#</a></h3>
+
+<p>本指南介绍了特定于R的构建环境和配置主题</p>
+
+<p>项目。</p>
+
+<p>请务必阅读我们的<a href="/user/tutorial/">教程</a>和<a href="/user/customizing-the-build/">构建配置</a>首先指导。</p>
+
+<h3 id="社区支持的警告">社区支持的警告 <a href="#社区支持的警告" class="toc-anchor">#</a></h3>
+
+<p>Travis CI对R的支持由社区提供，可能会被删除或</p>
+
+<p>随时改变。如果您遇到任何问题，请在报告中报告</p>
+
+<p><a href="https://github.com/travis-ci/travis-ci/issues/new?labels=community:r">Travis CI问题跟踪器</a>和cc<a href="https://github.com/jeroen">@jeroen</a></p>
+
+<p>和<a href="https://github.com/jimhester">@jimhester</a>。</p>
+
+<h2 id="基本配置">基本配置 <a href="#基本配置" class="toc-anchor">#</a></h2>
+
+<p>Travis CI中的R支持旨在使其易于测试[[R</p>
+
+<p>包](http://cran.r-project.org/doc/manuals/R-exts.html)。如果您的R包不需要任何系统依赖性</p>
+
+<p>超出你的指定<code class="highlighter-rouge">DESCRIPTION</code>文件，你的<code class="highlighter-rouge">.travis.yml</code>能够</p>
+
+<p>只是</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: r
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>R环境随之而来<a href="https://www.tug.org/texlive/">胶乳</a>和<a href="http://johnmacfarlane.net/pandoc/">pandoc</a></p>
+
+<p>预先安装，使其更容易使用<a href="http://rmarkdown.rstudio.com/">RMarkdown</a>要么</p>
+
+<p><a href="https://yihui.name/knitr/">knitr</a>{：data-proofer-ignore =“”}</p>
+
+<h2 id="配置选项">配置选项 <a href="#配置选项" class="toc-anchor">#</a></h2>
+
+<p>Travis CI支持R包的许多配置选项。</p>
+
+<h3 id="r版本">R版本 <a href="#r版本" class="toc-anchor">#</a></h3>
+
+<p>Travis CI支持R版本<code class="highlighter-rouge">3.0.3</code>以及Linux Precise，Trusty和macOS。</p>
+
+<p>每个主要版本都存在别名，例如<code class="highlighter-rouge">3.1</code>指着<code class="highlighter-rouge">3.1.3</code>。除此之外</p>
+
+<p>名称<code class="highlighter-rouge">oldrel</code>是别名的前一个主要版本和<code class="highlighter-rouge">release</code>是别名的</p>
+
+<p>最新的次要版本。<code class="highlighter-rouge">devel</code>是建立在<a href="https://travis-ci.org/wch/r-source">R git镜子</a></p>
+
+<p>R SVN主干（每小时更新）。</p>
+
+<p>矩阵构建是支持R版本，但是两个实例都支持<code class="highlighter-rouge">r</code>必须</p>
+
+<p>在…小写。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: r
+r:
+  - oldrel
+  - release
+  - devel
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>随着新的次要版本的发布，别名将浮动并指向最多</p>
+
+<p>目前的次要释放。</p>
+
+<p>你可以访问上面的“频道”串（即<code class="highlighter-rouge">release</code>）而不是具体的版本号（即<code class="highlighter-rouge">3.2.1</code>）与环境变量<code class="highlighter-rouge">TRAVIS_R_VERSION_STRING</code>。</p>
+
+<p>用于每个构建的确切R版本包含在“R会话信息”中</p>
+
+<p>###</p>
+
+<p><code class="highlighter-rouge">DESCRIPTION</code>文件，并从CRAN安装它们。你可以包括</p>
+
+<p>通过在发布中列出它们对开发中的包的依赖性<code class="highlighter-rouge">Remotes:</code></p>
+
+<p><code class="highlighter-rouge">DESCRIPTION</code>。见<a href="https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes">遥控小插图</a></p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>。</p>
+
+<h3 id="latex--texlive包">LaTeX / TexLive包 <a href="#latex--texlive包" class="toc-anchor">#</a></h3>
+
+<p>包含的TexLive分发仅包含一组有限的默认值</p>
+
+<p>包。如果您的插图需要额外的TexLive套餐</p>
+
+<p>可以使用安装它们<code class="highlighter-rouge">tlmgr install</code>在里面<code class="highlighter-rouge">before_install</code>步。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: r
+
+before_install:
+  - tlmgr install index
+
+</code></pre></div></div>
+
+<p>找出你可能需要的软件包的最好方法是查看</p>
+
+<p>LaTeX错误消息中列出的软件包并在其上搜索它们<a href="https://www.ctan.org/">CTAN</a>。</p>
+
+<p><code class="highlighter-rouge">Contained in:</code>表示包组的字段</p>
+
+<p>你需要安装。</p>
+
+<p><code class="highlighter-rouge">latex: false</code>。</p>
+
+<p>###</p>
+
+<p>安装的默认pandoc版本是<code class="highlighter-rouge">2.2</code>。替代[pandoc</p>
+
+<p>发布](https://github.com/jgm/pandoc/releases)可以通过设置安装<code class="highlighter-rouge">pandoc_version</code>到了</p>
+
+<p>所需的版本。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: r
+pandoc_version: 1.19.2.1
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您不需要Pandoc，请告诉Travis CI不要使用它<code class="highlighter-rouge">pandoc: false</code>。</p>
+
+<h3 id="apt包">APT包 <a href="#apt包" class="toc-anchor">#</a></h3>
+
+<p>使用<a href="/user/installing-dependencies/#installing-packages-with-the-apt-addon">APT插件</a>安装APT包。</p>
+
+<p>下面的代码片段为R包安装了先决条件<code class="highlighter-rouge">xml2</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    packages:
+      - libxml2-dev
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>在非Linux版本中忽略此选项。</p>
+
+<p>另一种选择是<code class="highlighter-rouge">apt_packages</code>键：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt_packages:
+  - libxml2-dev
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="包裹检查选项">包裹检查选项 <a href="#包裹检查选项" class="toc-anchor">#</a></h3>
+
+<p>您可以使用以下顶级选项来控制使用的选项</p>
+
+<p>在构建和检查包裹时：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">warnings_are_errors</code>：此选项强制所有<code class="highlighter-rouge">WARNINGS</code>从<code class="highlighter-rouge">R CMD check</code>至</li>
+</ul>
+
+<p>成为构建失败（默认<code class="highlighter-rouge">true</code>）。这在准备时特别有用</p>
+
+<p>您的包裹提交给CRAN，建议用于大多数包裹。</p>
+
+<p>组<code class="highlighter-rouge">warnings_are_errors: false</code>如果你不想要<code class="highlighter-rouge">WARNINGS</code>失败的构建。</p>
+<ul>
+  <li><code class="highlighter-rouge">r_build_args</code>：传递给的其他参数<code class="highlighter-rouge">R CMD build</code>，作为单身</li>
+</ul>
+
+<p>串。默认为空。</p>
+<ul>
+  <li><code class="highlighter-rouge">r_check_args</code>：传递给的其他参数<code class="highlighter-rouge">R CMD check</code>，作为单身</li>
+</ul>
+
+<p>串。默认为<code class="highlighter-rouge">--as-cran</code>。</p>
+
+<h3 id="bioconductor的">Bioconductor的 <a href="#bioconductor的" class="toc-anchor">#</a></h3>
+
+<p>一个典型的<a href="https://www.bioconductor.org/">Bioconductor的</a>包应该只需要指定</p>
+
+<p>Bioconductor版本，他们希望在他们的<code class="highlighter-rouge">.travis.yml</code>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: r
+r: bioc-devel
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>或者，如果您要针对发布分支进行测试</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: r
+r: bioc-release
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>Travis CI将为该版本的Bioconductor使用适当的R版本</p>
+
+<p>适当地配置Bioconductor以安装依赖项。</p>
+
+<h3 id="packrat">Packrat <a href="#packrat" class="toc-anchor">#</a></h3>
+
+<p>如果您希望Travis CI使用您的项目特定的packrat包库，</p>
+
+<p>而不是从CRAN下载包依赖项的默认行为，您可以将其添加到您的<code class="highlighter-rouge">.travis.yml</code>：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install:
+  - R -e "0" --args --bootstrap-packrat
+  - R -e "packrat::restore(restart = FALSE)"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>您可以通过以下方式缓存packrat包来最小化构建时间：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
+  packages: true
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="杂">杂 <a href="#杂" class="toc-anchor">#</a></h3>
+
+<ul>
+  <li><code class="highlighter-rouge">cran</code>：CRAN镜像用于获取包。默认为</li>
+</ul>
+
+<p><code class="highlighter-rouge">https://cloud.r-project.org</code>。</p>
+<ul>
+  <li><code class="highlighter-rouge">repos</code>：要传递给的存储库字典<code class="highlighter-rouge">options(repos)</code>。如果<code class="highlighter-rouge">CRAN</code>是</li>
+</ul>
+
+<p>没有在字典中给出的价值<code class="highlighter-rouge">cran</code>使用选项。</p>
+
+<p>例：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>repos:
+  CRAN: https://cloud.r-project.org
+  ropensci: http://packages.ropensci.org
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<ul>
+  <li><code class="highlighter-rouge">disable_homebrew</code>：如果<code class="highlighter-rouge">true</code>这删除了预装的自制软件</li>
+</ul>
+
+<p>在macOS上安装。用于测试包是否构建在vanilla macOS上</p>
+
+<p>机器，例如CRAN mac builder。</p>
+
+<h3 id="环境变量">环境变量 <a href="#环境变量" class="toc-anchor">#</a></h3>
+
+<p>R-Travis设置了以下附加环境变量[特拉维斯</p>
+
+<p>默认](/user/environment-variables/#default-environment-variables)。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">TRAVIS_R_VERSION=3.2.4</code>设置为选择的版本<code class="highlighter-rouge">r:</code>。</li>
+  <li><code class="highlighter-rouge">R_LIBS_USER=~/R/Library</code></li>
+  <li><code class="highlighter-rouge">R_LIBS_SITE=/usr/local/lib/R/site-library:/usr/lib/R/site-library</code></li>
+  <li><code class="highlighter-rouge">_R_CHECK_CRAN_INCOMING_=false</code></li>
+  <li><code class="highlighter-rouge">NOT_CRAN=true</code></li>
+  <li><code class="highlighter-rouge">R_PROFILE=~/.Rprofile.site</code></li>
+  <li><code class="highlighter-rouge">TRAVIS_R_VERSION_STRING</code>设置为串提供至<code class="highlighter-rouge">r:</code>，即<code class="highlighter-rouge">release</code>，<code class="highlighter-rouge">oldrel</code>要么<code class="highlighter-rouge">devel</code>。</li>
+</ul>
+
+<p>例如，仅用于部署有用<code class="highlighter-rouge">release</code>通过<code class="highlighter-rouge">on: condition: "$TRAVIS_R_VERSION_STRING = release"</code>。</p>
+
+<h3 id="其他依赖字段">其他依赖字段 <a href="#其他依赖字段" class="toc-anchor">#</a></h3>
+
+<p>对于大多数软件包，您不需要在其中指定任何其他依赖项</p>
+
+<p>您的<code class="highlighter-rouge">.travis.yml</code>。但是对于极少数情况下面的字段</p>
+
+<p>得到支持。</p>
+
+<p>以下每个名称都是您可以选择指定为的包列表</p>
+
+<p>您的顶级条目<code class="highlighter-rouge">.travis.yml</code>;这些列表中的条目将是</p>
+
+<ul>
+  <li><code class="highlighter-rouge">apt_packages</code></li>
+  <li><code class="highlighter-rouge">brew_packages</code>：要安装的软件包列表<code class="highlighter-rouge">brew</code>。这个选项是</li>
+</ul>
+
+<p>在非macOS版本上被忽略。</p>
+<ul>
+  <li><code class="highlighter-rouge">r_binary_packages</code>：要作为二进制包安装的R包列表</li>
+</ul>
+
+<p>linux通过Michael Rutter建立</p>
+
+<p><a href="https://launchpad.net/~marutter/+archive/ubuntu/c2d4u">cran2deb4ubuntu PPA</a>。</p>
+
+<p>这些安装将比源安装更快，但可能并不总是如此</p>
+
+<p>最新版本。像安装时一样指定名称</p>
+
+<p>来自CRAN。在macOS版本中，这些包是从源安装的。</p>
+<ul>
+  <li><code class="highlighter-rouge">r_packages</code><code class="highlighter-rouge">install.packages</code>。</li>
+  <li><code class="highlighter-rouge">bioc_packages</code><a href="https://www.bioconductor.org/">Bioconductor的</a></li>
+</ul>
+
+<p>要安装的软件包。</p>
+<ul>
+  <li><code class="highlighter-rouge">r_github_packages</code>：直接从GitHub安装的软件包列表，</li>
+</ul>
+
+<p>运用<code class="highlighter-rouge">devtools::install_github</code>来自</p>
+
+<p><a href="https://github.com/hadley/devtools">devtools包</a>。包名称</p>
+
+<p>这应该是形式<code class="highlighter-rouge">user/repo</code>。</p>
+
+<p>如果软件包安装在子目录中，请使用<code class="highlighter-rouge">user/repo/subdirectory</code></p>
+
+<p><code class="highlighter-rouge">user/repo</code>要么<code class="highlighter-rouge">user/repo/folder</code>至</p>
+
+<p>该<code class="highlighter-rouge">Remotes</code>部分<code class="highlighter-rouge">DESCRIPTION</code>你的包裹的文件</p>
+
+<h3 id="自定义travis构建步骤">自定义Travis构建步骤 <a href="#自定义travis构建步骤" class="toc-anchor">#</a></h3>
+
+<p>对于某些高级用例，覆盖使用的默认步骤是有意义的</p>
+
+<p>用于构建R包。默认规则大致相当于：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install:
+- R -e 'devtools::install_deps(dep = T)'
+
+script:
+- R CMD build .
+- R CMD check *tar.gz
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您想查看完整的详细信息，请参阅</p>
+
+<p><a href="https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb">源代码</a>。</p>
+
+<h2 id="例子">例子 <a href="#例子" class="toc-anchor">#</a></h2>
+
+<p>###</p>
+
+<p>如果您的包位于存储库的子目录中，则需要</p>
+
+<p>在运行之前更改到子目录<code class="highlighter-rouge">install</code>要么<code class="highlighter-rouge">script</code>脚步。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: r
+before_install:
+  - cd subdirectory
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="远程包">远程包 <a href="#远程包" class="toc-anchor">#</a></h3>
+
+<p>如果您的包依赖于您可以使用的另一个存储库<code class="highlighter-rouge">r_github_packages</code>通过这种方式：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r_github_packages: user/repo
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>另一种方法是将以下行添加到您的<code class="highlighter-rouge">DESCRIPTION</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Imports: pkg-name-of-repo
+Remotes: user/repo
+
+</code></pre></div></div>
+
+<p>{：data-file =“DESCRIPTION”}</p>
+
+<p>记住这一点<code class="highlighter-rouge">Remotes:</code>指定资源一个开发包，所以仍然需要列出包<code class="highlighter-rouge">Imports:</code>，<code class="highlighter-rouge">Suggests:</code><code class="highlighter-rouge">Depends:</code>要么<code class="highlighter-rouge">LinkingTo:</code>。</p>
+
+<p>在极少数情况下回购和名字不同，<code class="highlighter-rouge">Remotes:</code>期待知识库<code class="highlighter-rouge">Imports:</code>期待包名称（按照<code class="highlighter-rouge">DESCRIPTION</code>那个进口包装）。</p>
+
+<h3 id="远程包在子目录中">远程包在子目录中 <a href="#远程包在子目录中" class="toc-anchor">#</a></h3>
+
+<p>如果您的包依赖于将包保存在子目录中的另一个存储库，则可以使用<code class="highlighter-rouge">r_github_packages</code>通过这种方式：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r_github_packages: user/repo/folder
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p><code class="highlighter-rouge">DESCRIPTION</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Remotes: user/repo/folder
+
+</code></pre></div></div>
+
+<p>{：data-file =“DESCRIPTION”}</p>
+
+<h2 id="从r-travis转换">从r-travis转换 <a href="#从r-travis转换" class="toc-anchor">#</a></h2>
+
+<p>如果你已经使用过了<a href="https://github.com/craigcitro/r-travis">R-特拉维斯</a>为了测试你的R包，你是</p>
+
+<p>鼓励切换到使用此处描述的本机支持。我们写过</p>
+
+<p>一个<a href="https://github.com/craigcitro/r-travis/wiki/Porting-to-native-R-support-in-Travis">移植指南</a>帮你修改你的<code class="highlighter-rouge">.travis.yml</code></p>
+
+<h2 id="致谢">致谢 <a href="#致谢" class="toc-anchor">#</a></h2>
+
+<p>对Travis CI的R支持最初是基于<a href="https://github.com/craigcitro/r-travis">R-特拉维斯</a>项目，和</p>
+
+<p><a href="https://github.com/craigcitro/r-travis/graphs/contributors">贡献者</a>。有关的更多信息</p>
+
+<p>从r-travis转移到本地支持，请参阅<a href="https://github.com/craigcitro/r-travis/wiki/Porting-to-native-R-support-in-Travis">移植指南</a>。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>

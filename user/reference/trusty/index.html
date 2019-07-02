@@ -1,0 +1,899 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Trusty Build Environment - Travis CI</title>
+<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
+
+<script src="/assets/javascripts/main.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="/assets/javascripts/prism.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24868285-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <header class="top">
+  <div class="row topbar">
+    <h1 id="logo" class="logo">
+  <a href="https://travis-ci.com/" title="Travis CI">Travis</a>
+</h1>
+
+    <nav>
+      <ul id="navigation" class="navigation">
+        <li><a href="https://blog.travis-ci.com">Blog</a></li>
+        <li><a href="/">Docs</a></li>
+        <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+      <div id="content" class="row">
+
+        <div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+      </ul>
+
+      <h3>Jobs, Builds, Matrices and Stages</h3>
+      <ul>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
+      </ul>
+
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+      </ul>
+
+      <h3>Programming Languages</h3>
+      <ul>
+      
+        <li><a href="/user/languages/android/">Android</a></li>
+      
+        <li><a href="/user/languages/c/">C</a></li>
+      
+        <li><a href="/user/languages/csharp/">C#</a></li>
+      
+        <li><a href="/user/languages/cpp/">C++</a></li>
+      
+        <li><a href="/user/languages/clojure/">Clojure</a></li>
+      
+        <li><a href="/user/languages/crystal/">Crystal</a></li>
+      
+        <li><a href="/user/languages/d/">D</a></li>
+      
+        <li><a href="/user/languages/dart/">Dart</a></li>
+      
+        <li><a href="/user/languages/elixir/">Elixir</a></li>
+      
+        <li><a href="/user/languages/elm/">Elm</a></li>
+      
+        <li><a href="/user/languages/erlang/">Erlang</a></li>
+      
+        <li><a href="/user/languages/csharp/">F#</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Generic</a></li>
+      
+        <li><a href="/user/languages/go/">Go</a></li>
+      
+        <li><a href="/user/languages/groovy/">Groovy</a></li>
+      
+        <li><a href="/user/languages/haskell/">Haskell</a></li>
+      
+        <li><a href="/user/languages/haxe/">Haxe</a></li>
+      
+        <li><a href="/user/languages/java/">Java</a></li>
+      
+        <li><a href="/user/languages/javascript-with-nodejs/">JavaScript <small>(with Node.js)</small></a></li>
+      
+        <li><a href="/user/languages/julia/">Julia</a></li>
+      
+        <li><a href="/user/languages/minimal-and-generic/">Minimal</a></li>
+      
+        <li><a href="/user/languages/nix/">Nix</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Objective-C</a></li>
+      
+        <li><a href="/user/languages/perl/">Perl</a></li>
+      
+        <li><a href="/user/languages/perl6/">Perl6</a></li>
+      
+        <li><a href="/user/languages/php/">PHP</a></li>
+      
+        <li><a href="/user/languages/python/">Python</a></li>
+      
+        <li><a href="/user/languages/r/">R</a></li>
+      
+        <li><a href="/user/languages/ruby/">Ruby</a></li>
+      
+        <li><a href="/user/languages/rust/">Rust</a></li>
+      
+        <li><a href="/user/languages/scala/">Scala</a></li>
+      
+        <li><a href="/user/languages/smalltalk/">Smalltalk</a></li>
+      
+        <li><a href="/user/languages/objective-c/">Swift</a></li>
+      
+        <li><a href="/user/languages/csharp/">Visual Basic</a></li>
+      
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+      </ul>
+
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+        
+          <li><a href="/user/deployment/anynines/">anynines</a></li>
+        
+          <li><a href="/user/deployment/atlas/">Atlas</a></li>
+        
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        
+          <li><a href="/user/deployment/elasticbeanstalk/">AWS Elastic Beanstalk</a></li>
+        
+          <li><a href="/user/deployment/lambda/">AWS Lambda</a></li>
+        
+          <li><a href="/user/deployment/opsworks/">AWS OpsWorks</a></li>
+        
+          <li><a href="/user/deployment/s3/">AWS S3</a></li>
+        
+          <li><a href="/user/deployment/azure-web-apps/">Azure Web Apps</a></li>
+        
+          <li><a href="/user/deployment/bintray/">bintray</a></li>
+        
+          <li><a href="/user/deployment/bitballoon/">BitBalloon</a></li>
+        
+          <li><a href="/user/deployment/bluemixcloudfoundry/">Bluemix CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/boxfuse/">Boxfuse</a></li>
+        
+          <li><a href="/user/deployment/catalyze/">Catalyze</a></li>
+        
+          <li><a href="/user/deployment/chefsupermarket/">Chef Supermarket</a></li>
+        
+          <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
+        
+          <li><a href="/user/deployment/cloudfoundry/">CloudFoundry</a></li>
+        
+          <li><a href="/user/deployment/cargo/">Cargo</a></li>
+        
+          <li><a href="/user/deployment/deis/">Deis</a></li>
+        
+          <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
+        
+          <li><a href="/user/deployment/pages/">GitHub Pages</a></li>
+        
+          <li><a href="/user/deployment/releases/">GitHub Releases</a></li>
+        
+          <li><a href="/user/deployment/google-app-engine/">Google App Engine</a></li>
+        
+          <li><a href="/user/deployment/gcs/">Google Cloud Storage</a></li>
+        
+          <li><a href="/user/deployment/firebase/">Google Firebase</a></li>
+        
+          <li><a href="/user/deployment/hackage/">Hackage</a></li>
+        
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        
+          <li><a href="/user/deployment/launchpad/">Launchpad</a></li>
+        
+          <li><a href="/user/deployment/npm/">npm</a></li>
+        
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        
+          <li><a href="/user/deployment/packagecloud/">packagecloud.io</a></li>
+        
+          <li><a href="/user/deployment/puppetforge/">Puppet Forge</a></li>
+        
+          <li><a href="/user/deployment/pypi/">PyPI</a></li>
+        
+          <li><a href="/user/deployment/cloudfiles/">Rackspace Cloud Files</a></li>
+        
+          <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
+        
+          <li><a href="/user/deployment/scalingo/">Scalingo</a></li>
+        
+          <li><a href="/user/deployment/script/">Script</a></li>
+        
+          <li><a href="/user/deployment/snaps/">Snap Store</a></li>
+        
+          <li><a href="/user/deployment/surge/">Surge.sh</a></li>
+        
+          <li><a href="/user/deployment/testfairy/">TestFairy</a></li>
+        
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
+      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+      </ul>
+
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/deepsource/">DeepSource</a></li>
+        <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
+        <li><a href="/user/browserstack/">BrowserStack</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
+        <li><a href="/user/sourceclear/">SourceClear</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="https://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+      </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">Enterprise Docs</a></li>
+      </ul>
+
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->
+
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          
+            <aside class="improve-page" data-swiftype-index='false'><a href="https://github.com/travis-ci/docs-travis-ci-com/edit/master/user/reference/trusty.md" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">The Trusty Build Environment</h1>
+          
+
+          
+            <div id="toc" class="toc">
+              <ul class="list-language">
+  <li><a href="#本指南涵盖的内容">本指南涵盖的内容</a></li>
+  <li><a href="#使用trusty">使用Trusty</a></li>
+  <li><a href="#linux基础架构">Linux基础架构</a></li>
+  <li><a href="#基于容器的基础设施">基于容器的基础设施</a></li>
+  <li><a href="#精确的图像差异">精确的图像差异</a></li>
+  <li><a href="#所有trusty图像共有的环境">所有Trusty图像共有的环境</a></li>
+  <li><a href="#ruby图像">Ruby图像</a></li>
+  <li><a href="#python图像">Python图像</a></li>
+  <li><a href="#javascript和nodejs图像">JavaScript和Node.js图像</a></li>
+  <li><a href="#去图像">去图像</a></li>
+  <li><a href="#jvmclojuregroovyjavascala图像">JVM（Clojure，Groovy，Java，Scala）图像</a></li>
+  <li><a href="#perl图像">Perl图像</a></li>
+  <li><a href="#php图像">PHP图像</a></li>
+  <li><a href="#其他软件">其他软件</a></li>
+  <li><a href="#数据库和服务">数据库和服务</a></li>
+  <li><a href="#火狐">火狐</a></li>
+</ul>
+
+            </div>
+          
+
+          <h2 id="本指南涵盖的内容">本指南涵盖的内容 <a href="#本指南涵盖的内容" class="toc-anchor">#</a></h2>
+
+<p>在Trusty环境中可用。</p>
+
+<h2 id="使用trusty">使用Trusty <a href="#使用trusty" class="toc-anchor">#</a></h2>
+
+<p>要使用Ubuntu Trusty，请将以下内容添加到您的</p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dist: trusty
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<p>如果您想更多地了解使用的优缺点和当前状态</p>
+
+<p>值得信赖，继续阅读。</p>
+
+<p>Travis CI以隔离的方式运行每个构建<a href="https://cloud.google.com/compute/docs/">Google Compute Engine</a>为每个构建提供vanilla构建环境的虚拟机。</p>
+
+<p>构建可以访问各种用于数据存储和消息传递的服务</p>
+
+<p>可以安装他们运行所需的任何东西。</p>
+
+<h2 id="linux基础架构">Linux基础架构 <a href="#linux基础架构" class="toc-anchor">#</a></h2>
+
+<p>Travis CI在一个独立的Google Compute Engine虚拟机中运行每个构建，为每个构建提供一个vanilla构建环境。</p>
+
+<p>这样做的好处是，构建之间不会出现任何状态，提供干净的平台并确保您的测试在从头开始构建的环境中运行。</p>
+
+<p>您的构建会自动路由到此基础架构，您无需对其进行任何修改<code class="highlighter-rouge">.travis.yml</code>。</p>
+
+<h2 id="基于容器的基础设施">基于容器的基础设施 <a href="#基于容器的基础设施" class="toc-anchor">#</a></h2>
+
+<blockquote>
+  <p>基于容器的基础设施已经完全<a href="https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast">弃用</a>。</p>
+</blockquote>
+
+<p>请删除任何<code class="highlighter-rouge">sudo: false</code>你的钥匙<code class="highlighter-rouge">.travis.yml</code>文件使用完全虚拟化<a href="#linux-infrastructure">Linux基础架构</a>。</p>
+
+<h2 id="精确的图像差异">精确的图像差异 <a href="#精确的图像差异" class="toc-anchor">#</a></h2>
+
+<p>在我们基于Precise的环境中，我们传统上构建了一个图像库</p>
+
+<p>基于常见语言运行时<code class="highlighter-rouge">ruby</code>，<code class="highlighter-rouge">go</code>，<code class="highlighter-rouge">php</code>，<code class="highlighter-rouge">python</code>等</p>
+
+<p>对于我们基于Trusty的环境，我们正在制作一组较小的图像</p>
+
+<p>包括：</p>
+
+<ul>
+  <li>一个<a href="/user/languages/minimal-and-generic/#minimal">最小的形象</a>其中包含一小部分口译员，以及</li>
+</ul>
+
+<p><code class="highlighter-rouge">docker</code>和<code class="highlighter-rouge">packer</code>。</p>
+<ul>
+  <li>很明显<a href="/user/languages/minimal-and-generic/#generic">放大图像</a>它包含大致相同的运行时和</li>
+</ul>
+
+<p>精确环境中的服务。</p>
+
+<h2 id="所有trusty图像共有的环境">所有Trusty图像共有的环境 <a href="#所有trusty图像共有的环境" class="toc-anchor">#</a></h2>
+
+<h3 id="版本控制">版本控制 <a href="#版本控制" class="toc-anchor">#</a></h3>
+
+<p>所有虚拟机映像都预先安装了以下内容：</p>
+
+<ul>
+  <li>Git 2.x</li>
+  <li>水银</li>
+  <li>Subversion（官方Ubuntu包）</li>
+</ul>
+
+<h3 id="编译器和构建工具链">编译器和构建工具链 <a href="#编译器和构建工具链" class="toc-anchor">#</a></h3>
+
+<p>该<code class="highlighter-rouge">build-essential</code>安装metapackage，以及现代版本：</p>
+
+<ul>
+  <li>GCC</li>
+  <li>铛</li>
+  <li>使</li>
+  <li>自动工具</li>
+  <li>cmake的</li>
+  <li>scons的</li>
+</ul>
+
+<h3 id="网络工具">网络工具 <a href="#网络工具" class="toc-anchor">#</a></h3>
+
+<ul>
+  <li>卷曲</li>
+  <li>wget的</li>
+  <li>OpenSSL的</li>
+  <li>rsync的</li>
+</ul>
+
+<h3 id="搬运工人">搬运工人 <a href="#搬运工人" class="toc-anchor">#</a></h3>
+
+<p>Docker作为服务安装。</p>
+
+<p>我们使用官方<a href="https://blog.docker.com/2015/07/new-apt-and-yum-repos/">Docker apt存储库</a>，所以你可以轻松安装另一个版本<code class="highlighter-rouge">apt</code>如果需要的话。</p>
+
+<p><a href="https://docs.docker.com/compose/">泊坞窗，撰写</a>也安装了。</p>
+
+<p>见我们的<a href="/user/docker/">在Builds中使用Docker</a>部分了解更多详情。</p>
+
+<h2 id="ruby图像">Ruby图像 <a href="#ruby图像" class="toc-anchor">#</a></h2>
+
+<p><a href="https://rvm.io/rvm/about">RVM</a>已安装，我们预先安装至少两个</p>
+
+<p>最新的一点发布。这些是当前预安装的Ruby版本：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">2.2.7</code></li>
+  <li><code class="highlighter-rouge">2.3.4</code></li>
+  <li><code class="highlighter-rouge">2.4.1</code></li>
+</ul>
+
+<p>其他版本在运行时从本地缓存动态安装。</p>
+
+<h2 id="python图像">Python图像 <a href="#python图像" class="toc-anchor">#</a></h2>
+
+<p>我们预先安装了至少两个最新版本的CPython<code class="highlighter-rouge">2.x</code>和</p>
+
+<p><code class="highlighter-rouge">3.x</code>系列如<code class="highlighter-rouge">2.7.13</code>和<code class="highlighter-rouge">3.6.1</code>，以及至少一个版本的PyPy。</p>
+
+<p>任何未预安装的版本都将在运行时动态安装</p>
+
+<p>从本地缓存。</p>
+
+<p><a href="https://github.com/yyuu/pyenv#simple-python-version-management-pyenv">pyenv</a>是</p>
+
+<p>还装了。</p>
+
+<h3 id="默认python版本">默认Python版本 <a href="#默认python版本" class="toc-anchor">#</a></h3>
+
+<p>如果你离开了<code class="highlighter-rouge">python</code>钥匙出你的<code class="highlighter-rouge">.travis.yml</code>，Travis CI将使用</p>
+
+<p>Python 2.7。</p>
+
+<h3 id="预装的pip包">预装的pip包 <a href="#预装的pip包" class="toc-anchor">#</a></h3>
+
+<p>默认情况下，Travis CI会在每个virtualenv中安装以下软件包：</p>
+
+<ul>
+  <li>鼻子</li>
+  <li>pytest</li>
+  <li>轮</li>
+  <li>嘲笑</li>
+  <li>六</li>
+</ul>
+
+<p>在除pypy和pypy3之外的所有Python版本中，<code class="highlighter-rouge">numpy</code>也可以。</p>
+
+<h2 id="javascript和nodejs图像">JavaScript和Node.js图像 <a href="#javascript和nodejs图像" class="toc-anchor">#</a></h2>
+
+<p><a href="https://github.com/creationix/nvm">NVM</a>安装和我们</p>
+
+<p>预安装至少两个最新的点发布，如<code class="highlighter-rouge">6.9.4</code>和</p>
+
+<p><code class="highlighter-rouge">7.4.0</code>。</p>
+
+<p>您可以指定将使用动态安装的其他版本<code class="highlighter-rouge">nvm</code>。</p>
+
+<h2 id="去图像">去图像 <a href="#去图像" class="toc-anchor">#</a></h2>
+
+<p><a href="https://github.com/travis-ci/gimme#gimme">给我</a>安装和我们</p>
+
+<p>预安装至少两个最新的点发布，如<code class="highlighter-rouge">1.7.3</code>和</p>
+
+<p><code class="highlighter-rouge">1.8.3</code>。将动态安装任何未预安装的版本</p>
+
+<p>通过<code class="highlighter-rouge">gimme</code>。</p>
+
+<h2 id="jvmclojuregroovyjavascala图像">JVM（Clojure，Groovy，Java，Scala）图像 <a href="#jvmclojuregroovyjavascala图像" class="toc-anchor">#</a></h2>
+
+<ul>
+  <li></li>
+  <li>打开JDK 7（<code class="highlighter-rouge">openjdk7</code>）</li>
+  <li>打开JDK 8（<code class="highlighter-rouge">openjdk8</code>）</li>
+  <li>未安装OpenJDK 6。要使用OpenJDK 6，请安装</li>
+</ul>
+
+<p><a href="https://packages.ubuntu.com/trusty/openjdk-6-jdk"><code class="highlighter-rouge">openjdk-6-jdk</code>包</a>。</p>
+
+<p>例如，使用<a href="/user/installing-dependencies/"><code class="highlighter-rouge">apt</code>添加在</a>：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  apt:
+    packages:
+      - openjdk-6-jdk
+jdk: openjdk6
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<ul>
+  <li>我们从Oracle安装最新的Oracle JDK版本：
+    <ul>
+      <li>Oracle JDK 8（<code class="highlighter-rouge">oraclejdk8</code>）。默认。</li>
+      <li><code class="highlighter-rouge">oraclejdk9</code>）</li>
+      <li>未提供Oracle JDK 7，因为它在2015年4月达到了End of Life。</li>
+      <li></li>
+      <li>Oracle JDK 11（<code class="highlighter-rouge">oraclejdk11</code>）</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is">jdk_switcher</a></li>
+</ul>
+
+<p>如果您需要其他JDK版本，则安装。</p>
+
+<p>该<code class="highlighter-rouge">$JAVA_HOME</code><code class="highlighter-rouge">jdk</code></p>
+
+<p>JVM映像。</p>
+
+<p>###</p>
+
+<p>Gradle 4.0。</p>
+
+<h3 id="maven版本">Maven版本 <a href="#maven版本" class="toc-anchor">#</a></h3>
+
+<p>库存Apache Maven 3.5.x，配置使用<a href="http://search.maven.org/">中央</a></p>
+
+<p>和<a href="https://oss.sonatype.org/">Sonatype的</a>镜子。</p>
+
+<p>###</p>
+
+<p>Ant 1.9.3。</p>
+
+<h3 id="莱宁根版">莱宁根版 <a href="#莱宁根版" class="toc-anchor">#</a></h3>
+
+<p>莱宁根2.7.1。</p>
+
+<h3 id="sbt版">SBT版 <a href="#sbt版" class="toc-anchor">#</a></h3>
+
+<p>Travis CI可能提供任何版本的Simple Build Tool（sbt或SBT）</p>
+
+<p>非常强大<a href="https://github.com/paulp/sbt-extras"></a></p>
+
+<p><code class="highlighter-rouge">sbt</code>可以动态检测和安装所需的sbt版本</p>
+
+<p>由您的Scala项目。</p>
+
+<h2 id="perl图像">Perl图像 <a href="#perl图像" class="toc-anchor">#</a></h2>
+
+<p>Perl版本通过安装<a href="http://perlbrew.pl/">Perlbrew</a>。</p>
+
+<p>Perl的默认版本是5.14。</p>
+
+<h3 id="具有线程支持的perl运行时">具有线程支持的Perl运行时 <a href="#具有线程支持的perl运行时" class="toc-anchor">#</a></h3>
+
+<h3 id="预装模块">预装模块 <a href="#预装模块" class="toc-anchor">#</a></h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cpanm (App::cpanminus)
+Dist::Zilla
+Dist::Zilla::Plugin::Bootstrap::lib
+ExtUtils::MakeMaker
+LWP
+Module::Install
+Moose
+Test::Exception
+Test::Kwalitee
+Test::Most
+Test::Pod
+Test::Pod::Coverage
+</code></pre></div></div>
+
+<h2 id="php图像">PHP图像 <a href="#php图像" class="toc-anchor">#</a></h2>
+
+<p><a href="https://github.com/phpenv/phpenv">phpenv</a>已安装，我们预先安装在</p>
+
+<p>至少两个最新的点发布，如<code class="highlighter-rouge">7.0.7</code>和<code class="highlighter-rouge">5.6.24</code>， 以及</p>
+
+<p><code class="highlighter-rouge">5.5.9</code>，Ubuntu 14.04 LTS默认发布的版本。任何版本</p>
+
+<p>通过<code class="highlighter-rouge">phpenv</code></p>
+
+<p>注意：我们不支持Trusty上的PHP 5.2.x和5.3.x版。</p>
+
+<p>指定它将导致构建失败。</p>
+
+<p>如果您需要使用这些版本进行测试，请使用Precise。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: php
+matrix:
+  include:
+    - php: 5.2
+      dist: precise
+    - php: 5.3
+      dist: precise
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="hhvm">HHVM <a href="#hhvm" class="toc-anchor">#</a></h3>
+
+<p><a href="https://github.com/facebook/hhvm">HHVM</a>也可以。</p>
+
+<p>并按需安装每晚构建（如<code class="highlighter-rouge">hhvm-nightly</code>）。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>language: php
+dist: trusty
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-3.15
+  - hhvm-3.18
+  - hhvm-nightly
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="扩展">扩展 <a href="#扩展" class="toc-anchor">#</a></h3>
+
+<h4 id="php-70">PHP 7.0 <a href="#php-70" class="toc-anchor">#</a></h4>
+
+<p>为PHP 7.0和每晚构建预安装了以下扩展：</p>
+
+<ul>
+  <li><a href="http://php.net/apcu">apcu.so</a></li>
+  <li><a href="http://php.net/memcached">memcached.so</a></li>
+  <li><a href="https://php.net/mongodb">mongodb.so</a></li>
+  <li><a href="http://php.net/amqp">amqp.so</a></li>
+  <li><a href="http://zeromq.org/bindings:php">zmq.so</a></li>
+  <li><a href="http://xdebug.org">xdebug.so</a></li>
+  <li><a href="http://pecl.php.net/package/redis">redis.so</a></li>
+</ul>
+
+<p>请注意，默认情况下不会启用这些扩展名，但例外情况除外</p>
+
+<p>xdebug。</p>
+
+<h4 id="php-56及以下">PHP 5.6及以下 <a href="#php-56及以下" class="toc-anchor">#</a></h4>
+
+<p>对于最高5.6的PHP版本，可以使用以下扩展：</p>
+
+<ul>
+  <li><a href="http://php.net/apc">apc.so</a>（不适用于5.5或5.6）</li>
+  <li><a href="http://php.net/memcache">memcache.so</a>要么<a href="http://php.net/memcached">memcached.so</a></li>
+  <li><a href="http://php.net/mongo">mongo.so</a></li>
+  <li><a href="http://php.net/amqp">amqp.so</a></li>
+  <li><a href="http://zeromq.org/bindings:php">zmq.so</a></li>
+  <li><a href="http://xdebug.org">xdebug.so</a></li>
+  <li><a href="http://pecl.php.net/package/redis">redis.so</a></li>
+</ul>
+
+<p>请注意，默认情况下不会启用这些扩展名，但例外情况除外</p>
+
+<p>xdebug。</p>
+
+<h2 id="其他软件">其他软件 <a href="#其他软件" class="toc-anchor">#</a></h2>
+
+<p>使用安装其他Ubuntu软件包<code class="highlighter-rouge">apt-get</code>，或添加第三方PPA或自定义脚本。</p>
+
+<p>有关详细信息，请参阅文档<a href="/user/installing-dependencies/">安装依赖项</a>。</p>
+
+<h2 id="数据库和服务">数据库和服务 <a href="#数据库和服务" class="toc-anchor">#</a></h2>
+
+<p>我们预先安装了可以使用内置功能激活的以下服务</p>
+
+<p><a href="/user/database-setup/">服务</a>支持。</p>
+
+<ul>
+  <li>Apache Cassandra</li>
+  <li>CouchDB的</li>
+  <li>ElasticSearch</li>
+  <li>MongoDB的</li>
+  <li>MySQL的</li>
+  <li>Neo4j的</li>
+  <li>PostgreSQL的</li>
+  <li>的RabbitMQ</li>
+  <li>Redis的</li>
+  <li>了Riak</li>
+  <li>SQLite的</li>
+</ul>
+
+<h2 id="火狐">火狐 <a href="#火狐" class="toc-anchor">#</a></h2>
+
+<p>Firefox默认安装。</p>
+
+<p>如果您需要特定版本的Firefox，请使用Firefox插件进行安装</p>
+
+<p>它在期间<code class="highlighter-rouge">before_install</code>构建阶段。</p>
+
+<p>例如，要安装版本50.0，请将以下内容添加到您的</p>
+
+<p><code class="highlighter-rouge">.travis.yml</code>文件：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addons:
+  firefox: "50.0"
+
+</code></pre></div></div>
+
+<p>{：data-file =“。travis.yml”}</p>
+
+<h3 id="无头浏览器测试工具">无头浏览器测试工具 <a href="#无头浏览器测试工具" class="toc-anchor">#</a></h3>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Xvfb">XVFB</a>（X虚拟帧缓冲区）</li>
+  <li><a href="http://phantomjs.org/">PhantomJS</a></li>
+</ul>
+
+<h3 id="环境变量">环境变量 <a href="#环境变量" class="toc-anchor">#</a></h3>
+
+<p>有一个[默认环境列表</p>
+
+<p>变量](/user/environment-variables#default-environment-variables)可得到</p>
+
+<p>在每个构建环境中。</p>
+
+<h3 id="apt配置">apt配置 <a href="#apt配置" class="toc-anchor">#</a></h3>
+
+<p>apt配置为不需要确认（假设默认为-y开关）</p>
+
+<p>使用两者<code class="highlighter-rouge">DEBIAN_FRONTEND</code>env变量和apt配置文件。这意味着</p>
+
+<p><code class="highlighter-rouge">apt-get install -qq</code>可以在没有-y标志的情况下使用。</p>
+
+<h3 id="集团成员">集团成员 <a href="#集团成员" class="toc-anchor">#</a></h3>
+
+<p>执行构建的用户（<code class="highlighter-rouge">$USER</code>）属于一个派生自的主要群体</p>
+
+<p>那个用户。</p>
+
+<p>如果您需要修改组成员身份，请按以下步骤操作：</p>
+
+<ol>
+  <li>设置环境。这可以在构建生命周期中的任何时间完成</li>
+</ol>
+
+<p>在构建脚本执行之前。</p>
+<ul>
+  <li>设置和导出环境变量。</li>
+  <li>加<code class="highlighter-rouge">$USER</code>到期望的二级组：<code class="highlighter-rouge">sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER</code></li>
+</ul>
+
+<p>您可以使用修改用户的主要组<code class="highlighter-rouge">-g</code>。</p>
+
+<ol>
+  <li>您的<code class="highlighter-rouge">script</code>看起来像是这样的：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
+
+</code></pre></div></div>
+
+<p>这会将环境变量传递给a<code class="highlighter-rouge">bash</code>运行的过程</p>
+
+<p><code class="highlighter-rouge">$USER</code>，同时保留定义和属于的环境变量</p>
+
+<p>上面给出的二级小组<code class="highlighter-rouge">usermod</code>。</p>
+
+<h3 id="构建系统信息">构建系统信息 <a href="#构建系统信息" class="toc-anchor">#</a></h3>
+
+<p>在构建日志中，相关软件版本（包括可用语言）</p>
+
+<p>版本）显示在“构建系统信息”部分中。</p>
+
+
+        </main>
+      </div><!-- /#content -->
+
+      <footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/legal/privacy-shield-framework/">Privacy Shield Framework</a></li>
+        <li><a href="/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>
+
+    </div><!-- /.wrapper -->
+  </body>
+</html>
