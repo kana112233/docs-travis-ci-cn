@@ -1963,7 +1963,7 @@ pre.code-toolbar > .toolbar {
     right: 0;
     top: 0.3em;
     transform: rotate(90deg);
-    background-image: url(/images/ui/icon-arrowtabs.svg);
+    background-image: url(/docs-travis-ci-cn/images/ui/icon-arrowtabs.svg);
     background-repeat: no-repeat;
     background-position: 95% 0; }
   .sidebar-navigation.has-js h3.is-open:after {
